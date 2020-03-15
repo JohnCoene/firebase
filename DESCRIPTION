@@ -1,0 +1,20 @@
+Package: fireblaze
+Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
+Version: 0.0.1.9000
+Authors@R: 
+    person(
+      given = "John",
+      family = "Coene",
+      role = c("aut", "cre"),
+      email = "jcoenep@gmail.com"
+    )
+Description: Authenticate users in 'Shiny' applications using 'Google Firebase'.
+License: AGPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Imports:
+  R6,
+  cli,
+  shiny
+RoxygenNote: 7.1.0
