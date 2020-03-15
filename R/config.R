@@ -5,7 +5,7 @@
 #' @param api_key API key of your project.
 #' @param project_id Id of your web project.
 #' @param auth_domain Authentication domain, if omitted uses,
-#' Firebase default domain. 
+#' attempts to build firebase's default domain. 
 #' 
 #' @details Do not share this file with anyone.
 #' 

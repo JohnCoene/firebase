@@ -12,7 +12,7 @@ create_config(api_key, project_id, auth_domain = NULL)
 \item{project_id}{Id of your web project.}
 
 \item{auth_domain}{Authentication domain, if omitted uses,
-Firebase default domain.}
+attempts to build firebase's default domain.}
 }
 \value{
 Path to file.

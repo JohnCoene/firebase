@@ -17,6 +17,9 @@ Use fireblaze to manage authentications.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Fireblaze$new()}}
+\item \href{#method-providers}{\code{Fireblaze$providers()}}
+\item \href{#method-signin}{\code{Fireblaze$signin()}}
+\item \href{#method-signed_in}{\code{Fireblaze$signed_in()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
 }
@@ -42,6 +45,73 @@ Use fireblaze to manage authentications.
 }
 \subsection{Details}{
 Initialise Fireblaze
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-providers"></a>}}
+\if{latex}{\out{\hypertarget{method-providers}{}}}
+\subsection{Method \code{providers()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$providers(
+  google = FALSE,
+  facebook = FALSE,
+  twitter = FALSE,
+  github = FALSE,
+  email = FALSE,
+  phone = FALSE,
+  anonymous = FALSE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{google, facebook, twitter, github, email, phone, anonymous}}{Set to \code{TRUE} the providers you want to use, at least one.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Define signin and login providers.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-signin"></a>}}
+\if{latex}{\out{\hypertarget{method-signin}{}}}
+\subsection{Method \code{signin()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signin(flow = c("popup", "redirect"), helper = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{flow}}{The signin flow to use, popup or redirect.}
+
+\item{\code{helper}}{Wether to use accountchooser.com upon signing in or signing up with email,
+the user will be redirected to the accountchooser.com website and will be able to select
+one of their saved accounts. You can disable it by specifying the value below.}
+
+\item{\code{...}}{Any other option to pass to Firebase UI.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Setup the signin form.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-signed_in}{}}}
+\subsection{Method \code{signed_in()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signed_in()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get Signed in Username
 }
 
 }

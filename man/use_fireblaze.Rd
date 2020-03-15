@@ -2,10 +2,11 @@
 % Please edit documentation in R/dependencies.R
 \name{use_fireblaze}
 \alias{use_fireblaze}
-\title{Dependenceis}
+\title{Dependencies}
 \usage{
 use_fireblaze()
 }
 \description{
-Include dependencies in your Shiny application. This \emph{must} be included in every project.
+Include dependencies in your Shiny application.
+This \emph{must} be included at the \emph{bottom} the application.
 }

@@ -5,6 +5,34 @@
 [![Travis build status](https://travis-ci.org/JohnCoene/fireblaze.svg?branch=master)](https://travis-ci.org/JohnCoene/fireblaze)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/fireblaze?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/fireblaze)
 ![R-CMD-check](https://github.com/JohnCoene/fireblaze/workflows/R-CMD-check/badge.svg)
+[![CircleCI](https://circleci.com/gh/JohnCoene/fireblaze.svg?style=svg&circle-token=676e32175ad244fa8f08f372537933b93dcd9762)]
 <!-- badges: end -->
 
-Shiny authentication with [Google Firebase](https://firebase.google.com)
+Shiny authentication with [Google Firebase](https://firebase.google.com).
+
+## Example
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  uiOutput("username"),
+  fireblaze_signin_ui(),
+  use_fireblaze()
+)
+
+server <- function(input, output){
+  f <- Fireblaze$
+    new()$
+    providers(email = TRUE)$
+    signin(helper = FALSE)
+
+  output$username <- renderUI({
+    user <- f$signed_in()
+    user$displayName
+  })
+}
+
+shinyApp(ui, server)
+```
