@@ -10,27 +10,36 @@
 
 Shiny authentication with [Google Firebase](https://firebase.google.com).
 
-## Example
+## Config
+
+Create a secure config file.
+
+```r
+create_config(api_key = "xXXxxX", project_id = "my-project-name")
+```
+
+## Run
 
 ```r
 library(shiny)
 library(fireblaze)
 
 ui <- fluidPage(
-  uiOutput("username"),
-  fireblaze_signin_ui(),
-  use_fireblaze()
+  use_firebase()
+  uiOutput("username")
 )
 
 server <- function(input, output){
+  # set up
   f <- Fireblaze$
     new()$
-    providers(email = TRUE)$
-    signin(helper = FALSE)
+    set_providers(email = TRUE)$
+    run(helper = FALSE)
 
+  # render signed in username
   output$username <- renderUI({
     user <- f$signed_in()
-    user$displayName
+    h2(user$displayName)
   })
 }
 

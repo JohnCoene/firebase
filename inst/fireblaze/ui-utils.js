@@ -1,3 +1,4 @@
+// Convert sign in boolean from R to firebase strings
 function signinOpts(opts){
   var signin = [];
 
@@ -26,6 +27,7 @@ function signinOpts(opts){
 
 }
 
+// Convert sign in boolean from R to firebase strings
 function accountHelper(x){
   if(x == false)
     return(firebaseui.auth.CredentialHelper.NONE)

@@ -1,8 +1,10 @@
 var ui;
 
-Shiny.addCustomMessageHandler('fireblaze-initialize', function(config) {
-  firebase.initializeApp(config);
+Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
+  firebase.initializeApp(msg.conf);
   console.log("fireblaze initialised");
+
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
   ui = new firebaseui.auth.AuthUI(firebase.auth());
 });
@@ -14,11 +16,11 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   var opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
-        Shiny.setInputValue('fireblaze_signin', firebase.auth().currentUser);
+        Shiny.setInputValue('fireblaze_signed_in', firebase.auth().currentUser);
         return(false);
       },
       uiShown: function() {
-        document.getElementById('loader').style.display = 'none';
+        Shiny.setInputValue('fireblaze_signing_in', true);
       }
     },
     credentialHelper: helper,

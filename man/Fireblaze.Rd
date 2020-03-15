@@ -17,9 +17,10 @@ Use fireblaze to manage authentications.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Fireblaze$new()}}
-\item \href{#method-providers}{\code{Fireblaze$providers()}}
-\item \href{#method-signin}{\code{Fireblaze$signin()}}
+\item \href{#method-set_providers}{\code{Fireblaze$set_providers()}}
+\item \href{#method-run}{\code{Fireblaze$run()}}
 \item \href{#method-signed_in}{\code{Fireblaze$signed_in()}}
+\item \href{#method-signing_in}{\code{Fireblaze$signing_in()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
 }
@@ -29,6 +30,7 @@ Use fireblaze to manage authentications.
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Fireblaze$new(
+  persistence = c("session", "none", "local"),
   config_path = "fireblaze.rds",
   session = shiny::getDefaultReactiveDomain()
 )}\if{html}{\out{</div>}}
@@ -37,6 +39,9 @@ Use fireblaze to manage authentications.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
+\item{\code{persistence}}{How the auth should persit: \code{none}, the user has to sign in at every visit,
+\code{session} will only persist in current tab, \code{local} persist even when window is closed.}
+
 \item{\code{config_path}}{Path to the configuration file as created by \code{\link{create_config}}.}
 
 \item{\code{session}}{A valid shiny session.}
@@ -49,11 +54,11 @@ Initialise Fireblaze
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-providers"></a>}}
-\if{latex}{\out{\hypertarget{method-providers}{}}}
-\subsection{Method \code{providers()}}{
+\if{html}{\out{<a id="method-set_providers"></a>}}
+\if{latex}{\out{\hypertarget{method-set_providers}{}}}
+\subsection{Method \code{set_providers()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$providers(
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$set_providers(
   google = FALSE,
   facebook = FALSE,
   twitter = FALSE,
@@ -77,11 +82,11 @@ Define signin and login providers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-signin"></a>}}
-\if{latex}{\out{\hypertarget{method-signin}{}}}
-\subsection{Method \code{signin()}}{
+\if{html}{\out{<a id="method-run"></a>}}
+\if{latex}{\out{\hypertarget{method-run}{}}}
+\subsection{Method \code{run()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signin(flow = c("popup", "redirect"), helper = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$run(flow = c("popup", "redirect"), helper = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -111,7 +116,20 @@ Setup the signin form.
 }
 
 \subsection{Details}{
-Get Signed in Username
+Get Signed in User Info
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-signing_in"></a>}}
+\if{latex}{\out{\hypertarget{method-signing_in}{}}}
+\subsection{Method \code{signing_in()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signing_in()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get Whether User is Currently Signing in
 }
 
 }

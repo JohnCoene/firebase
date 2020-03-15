@@ -2,7 +2,6 @@
 
 export(Fireblaze)
 export(create_config)
-export(fireblaze_signin_ui)
 export(use_fireblaze)
 importFrom(shiny,div)
 importFrom(shiny,singleton)
