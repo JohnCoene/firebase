@@ -1,2 +1,7 @@
 ^LICENSE\.md$
 ^dev$
+^\.travis\.yml$
+^\.circleci$
+^\.circleci/config\.yml$
+^appveyor\.yml$
+^\.github$
