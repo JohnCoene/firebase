@@ -4,7 +4,12 @@
 \alias{use_fireblaze}
 \title{Dependencies}
 \usage{
-use_fireblaze()
+use_fireblaze(analytics = TRUE, firestore = FALSE)
+}
+\arguments{
+\item{analytics}{Whether to include analytics.}
+
+\item{firestore}{Whether to include firestore.}
 }
 \description{
 Include dependencies in your Shiny application.
