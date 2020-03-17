@@ -70,12 +70,12 @@ Fireblaze <- R6::R6Class(
       invisible(self)
     },
 #' @details Get Signed in User Info
-    signed_in = function(){
-      self$session[["input"]][["fireblaze_signed_in"]]
+    sign_in_success = function(){
+      self$session[["input"]][["sign_in_success"]]
     },
 #' @details Get Whether User is Currently Signing in
-    signing_in = function(){
-      self$session[["input"]][["fireblaze_signing_in"]]
+    sign_in_fail = function(){
+      self$session[["input"]][["sign_in_fail"]]
     }
   ),
   private = list(

@@ -20,6 +20,12 @@ create_config(api_key = "xXXxxX", project_id = "my-project-name")
 
 ## Run
 
+1. Import the dependencies with `use_firebase`.
+2. Use the `Fireblaze` object to initialise a `new` instance.
+3. Define the providers you want to use (e.g.: Facebook and Google), with `set_providers`.
+4. `run` the sign-in model.
+5. Pick up sign-ins with `sign_in_success`.
+
 ```r
 library(shiny)
 library(fireblaze)
@@ -38,10 +44,19 @@ server <- function(input, output){
 
   # render signed in username
   output$username <- renderUI({
-    user <- f$signed_in()
+    user <- f$sign_in_success()
     h2(user$displayName)
   })
 }
 
 shinyApp(ui, server)
+```
+
+## Install
+
+Install from Github using remotes:
+
+```r
+# install.packages("remotes")
+remotes::install_github("JohnCoene/fireblaze")
 ```

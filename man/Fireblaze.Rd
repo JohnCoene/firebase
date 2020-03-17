@@ -19,8 +19,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-new}{\code{Fireblaze$new()}}
 \item \href{#method-set_providers}{\code{Fireblaze$set_providers()}}
 \item \href{#method-run}{\code{Fireblaze$run()}}
-\item \href{#method-signed_in}{\code{Fireblaze$signed_in()}}
-\item \href{#method-signing_in}{\code{Fireblaze$signing_in()}}
+\item \href{#method-sign_in_success}{\code{Fireblaze$sign_in_success()}}
+\item \href{#method-sign_in_fail}{\code{Fireblaze$sign_in_fail()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
 }
@@ -108,11 +108,11 @@ Setup the signin form.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-signed_in}{}}}
-\subsection{Method \code{signed_in()}}{
+\if{html}{\out{<a id="method-sign_in_success"></a>}}
+\if{latex}{\out{\hypertarget{method-sign_in_success}{}}}
+\subsection{Method \code{sign_in_success()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signed_in()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$sign_in_success()}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{
@@ -121,11 +121,11 @@ Get Signed in User Info
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-signing_in"></a>}}
-\if{latex}{\out{\hypertarget{method-signing_in}{}}}
-\subsection{Method \code{signing_in()}}{
+\if{html}{\out{<a id="method-sign_in_fail"></a>}}
+\if{latex}{\out{\hypertarget{method-sign_in_fail}{}}}
+\subsection{Method \code{sign_in_fail()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signing_in()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$sign_in_fail()}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{

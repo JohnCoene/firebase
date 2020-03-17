@@ -16,11 +16,11 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   var opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
-        Shiny.setInputValue('fireblaze_signed_in', firebase.auth().currentUser);
+        Shiny.setInputValue('sign_in_success', firebase.auth().currentUser);
         return(false);
       },
-      uiShown: function() {
-        Shiny.setInputValue('fireblaze_signing_in', true);
+      signInFailure : function(){
+        Shiny.setInputValue('sign_in_fail')
       }
     },
     credentialHelper: helper,
