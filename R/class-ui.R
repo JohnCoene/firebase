@@ -2,32 +2,11 @@
 #' 
 #' Use fireblaze to manage authentications.
 #' 
-#' @field session A valid Shiny session.
-#' 
 #' @export
-Fireblaze <- R6::R6Class(
-  "Fireblaze",
+FireblazeUI <- R6::R6Class(
+  "FireblazeUI",
+  inherit = Fireblaze,
   public = list(
-    session = NULL,
-#' @details Initialise Fireblaze
-#' 
-#' @param config_path Path to the configuration file as created by \code{\link{create_config}}.
-#' @param session A valid shiny session.
-#' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
-#' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-    initialize = function(persistence = c("session", "none", "local"), config_path = "fireblaze.rds", session = shiny::getDefaultReactiveDomain()){
-      # check that config is present
-      config_exists(config_path)
-
-      self$session <- session
-
-      conf <- read_config(config_path)
-      msg <- list(
-        conf = conf,
-        persistence = match.arg(persistence)
-      )
-      private$send("initialize", msg)
-    },
 #' @details Define signin and login providers.
 #' 
 #' @param google,facebook,twitter,github,email,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.
@@ -65,40 +44,24 @@ Fireblaze <- R6::R6Class(
         providers = private$providers_set
       )
 
-      private$send("ui-config", opts)
+      super$send("ui-config", opts)
 
-      invisible(self)
-    },
-#' @details Sign in with email
-#' 
-#' @param email,password Credentials as entered by the user.
-    sign_in_email_password = function(email, password){
-      # prepare message
-      msg <- list(email = email, password = password)
-
-      # Signin
-      private$send("signin-email-password", msg)
-
-      # catch error
-      error <- NULL
-      error <- self$session[["input"]][["signin_email_password_error"]]
-
-      if(!is.null(error)){
-        cli::cli_alert_danger("Sign in error")
-        return(error)
-      }
-      
       invisible(self)
     },
 #' @details Get Signed in User Info
-    sign_in_success = function(){
-      user <- self$session[["input"]][["sign_in_success"]]
-      private$.user <- user
-      return(user)
-    },
-#' @details Get Whether User is Currently Signing in
-    sign_in_fail = function(){
-      self$session[["input"]][["sign_in_fail"]]
+    sign_in = function(){
+      user <- super$get_input("sign_in_ui")
+
+      if(is.null(user))
+        return(NULL)
+
+      # store
+      if(user$success == TRUE)
+        private$.user <- user$response
+      else 
+        cli::cli_alert_danger("Sign in error")
+
+      return(user$response)
     }
   ),
   active = list(
@@ -111,10 +74,6 @@ Fireblaze <- R6::R6Class(
     }
   ),
   private = list(
-    send = function(func, msg = list()){
-      func <- paste0("fireblaze-", func)
-      self$session$sendCustomMessage(func, msg)
-    },
     providers_set = list(
       google = FALSE, 
       facebook = FALSE, 

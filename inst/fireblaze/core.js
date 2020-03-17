@@ -1,19 +1,18 @@
-var ui;
+// global variables
+var ui,
+    initialised = false;
 
+// Initialise
 Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
-  firebase.initializeApp(msg.conf);
-  console.log("fireblaze initialised");
 
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  if(!initialised){
+    firebase.initializeApp(msg.conf);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  }
 
 });
 
-Shiny.addCustomMessageHandler('fireblaze-signin-email-password', function(msg) {
-  firebase.auth().signInWithEmailAndPassword(msg.email, msg.password).catch(function(error) {
-    Shiny.setInputValue("signin_email_password_error", error)
-  });
-});
-
+// Config init
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   ui = new firebaseui.auth.AuthUI(firebase.auth());
   var providers = signinOpts(msg.providers);
@@ -22,11 +21,11 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   var opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
-        Shiny.setInputValue('sign_in_success', firebase.auth().currentUser);
+        Shiny.setInputValue('fireblaze_' + 'sign_in_ui', {success: true, response: firebase.auth().currentUser});
         return(false);
       },
-      signInFailure : function(){
-        Shiny.setInputValue('sign_in_fail')
+      signInFailure : function(error){
+        Shiny.setInputValue('fireblaze_' + 'sign_in_ui', {success: false, response: error})
       }
     },
     credentialHelper: helper,
@@ -35,4 +34,15 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   };
 
   ui.start("#fireblaze-signin-ui", opts)
+});
+
+// Sign out
+Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
+
+  firebase.auth().signOut().then(function() {
+    Shiny.setInputValue('fireblaze_' + 'signout', {success: true, response: 'successful'})
+  }).catch(function(error) {
+    Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})
+  });
+
 });

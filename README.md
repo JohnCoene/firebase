@@ -18,7 +18,11 @@ Create a secure config file.
 create_config(api_key = "xXXxxX", project_id = "my-project-name")
 ```
 
-## Run
+## Workflows
+
+There are two workflows, one that is much easier to setup but less customisable, comes with a UI. Another that is more hands-on customisable more complicated to make work.
+
+## UI
 
 1. Import the dependencies with `use_firebase`.
 2. Use the `Fireblaze` object to initialise a `new` instance.
@@ -31,21 +35,66 @@ library(shiny)
 library(fireblaze)
 
 ui <- fluidPage(
-  use_firebase()
+  use_fireblaze(),
   uiOutput("username")
 )
 
 server <- function(input, output){
   # set up
-  f <- Fireblaze$
+  f <- FireblazeUI$
     new()$
     set_providers(email = TRUE)$
     run(helper = FALSE)
 
   # render signed in username
   output$username <- renderUI({
-    user <- f$sign_in_success()
+    user <- f$sign_in()
     h2(user$displayName)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+### Manual
+
+You can also manually create the entire workflow manually.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(),
+  div(
+    class = "container",
+    h3("Create an Account"),
+    fluidRow(
+      column(5, textInput("email_create", "Your email")),
+      column(5, passwordInput("password_create", "Your password")),
+      column(2, actionButton("create", "Register"))
+    ),
+    h3("Sign in"),
+    fluidRow(
+      column(5, textInput("email_signin", "Your email")),
+      column(5, passwordInput("password_signin", "Your password")),
+      column(2, actionButton("signin", "Sign in"))
+    )
+  )
+)
+
+server <- function(input, output){
+  # set up
+  f <- FireblazeEmailPassword$new()
+
+  observeEvent(input$create, {
+    results <- f$create(input$email_create, input$password_create)
+    print(results)
+  })
+
+  observeEvent(input$signin, {
+    results <- f$sign_in(input$email_signin, input$password_signin)
+    print(results)
   })
 }
 
