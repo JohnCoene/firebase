@@ -30,6 +30,7 @@ Use fireblaze to manage authentications.
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="initialize">}\href{../../fireblaze/html/Fireblaze.html#method-initialize}{\code{fireblaze::Fireblaze$initialize()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="sign_out">}\href{../../fireblaze/html/Fireblaze.html#method-sign_out}{\code{fireblaze::Fireblaze$sign_out()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-signed_in}{\code{fireblaze::Fireblaze$signed_in()}}\out{</span>}
 }
 \out{</details>}
 }

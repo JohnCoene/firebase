@@ -30,7 +30,12 @@ Fireblaze <- R6::R6Class(
     },
 #' @details Signs user out
     sign_out = function(){
-      super$send("signout")$response
+      private$send("signout")$response
+    },
+#' @details Signed in user details
+    signed_in = function(){
+      private$send("signedin")
+      private$get_input("signedin")
     }
   ),
   private = list(

@@ -46,3 +46,12 @@ Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
   });
 
 });
+
+// Signed in
+Shiny.addCustomMessageHandler('fireblaze-signedin', function(msg) {
+  console.log("signedin");
+
+  var user = firebase.auth().currentUser;
+  Shiny.setInputValue('fireblaze_' + 'signedin', user);
+
+});

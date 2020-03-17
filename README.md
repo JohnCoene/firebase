@@ -79,7 +79,8 @@ ui <- fluidPage(
       column(5, textInput("email_signin", "Your email")),
       column(5, passwordInput("password_signin", "Your password")),
       column(2, actionButton("signin", "Sign in"))
-    )
+    ),
+    uiOutput("user")
   )
 )
 
@@ -95,6 +96,10 @@ server <- function(input, output){
   observeEvent(input$signin, {
     results <- f$sign_in(input$email_signin, input$password_signin)
     print(results)
+  })
+
+  output$user <- renderUI({
+    f$signed_in()
   })
 }
 
