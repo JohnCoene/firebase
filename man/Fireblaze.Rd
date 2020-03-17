@@ -13,12 +13,20 @@ Use fireblaze to manage authentications.
 }
 \if{html}{\out{</div>}}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{signed_in_user}}{Read the signed in user.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Fireblaze$new()}}
 \item \href{#method-set_providers}{\code{Fireblaze$set_providers()}}
 \item \href{#method-run}{\code{Fireblaze$run()}}
+\item \href{#method-sign_in_email_password}{\code{Fireblaze$sign_in_email_password()}}
 \item \href{#method-sign_in_success}{\code{Fireblaze$sign_in_success()}}
 \item \href{#method-sign_in_fail}{\code{Fireblaze$sign_in_fail()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
@@ -104,6 +112,26 @@ one of their saved accounts. You can disable it by specifying the value below.}
 }
 \subsection{Details}{
 Setup the signin form.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-sign_in_email_password"></a>}}
+\if{latex}{\out{\hypertarget{method-sign_in_email_password}{}}}
+\subsection{Method \code{sign_in_email_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$sign_in_email_password(email, password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{email, password}}{Credentials as entered by the user.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Sign in with email
 }
 
 }

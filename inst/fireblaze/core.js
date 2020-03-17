@@ -6,10 +6,16 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
-  ui = new firebaseui.auth.AuthUI(firebase.auth());
+});
+
+Shiny.addCustomMessageHandler('fireblaze-signin-email-password', function(msg) {
+  firebase.auth().signInWithEmailAndPassword(msg.email, msg.password).catch(function(error) {
+    Shiny.setInputValue("signin_email_password_error", error)
+  });
 });
 
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
+  ui = new firebaseui.auth.AuthUI(firebase.auth());
   var providers = signinOpts(msg.providers);
   var helper = accountHelper(msg.helper);
 

@@ -69,13 +69,45 @@ Fireblaze <- R6::R6Class(
 
       invisible(self)
     },
+#' @details Sign in with email
+#' 
+#' @param email,password Credentials as entered by the user.
+    sign_in_email_password = function(email, password){
+      # prepare message
+      msg <- list(email = email, password = password)
+
+      # Signin
+      private$send("signin-email-password", msg)
+
+      # catch error
+      error <- NULL
+      error <- self$session[["input"]][["signin_email_password_error"]]
+
+      if(!is.null(error)){
+        cli::cli_alert_danger("Sign in error")
+        return(error)
+      }
+      
+      invisible(self)
+    },
 #' @details Get Signed in User Info
     sign_in_success = function(){
-      self$session[["input"]][["sign_in_success"]]
+      user <- self$session[["input"]][["sign_in_success"]]
+      private$.user <- user
+      return(user)
     },
 #' @details Get Whether User is Currently Signing in
     sign_in_fail = function(){
       self$session[["input"]][["sign_in_fail"]]
+    }
+  ),
+  active = list(
+#' @field signed_in_user Read the signed in user.
+    signed_in_user = function(value){
+      if(!missing(value))
+        stop("This field is read-only.", call. = FALSE)
+
+      return(private$.user)
     }
   ),
   private = list(
@@ -91,6 +123,7 @@ Fireblaze <- R6::R6Class(
       email = FALSE, 
       phone = FALSE, 
       anonymous = FALSE
-    )
+    ),
+    .user = NULL
   )
 )
