@@ -22,7 +22,7 @@ create_config(api_key = "xXXxxX", project_id = "my-project-name")
 
 There are two workflows, one that is much easier to setup but less customisable, comes with a UI. Another that is more hands-on customisable more complicated to make work.
 
-## UI
+### UI
 
 1. Import the dependencies with `use_firebase`.
 2. Use the `Fireblaze` object to initialise a `new` instance.
