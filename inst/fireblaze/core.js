@@ -6,8 +6,21 @@ var ui,
 Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
   if(!initialised){
+    // initialize
     firebase.initializeApp(msg.conf);
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+    // set persistence
+    var persistence = persistenceOpts(msg.persistence);
+    firebase.auth().setPersistence(persistence);
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: true, user: user});
+      } else {
+        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: false, user: null});
+      }
+    });
+
   }
 
 });
@@ -21,11 +34,7 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   var opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
-        Shiny.setInputValue('fireblaze_' + 'sign_in_ui', {success: true, response: firebase.auth().currentUser});
         return(false);
-      },
-      signInFailure : function(error){
-        Shiny.setInputValue('fireblaze_' + 'sign_in_ui', {success: false, response: error})
       }
     },
     credentialHelper: helper,
@@ -44,14 +53,5 @@ Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
   }).catch(function(error) {
     Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})
   });
-
-});
-
-// Signed in
-Shiny.addCustomMessageHandler('fireblaze-signedin', function(msg) {
-  console.log("signedin");
-
-  var user = firebase.auth().currentUser;
-  Shiny.setInputValue('fireblaze_' + 'signedin', user);
 
 });

@@ -47,30 +47,6 @@ FireblazeUI <- R6::R6Class(
       super$send("ui-config", opts)
 
       invisible(self)
-    },
-#' @details Get Signed in User Info
-    sign_in = function(){
-      user <- super$get_input("sign_in_ui")
-
-      if(is.null(user))
-        return(NULL)
-
-      # store
-      if(user$success == TRUE)
-        private$.user <- user$response
-      else 
-        cli::cli_alert_danger("Sign in error")
-
-      return(user$response)
-    }
-  ),
-  active = list(
-#' @field signed_in_user Read the signed in user.
-    signed_in_user = function(value){
-      if(!missing(value))
-        stop("This field is read-only.", call. = FALSE)
-
-      return(private$.user)
     }
   ),
   private = list(
@@ -82,7 +58,6 @@ FireblazeUI <- R6::R6Class(
       email = FALSE, 
       phone = FALSE, 
       anonymous = FALSE
-    ),
-    .user = NULL
+    )
   )
 )

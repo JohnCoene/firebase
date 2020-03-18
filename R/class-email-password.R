@@ -18,12 +18,6 @@ FireblazeEmailPassword <- R6::R6Class(
 
       # Signin
       private$send("create-email-password", msg)
-
-      # catch error
-      results <- super$get_input("create_email_password")
-
-      if(!is.null(results))
-        cli::cli_alert_danger("Create error")
       
       return(results)
     },
@@ -38,12 +32,10 @@ FireblazeEmailPassword <- R6::R6Class(
 
       # Signin
       private$send("signin-email-password", msg)
+      super$get_signed_in()
 
       # catch error
       results <- super$get_input("signin_email_password")
-
-      if(!is.null(results))
-        cli::cli_alert_danger("Create error")
       
       invisible(results$response)
     }

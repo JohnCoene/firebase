@@ -20,9 +20,9 @@ Use fireblaze to manage authentications.
 \if{html}{
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
+\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="get_signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-get_signed_in}{\code{fireblaze::Fireblaze$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="initialize">}\href{../../fireblaze/html/Fireblaze.html#method-initialize}{\code{fireblaze::Fireblaze$initialize()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="sign_out">}\href{../../fireblaze/html/Fireblaze.html#method-sign_out}{\code{fireblaze::Fireblaze$sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-signed_in}{\code{fireblaze::Fireblaze$signed_in()}}\out{</span>}
 }
 \out{</details>}
 }

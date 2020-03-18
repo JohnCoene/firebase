@@ -9,28 +9,20 @@ Use fireblaze to manage authentications.
 \section{Super class}{
 \code{\link[fireblaze:Fireblaze]{fireblaze::Fireblaze}} -> \code{FireblazeUI}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{signed_in_user}}{Read the signed in user.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-set_providers}{\code{FireblazeUI$set_providers()}}
 \item \href{#method-run}{\code{FireblazeUI$run()}}
-\item \href{#method-sign_in}{\code{FireblazeUI$sign_in()}}
 \item \href{#method-clone}{\code{FireblazeUI$clone()}}
 }
 }
 \if{html}{
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
+\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="get_signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-get_signed_in}{\code{fireblaze::Fireblaze$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="initialize">}\href{../../fireblaze/html/Fireblaze.html#method-initialize}{\code{fireblaze::Fireblaze$initialize()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="sign_out">}\href{../../fireblaze/html/Fireblaze.html#method-sign_out}{\code{fireblaze::Fireblaze$sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-signed_in}{\code{fireblaze::Fireblaze$signed_in()}}\out{</span>}
 }
 \out{</details>}
 }
@@ -85,19 +77,6 @@ one of their saved accounts. You can disable it by specifying the value below.}
 }
 \subsection{Details}{
 Setup the signin form.
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sign_in"></a>}}
-\if{latex}{\out{\hypertarget{method-sign_in}{}}}
-\subsection{Method \code{sign_in()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$sign_in()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Get Signed in User Info
 }
 
 }

@@ -3,15 +3,14 @@
 #' Include dependencies in your Shiny application. 
 #' This \emph{must} be included at the \emph{bottom} the application.
 #' 
-#' @param ui Wehther to include the UI, this is not required if
-#' signing in programatically using email and password.
+#' @param ui Wehther to include the UI, required for \code{\link{FireblazeUI}}.
 #' @param analytics Whether to include analytics.
 #' @param firestore Whether to include firestore.
 #' 
 #' @importFrom shiny tags tagList singleton div
 #' 
 #' @export 
-use_fireblaze <- function(ui = TRUE, analytics = TRUE, firestore = FALSE){
+use_fireblaze <- function(ui = FALSE, analytics = TRUE, firestore = FALSE){
   base <- singleton(
     tags$head(
       tags$script(src = "firebase/js/firebase-app.js"),
@@ -19,6 +18,7 @@ use_fireblaze <- function(ui = TRUE, analytics = TRUE, firestore = FALSE){
       if(analytics) tags$script(src = "firebase/js/firebase-analytics.js"),
       if(firestore) tags$script(src = "firebase/js/firebase-firestore.js"),
       tags$script(src = "fireblaze/core.js"),
+      tags$script(src = "fireblaze/core-utils.js"),
       tags$script(src = "fireblaze/email-password.js")
     )
   )

@@ -33,9 +33,19 @@ Fireblaze <- R6::R6Class(
       private$send("signout")$response
     },
 #' @details Signed in user details
-    signed_in = function(){
-      private$send("signedin")
-      private$get_input("signedin")
+    get_signed_in = function(){
+      user <- private$get_input("signed_in_user")
+      private$.user <- user$user
+      invisible(user)
+    }
+  ),
+  active = list(
+#' @field signed_in Read the signed in user.
+    signed_in = function(value){
+      if(!missing(value))
+        stop("This field is read-only.", call. = FALSE)
+
+      return(private$.user)
     }
   ),
   private = list(
@@ -46,6 +56,7 @@ Fireblaze <- R6::R6Class(
     get_input = function(name){
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]
-    }
+    },
+    .user = NULL
   )
 )

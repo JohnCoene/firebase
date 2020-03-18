@@ -14,12 +14,19 @@ Use fireblaze to manage authentications.
 }
 \if{html}{\out{</div>}}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{signed_in}}{Read the signed in user.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Fireblaze$new()}}
 \item \href{#method-sign_out}{\code{Fireblaze$sign_out()}}
-\item \href{#method-signed_in}{\code{Fireblaze$signed_in()}}
+\item \href{#method-get_signed_in}{\code{Fireblaze$get_signed_in()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
 }
@@ -66,11 +73,11 @@ Signs user out
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-signed_in}{}}}
-\subsection{Method \code{signed_in()}}{
+\if{html}{\out{<a id="method-get_signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-get_signed_in}{}}}
+\subsection{Method \code{get_signed_in()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$signed_in()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$get_signed_in()}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{

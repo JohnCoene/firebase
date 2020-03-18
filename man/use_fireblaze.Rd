@@ -4,11 +4,10 @@
 \alias{use_fireblaze}
 \title{Dependencies}
 \usage{
-use_fireblaze(ui = TRUE, analytics = TRUE, firestore = FALSE)
+use_fireblaze(ui = FALSE, analytics = TRUE, firestore = FALSE)
 }
 \arguments{
-\item{ui}{Wehther to include the UI, this is not required if
-signing in programatically using email and password.}
+\item{ui}{Wehther to include the UI, required for \code{\link{FireblazeUI}}.}
 
 \item{analytics}{Whether to include analytics.}
 

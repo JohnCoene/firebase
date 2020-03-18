@@ -24,7 +24,7 @@ There are two workflows, one that is much easier to setup but less customisable,
 
 ## UI
 
-1. Import the dependencies with `use_firebase`.
+1. Import the dependencies with `use_firebase` including the UI dependencies.
 2. Use the `Fireblaze` object to initialise a `new` instance.
 3. Define the providers you want to use (e.g.: Facebook and Google), with `set_providers`.
 4. `run` the sign-in model.
@@ -35,7 +35,7 @@ library(shiny)
 library(fireblaze)
 
 ui <- fluidPage(
-  use_fireblaze(),
+  use_fireblaze(ui = TRUE),
   uiOutput("username")
 )
 
@@ -48,9 +48,10 @@ server <- function(input, output){
 
   # render signed in username
   output$username <- renderUI({
-    user <- f$sign_in()
-    h2(user$displayName)
+    user <- f$get_signed_in()
+    h2(user$user$displayName)
   })
+  
 }
 
 shinyApp(ui, server)
@@ -85,21 +86,20 @@ ui <- fluidPage(
 )
 
 server <- function(input, output){
+
   # set up
   f <- FireblazeEmailPassword$new()
 
   observeEvent(input$create, {
-    results <- f$create(input$email_create, input$password_create)
-    print(results)
+    f$create(input$email_create, input$password_create)
   })
 
   observeEvent(input$signin, {
-    results <- f$sign_in(input$email_signin, input$password_signin)
-    print(results)
+    f$sign_in(input$email_signin, input$password_signin)
   })
 
-  output$user <- renderUI({
-    f$signed_in()
+  observeEvent(f$get_signed_in(), {
+    print(f$get_signed_in())
   })
 }
 
