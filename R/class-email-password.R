@@ -18,6 +18,8 @@ FireblazeEmailPassword <- R6::R6Class(
 
       # Signin
       private$send("create-email-password", msg)
+
+      results <- super$get_input("create_email_password")
       
       return(results)
     },
