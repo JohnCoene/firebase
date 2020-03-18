@@ -12,7 +12,7 @@ Shiny authentication with [Google Firebase](https://firebase.google.com).
 
 ## Config
 
-Create a secure config file.
+Create a secure config fil, this will be saved in your working directory.
 
 ```r
 create_config(api_key = "xXXxxX", project_id = "my-project-name")
@@ -20,15 +20,15 @@ create_config(api_key = "xXXxxX", project_id = "my-project-name")
 
 ## Workflows
 
-There are two workflows, one that is much easier to setup but less customisable, comes with a UI. Another that is more hands-on customisable more complicated to make work.
+There are two workflows, one that is much easier to work with but less customisable, comes with a UI. Another that is more customisable but also more complicated to work with.
 
 ### UI
 
 1. Import the dependencies with `use_firebase` including the UI dependencies.
 2. Use the `Fireblaze` object to initialise a `new` instance.
 3. Define the providers you want to use (e.g.: Facebook and Google), with `set_providers`.
-4. `run` the sign-in model.
-5. Pick up sign-ins with `sign_in_success`.
+4. `launch` the sign-in model.
+5. Pick up sign-ins with `get_signed_in`.
 
 ```r
 library(shiny)
@@ -44,7 +44,7 @@ server <- function(input, output){
   f <- FireblazeUI$
     new()$
     set_providers(email = TRUE)$
-    run(helper = FALSE)
+    launch(account_helper = FALSE)
 
   # render signed in username
   output$username <- renderUI({
@@ -59,7 +59,7 @@ shinyApp(ui, server)
 
 ### Manual
 
-You can also manually create the entire workflow manually.
+You can also manually create the entire workflow manually, below asking the user for email and password.
 
 ```r
 library(shiny)

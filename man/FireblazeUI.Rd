@@ -9,11 +9,22 @@ Use fireblaze to manage authentications.
 \section{Super class}{
 \code{\link[fireblaze:Fireblaze]{fireblaze::Fireblaze}} -> \code{FireblazeUI}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tos_url}}{URL to the Terms of Service page.}
+
+\item{\code{privacy_policy_url}}{The URL to the Privacy Policy page.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-set_providers}{\code{FireblazeUI$set_providers()}}
-\item \href{#method-run}{\code{FireblazeUI$run()}}
+\item \href{#method-set_tos_url}{\code{FireblazeUI$set_tos_url()}}
+\item \href{#method-set_privacy_policy_url}{\code{FireblazeUI$set_privacy_policy_url()}}
+\item \href{#method-launch}{\code{FireblazeUI$launch()}}
 \item \href{#method-clone}{\code{FireblazeUI$clone()}}
 }
 }
@@ -55,11 +66,51 @@ Define signin and login providers.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-run"></a>}}
-\if{latex}{\out{\hypertarget{method-run}{}}}
-\subsection{Method \code{run()}}{
+\if{html}{\out{<a id="method-set_tos_url"></a>}}
+\if{latex}{\out{\hypertarget{method-set_tos_url}{}}}
+\subsection{Method \code{set_tos_url()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$run(flow = c("popup", "redirect"), helper = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$set_tos_url(url)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{URL to use.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Defines Tterms of Services URL
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_privacy_policy_url"></a>}}
+\if{latex}{\out{\hypertarget{method-set_privacy_policy_url}{}}}
+\subsection{Method \code{set_privacy_policy_url()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$set_privacy_policy_url(url)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{URL to use.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Defines Privacy Policy URL
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-launch"></a>}}
+\if{latex}{\out{\hypertarget{method-launch}{}}}
+\subsection{Method \code{launch()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$launch(flow = c("popup", "redirect"), account_helper = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -67,7 +118,7 @@ Define signin and login providers.
 \describe{
 \item{\code{flow}}{The signin flow to use, popup or redirect.}
 
-\item{\code{helper}}{Wether to use accountchooser.com upon signing in or signing up with email,
+\item{\code{account_helper}}{Wether to use accountchooser.com upon signing in or signing up with email,
 the user will be redirected to the accountchooser.com website and will be able to select
 one of their saved accounts. You can disable it by specifying the value below.}
 

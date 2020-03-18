@@ -2,6 +2,7 @@
 
 export(FireblazeEmailPassword)
 export(FireblazeUI)
+export(check_urls)
 export(create_config)
 export(use_fireblaze)
 importFrom(shiny,div)

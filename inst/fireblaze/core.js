@@ -29,7 +29,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   ui = new firebaseui.auth.AuthUI(firebase.auth());
   var providers = signinOpts(msg.providers);
-  var helper = accountHelper(msg.helper);
+  var helper = accountHelper(msg.account_helper);
 
   var opts = {
     callbacks: {
@@ -39,7 +39,9 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
     },
     credentialHelper: helper,
     signInFlow: msg.flow,
-    signInOptions: providers
+    signInOptions: providers,
+    tosUrl: msg.tos_url,
+    privacyPolicyUrl: msg.privacy_policy_url
   };
 
   ui.start("#fireblaze-signin-ui", opts)
