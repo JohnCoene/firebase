@@ -14,6 +14,31 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(fireblaze)
-```
+The fireblazer package lets you create mechanism to authenticate Shiny user. It does so by integrate the similar sounding [firebase](https://firebase.google.com/) interface by Google. This raises a first question, is it free? The answer to which is, this package only features the free functionalities: this probably fulfils  most Shiny developers' needs. 
+
+However, since it uses Google services you will need a Google account and setup a firebase account; head to [firebase.google.com](https://firebase.google.com/), and set up you account. Once this done you will be presented with the screen below.
+
+![](fireblaze_home.png)
+
+First step, hit that large white button reading "Create a Project," and name your project.
+
+![](fireblaze_step_1.png)
+
+Second step, either leave Google Analytics enabled or disable it. If you are confused, just disable it.
+
+![](fireblaze_step_2.png)
+
+After that you should be done and eventually, after an intermediary screen, be presented with the project screen (below). Click the "web" icon, Shiny applications are web hosted, we are thus technically setting up a web project. Name said project, here we just name it `fireblaze-demo`.
+
+![](fireblazer_project_setup1.png)
+
+On the next screen simply hit "Continue to console," you should not be concerned with any of the code presented, fireblaze takes care of it for you. This will lead you straight into the project you have just created. Now visit "Authentication" the left sidebar then click the most prominent button that reads "Set up sign-in method."
+
+![](fireblaze_signin_method.png)
+
+This screen lets you set-up which authentication methods you want to provide. Some are very straightforward, others need to be integrated with third-party services, all of which are very straightforward. However, we will begin by enabling two simple authentication methods: email, and Google. Click Email/password then the first enable button at the top. We will cover the second option later one. The first, which you should enable, will require the user to enter their email and password, the second, will, upon entering their email addresses send them a a sign-in link via email, thereby removing the need for a password. You can leave it at that if you want to but we will also allow users to sign up/in using Google. The reason we pick Google for this demo is that it is very easy to enable.
+
+![](fireblaze_google.png)
+
+Fill the form as you wish, don't forget to toggle "enable" like I did above.
+

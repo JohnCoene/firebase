@@ -11,3 +11,13 @@ code{
 pre{
   font-size: 14px;
 }
+
+img{
+  box-shadow:
+  0 0.3px 1.9px rgba(0, 0, 0, 0.09),
+  0 2px 15px rgba(0, 0, 0, 0.14);
+}
+
+p{
+  color: #2f2f2f;
+}

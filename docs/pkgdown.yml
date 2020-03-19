@@ -3,6 +3,7 @@ pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
   email-password: email-password.html
+  get-started: get-started.html
   social: social.html
   ui: ui.html
 
