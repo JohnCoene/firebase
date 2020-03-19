@@ -1,4 +1,4 @@
-#' Fireblaze
+#' Prebuilt UI
 #' 
 #' Use fireblaze to manage authentications.
 #' 

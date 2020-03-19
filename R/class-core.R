@@ -32,11 +32,25 @@ Fireblaze <- R6::R6Class(
     sign_out = function(){
       private$send("signout")$response
     },
-#' @details Signed in user details
+#' @details Signed in user details triggered when auth states changes
     get_signed_in = function(){
       user <- private$get_input("signed_in_user")
-      private$.user <- user$user
+      private$.user_signed_in <- user$user
       invisible(user)
+    },
+#' @details Signed up user details triggered explicitely by user (e.g.: on click)
+    get_signed_up = function(){
+      user <- private$get_input("signed_up_user")
+      private$.user_sign_up <- user$user
+      invisible(user)
+    },
+#' @details Set language code for auth provider
+#' @param code iso639-1 language code.
+    set_language_code = function(code){
+      if(missing(code)) stop("Missing code", call. = FALSE)
+      private$send("language-code", list(code = code))
+      private$.language_code <- code
+      invisible(self)
     }
   ),
   active = list(
@@ -45,7 +59,14 @@ Fireblaze <- R6::R6Class(
       if(!missing(value))
         stop("This field is read-only.", call. = FALSE)
 
-      return(private$.user)
+      return(private$.user_signed_in)
+    },
+#' @field signed_up Read the signed in user.
+    signed_up = function(value){
+      if(!missing(value))
+        stop("This field is read-only.", call. = FALSE)
+
+      return(private$.user_signed_up)
     }
   ),
   private = list(
@@ -57,6 +78,8 @@ Fireblaze <- R6::R6Class(
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]
     },
-    .user = NULL
+    .user_signed_in = NULL,
+    .user_sign_up = NULL,
+    .language_code = NULL
   )
 )

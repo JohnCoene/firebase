@@ -1,4 +1,4 @@
-#' Fireblaze
+#' Email & Password
 #' 
 #' Use fireblaze to manage authentications.
 #' 
@@ -17,7 +17,7 @@ FireblazeEmailPassword <- R6::R6Class(
       msg <- list(email = email, password = password)
 
       # Signin
-      private$send("create-email-password", msg)
+      super$send("create-email-password", msg)
 
       results <- super$get_input("create_email_password")
       
@@ -33,7 +33,7 @@ FireblazeEmailPassword <- R6::R6Class(
       msg <- list(email = email, password = password)
 
       # Signin
-      private$send("signin-email-password", msg)
+      super$send("signin-email-password", msg)
       super$get_signed_in()
 
       # catch error

@@ -2,7 +2,7 @@
 % Please edit documentation in R/class-ui.R
 \name{FireblazeUI}
 \alias{FireblazeUI}
-\title{Fireblaze}
+\title{Prebuilt UI}
 \description{
 Use fireblaze to manage authentications.
 }
@@ -32,7 +32,9 @@ Use fireblaze to manage authentications.
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="get_signed_in">}\href{../../fireblaze/html/Fireblaze.html#method-get_signed_in}{\code{fireblaze::Fireblaze$get_signed_in()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="get_signed_up">}\href{../../fireblaze/html/Fireblaze.html#method-get_signed_up}{\code{fireblaze::Fireblaze$get_signed_up()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="initialize">}\href{../../fireblaze/html/Fireblaze.html#method-initialize}{\code{fireblaze::Fireblaze$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="set_language_code">}\href{../../fireblaze/html/Fireblaze.html#method-set_language_code}{\code{fireblaze::Fireblaze$set_language_code()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="fireblaze" data-topic="Fireblaze" data-id="sign_out">}\href{../../fireblaze/html/Fireblaze.html#method-sign_out}{\code{fireblaze::Fireblaze$sign_out()}}\out{</span>}
 }
 \out{</details>}

@@ -34,6 +34,7 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   var opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
+        Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: true, response: result});
         return(false);
       }
     },
@@ -56,4 +57,9 @@ Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
     Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})
   });
 
+});
+
+// Language code
+Shiny.addCustomMessageHandler('fireblaze-language-code', function(msg) {
+  firebase.auth().languageCode = msg.code;
 });

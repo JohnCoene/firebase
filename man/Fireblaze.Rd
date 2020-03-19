@@ -18,6 +18,8 @@ Use fireblaze to manage authentications.
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
 \item{\code{signed_in}}{Read the signed in user.}
+
+\item{\code{signed_up}}{Read the signed in user.}
 }
 \if{html}{\out{</div>}}
 }
@@ -27,6 +29,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-new}{\code{Fireblaze$new()}}
 \item \href{#method-sign_out}{\code{Fireblaze$sign_out()}}
 \item \href{#method-get_signed_in}{\code{Fireblaze$get_signed_in()}}
+\item \href{#method-get_signed_up}{\code{Fireblaze$get_signed_up()}}
+\item \href{#method-set_language_code}{\code{Fireblaze$set_language_code()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
 }
@@ -81,7 +85,40 @@ Signs user out
 }
 
 \subsection{Details}{
-Signed in user details
+Signed in user details triggered when auth states changes
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_signed_up"></a>}}
+\if{latex}{\out{\hypertarget{method-get_signed_up}{}}}
+\subsection{Method \code{get_signed_up()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$get_signed_up()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Signed up user details triggered explicitely by user (e.g.: on click)
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_language_code"></a>}}
+\if{latex}{\out{\hypertarget{method-set_language_code}{}}}
+\subsection{Method \code{set_language_code()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$set_language_code(code)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{code}}{iso639-1 language code.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Set language code for auth provider
 }
 
 }

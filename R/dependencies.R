@@ -19,7 +19,8 @@ use_fireblaze <- function(ui = FALSE, analytics = TRUE, firestore = FALSE){
       if(firestore) tags$script(src = "firebase/js/firebase-firestore.js"),
       tags$script(src = "fireblaze/core.js"),
       tags$script(src = "fireblaze/core-utils.js"),
-      tags$script(src = "fireblaze/email-password.js")
+      tags$script(src = "fireblaze/email-password.js"),
+      tags$script(src = "fireblaze/google.js")
     )
   )
 
