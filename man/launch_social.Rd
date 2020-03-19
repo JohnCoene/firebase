@@ -7,7 +7,7 @@
 launch_social(super, social, flow = c("popup", "redirect"))
 }
 \arguments{
-\item{super}{Super class \¢ode{\link{Fireblaze}}.}
+\item{super}{Super class \code{\link{Fireblaze}}.}
 
 \item{social}{Social site, google, facebook, twitter, or github.}
 

@@ -48,7 +48,7 @@ check_urls <- function(fireblaze_ui){
 #' 
 #' Convenience function to "send" data to JavaScript; launch social providers.
 #' 
-#' @param super Super class \¢ode{\link{Fireblaze}}.
+#' @param super Super class \code{\link{Fireblaze}}.
 #' @param social Social site, google, facebook, twitter, or github.
 #' @param flow Flow to use, popup or redirect.
 #' 
