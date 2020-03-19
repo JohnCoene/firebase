@@ -1,0 +1,19 @@
+---
+title: "get-started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{get-started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fireblaze)
+```

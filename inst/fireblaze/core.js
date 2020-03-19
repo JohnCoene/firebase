@@ -51,11 +51,12 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
 // Sign out
 Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
 
-  firebase.auth().signOut().then(function() {
-    Shiny.setInputValue('fireblaze_' + 'signout', {success: true, response: 'successful'})
-  }).catch(function(error) {
-    Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})
-  });
+  firebase.auth().signOut()
+    .then(function() {
+      Shiny.setInputValue('fireblaze_' + 'signout', {success: true, response: 'successful'})
+    }).catch(function(error) {
+      Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})
+    });
 
 });
 
