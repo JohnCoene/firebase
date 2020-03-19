@@ -4,9 +4,7 @@
 \alias{FireblazeGoogle}
 \title{Google}
 \description{
-Google
-
-Google
+Use Google authentication.
 }
 \section{Super class}{
 \code{\link[fireblaze:Fireblaze]{fireblaze::Fireblaze}} -> \code{FireblazeGoogle}
@@ -15,7 +13,7 @@ Google
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-set_scope}{\code{FireblazeGoogle$set_scope()}}
-\item \href{#method-sign_in}{\code{FireblazeGoogle$sign_in()}}
+\item \href{#method-launch}{\code{FireblazeGoogle$launch()}}
 \item \href{#method-clone}{\code{FireblazeGoogle$clone()}}
 }
 }
@@ -51,11 +49,11 @@ Define the scope to request from Google.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sign_in"></a>}}
-\if{latex}{\out{\hypertarget{method-sign_in}{}}}
-\subsection{Method \code{sign_in()}}{
+\if{html}{\out{<a id="method-launch"></a>}}
+\if{latex}{\out{\hypertarget{method-launch}{}}}
+\subsection{Method \code{launch()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FireblazeGoogle$sign_in(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeGoogle$launch(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -66,7 +64,7 @@ Define the scope to request from Google.
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Sign in.
+Launch sign in.
 }
 
 }

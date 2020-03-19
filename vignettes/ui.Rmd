@@ -1,0 +1,52 @@
+---
+title: "Prebuilt UI"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Prebuilt UI}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fireblaze)
+```
+
+1. Import the dependencies with `use_firebase` including the UI dependencies.
+2. Use the `Fireblaze` object to initialise a `new` instance.
+3. Define the providers you want to use (e.g.: Facebook and Google), with `set_providers`.
+4. `launch` the sign-in model.
+5. Pick up sign-ins with `get_signed_in`.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE),
+  uiOutput("username")
+)
+
+server <- function(input, output){
+  # set up
+  f <- FireblazeUI$
+    new()$
+    set_providers(email = TRUE)$
+    launch(account_helper = FALSE)
+
+  # render signed in username
+  output$username <- renderUI({
+    user <- f$get_signed_in()
+    h2(user$user$displayName)
+  })
+  
+}
+
+shinyApp(ui, server)
+```

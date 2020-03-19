@@ -1,0 +1,47 @@
+---
+title: "Google"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Google}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fireblaze)
+```
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(),
+  actionButton("signin", "Log in with Google", icon = icon("google")),
+  uiOutput("username")
+)
+
+server <- function(input, output) {
+
+  g <- FireblazeGoogle$new()
+
+  observeEvent(input$signin, {
+    g$launch("redirect")
+  })
+
+
+  output$username <- renderUI({
+    user <- g$get_signed_in()
+    user$user$displayName
+  })
+}
+
+shinyApp(ui, server)
+```

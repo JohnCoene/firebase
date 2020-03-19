@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&family=Ubuntu+Mono&display=swap');
+
+body{
+  font-family: 'Quicksand', sans-serif;
+}
+
+code{
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+pre{
+  font-size: 14px;
+}

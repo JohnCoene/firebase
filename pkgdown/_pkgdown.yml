@@ -1,0 +1,6 @@
+destination: docs
+
+template:
+  params:
+    bootswatch: paper
+    ganalytics: UA-74544116-1

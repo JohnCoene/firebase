@@ -1,0 +1,8 @@
+pandoc: 2.9.1.1
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  email-password: email-password.html
+  google: google.html
+  ui: ui.html
+

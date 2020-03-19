@@ -1,5 +1,7 @@
 #' Google
 #' 
+#' Use Google authentication.
+#' 
 #' @export
 FireblazeGoogle <- R6::R6Class(
   "FireblazeGoogle",
@@ -14,12 +16,15 @@ FireblazeGoogle <- R6::R6Class(
 
       invisible(self)
     },
-#' @details Sign in.
+#' @details Launch sign in.
 #' @param flow Authentication flow, either popup or redirect.
-    sign_in = function(flow = c("popup", "redirect")){
+    launch = function(flow = c("popup", "redirect")){
       flow <- match.arg(flow)
 
-      if(flow == "popup") super$send("google-sign-in-popup")
+      if(flow == "popup") 
+        super$send("google-sign-in-popup", list())
+      else
+        super$send("google-sign-in-redirect", list())
 
       invisible(self)
     }
