@@ -24,7 +24,7 @@ check_providers <- function(opts){
   is_set <- sum(opts)
 
   if(!is_set)
-    stop("Providers not set, see `providers` method.", call. = FALSE)
+    stop("Providers not set, see `set_providers` method.", call. = FALSE)
   
   invisible()
 }
@@ -40,6 +40,23 @@ check_urls <- function(fireblaze_ui){
   # check if still default
   if(grepl("^<.*>$", fireblaze_ui$tos_url) || grepl("^<.*>$", fireblaze_ui$privacy_policy_url))
     warning("Missing Terms of Service and/or Privacy policy URL, see `set_tos_url` and `set_privacy_policy_url` methods", call. = FALSE)
+
+  invisible()
+}
+
+#' Launch Social Providers
+#' 
+#' Convenience function to "send" data to JavaScript; launch social providers.
+#' 
+#' @param super Super class \¢ode{\link{Fireblaze}}.
+#' @param social Social site, google, facebook, twitter, or github.
+#' @param flow Flow to use, popup or redirect.
+#' 
+#' @keywords internal
+launch_social <- function(super, social, flow = c("popup", "redirect")){
+
+  call <- paste0(social, "-sign-in-", flow)
+  super$send(call, list())
 
   invisible()
 }

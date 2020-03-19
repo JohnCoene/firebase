@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Path — pkg_file • fireblaze</title>
+<title>Launch Social Providers — launch_social • fireblaze</title>
 
 
 <!-- jquery -->
@@ -37,8 +37,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Get Path — pkg_file" />
-<meta property="og:description" content="Get path to internal file." />
+<meta property="og:title" content="Launch Social Providers — launch_social" />
+<meta property="og:description" content="Convenience function to &quot;send&quot; data to JavaScript; launch social providers." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -130,23 +130,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Path</h1>
+    <h1>Launch Social Providers</h1>
     
-    <div class="hidden name"><code>pkg_file.Rd</code></div>
+    <div class="hidden name"><code>launch_social.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get path to internal file.</p>
+    <p>Convenience function to "send" data to JavaScript; launch social providers.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pkg_file</span>(<span class='no'>path</span>)</pre>
+    <pre class="usage"><span class='fu'>launch_social</span>(<span class='no'>super</span>, <span class='no'>social</span>, <span class='kw'>flow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"popup"</span>, <span class='st'>"redirect"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>Path to file in <code>inst</code> directory.</p></td>
+      <th>super</th>
+      <td><p>Super class \¢ode<a href='Fireblaze.html'>Fireblaze</a>.</p></td>
+    </tr>
+    <tr>
+      <th>social</th>
+      <td><p>Social site, google, facebook, twitter, or github.</p></td>
+    </tr>
+    <tr>
+      <th>flow</th>
+      <td><p>Flow to use, popup or redirect.</p></td>
     </tr>
     </table>
 

@@ -1,8 +1,8 @@
 ---
-title: "Google"
+title: "Social Sites"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Google}
+  %\VignetteIndexEntry{Social Sites}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -12,10 +12,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
-
-```{r setup}
-library(fireblaze)
 ```
 
 ```r
@@ -30,10 +26,10 @@ ui <- fluidPage(
 
 server <- function(input, output) {
 
-  g <- FireblazeGoogle$new()
+  g <- FireblazeSocial$new()
 
   observeEvent(input$signin, {
-    g$launch("redirect")
+    g$launch_google("redirect")
   })
 
 
