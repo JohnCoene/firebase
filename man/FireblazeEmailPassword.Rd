@@ -9,11 +9,19 @@ Use fireblaze to manage authentications.
 \section{Super class}{
 \code{\link[fireblaze:Fireblaze]{fireblaze::Fireblaze}} -> \code{FireblazeEmailPassword}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{created}}{Results of account creation}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-create}{\code{FireblazeEmailPassword$create()}}
 \item \href{#method-sign_in}{\code{FireblazeEmailPassword$sign_in()}}
+\item \href{#method-get_created}{\code{FireblazeEmailPassword$get_created()}}
 \item \href{#method-clone}{\code{FireblazeEmailPassword$clone()}}
 }
 }
@@ -73,6 +81,19 @@ Sign in with email
 \subsection{Returns}{
 \code{NULL} if successful, the error otherwise.
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_created"></a>}}
+\if{latex}{\out{\hypertarget{method-get_created}{}}}
+\subsection{Method \code{get_created()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeEmailPassword$get_created()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get account creation results
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

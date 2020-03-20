@@ -4,7 +4,7 @@
 \alias{create_config}
 \title{Config}
 \usage{
-create_config(api_key, project_id, auth_domain = NULL)
+create_config(api_key, project_id, auth_domain = NULL, overwrite = FALSE)
 }
 \arguments{
 \item{api_key}{API key of your project.}
@@ -13,6 +13,8 @@ create_config(api_key, project_id, auth_domain = NULL)
 
 \item{auth_domain}{Authentication domain, if omitted uses,
 attempts to build firebase's default domain.}
+
+\item{overwrite}{Whether to overwrite any existing configuration file.}
 }
 \value{
 Path to file.

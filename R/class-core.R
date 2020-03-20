@@ -17,7 +17,7 @@ Fireblaze <- R6::R6Class(
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
     initialize = function(persistence = c("session", "none", "local"), config_path = "fireblaze.rds", session = shiny::getDefaultReactiveDomain()){
       # check that config is present
-      config_exists(config_path)
+      stopifno_config(config_path)
 
       self$session <- session
 

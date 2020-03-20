@@ -1,12 +1,12 @@
 // global variables
-var ui,
-    initialised = false;
+var ui;
+window.initialised = false;
 
 // Initialise
 Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
-  if(!initialised){
-    // initialize
+  if(!window.initialised){
+    // initwindow.initialisedialize
     firebase.initializeApp(msg.conf);
 
     // set persistence

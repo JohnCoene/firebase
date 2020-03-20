@@ -6,13 +6,14 @@
 #' @param project_id Id of your web project.
 #' @param auth_domain Authentication domain, if omitted uses,
 #' attempts to build firebase's default domain. 
+#' @param overwrite Whether to overwrite any existing configuration file.
 #' 
 #' @details Do not share this file with anyone.
 #' 
 #' @return Path to file.
 #' 
 #' @export
-create_config <- function(api_key, project_id, auth_domain = NULL){
+create_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
 
   if(missing(api_key) || missing(project_id) )
     stop("Missing `api_key`, or `project_id`", call. = FALSE)
@@ -27,6 +28,16 @@ create_config <- function(api_key, project_id, auth_domain = NULL){
     authDomain = .enc(auth_domain),
     projectId = .enc(project_id)
   )
+
+  # check if file exists
+  exists <- has_config(config_file)
+  if(exists && overwrite)
+    cli::cli_alert_warning("Overwriting existing config file.")
+
+  if(exists && !overwrite){
+    cli::cli_alert_danger("Config file already exists, see `overwrite` argument.")
+    return(invisible())
+  }
 
   saveRDS(lst, file = config_file)
 
@@ -48,7 +59,7 @@ read_config <- function(path){
   if(missing(path))
     stop("Missing `path`", call. = FALSE)
 
-  config_exists(path)
+  stopifno_config(path)
 
   config <- readRDS(path)
   config <- lapply(config, .dec)
@@ -59,13 +70,21 @@ read_config <- function(path){
 
 #' @rdname read_config
 #' @keywords internal
-config_exists <- function(path){
-  has_it <- file.exists(path)
+stopifno_config <- function(path){
+  has_it <- has_config(path)
 
   if(!has_it)
     stop("Cannot find configuration file, see `create_config`", call. = FALSE)
 
   invisible()
+}
+
+#' @rdname read_config
+#' @keywords internal
+has_config <- function(path){
+  has_it <- file.exists(path)
+
+  has_it
 }
 
 #' Encryption

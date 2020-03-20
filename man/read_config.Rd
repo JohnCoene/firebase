@@ -2,12 +2,15 @@
 % Please edit documentation in R/config.R
 \name{read_config}
 \alias{read_config}
-\alias{config_exists}
+\alias{stopifno_config}
+\alias{has_config}
 \title{Config Internal}
 \usage{
 read_config(path)
 
-config_exists(path)
+stopifno_config(path)
+
+has_config(path)
 }
 \arguments{
 \item{path}{Path to config file}

@@ -40,6 +40,24 @@ FireblazeEmailPassword <- R6::R6Class(
       results <- super$get_input("signin_email_password")
       
       invisible(results$response)
+    },
+#' @details Get account creation results
+    get_created = function(){
+      created <- super$get_input("created_email_user")
+      private$.created <- created
+      return(created)
     }
+  ),
+  active = list(
+#' @field created Results of account creation 
+    created = function(value){
+      if(!missing(value))
+        stop("This field is read-only.", call. = FALSE)
+
+      return(private$created)
+    }
+  ),
+  private = list(
+    .created = NULL
   )
 )
