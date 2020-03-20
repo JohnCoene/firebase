@@ -4,3 +4,31 @@ template:
   params:
     bootswatch: paper
     ganalytics: UA-74544116-1
+
+navbar:
+  title: "echarts4r"
+  left:
+    - icon: fa-home
+      href: index.html
+    - icon: fa-balance-scale
+      href: LICENSE.html
+    - icon: fa-newspaper-o
+      href: news/index.html
+    - icon: fa-code
+      href: "reference/"
+    - icon: fa-rocket
+      text: "Get Started"
+      href: articles/get-started.html
+    - text: "Methods"
+      menu: 
+        - text: "Prebuilt UI"
+          href: articles/ui.html
+        - text: "Social Login"
+          href: articles/social.html
+        - text: "Email & Password"
+          href: articles/email-password.html
+        - text: "Email Link"
+          href: articles/email-link.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/JohnCoene/fireblaze

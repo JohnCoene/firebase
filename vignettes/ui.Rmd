@@ -14,38 +14,126 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(fireblaze)
-```
+The easiest way to provide Shiny authentication with {fireblaze} is probably using the prebuilt UI put together by Google itself.
 
-1. Import the dependencies with `use_firebase` including the UI dependencies.
-2. Use the `Fireblaze` object to initialise a `new` instance.
-3. Define the providers you want to use (e.g.: Facebook and Google), with `set_providers`.
-4. `launch` the sign-in model.
-5. Pick up sign-ins with `get_signed_in`.
+## Introduction
+
+We first configure the UI to include the sign-in services we want to enable, we launch the authentication service (together with the UI), then observe the user's interactions with the UI; sign-up success or failure.
+
+## Example
+
+To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `use_fireblaze` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies.
 
 ```r
 library(shiny)
 library(fireblaze)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE),
+  use_fireblaze(ui = TRUE) # import dependencies
+)
+
+server <- function(input, output){}
+
+shinyApp(ui, server)
+```
+
+Next we will instantiate the authentication service. We do so by calling the `new` method on the `FireblazeUI` object.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE) # import dependencies
+)
+
+server <- function(input, output){
+  f <- FireblazeUI$new() # instantiate
+}
+
+shinyApp(ui, server)
+```
+
+Using that object `f` we just created we can configure our sign-up/sign-in options. There is but one compulsory setting; define the providers the user can use to sign-in. If you followed the [get started guide](get-started.html) you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to `TRUE` the respective providers using the `set_providers` method.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE) # import dependencies
+)
+
+server <- function(input, output){
+  f <- FireblazeUI$
+    new()$ # instantiate
+    set_providers( # define providers
+      email = TRUE, 
+      google = TRUE
+    )
+}
+
+shinyApp(ui, server)
+```
+
+That is it for the compulsory options, you won't be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app opens, all up to you. We'll go with the latter.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE) # import dependencies
+)
+
+server <- function(input, output){
+  f <- FireblazeUI$
+    new()$ # instantiate
+    set_providers( # define providers
+      email = TRUE, 
+      google = TRUE
+    )$
+    launch() # launch
+}
+
+shinyApp(ui, server)
+```
+
+Now if you run the app you should be presented with a login screen! You can go ahead and login if you want to try. But keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete your user. 
+
+![Users signed up - delete or add from the console](fireblaze_users.png)
+
+Notice the warning in the console; this should be fixed when deploying to prod.
+
+```r
+#> Warning: Missing Terms of Service and/or Privacy policy URL, see `set_tos_url` and `set_privacy_policy_url` methods
+```
+
+You can then pick up the signed in user with the method `get_signed_in`. Below we print the users' "display name" once signed in.
+
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE), # import dependencies
   uiOutput("username")
 )
 
 server <- function(input, output){
-  # set up
   f <- FireblazeUI$
-    new()$
-    set_providers(email = TRUE)$
-    launch(account_helper = FALSE)
+    new()$ # instantiate
+    set_providers( # define providers
+      email = TRUE, 
+      google = TRUE
+    )$
+    launch() # launch
 
   # render signed in username
   output$username <- renderUI({
     user <- f$get_signed_in()
     h2(user$user$displayName)
   })
-  
 }
 
 shinyApp(ui, server)

@@ -10,14 +10,6 @@
 
 Shiny authentication with [Google Firebase](https://firebase.google.com).
 
-## Config
-
-Create a secure config fil, this will be saved in your working directory.
-
-```r
-create_config(api_key = "xXXxxX", project_id = "my-project-name")
-```
-
 ## Install
 
 Install from Github using remotes:

@@ -112,7 +112,7 @@ Defines Privacy Policy URL
 \if{latex}{\out{\hypertarget{method-launch}{}}}
 \subsection{Method \code{launch()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$launch(flow = c("popup", "redirect"), account_helper = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeUI$launch(flow = c("popup", "redirect"), account_helper = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

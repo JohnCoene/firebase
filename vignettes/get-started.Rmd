@@ -16,6 +16,14 @@ knitr::opts_chunk$set(
 
 The fireblazer package lets you create mechanism to authenticate Shiny user. It does so by integrate the similar sounding [firebase](https://firebase.google.com/) interface by Google. This raises a first question, is it free? The answer to which is, this package only features the free functionalities: this probably fulfils  most Shiny developers' needs. 
 
+<div class="alert alert-dismissible alert-success">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<h4>Skip ahead?</h4>
+<p style="color:white;">In this first section we create a <a href="https://firebase.google.com" class="alert-link">Google Firebase</a> project, if you know how to do this or already have one, skip to the <a href="#configuration">package configuration section.</a>.</p>
+</div>
+
+## Credentials
+
 However, since it uses Google services you will need a Google account and setup a firebase account; head to [firebase.google.com](https://firebase.google.com/), and set up you account. Once this done you will be presented with the screen below.
 
 ![](fireblaze_home.png)
@@ -40,5 +48,26 @@ This screen lets you set-up which authentication methods you want to provide. So
 
 ![](fireblaze_google.png)
 
-Fill the form as you wish, don't forget to toggle "enable" like I did above.
+Fill the form as you wish, don't forget to toggle "enable" unlike I did above.
 
+## Configuration
+
+At this point you will need the R package, install it from Github if you have not already.
+
+```r
+remotes::install_github("JohnCoene/fireblaze")
+```
+
+After this you should be done, with a project created. If you are not taken to the credentials page, navigate to it:
+
+1. Click the gear icon <i class="fa fa-cog"></i> in the top left.
+2. Click "project settings"
+3. Scroll to the bottom of the "General" tab to find your app credentials.
+
+In there you should find two key things `apiKey` and `projectId`. We will need these to create config file for {fireblaze}: the function below creates a `fireblaze.rds` file in your working directory. 
+
+```r
+fireblaze::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
+```
+
+This file is necessary for every project that uses {fireblaze}; it will look for it in the working directory by default.

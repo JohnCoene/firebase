@@ -20,6 +20,8 @@ Use fireblaze to manage authentications.
 \item{\code{signed_in}}{Read the signed in user.}
 
 \item{\code{signed_up}}{Read the signed in user.}
+
+\item{\code{signed_in_success}}{Whether the user has signed in successfully.}
 }
 \if{html}{\out{</div>}}
 }

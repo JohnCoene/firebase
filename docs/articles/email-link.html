@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>get-started • fireblaze</title>
+<title>Email Link • fireblaze</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="get-started">
+<meta property="og:title" content="Email Link">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -114,75 +114,62 @@
 
       
 
-      </header><script src="get-started_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="email-link_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>get-started</h1>
+      <h1>Email Link</h1>
             
       
       
-      <div class="hidden name"><code>get-started.Rmd</code></div>
+      <div class="hidden name"><code>email-link.Rmd</code></div>
 
     </div>
 
     
     
-<p>The fireblazer package lets you create mechanism to authenticate Shiny user. It does so by integrate the similar sounding <a href="https://firebase.google.com/">firebase</a> interface by Google. This raises a first question, is it free? The answer to which is, this package only features the free functionalities: this probably fulfils most Shiny developers’ needs.</p>
-<div class="alert alert-dismissible alert-success">
-<button type="button" class="close" data-dismiss="alert">
-×
-</button>
-<h4>
-Skip ahead?
-</h4>
-<p style="color:white;">
-In this first section we create a <a href="https://firebase.google.com" class="alert-link">Google Firebase</a> project, if you know how to do this or already have one, skip to the <a href="#configuration">package configuration section.</a>.
-</p>
-</div>
-<div id="credentials" class="section level2">
-<h2 class="hasAnchor">
-<a href="#credentials" class="anchor"></a>Credentials</h2>
-<p>However, since it uses Google services you will need a Google account and setup a firebase account; head to <a href="https://firebase.google.com/">firebase.google.com</a>, and set up you account. Once this done you will be presented with the screen below.</p>
-<p><img src="fireblaze_home.png"></p>
-<p>First step, hit that large white button reading “Create a Project,” and name your project.</p>
-<p><img src="fireblaze_step_1.png"></p>
-<p>Second step, either leave Google Analytics enabled or disable it. If you are confused, just disable it.</p>
-<p><img src="fireblaze_step_2.png"></p>
-<p>After that you should be done and eventually, after an intermediary screen, be presented with the project screen (below). Click the “web” icon, Shiny applications are web hosted, we are thus technically setting up a web project. Name said project, here we just name it <code>fireblaze-demo</code>.</p>
-<p><img src="fireblazer_project_setup1.png"></p>
-<p>On the next screen simply hit “Continue to console,” you should not be concerned with any of the code presented, fireblaze takes care of it for you. This will lead you straight into the project you have just created. Now visit “Authentication” the left sidebar then click the most prominent button that reads “Set up sign-in method.”</p>
-<p><img src="fireblaze_signin_method.png"></p>
-<p>This screen lets you set-up which authentication methods you want to provide. Some are very straightforward, others need to be integrated with third-party services, all of which are very straightforward. However, we will begin by enabling two simple authentication methods: email, and Google. Click Email/password then the first enable button at the top. We will cover the second option later one. The first, which you should enable, will require the user to enter their email and password, the second, will, upon entering their email addresses send them a a sign-in link via email, thereby removing the need for a password. You can leave it at that if you want to but we will also allow users to sign up/in using Google. The reason we pick Google for this demo is that it is very easy to enable.</p>
-<p><img src="fireblaze_google.png"></p>
-<p>Fill the form as you wish, don’t forget to toggle “enable” unlike I did above.</p>
-</div>
-<div id="configuration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#configuration" class="anchor"></a>Configuration</h2>
-<p>At this point you will need the R package, install it from Github if you have not already.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"JohnCoene/fireblaze"</span>)</span></code></pre></div>
-<p>After this you should be done, with a project created. If you are not taken to the credentials page, navigate to it:</p>
-<ol style="list-style-type: decimal">
-<li>Click the gear icon <i class="fa fa-cog"></i> in the top left.</li>
-<li>Click “project settings”</li>
-<li>Scroll to the bottom of the “General” tab to find your app credentials.</li>
-</ol>
-<p>In there you should find two key things <code>apiKey</code> and <code>projectId</code>. We will need these to create config file for {fireblaze}: the function below creates a <code>fireblaze.rds</code> file in your working directory.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>fireblaze<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/fireblaze/man/create_config.html">create_config</a></span>(<span class="dt">api_key =</span> <span class="st">"xXxxXxx"</span>, <span class="dt">project_id =</span> <span class="st">"my-project-package"</span>)</span></code></pre></div>
-<p>This file is necessary for every project that uses {fireblaze}; it will look for it in the working directory by default.</p>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">shiny.port =</span> <span class="dv">3000</span>) </span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(),</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(<span class="st">"email"</span>, <span class="st">"Your email"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"submit"</span>, <span class="st">"Submit"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>  f &lt;-<span class="st"> </span>FireblazeEmailLink<span class="op">$</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="st">    </span><span class="kw">config</span>(<span class="dt">url =</span> <span class="st">"http://127.0.0.1:3000"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>submit, {</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="cf">if</span>(input<span class="op">$</span>email <span class="op">==</span><span class="st"> ""</span>)</span>
+<span id="cb2-20"><a href="#cb2-20"></a>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>()</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    </span>
+<span id="cb2-22"><a href="#cb2-22"></a>    f<span class="op">$</span><span class="kw">send</span>(input<span class="op">$</span>email)</span>
+<span id="cb2-23"><a href="#cb2-23"></a>  })</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_sent</span>(), {</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    sent &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_email_sent</span>()</span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="cf">if</span>(sent<span class="op">$</span>success)</span>
+<span id="cb2-29"><a href="#cb2-29"></a>      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span>(<span class="st">"Email sent"</span>, <span class="dt">type =</span> <span class="st">"message"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30"></a>  })</span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>(), {</span>
+<span id="cb2-33"><a href="#cb2-33"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>())</span>
+<span id="cb2-34"><a href="#cb2-34"></a>  })</span>
+<span id="cb2-35"><a href="#cb2-35"></a></span>
+<span id="cb2-36"><a href="#cb2-36"></a>}</span>
+<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#credentials">Credentials</a></li>
-      <li><a href="#configuration">Configuration</a></li>
-      </ul>
-</div>
       </div>
 
 </div>

@@ -90,37 +90,64 @@ Email Link" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../LICENSE.html">
+    <span class="fa fa-balance-scale"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="../news/index.html">
+    <span class="fa fa-newspaper-o"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="../reference/">
+    <span class="fa fa-code"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="../articles/get-started.html">
+    <span class="fa fa-rocket"></span>
+     
+    Get Started
+  </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Methods
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/ui.html">Prebuilt UI</a>
+    </li>
+    <li>
+      <a href="../articles/social.html">Social Login</a>
+    </li>
+    <li>
       <a href="../articles/email-password.html">Email &amp; Password</a>
     </li>
     <li>
-      <a href="../articles/get-started.html">get-started</a>
-    </li>
-    <li>
-      <a href="../articles/social.html">Social Sites</a>
-    </li>
-    <li>
-      <a href="../articles/ui.html">Prebuilt UI</a>
+      <a href="../articles/email-link.html">Email Link</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/JohnCoene/fireblaze">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -149,6 +176,14 @@ Email Link" />
     <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
 
     <p><code><a href='Fireblaze.html'>fireblaze::Fireblaze</a></code> -&gt; <code>FireblazeEmailLink</code></p>
+    <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
+
+    <p><div class="r6-active-bindings"></p><dl class='dl-horizontal'>
+<dt><code>email_verification</code></dt><dd><p>Email verification results</p></dd>
+
+<dt><code>email_sent</code></dt><dd><p>Email send results</p></dd>
+
+</dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
@@ -157,7 +192,9 @@ Email Link" />
 <ul>
 <li><p><a href='#method-config'><code>FireblazeEmailLink$config()</code></a></p></li>
 <li><p><a href='#method-send'><code>FireblazeEmailLink$send()</code></a></p></li>
+<li><p><a href='#method-verify'><code>FireblazeEmailLink$verify()</code></a></p></li>
 <li><p><a href='#method-get_email_sent'><code>FireblazeEmailLink$get_email_sent()</code></a></p></li>
+<li><p><a href='#method-get_email_verification'><code>FireblazeEmailLink$get_email_verification()</code></a></p></li>
 <li><p><a href='#method-clone'><code>FireblazeEmailLink$clone()</code></a></p></li>
 </ul>
 <p><details open ><summary>Inherited methods</summary>
@@ -204,13 +241,31 @@ Likely, your shiny application link.</p></dd>
 <p>Send email verification link.</p>
 
 <p><hr>
+<a id="method-verify"></a></p><h3>Method <code>verify()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FireblazeEmailLink$verify()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Verifies user came from email link.</p>
+
+<p><hr>
 <a id="method-get_email_sent"></a></p><h3>Method <code>get_email_sent()</code></h3>
 
 <h3>Usage</h3>
 <p><div class="r"></p><pre>FireblazeEmailLink$get_email_sent()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Get Whether email verification was correctly sent.</p>
+<p>Get whether email verification was correctly sent.</p>
+
+<p><hr>
+<a id="method-get_email_verification"></a></p><h3>Method <code>get_email_verification()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FireblazeEmailLink$get_email_verification()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get whether email verification was correctly sent.</p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
@@ -230,6 +285,7 @@ Likely, your shiny application link.</p></dd>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#super-class">Super class</a></li>
+      <li><a href="#active-bindings">Active bindings</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>
 

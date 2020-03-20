@@ -53,7 +53,7 @@ FireblazeUI <- R6::R6Class(
 #' the user will be redirected to the accountchooser.com website and will be able to select 
 #' one of their saved accounts. You can disable it by specifying the value below. 
 #' @param ... Any other option to pass to Firebase UI.
-    launch = function(flow = c("popup", "redirect"), account_helper = TRUE){
+    launch = function(flow = c("popup", "redirect"), account_helper = FALSE){
       
       # check if fireblze correctly setup
       check_providers(private$providers_set)

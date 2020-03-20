@@ -36,6 +36,7 @@ Fireblaze <- R6::R6Class(
     get_signed_in = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user$user
+      private$.user_signed_in_success <- user$signed_in
       invisible(user)
     },
 #' @details Signed up user details triggered explicitely by user (e.g.: on click)
@@ -67,6 +68,13 @@ Fireblaze <- R6::R6Class(
         stop("This field is read-only.", call. = FALSE)
 
       return(private$.user_signed_up)
+    },
+#' @field signed_in_success Whether the user has signed in successfully.
+    signed_in_success = function(value){
+      if(!missing(value))
+        stop("This field is read-only.", call. = FALSE)
+
+      return(private$.user_signed_in_success)
     }
   ),
   private = list(
@@ -78,7 +86,8 @@ Fireblaze <- R6::R6Class(
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]
     },
-    .user_signed_in = NULL,
+    .user_signed_in = list(signed_in = FALSE, user = NULL),
+    .user_signed_in_success = FALSE,
     .user_sign_up = NULL,
     .language_code = NULL
   )
