@@ -11,12 +11,23 @@ Email Link
 \section{Super class}{
 \code{\link[fireblaze:Fireblaze]{fireblaze::Fireblaze}} -> \code{FireblazeEmailLink}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{email_verification}}{Email verification results}
+
+\item{\code{email_sent}}{Email send results}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-config}{\code{FireblazeEmailLink$config()}}
 \item \href{#method-send}{\code{FireblazeEmailLink$send()}}
+\item \href{#method-verify}{\code{FireblazeEmailLink$verify()}}
 \item \href{#method-get_email_sent}{\code{FireblazeEmailLink$get_email_sent()}}
+\item \href{#method-get_email_verification}{\code{FireblazeEmailLink$get_email_verification()}}
 \item \href{#method-clone}{\code{FireblazeEmailLink$clone()}}
 }
 }
@@ -77,6 +88,19 @@ Send email verification link.
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-verify"></a>}}
+\if{latex}{\out{\hypertarget{method-verify}{}}}
+\subsection{Method \code{verify()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeEmailLink$verify()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Verifies user came from email link.
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_email_sent"></a>}}
 \if{latex}{\out{\hypertarget{method-get_email_sent}{}}}
 \subsection{Method \code{get_email_sent()}}{
@@ -85,7 +109,20 @@ Send email verification link.
 }
 
 \subsection{Details}{
-Get Whether email verification was correctly sent.
+Get whether email verification was correctly sent.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_email_verification"></a>}}
+\if{latex}{\out{\hypertarget{method-get_email_verification}{}}}
+\subsection{Method \code{get_email_verification()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FireblazeEmailLink$get_email_verification()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get whether email verification was correctly sent.
 }
 
 }

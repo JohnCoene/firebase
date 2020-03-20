@@ -1,12 +1,26 @@
 // global variables
 var ui;
-window.initialised = false;
+
+window.state = {
+  initialised: false,
+  update() {
+    console.log(`Fireblaze initialized: ${this.initialised}`);
+  },
+  get pageNumber() {
+    return this.initialised;
+  },
+  set pageNumber(init) {
+    this.initialised = init;
+    this.update(this.initialised);
+  }
+};
 
 // Initialise
 Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
-  if(!window.initialised){
-    // initwindow.initialisedialize
+  if(!window.state.initialised){
+    window.state.initialised = true;
+    // init
     firebase.initializeApp(msg.conf);
 
     // set persistence
@@ -20,6 +34,29 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
         Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: false, user: null});
       }
     });
+
+    // check email verification link
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      // Additional state parameters can also be passed via URL.
+      // This can be used to continue the user's intended action before triggering
+      // the sign-in operation.
+      // Get the email if available. This should be available if the user completes
+      // the flow on the same device where they started it.
+      var email = window.localStorage.getItem('fireblazeEmailSignIn');
+      if (!email) {
+        console.log("no email verification link found");
+        Shiny.setInputValue('fireblaze_' + 'email_verification', {success: false, response: "Cannot find email"});
+      }
+      // The client SDK will parse the code from the link for you.
+      firebase.auth().signInWithEmailLink(email, window.location.href)
+        .then(function(result) {
+          window.localStorage.removeItem('fireblazeEmailSignIn');
+          Shiny.setInputValue('fireblaze_' + 'email_verification', {success: true, response: result});
+        })
+        .catch(function(error) {
+          Shiny.setInputValue('fireblaze_' + 'email_verification', {success: false, response: error});
+        });
+    }
 
   }
 

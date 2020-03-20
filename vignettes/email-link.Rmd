@@ -1,0 +1,60 @@
+---
+title: "Email Link"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Email Link}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fireblaze)
+```
+
+```r
+library(shiny)
+library(fireblaze)
+
+options(shiny.port = 3000) 
+
+ui <- fluidPage(
+  use_fireblaze(),
+  textInput("email", "Your email"),
+  actionButton("submit", "Submit")
+)
+
+server <- function(input, output){
+
+  f <- FireblazeEmailLink$
+    new()$
+    config(url = "http://127.0.0.1:3000")
+
+  observeEvent(input$submit, {
+    if(input$email == "")
+      return()
+    
+    f$send(input$email)
+  })
+
+  observeEvent(f$get_email_sent(), {
+    sent <- f$get_email_sent()
+
+    if(sent$success)
+      showNotification("Email sent", type = "message")
+  })
+
+  observeEvent(f$get_email_verification(), {
+    print(f$get_email_verification())
+  })
+
+}
+
+shinyApp(ui, server)
+```
