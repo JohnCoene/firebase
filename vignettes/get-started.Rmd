@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The fireblazer package lets you create mechanism to authenticate Shiny user. It does so by integrate the similar sounding [firebase](https://firebase.google.com/) interface by Google. This raises a first question, is it free? The answer to which is, this package only features the free functionalities: this probably fulfils  most Shiny developers' needs. 
+The {fireblaze} package lets you create mechanisms to authenticate Shiny user. It does so by wrapping the similar sounding [firebase](https://firebase.google.com/) interface by Google. This raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers' needs. 
 
 <div class="alert alert-dismissible alert-success">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -22,9 +22,9 @@ The fireblazer package lets you create mechanism to authenticate Shiny user. It 
 <p style="color:white;">In this first section we create a <a href="https://firebase.google.com" class="alert-link">Google Firebase</a> project, if you know how to do this or already have one, skip to the <a href="#configuration">package configuration section.</a>.</p>
 </div>
 
-## Credentials
+## Firebase Project
 
-However, since it uses Google services you will need a Google account and setup a firebase account; head to [firebase.google.com](https://firebase.google.com/), and set up you account. Once this done you will be presented with the screen below.
+First, create a Google firebase account if you do not already have one; head to [firebase.google.com](https://firebase.google.com/), and set up you account. Once this done you will be presented with the screen below.
 
 ![](fireblaze_home.png)
 
@@ -32,11 +32,15 @@ First step, hit that large white button reading "Create a Project," and name you
 
 ![](fireblaze_step_1.png)
 
-Second step, either leave Google Analytics enabled or disable it. If you are confused, just disable it.
+Second step, either leave Google Analytics enabled to integrate your project with it or disable it. If confused, disable it, this can always be enabled later.
 
 ![](fireblaze_step_2.png)
 
-After that you should be done and eventually, after an intermediary screen, be presented with the project screen (below). Click the "web" icon, Shiny applications are web hosted, we are thus technically setting up a web project. Name said project, here we just name it `fireblaze-demo`.
+After that you should be done and eventually, after an intermediary screen, be presented with the project screen (below). Click the "web" icon (highlighted in red), Shiny applications are web hosted, we are thus technically setting up a web project. 
+
+![](fireblaze_project.png)
+
+On the next screen name your project, here we just name it `fireblaze-demo`. Then hit "Register app".
 
 ![](fireblazer_project_setup1.png)
 
@@ -44,21 +48,23 @@ On the next screen simply hit "Continue to console," you should not be concerned
 
 ![](fireblaze_signin_method.png)
 
-This screen lets you set-up which authentication methods you want to provide. Some are very straightforward, others need to be integrated with third-party services, all of which are very straightforward. However, we will begin by enabling two simple authentication methods: email, and Google. Click Email/password then the first enable button at the top. We will cover the second option later one. The first, which you should enable, will require the user to enter their email and password, the second, will, upon entering their email addresses send them a a sign-in link via email, thereby removing the need for a password. You can leave it at that if you want to but we will also allow users to sign up/in using Google. The reason we pick Google for this demo is that it is very easy to enable.
+This screen lets you set-up which authentication methods you want to provide. Some only require a click, others need to be integrated with third-party services, all of which are very straightforward. However, we will begin by enabling two very simple authentication methods: email & password, and Google. This is will let users sign in by entering their email and password or using their Google account.
+
+Click Email/password then the first enable button at the top. We will cover the second option later on. The first will require the user to enter their email and password, the second will users a sign-in link via email, thereby removing the need for a password. Then enable Google.
 
 ![](fireblaze_google.png)
 
-Fill the form as you wish, don't forget to toggle "enable" unlike I did above.
+Fill the form as you wish, don't forget to toggle "enable" unlike I did above, and click save.
 
 ## Configuration
 
-At this point you will need the R package, install it from Github if you have not already.
+At this point you will need the R package, install it from Github if you haven't already done so.
 
 ```r
 remotes::install_github("JohnCoene/fireblaze")
 ```
 
-After this you should be done, with a project created. If you are not taken to the credentials page, navigate to it:
+Navigate to your credentials page:
 
 1. Click the gear icon <i class="fa fa-cog"></i> in the top left.
 2. Click "project settings"
@@ -70,4 +76,4 @@ In there you should find two key things `apiKey` and `projectId`. We will need t
 fireblaze::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
 ```
 
-This file is necessary for every project that uses {fireblaze}; it will look for it in the working directory by default.
+This file is necessary for every project that uses {fireblaze}; the package will look for it in the working directory by default.

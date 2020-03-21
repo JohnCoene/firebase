@@ -22,7 +22,7 @@ We first configure the UI to include the sign-in services we want to enable, we 
 
 ## Example
 
-To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `use_fireblaze` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies.
+To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `use_fireblaze` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies., without it nothing will work.
 
 ```r
 library(shiny)
@@ -54,7 +54,7 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-Using that object `f` we just created we can configure our sign-up/sign-in options. There is but one compulsory setting; define the providers the user can use to sign-in. If you followed the [get started guide](get-started.html) you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to `TRUE` the respective providers using the `set_providers` method.
+Using that object `f` we just created we can configure our sign-up/sign-in options. There is but one mandatory setting; define the providers the user can use to sign-in. If you followed the [get started guide](get-started.html) you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to `TRUE` the respective providers using the `set_providers` method.
 
 ```r
 library(shiny)
@@ -76,7 +76,7 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-That is it for the compulsory options, you won't be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app opens, all up to you. We'll go with the latter.
+That is it for the mandatory options, you won't be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We'll go with the latter.
 
 ```r
 library(shiny)
@@ -99,7 +99,11 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-Now if you run the app you should be presented with a login screen! You can go ahead and login if you want to try. But keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete your user. 
+![](ui_simple.png)
+
+Now if you the app presents you with a login screen! 
+
+You can go ahead and login if you want to try but keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete yourself from the user list. 
 
 ![Users signed up - delete or add from the console](fireblaze_users.png)
 

@@ -136,7 +136,7 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>use_fireblaze</code> in the Shiny UI, making sure to set the argument <code>ui</code> to <code>TRUE</code>. This imports the necessary dependencies.</p>
+<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>use_fireblaze</code> in the Shiny UI, making sure to set the argument <code>ui</code> to <code>TRUE</code>. This imports the necessary dependencies., without it nothing will work.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -160,7 +160,7 @@
 <span id="cb2-10"><a href="#cb2-10"></a>}</span>
 <span id="cb2-11"><a href="#cb2-11"></a></span>
 <span id="cb2-12"><a href="#cb2-12"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
-<p>Using that object <code>f</code> we just created we can configure our sign-up/sign-in options. There is but one compulsory setting; define the providers the user can use to sign-in. If you followed the <a href="get-started.html">get started guide</a> you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to <code>TRUE</code> the respective providers using the <code>set_providers</code> method.</p>
+<p>Using that object <code>f</code> we just created we can configure our sign-up/sign-in options. There is but one mandatory setting; define the providers the user can use to sign-in. If you followed the <a href="get-started.html">get started guide</a> you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to <code>TRUE</code> the respective providers using the <code>set_providers</code> method.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -178,7 +178,7 @@
 <span id="cb3-15"><a href="#cb3-15"></a>}</span>
 <span id="cb3-16"><a href="#cb3-16"></a></span>
 <span id="cb3-17"><a href="#cb3-17"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
-<p>That is it for the compulsory options, you won’t be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app opens, all up to you. We’ll go with the latter.</p>
+<p>That is it for the mandatory options, you won’t be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We’ll go with the latter.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -197,7 +197,9 @@
 <span id="cb4-16"><a href="#cb4-16"></a>}</span>
 <span id="cb4-17"><a href="#cb4-17"></a></span>
 <span id="cb4-18"><a href="#cb4-18"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
-<p>Now if you run the app you should be presented with a login screen! You can go ahead and login if you want to try. But keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete your user.</p>
+<p><img src="ui_simple.png"></p>
+<p>Now if you the app presents you with a login screen!</p>
+<p>You can go ahead and login if you want to try but keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete yourself from the user list.</p>
 <div class="figure">
 <img src="fireblaze_users.png" alt=""><p class="caption">Users signed up - delete or add from the console</p>
 </div>
