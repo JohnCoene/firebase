@@ -31,7 +31,7 @@ Shiny.addCustomMessageHandler('fireblaze-google-sign-in-redirect', function(msg)
 
 // FACEBOOK
 Shiny.addCustomMessageHandler('fireblaze-facebook-scope', function(msg) {
-  google.addScope(msg);
+  facebook.addScope(msg);
 });
 
 Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-popup', function(msg) {
@@ -56,7 +56,7 @@ Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-redirect', function(ms
 
 // GITHUB
 Shiny.addCustomMessageHandler('fireblaze-github-scope', function(msg) {
-  google.addScope(msg);
+  github.addScope(msg);
 });
 
 Shiny.addCustomMessageHandler('fireblaze-github-sign-in-popup', function(msg) {
@@ -81,7 +81,7 @@ Shiny.addCustomMessageHandler('fireblaze-github-sign-in-redirect', function(msg)
 
 // TWITTER
 Shiny.addCustomMessageHandler('fireblaze-twitter-scope', function(msg) {
-  google.addScope(msg);
+  twitter.addScope(msg);
 });
 
 Shiny.addCustomMessageHandler('fireblaze-twitter-sign-in-popup', function(msg) {

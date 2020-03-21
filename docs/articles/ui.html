@@ -210,10 +210,9 @@
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>Finally, we currently provide a sign-in method but we do not do anything with it. Generally, we will need to block of hide all or the parts of the app that requires sign-in. There are two ways to go about this, 1) an insecure way in which we hide the UI elements before the user signs in but the user could, with basic CSS, reveal those elements before signing in. 2) A more secure way in which one waits for the user to sign in to render certain elements.</p>
 <p>The first happens UI-side and is very easy to implement, the second happens server-side.</p>
-</div>
-<div id="ui" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ui" class="anchor"></a>UI</h2>
+<div id="ui" class="section level3">
+<h3 class="hasAnchor">
+<a href="#ui" class="anchor"></a>UI</h3>
 <p>Rather straightforward but might not work for all elements. Use <code>reqSignin</code> to wrap UI elements that require sign in. Below we wrap some text and a plot, only signed in users can see them.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
@@ -243,9 +242,9 @@
 <span id="cb6-26"><a href="#cb6-26"></a></span>
 <span id="cb6-27"><a href="#cb6-27"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
 </div>
-<div id="server" class="section level2">
-<h2 class="hasAnchor">
-<a href="#server" class="anchor"></a>Server</h2>
+<div id="server" class="section level3">
+<h3 class="hasAnchor">
+<a href="#server" class="anchor"></a>Server</h3>
 <p>Server-side you can either manually check that the user has signed in with the <code>is_signed_in</code> method, which returns <code>TRUE</code> if a user is signed in and <code>FALSE</code> otherwise. Or you can use the convenient <code>req_sign_in</code> in your outputs make sign in required for them.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
@@ -274,6 +273,7 @@
 <span id="cb7-25"><a href="#cb7-25"></a></span>
 <span id="cb7-26"><a href="#cb7-26"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
 </div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -284,8 +284,6 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
       <li><a href="#usage">Usage</a></li>
-      <li><a href="#ui">UI</a></li>
-      <li><a href="#server">Server</a></li>
       </ul>
 </div>
       </div>

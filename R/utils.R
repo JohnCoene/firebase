@@ -43,20 +43,3 @@ check_urls <- function(fireblaze_ui){
 
   invisible()
 }
-
-#' Launch Social Providers
-#' 
-#' Convenience function to "send" data to JavaScript; launch social providers.
-#' 
-#' @param super Super class \code{\link{Fireblaze}}.
-#' @param social Social site, google, facebook, twitter, or github.
-#' @param flow Flow to use, popup or redirect.
-#' 
-#' @keywords internal
-launch_social <- function(super, social, flow = c("popup", "redirect")){
-
-  call <- paste0(social, "-sign-in-", flow)
-  super$send(call, list())
-
-  invisible()
-}

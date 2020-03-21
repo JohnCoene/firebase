@@ -118,7 +118,7 @@ Finally, we currently provide a sign-in method but we do not do anything with it
 
 The first happens UI-side and is very easy to implement, the second happens server-side.
 
-## UI
+### UI
 
 Rather straightforward but might not work for all elements. Use `reqSignin` to wrap UI elements that require sign in. Below we wrap some text and a plot, only signed in users can see them.
 
@@ -152,7 +152,7 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-## Server
+### Server
 
 Server-side you can either manually check that the user has signed in with the `is_signed_in` method, which returns `TRUE` if a user is signed in and `FALSE` otherwise. Or you can use the convenient `req_sign_in` in your outputs make sign in required for them.
 

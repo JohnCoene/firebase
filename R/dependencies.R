@@ -30,7 +30,7 @@ use_fireblaze <- function(analytics = TRUE, firestore = FALSE){
       tags$script(src = "fireblaze/core.js"),
       tags$script(src = "fireblaze/email-password.js"),
       tags$script(src = "fireblaze/email-link.js"),
-      tags$script(src = "fireblaze/providers.js")
+      tags$script(src = "fireblaze/social.js")
     )
   )
 }
