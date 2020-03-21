@@ -1,9 +1,6 @@
-
-<div align="center">
-
-<img src="man/figures/logo.png" height="200px">
-
 Shiny authentication with [Google Firebase](https://firebase.google.com).
+
+<img src="logo.png" align="right" height="200px" />
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/JohnCoene/fireblaze.svg?branch=master)](https://travis-ci.org/JohnCoene/fireblaze)
@@ -11,10 +8,6 @@ Shiny authentication with [Google Firebase](https://firebase.google.com).
 ![R-CMD-check](https://github.com/JohnCoene/fireblaze/workflows/R-CMD-check/badge.svg)
 ![CircleCI](https://circleci.com/gh/JohnCoene/fireblaze.svg?style=svg&circle-token=676e32175ad244fa8f08f372537933b93dcd9762)
 <!-- badges: end -->
-
-[Website](https://fireblaze.john-coene.com)
-
-</div>
 
 ## Install
 
