@@ -6,5 +6,6 @@ articles:
   email-password: email-password.html
   get-started: get-started.html
   social: social.html
+  state-persistence: state-persistence.html
   ui: ui.html
 

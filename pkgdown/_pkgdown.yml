@@ -19,7 +19,7 @@ navbar:
     - icon: fa-rocket
       text: "Get Started"
       href: articles/get-started.html
-    - text: "Methods"
+    - text: "Authenticate"
       menu: 
         - text: "Prebuilt UI"
           href: articles/ui.html
@@ -29,6 +29,10 @@ navbar:
           href: articles/email-password.html
         - text: "Email Link"
           href: articles/email-link.html
+    - text: "Configure"
+      menu: 
+        - text: "State Persistence"
+          href: articles/state-persistence.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/JohnCoene/fireblaze

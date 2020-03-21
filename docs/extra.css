@@ -2,7 +2,7 @@
 
 body{
   font-family: 'Quicksand', sans-serif;
-  font-size: 170%;
+  font-size: 150%;
 }
 
 code{
@@ -22,6 +22,14 @@ pre {
     rgba(0, 0, 0, 0.1) 0 2px 3px 1px,
     rgba(0, 0, 0, 0.1) 0 1px 3px 1px,
     rgba(0, 0, 0, 0.2) 0 1px 1px -1px;
+}
+
+.blue__color{
+  color: #039be5;
+}
+
+.yellow__color{
+  color: #ffca28;
 }
 
 .navbar-default{

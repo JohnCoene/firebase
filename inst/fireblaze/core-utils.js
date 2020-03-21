@@ -6,7 +6,7 @@ function persistenceOpts(p){
   if(p == "none") opt = firebase.auth.Auth.Persistence.NONE;
   if(p == "local") opt = firebase.auth.Auth.Persistence.LOCAL;
 
-  return(opt)
+  return opt;
 
 }
 

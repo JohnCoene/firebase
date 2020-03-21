@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Started • fireblaze</title>
+<title>state-persistence • fireblaze</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Get Started">
+<meta property="og:title" content="state-persistence">
 <meta property="og:description" content="">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
@@ -133,81 +133,71 @@
 
       
 
-      </header><script src="get-started_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="state-persistence_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Get Started</h1>
+      <h1>state-persistence</h1>
             
       
       
-      <div class="hidden name"><code>get-started.Rmd</code></div>
+      <div class="hidden name"><code>state-persistence.Rmd</code></div>
 
     </div>
 
     
     
-<p>The {fireblaze} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the similar sounding <a href="https://firebase.google.com/">firebase</a> interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers’ needs.</p>
-<div class="alert alert-success">
-<h4>
-Skip ahead
-</h4>
-<p style="color:white;">
-In this first section we create a <a href="https://firebase.google.com" class="alert-link">Google Firebase</a> project, if you know how to do this or already have one, skip to the <a href="#configuration">package configuration section.</a>.
-</p>
-</div>
-<div id="create-a-project" class="section level2">
-<h2 class="hasAnchor">
-<a href="#create-a-project" class="anchor"></a>Create a Project</h2>
-<p>First, create a Google firebase account if you do not already have one; head to <a href="https://firebase.google.com/">firebase.google.com</a>, and set up your account. Once this done you will be presented with the screen below.</p>
-<p><img src="fireblaze_home.png"></p>
-<p>First step, hit that large white button reading “Create a project,” then give your project a name.</p>
-<p><img src="fireblaze_step_1.png"></p>
-<p>Second step, either leave Google Analytics enabled to integrate your project with it or disable it. If confused, disable it, this can always be enabled later.</p>
-<p><img src="fireblaze_step_2.png"></p>
-<p>After that you should be done and eventually, after an intermediary screen, be presented with the project screen (below). Click the “web” icon (highlighted in <span class="text-danger">red</span>).</p>
-<p><img src="fireblaze_project.png"></p>
-<p>On the next screen name your app, here we just name it <code>fireblaze-demo</code>. Then hit “Register app”. This might be confusing, a project will share sign-in users but may be comprised of different apps (iOS, web, etc.)</p>
-<p><img src="fireblazer_project_setup1.png"></p>
-<p>On the next screen simply hit “Continue to console,” you should not be concerned with any of the code presented, fireblaze takes care of it for you. This will lead you straight into the project you have just created.</p>
-</div>
-<div id="define-methods" class="section level2">
-<h2 class="hasAnchor">
-<a href="#define-methods" class="anchor"></a>Define Methods</h2>
-<p>Visit “Authentication” the left sidebar then click the most prominent button that reads “Set up sign-in method.”</p>
-<p><img src="fireblaze_signin_method.png"></p>
-<p>This screen lets you set-up which authentication methods you want to provide. Some only require a click, others need to be integrated with third-party services, all of which are very straightforward. We will begin with the easier ones: email &amp; password, and Google. This is will let users sign in by entering their email and password or using their Google account.</p>
-<p>Click Email/password then the first enable button at the top. We will cover the second option later on. The first will require the user to enter their email and password, the second will users a sign-in link via email, thereby removing the need for a password. Then enable Google (form below).</p>
-<p><img src="fireblaze_google.png"></p>
-<p>Fill the form as you see fit, don’t forget to toggle “enable” unlike I did above, and click save.</p>
-</div>
-<div id="configuration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#configuration" class="anchor"></a>Configuration</h2>
-<p>At this point you will need the R package, install it from Github if you haven’t already done so.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"JohnCoene/fireblaze"</span>)</span></code></pre></div>
-<p>Navigate to your credentials page:</p>
+<p>You can specify how the Authentication state persists. This includes the ability to specify whether a signed in user should be indefinitely persisted until explicit sign out, cleared when the window is closed or cleared on page reload.</p>
+<p>In Firebase, there are three options.</p>
 <ol style="list-style-type: decimal">
-<li>Click the gear icon <i class="fa fa-cog"></i> in the top left.</li>
-<li>Click “project settings”</li>
-<li>Scroll to the bottom of the “General” tab to find your app credentials.</li>
+<li>
+<code>local</code>- Indicates that the state will be persisted even when the browser window is closed or the activity is destroyed in React Native. An explicit sign out is needed to clear that state. Note that Firebase Auth web sessions are single host origin and will be persisted for a single domain only.</li>
+<li>
+<code>session</code> - Indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. Applies only to web apps.</li>
+<li>
+<code>none</code> (default) - Indicates that the state will only be stored in memory and will be cleared when the window or activity is refreshed.</li>
 </ol>
-<p>In there you should find two key things <code>apiKey</code> and <code>projectId</code>. We will need these to create config file for {fireblaze}: the function below creates a <code>fireblaze.rds</code> file in your working directory.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>fireblaze<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/fireblaze/man/create_config.html">create_config</a></span>(<span class="dt">api_key =</span> <span class="st">"xXxxXxx"</span>, <span class="dt">project_id =</span> <span class="st">"my-project-package"</span>)</span></code></pre></div>
-<p>This file is necessary for every project that uses {fireblaze}; the package will look for it in the working directory by default. Now that you are set up head over to the <a href="ui.html">prebuilt UI page</a> to learn how to sign up/in users with a neat prebuilt UI.</p>
-</div>
+<p>In fireblaze, you can modify state persistence with the <code>persistence</code> argument when instantiating the class with <code>new</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># define signin</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>signin &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/modalDialog.html">modalDialog</a></span>(</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="dt">title =</span> <span class="st">"Login"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"google"</span>, <span class="st">"Google"</span>, <span class="dt">icon =</span> <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"google"</span>), <span class="dt">class =</span> <span class="st">"btn-danger"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"github"</span>, <span class="st">"Github"</span>, <span class="dt">icon =</span> <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span>(<span class="st">"github"</span>)),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="dt">footer =</span> <span class="ot">NULL</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(),</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span>(<span class="st">"msg"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/showModal.html">showModal</a></span>(signin)</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  f &lt;-<span class="st"> </span>FireblazeSocial<span class="op">$</span><span class="kw">new</span>(<span class="dt">persistence =</span> <span class="st">"local"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>google, {</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    f<span class="op">$</span><span class="kw">launch_google</span>()</span>
+<span id="cb1-24"><a href="#cb1-24"></a>  })</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>github, {</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    f<span class="op">$</span><span class="kw">launch_github</span>()</span>
+<span id="cb1-28"><a href="#cb1-28"></a>  })</span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a>  output<span class="op">$</span>msg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span>({</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>()</span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h3</a></span>(<span class="st">"Welcome!"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34"></a>  })</span>
+<span id="cb1-35"><a href="#cb1-35"></a>}</span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#create-a-project">Create a Project</a></li>
-      <li><a href="#define-methods">Define Methods</a></li>
-      <li><a href="#configuration">Configuration</a></li>
-      </ul>
-</div>
       </div>
 
 </div>
