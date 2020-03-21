@@ -15,7 +15,7 @@ Fireblaze <- R6::R6Class(
 #' @param session A valid shiny session.
 #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-    initialize = function(persistence = c("session", "none", "local"), config_path = "fireblaze.rds", session = shiny::getDefaultReactiveDomain()){
+    initialize = function(persistence = c("none", "session", "local"), config_path = "fireblaze.rds", session = shiny::getDefaultReactiveDomain()){
       # check that config is present
       stopifno_config(config_path)
 
@@ -35,15 +35,26 @@ Fireblaze <- R6::R6Class(
 #' @details Signed in user details triggered when auth states changes
     get_signed_in = function(){
       user <- private$get_input("signed_in_user")
-      private$.user_signed_in <- user$user
-      private$.user_signed_in_success <- user$signed_in
+      private$.user_signed_in <- user
       invisible(user)
     },
 #' @details Signed up user details triggered explicitely by user (e.g.: on click)
     get_signed_up = function(){
       user <- private$get_input("signed_up_user")
-      private$.user_sign_up <- user$user
+      private$.user_sign_up <- user
       invisible(user)
+    },
+#' @details Check whether use is signed in
+    is_signed_in = function(){
+      user <- private$get_input("signed_in_user")
+      private$.user_signed_in <- user
+      invisible(user$signed_in)
+    },
+#' @details Makes output require user sign in
+    req_signed_in = function(){
+      user <- private$get_input("signed_in_user")
+      private$.user_signed_in <- user
+      req(user$signed_in)
     },
 #' @details Set language code for auth provider
 #' @param code iso639-1 language code.
@@ -68,13 +79,6 @@ Fireblaze <- R6::R6Class(
         stop("This field is read-only.", call. = FALSE)
 
       return(private$.user_signed_up)
-    },
-#' @field signed_in_success Whether the user has signed in successfully.
-    signed_in_success = function(value){
-      if(!missing(value))
-        stop("This field is read-only.", call. = FALSE)
-
-      return(private$.user_signed_in_success)
     }
   ),
   private = list(
@@ -87,8 +91,7 @@ Fireblaze <- R6::R6Class(
       self$session[["input"]][[name]]
     },
     .user_signed_in = list(signed_in = FALSE, user = NULL),
-    .user_signed_in_success = FALSE,
-    .user_sign_up = NULL,
+    .user_sign_up = list(signed_up = FALSE, user = NULL),
     .language_code = NULL
   )
 )

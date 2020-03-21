@@ -20,8 +20,6 @@ Use fireblaze to manage authentications.
 \item{\code{signed_in}}{Read the signed in user.}
 
 \item{\code{signed_up}}{Read the signed in user.}
-
-\item{\code{signed_in_success}}{Whether the user has signed in successfully.}
 }
 \if{html}{\out{</div>}}
 }
@@ -32,6 +30,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-sign_out}{\code{Fireblaze$sign_out()}}
 \item \href{#method-get_signed_in}{\code{Fireblaze$get_signed_in()}}
 \item \href{#method-get_signed_up}{\code{Fireblaze$get_signed_up()}}
+\item \href{#method-is_signed_in}{\code{Fireblaze$is_signed_in()}}
+\item \href{#method-req_signed_in}{\code{Fireblaze$req_signed_in()}}
 \item \href{#method-set_language_code}{\code{Fireblaze$set_language_code()}}
 \item \href{#method-clone}{\code{Fireblaze$clone()}}
 }
@@ -42,7 +42,7 @@ Use fireblaze to manage authentications.
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Fireblaze$new(
-  persistence = c("session", "none", "local"),
+  persistence = c("none", "session", "local"),
   config_path = "fireblaze.rds",
   session = shiny::getDefaultReactiveDomain()
 )}\if{html}{\out{</div>}}
@@ -101,6 +101,32 @@ Signed in user details triggered when auth states changes
 
 \subsection{Details}{
 Signed up user details triggered explicitely by user (e.g.: on click)
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-is_signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-is_signed_in}{}}}
+\subsection{Method \code{is_signed_in()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$is_signed_in()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Check whether use is signed in
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-req_signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-req_signed_in}{}}}
+\subsection{Method \code{req_signed_in()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Fireblaze$req_signed_in()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Makes output require user sign in
 }
 
 }

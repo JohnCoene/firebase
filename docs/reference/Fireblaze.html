@@ -184,8 +184,6 @@
 
 <dt><code>signed_up</code></dt><dd><p>Read the signed in user.</p></dd>
 
-<dt><code>signed_in_success</code></dt><dd><p>Whether the user has signed in successfully.</p></dd>
-
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
@@ -197,6 +195,8 @@
 <li><p><a href='#method-sign_out'><code>Fireblaze$sign_out()</code></a></p></li>
 <li><p><a href='#method-get_signed_in'><code>Fireblaze$get_signed_in()</code></a></p></li>
 <li><p><a href='#method-get_signed_up'><code>Fireblaze$get_signed_up()</code></a></p></li>
+<li><p><a href='#method-is_signed_in'><code>Fireblaze$is_signed_in()</code></a></p></li>
+<li><p><a href='#method-req_signed_in'><code>Fireblaze$req_signed_in()</code></a></p></li>
 <li><p><a href='#method-set_language_code'><code>Fireblaze$set_language_code()</code></a></p></li>
 <li><p><a href='#method-clone'><code>Fireblaze$clone()</code></a></p></li>
 </ul>
@@ -205,7 +205,7 @@
 
 <h3>Usage</h3>
 <p><div class="r"></p><pre>Fireblaze$new(
-  persistence = c("session", "none", "local"),
+  persistence = c("none", "session", "local"),
   config_path = "fireblaze.rds",
   session = shiny::getDefaultReactiveDomain()
 )</pre><p></div></p>
@@ -249,6 +249,24 @@
 
 <h3>Details</h3>
 <p>Signed up user details triggered explicitely by user (e.g.: on click)</p>
+
+<p><hr>
+<a id="method-is_signed_in"></a></p><h3>Method <code>is_signed_in()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Fireblaze$is_signed_in()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Check whether use is signed in</p>
+
+<p><hr>
+<a id="method-req_signed_in"></a></p><h3>Method <code>req_signed_in()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Fireblaze$req_signed_in()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Makes output require user sign in</p>
 
 <p><hr>
 <a id="method-set_language_code"></a></p><h3>Method <code>set_language_code()</code></h3>

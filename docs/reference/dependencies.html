@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • fireblaze</title>
+<title>Dependencies — dependencies • fireblaze</title>
 
 
 <!-- jquery -->
@@ -37,7 +37,11 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Dependencies — dependencies" />
+<meta property="og:description" content="Include dependencies in your Shiny application.
+use_fireblaze must be included in
+every application." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -66,7 +70,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -158,21 +162,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Dependencies</h1>
+    
+    <div class="hidden name"><code>dependencies.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="email-link.html">Email Link</a></li>
-        <li><a href="email-password.html">Email &amp; Password</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-        <li><a href="social.html">Social Sites</a></li>
-        <li><a href="ui.html">Prebuilt UI</a></li>
-      </ul>
+    <div class="ref-description">
+    <p>Include dependencies in your Shiny application.
+<code>use_fireblaze</code> <em>must</em> be included in
+every application.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>use_fireblaze</span>(<span class='kw'>analytics</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>firestore</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>fireblaze_signin_ui</span>()</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>analytics</th>
+      <td><p>Whether to include analytics.</p></td>
+    </tr>
+    <tr>
+      <th>firestore</th>
+      <td><p>Whether to include firestore.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+
+<ul>
+<li><p><code>use_fireblaze</code> Is required for every app that uses this package</p></li>
+<li><p><code>use_fireblaze_ui</code> Is required for applications that use <code><a href='FireblazeUI.html'>FireblazeUI</a></code></p></li>
+</ul>
+
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#functions">Functions</a></li>
+    </ul>
+
   </div>
 </div>
 

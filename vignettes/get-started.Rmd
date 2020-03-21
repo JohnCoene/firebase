@@ -1,5 +1,5 @@
 ---
-title: "get-started"
+title: "Get Started"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{get-started}
@@ -76,4 +76,4 @@ In there you should find two key things `apiKey` and `projectId`. We will need t
 fireblaze::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
 ```
 
-This file is necessary for every project that uses {fireblaze}; the package will look for it in the working directory by default.
+This file is necessary for every project that uses {fireblaze}; the package will look for it in the working directory by default. Now that you are set up head over to the [prebuilt UI page](ui.html) to learn how to sign up/in users with a neat prebuilt UI. 

@@ -128,20 +128,16 @@
     
     
 <p>The easiest way to provide Shiny authentication with {fireblaze} is probably using the prebuilt UI put together by Google itself.</p>
+<p>We first configure the UI to include the sign-in services we want to enable, we launch the authentication service (together with the UI), then observe the user’s interactions with the UI; sign-up success or failure.</p>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>We first configure the UI to include the sign-in services we want to enable, we launch the authentication service (together with the UI), then observe the user’s interactions with the UI; sign-up success or failure.</p>
-</div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
 <p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>use_fireblaze</code> in the Shiny UI, making sure to set the argument <code>ui</code> to <code>TRUE</code>. This imports the necessary dependencies., without it nothing will work.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>)</span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
 <span id="cb1-8"><a href="#cb1-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){}</span>
@@ -152,7 +148,7 @@
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
@@ -165,7 +161,7 @@
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
 <span id="cb3-4"><a href="#cb3-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>)</span>
 <span id="cb3-7"><a href="#cb3-7"></a></span>
 <span id="cb3-8"><a href="#cb3-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
@@ -183,7 +179,7 @@
 <span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
 <span id="cb4-4"><a href="#cb4-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>)</span>
 <span id="cb4-7"><a href="#cb4-7"></a></span>
 <span id="cb4-8"><a href="#cb4-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
@@ -197,40 +193,86 @@
 <span id="cb4-16"><a href="#cb4-16"></a>}</span>
 <span id="cb4-17"><a href="#cb4-17"></a></span>
 <span id="cb4-18"><a href="#cb4-18"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
-<p><img src="ui_simple.png"></p>
 <p>Now if you the app presents you with a login screen!</p>
+<div class="figure">
+<img src="ui_simple.png" alt=""><p class="caption">Login with email or Google</p>
+</div>
 <p>You can go ahead and login if you want to try but keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete yourself from the user list.</p>
 <div class="figure">
 <img src="fireblaze_users.png" alt=""><p class="caption">Users signed up - delete or add from the console</p>
 </div>
 <p>Notice the warning in the console; this should be fixed when deploying to prod.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#&gt; Warning: Missing Terms of Service and/or Privacy policy URL, see `set_tos_url` and `set_privacy_policy_url` methods</span></span></code></pre></div>
-<p>You can then pick up the signed in user with the method <code>get_signed_in</code>. Below we print the users’ “display name” once signed in.</p>
+<p>You can then pick up details on the authentication (like name and email) using the method <code>get_signed_in</code>, which in fact behaves like an <code>input</code>.</p>
+</div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
+<p>Finally, we currently provide a sign-in method but we do not do anything with it. Generally, we will need to block of hide all or the parts of the app that requires sign-in. There are two ways to go about this, 1) an insecure way in which we hide the UI elements before the user signs in but the user could, with basic CSS, reveal those elements before signing in. 2) A more secure way in which one waits for the user to sign in to render certain elements.</p>
+<p>The first happens UI-side and is very easy to implement, the second happens server-side.</p>
+</div>
+<div id="ui" class="section level2">
+<h2 class="hasAnchor">
+<a href="#ui" class="anchor"></a>UI</h2>
+<p>Rather straightforward but might not work for all elements. Use <code>reqSignin</code> to wrap UI elements that require sign in. Below we wrap some text and a plot, only signed in users can see them.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
 <span id="cb6-4"><a href="#cb6-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  <span class="kw"><a href="../reference/use_fireblaze.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>), <span class="co"># import dependencies</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span>(<span class="st">"username"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a>)</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb6-10"><a href="#cb6-10"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb6-14"><a href="#cb6-14"></a>      <span class="dt">google =</span> <span class="ot">TRUE</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>    )<span class="op">$</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="st">    </span><span class="kw">launch</span>() <span class="co"># launch</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a></span>
-<span id="cb6-18"><a href="#cb6-18"></a>  <span class="co"># render signed in username</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a>  output<span class="op">$</span>username &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span>({</span>
-<span id="cb6-20"><a href="#cb6-20"></a>    user &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_signed_in</span>()</span>
-<span id="cb6-21"><a href="#cb6-21"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h2</a></span>(user<span class="op">$</span>user<span class="op">$</span>displayName)</span>
-<span id="cb6-22"><a href="#cb6-22"></a>  })</span>
-<span id="cb6-23"><a href="#cb6-23"></a>}</span>
-<span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(), <span class="co"># import dependencies</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="kw"><a href="../reference/dependencies.html">fireblaze_signin_ui</a></span>(),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>),</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  )</span>
+<span id="cb6-11"><a href="#cb6-11"></a>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
+<span id="cb6-14"><a href="#cb6-14"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb6-18"><a href="#cb6-18"></a>      <span class="dt">google =</span> <span class="ot">TRUE</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>    )<span class="op">$</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="st">    </span><span class="kw">launch</span>() <span class="co"># launch</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>  })</span>
+<span id="cb6-25"><a href="#cb6-25"></a>}</span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+</div>
+<div id="server" class="section level2">
+<h2 class="hasAnchor">
+<a href="#server" class="anchor"></a>Server</h2>
+<p>Server-side you can either manually check that the user has signed in with the <code>is_signed_in</code> method, which returns <code>TRUE</code> if a user is signed in and <code>FALSE</code> otherwise. Or you can use the convenient <code>req_sign_in</code> in your outputs make sign in required for them.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(), <span class="co"># import dependencies</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="kw"><a href="../reference/dependencies.html">fireblaze_signin_ui</a></span>(),</span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>)), <span class="co"># hide from UI</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>)</span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
+<span id="cb7-12"><a href="#cb7-12"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb7-16"><a href="#cb7-16"></a>      <span class="dt">google =</span> <span class="ot">TRUE</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>    )<span class="op">$</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="st">    </span><span class="kw">launch</span>() <span class="co"># launch</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
+<span id="cb7-21"><a href="#cb7-21"></a>    f<span class="op">$</span><span class="kw">req_signed_in</span>() <span class="co"># require sign in</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
+<span id="cb7-23"><a href="#cb7-23"></a>  })</span>
+<span id="cb7-24"><a href="#cb7-24"></a>}</span>
+<span id="cb7-25"><a href="#cb7-25"></a></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
 </div>
   </div>
 
@@ -241,7 +283,9 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#example">Example</a></li>
+      <li><a href="#usage">Usage</a></li>
+      <li><a href="#ui">UI</a></li>
+      <li><a href="#server">Server</a></li>
       </ul>
 </div>
       </div>
