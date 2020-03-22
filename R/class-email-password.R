@@ -46,6 +46,23 @@ FirebaseEmailPassword <- R6::R6Class(
       created <- super$get_input("created_email_user")
       private$.created <- created
       return(created)
+    },
+#' @details Reset user password
+#' @param email Email to send reset link to, if missing looks for current logged in user's email
+    reset_password = function(email = NULL){
+      if(is.null(email))
+        email <- private$.user_signed_in$user$email
+
+      if(is.null(email))
+        stop("Not user signed in, must specify `email`")
+
+      super$send("reset-email", list(email = email))
+
+      invisible(self)
+    },
+#' @details Get whether password reset email was successfully sent 
+    get_reset = function(){
+      super$get_input("reset_email_sent")
     }
   ),
   active = list(

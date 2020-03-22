@@ -132,3 +132,14 @@ Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
 Shiny.addCustomMessageHandler('fireblaze-language-code', function(msg) {
   firebase.auth().languageCode = msg.code;
 });
+
+// Language code
+Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
+  
+  firebase.auth().sendPasswordResetEmail(msg.email)
+    .then(function() {
+      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: true, response: 'successful'})
+    }).catch(function(error) {
+      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: 'unsuccessful'})
+    });
+});

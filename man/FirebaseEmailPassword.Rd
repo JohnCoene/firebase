@@ -22,6 +22,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-create}{\code{FirebaseEmailPassword$create()}}
 \item \href{#method-sign_in}{\code{FirebaseEmailPassword$sign_in()}}
 \item \href{#method-get_created}{\code{FirebaseEmailPassword$get_created()}}
+\item \href{#method-reset_password}{\code{FirebaseEmailPassword$reset_password()}}
+\item \href{#method-get_reset}{\code{FirebaseEmailPassword$get_reset()}}
 \item \href{#method-clone}{\code{FirebaseEmailPassword$clone()}}
 }
 }
@@ -94,6 +96,39 @@ Sign in with email
 
 \subsection{Details}{
 Get account creation results
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-reset_password"></a>}}
+\if{latex}{\out{\hypertarget{method-reset_password}{}}}
+\subsection{Method \code{reset_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$reset_password(email = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{email}}{Email to send reset link to, if missing looks for current logged in user's email}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Reset user password
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_reset"></a>}}
+\if{latex}{\out{\hypertarget{method-get_reset}{}}}
+\subsection{Method \code{get_reset()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_reset()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get whether password reset email was successfully sent
 }
 
 }
