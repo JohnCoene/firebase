@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don't observe for successful account creation but successful email sent with the `get_email_sent` method.
+
 ```r
 library(shiny)
 library(fireblaze)
