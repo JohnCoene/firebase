@@ -51,7 +51,7 @@ useFirebaseUI <- function(){
         )
       )
     ),
-    div(id = "fireblaze-signin-ui", class = "fireblaze__hidden_ui")
+    div(id = "fireblaze-signin-ui")
   )
 }
 

@@ -70,11 +70,6 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 // Config init
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-  // show ui
-  var container = document.getElementById("fireblaze-signin-ui");
-  container.classList.remove("fireblaze__hidden_ui");
-  
   var providers = signinOpts(msg.providers);
   var helper = accountHelper(msg.account_helper);
 
@@ -98,7 +93,7 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
     privacyPolicyUrl: msg.privacy_policy_url
   };
 
-  ui.start("#fireblaze-signin-ui", opts);
+  ui.start("#fireblaze-signin-ui", opts)
 });
 
 // Sign out
