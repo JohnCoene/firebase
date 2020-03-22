@@ -23,7 +23,8 @@ library(shiny)
 library(fireblaze)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE) # import dependencies
+  useFireblaze(), # import dependencies,
+  useFirebaseUI()
 )
 
 server <- function(input, output){
