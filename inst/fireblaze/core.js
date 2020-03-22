@@ -30,6 +30,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
         showHideOnLogin("show");
+        $("#fireblaze-signin-ui").hide();
         Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: true, user: user});
         Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: true, user: user});
       } else {
