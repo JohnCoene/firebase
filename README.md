@@ -48,6 +48,14 @@ Install from Github using remotes:
 remotes::install_github("JohnCoene/firebase")
 ```
 
+## Related
+
+Below are similar projects:
+
+- [SaaS with R by Mark Edmondson](https://github.com/MarkEdmondson1234/Shiny-R-SaaS/)
+- [Firebase with R by Andy Merlino](https://github.com/shinyonfire/sof-auth-example)
+- [Auth0 with Shiny](https://auth0.com/blog/adding-authentication-to-shiny-server/)
+
 ## Code of Conduct
   
 Please note that the firebase project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
