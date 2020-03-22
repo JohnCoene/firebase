@@ -21,7 +21,7 @@ Google Firebase integrates nicely with multiple social sites so users can easily
 * Facebook 
 * Twitter
 
-## Firebase
+## Console
 
 First, these need to be setup in the Firebase console. If you followed the [get started guide](get-started.html) you should already have enabled Google. Now we'll setup Github!
 
@@ -44,13 +44,13 @@ It prompts you to enable it and enter your app id and app secret; _notice the re
 
 ![Github app creation](github_oauth.png)
 
-## Fireblaze
+## Package
 
-Once setup in the Firebase console you can use those social services in your shiny app. Let's create a basic shiny app that prompts the user to login on load; we'll provide . Remember to import the dependencies in the UI with `use_fireblaze`.
+Once setup in the Firebase console you can use those social services in your shiny app. Let's create a basic shiny app that prompts the user to login on load; we'll provide . Remember to import the dependencies in the UI with `useFirebase`.
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 # define signin
 signin <- modalDialog(
@@ -61,7 +61,7 @@ signin <- modalDialog(
 )
 
 ui <- fluidPage(
-  use_fireblaze() # import dependencies
+  useFirebase() # import dependencies
 )
 
 server <- function(input, output) {
@@ -71,7 +71,7 @@ server <- function(input, output) {
 shinyApp(ui, server)
 ```
 
-We are then going to initialise the authentication from the `FireblazeSocial` object.
+We are then going to initialise the authentication from the `FirebaseSocial` object.
 
 ```r
 library(shiny)
@@ -86,12 +86,12 @@ signin <- modalDialog(
 )
 
 ui <- fluidPage(
-  use_fireblaze()
+  useFirebase()
 )
 
 server <- function(input, output) {
   showModal(signin)
-  f <- FireblazeSocial$new()
+  f <- FirebaseSocial$new()
 }
 
 shinyApp(ui, server)
@@ -101,7 +101,7 @@ Finally, we can bind our buttons to actual sign in triggers. We do so with the d
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 # define signin
 signin <- modalDialog(
@@ -112,13 +112,13 @@ signin <- modalDialog(
 )
 
 ui <- fluidPage(
-  use_fireblaze()
+  useFirebase()
 )
 
 server <- function(input, output) {
   showModal(signin)
 
-  f <- FireblazeSocial$new()
+  f <- FirebaseSocial$new()
 
   observeEvent(input$google, {
     f$launch_google()
@@ -138,7 +138,7 @@ Then again, we use the method `req_signed_in` to indicate observers and output t
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 # define signin
 signin <- modalDialog(
@@ -149,14 +149,14 @@ signin <- modalDialog(
 )
 
 ui <- fluidPage(
-  use_fireblaze(),
+  useFirebase(),
   plotOutput("plot")
 )
 
 server <- function(input, output) {
   showModal(signin)
 
-  f <- FireblazeSocial$new()
+  f <- FirebaseSocial$new()
 
   observeEvent(input$google, {
     f$launch_google()

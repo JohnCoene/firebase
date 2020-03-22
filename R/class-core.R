@@ -5,8 +5,8 @@
 #' @field session A valid Shiny session.
 #' 
 #' @keywords internal
-Fireblaze <- R6::R6Class(
-  "Fireblaze",
+Firebase <- R6::R6Class(
+  "Firebase",
   public = list(
     session = NULL,
 #' @details Initialise Fireblaze
@@ -15,7 +15,7 @@ Fireblaze <- R6::R6Class(
 #' @param session A valid shiny session.
 #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-    initialize = function(persistence = c("none", "session", "local"), config_path = "fireblaze.rds", session = shiny::getDefaultReactiveDomain()){
+    initialize = function(persistence = c("none", "session", "local"), config_path = "firebase.rds", session = shiny::getDefaultReactiveDomain()){
       # check that config is present
       stopifno_config(config_path)
 

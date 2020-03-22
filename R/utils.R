@@ -6,11 +6,11 @@
 #' 
 #' @keywords internal
 pkg_file <- function(path){
-  system.file(path, package = "fireblaze")
+  system.file(path, package = "firebase")
 }
 
 # default config file name
-config_file <- "fireblaze.rds"
+config_file <- "firebase.rds"
 
 #' Check Providers
 #' 
@@ -33,7 +33,7 @@ check_providers <- function(opts){
 #' 
 #' Check that tos and privacy policy urls are set.
 #' 
-#' @param fireblaze_ui An object of class \code{\link{FireblazeUI}}.
+#' @param fireblaze_ui An object of class \code{\link{FirebaseUI}}.
 #' 
 #' @export
 check_urls <- function(fireblaze_ui){

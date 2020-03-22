@@ -6,9 +6,9 @@
 #' @field privacy_policy_url The URL to the Privacy Policy page.
 #' 
 #' @export
-FireblazeUI <- R6::R6Class(
-  "FireblazeUI",
-  inherit = Fireblaze,
+FirebaseUI <- R6::R6Class(
+  "FirebaseUI",
+  inherit = Firebase,
   public = list(
     tos_url = "<tos-url>",
     privacy_policy_url = "<privacy-policy-url>",

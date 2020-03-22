@@ -7,7 +7,7 @@
 check_urls(fireblaze_ui)
 }
 \arguments{
-\item{fireblaze_ui}{An object of class \code{\link{FireblazeUI}}.}
+\item{fireblaze_ui}{An object of class \code{\link{FirebaseUI}}.}
 }
 \description{
 Check that tos and privacy policy urls are set.

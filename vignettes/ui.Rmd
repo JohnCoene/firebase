@@ -20,14 +20,14 @@ We first configure the UI to include the sign-in services we want to enable, we 
 
 ## Introduction
 
-To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `use_fireblaze` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies., without it nothing will work.
+To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies., without it nothing will work.
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE) # import dependencies
+  useFirebase(ui = TRUE) # import dependencies
 )
 
 server <- function(input, output){}
@@ -35,18 +35,18 @@ server <- function(input, output){}
 shinyApp(ui, server)
 ```
 
-Next we will instantiate the authentication service. We do so by calling the `new` method on the `FireblazeUI` object.
+Next we will instantiate the authentication service. We do so by calling the `new` method on the `FirebaseUI` object.
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE) # import dependencies
+  useFirebase(ui = TRUE) # import dependencies
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$new() # instantiate
+  f <- FirebaseUI$new() # instantiate
 }
 
 shinyApp(ui, server)
@@ -56,14 +56,14 @@ Using that object `f` we just created we can configure our sign-up/sign-in optio
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE) # import dependencies
+  useFirebase(ui = TRUE) # import dependencies
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$
+  f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
       email = TRUE, 
@@ -78,14 +78,14 @@ That is it for the mandatory options, you won't be able to launch the authentica
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(ui = TRUE) # import dependencies
+  useFirebase(ui = TRUE) # import dependencies
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$
+  f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
       email = TRUE, 
@@ -124,11 +124,11 @@ Rather straightforward but might not work for all elements. Use `reqSignin` to w
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(), # import dependencies
-  fireblaze_signin_ui(),
+  useFirebase(), # import dependencies
+  useFirebaseUI(),
   reqSignin(
     h4("VIP plot below"),
     plotOutput("plot")
@@ -136,7 +136,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$
+  f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
       email = TRUE, 
@@ -158,17 +158,17 @@ Server-side you can either manually check that the user has signed in with the `
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
-  use_fireblaze(), # import dependencies
-  fireblaze_signin_ui(),
+  useFirebase(), # import dependencies
+  useFirebaseUI(),
   reqSignin(h4("VIP plot below")), # hide from UI
   plotOutput("plot")
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$
+  f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
       email = TRUE, 

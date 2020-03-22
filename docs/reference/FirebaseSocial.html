@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • firebase</title>
+<title>Social — FirebaseSocial • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -44,7 +44,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Social — FirebaseSocial" />
+<meta property="og:description" content="Use social sites for authentication." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -75,7 +76,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -179,26 +180,137 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>Social</h1>
+    
+    <div class="hidden name"><code>FirebaseSocial.Rd</code></div>
     </div>
 
-    <div id="fireblaze-0019000" class="section level1">
-<h1 class="page-header">
-<a href="#fireblaze-0019000" class="anchor"></a>fireblaze 0.0.1.9000</h1>
-<p>Initial version</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Use social sites for authentication.</p>
+    </div>
 
+
+
+    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
+
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseSocial</code></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+
+    
+<h3>Public methods</h3>
+
+<ul>
+<li><p><a href='#method-set_scope'><code>FirebaseSocial$set_scope()</code></a></p></li>
+<li><p><a href='#method-launch_google'><code>FirebaseSocial$launch_google()</code></a></p></li>
+<li><p><a href='#method-launch_github'><code>FirebaseSocial$launch_github()</code></a></p></li>
+<li><p><a href='#method-launch_facebook'><code>FirebaseSocial$launch_facebook()</code></a></p></li>
+<li><p><a href='#method-launch_twitter'><code>FirebaseSocial$launch_twitter()</code></a></p></li>
+<li><p><a href='#method-clone'><code>FirebaseSocial$clone()</code></a></p></li>
+</ul>
+<p><details ><summary>Inherited methods</summary>
+<ul>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_signed_in"><a href='../../firebase/html/Firebase.html#method-req_signed_in'><code>firebase::Firebase$req_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
+</ul>
+</details>
+
+<hr>
+<a id="method-set_scope"></a></p><h3>Method <code>set_scope()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$set_scope(scope)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>scope</code></dt><dd><p>Google scope.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Define the scope to request from Google.</p>
+
+<p><hr>
+<a id="method-launch_google"></a></p><h3>Method <code>launch_google()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$launch_google(flow = c("popup", "redirect"))</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Launch sign in with Google.</p>
+
+<p><hr>
+<a id="method-launch_github"></a></p><h3>Method <code>launch_github()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$launch_github(flow = c("popup", "redirect"))</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Launch sign in with Github.</p>
+
+<p><hr>
+<a id="method-launch_facebook"></a></p><h3>Method <code>launch_facebook()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$launch_facebook(flow = c("popup", "redirect"))</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Launch sign in with Facebook.</p>
+
+<p><hr>
+<a id="method-launch_twitter"></a></p><h3>Method <code>launch_twitter()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$launch_twitter(flow = c("popup", "redirect"))</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Launch sign in with Facebook.</p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseSocial$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#fireblaze-0019000">0.0.1.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#super-class">Super class</a></li>
+      <li><a href="#methods">Methods</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

@@ -3,9 +3,9 @@
 #' Use social sites for authentication.
 #' 
 #' @export
-FireblazeSocial <- R6::R6Class(
-  "FireblazeSocial",
-  inherit = Fireblaze,
+FirebaseSocial <- R6::R6Class(
+  "FirebaseSocial",
+  inherit = Firebase,
   public = list(
 #' @details Define the scope to request from Google.
 #' @param scope Google scope.

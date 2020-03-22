@@ -3,9 +3,9 @@
 #' Use fireblaze to manage authentications.
 #' 
 #' @export
-FireblazeEmailPassword <- R6::R6Class(
-  "FireblazeEmailPassword",
-  inherit = Fireblaze,
+FirebaseEmailPassword <- R6::R6Class(
+  "FirebaseEmailPassword",
+  inherit = Firebase,
   public = list(
 #' @details Sign in with create
 #' 

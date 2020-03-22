@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Email Link • fireblaze</title>
+<title>Email Link • firebase</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -44,7 +44,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fireblaze</a>
+        <a class="navbar-link" href="../index.html">firebase</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
@@ -146,45 +146,44 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">shiny.port =</span> <span class="dv">3000</span>) </span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(),</span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(<span class="st">"email"</span>, <span class="st">"Your email"</span>),</span>
-<span id="cb2-9"><a href="#cb2-9"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"submit"</span>, <span class="st">"Submit"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a>  f &lt;-<span class="st"> </span>FireblazeEmailLink<span class="op">$</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="st">    </span><span class="kw">config</span>(<span class="dt">url =</span> <span class="st">"http://127.0.0.1:3000"</span>)</span>
-<span id="cb2-17"><a href="#cb2-17"></a></span>
-<span id="cb2-18"><a href="#cb2-18"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>submit, {</span>
-<span id="cb2-19"><a href="#cb2-19"></a>    <span class="cf">if</span>(input<span class="op">$</span>email <span class="op">==</span><span class="st"> ""</span>)</span>
-<span id="cb2-20"><a href="#cb2-20"></a>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>()</span>
-<span id="cb2-21"><a href="#cb2-21"></a>    </span>
-<span id="cb2-22"><a href="#cb2-22"></a>    f<span class="op">$</span><span class="kw">send</span>(input<span class="op">$</span>email)</span>
-<span id="cb2-23"><a href="#cb2-23"></a>  })</span>
-<span id="cb2-24"><a href="#cb2-24"></a></span>
-<span id="cb2-25"><a href="#cb2-25"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_sent</span>(), {</span>
-<span id="cb2-26"><a href="#cb2-26"></a>    sent &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_email_sent</span>()</span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a>    <span class="cf">if</span>(sent<span class="op">$</span>success)</span>
-<span id="cb2-29"><a href="#cb2-29"></a>      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span>(<span class="st">"Email sent"</span>, <span class="dt">type =</span> <span class="st">"message"</span>)</span>
-<span id="cb2-30"><a href="#cb2-30"></a>  })</span>
-<span id="cb2-31"><a href="#cb2-31"></a></span>
-<span id="cb2-32"><a href="#cb2-32"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>(), {</span>
-<span id="cb2-33"><a href="#cb2-33"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>())</span>
-<span id="cb2-34"><a href="#cb2-34"></a>  })</span>
-<span id="cb2-35"><a href="#cb2-35"></a></span>
-<span id="cb2-36"><a href="#cb2-36"></a>}</span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">shiny.port =</span> <span class="dv">3000</span>) </span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="kw">use_fireblaze</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(<span class="st">"email"</span>, <span class="st">"Your email"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"submit"</span>, <span class="st">"Submit"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  f &lt;-<span class="st"> </span>FireblazeEmailLink<span class="op">$</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="st">    </span><span class="kw">config</span>(<span class="dt">url =</span> <span class="st">"http://127.0.0.1:3000"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>submit, {</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="cf">if</span>(input<span class="op">$</span>email <span class="op">==</span><span class="st"> ""</span>)</span>
+<span id="cb1-20"><a href="#cb1-20"></a>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>()</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    </span>
+<span id="cb1-22"><a href="#cb1-22"></a>    f<span class="op">$</span><span class="kw">send</span>(input<span class="op">$</span>email)</span>
+<span id="cb1-23"><a href="#cb1-23"></a>  })</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_sent</span>(), {</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    sent &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_email_sent</span>()</span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="cf">if</span>(sent<span class="op">$</span>success)</span>
+<span id="cb1-29"><a href="#cb1-29"></a>      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span>(<span class="st">"Email sent"</span>, <span class="dt">type =</span> <span class="st">"message"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30"></a>  })</span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>(), {</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(f<span class="op">$</span><span class="kw">get_email_verification</span>())</span>
+<span id="cb1-34"><a href="#cb1-34"></a>  })</span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a>}</span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

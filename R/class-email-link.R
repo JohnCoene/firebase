@@ -1,9 +1,9 @@
 #' Email Link
 #' 
 #' @export
-FireblazeEmailLink <- R6::R6Class(
-  "FireblazeEmailLink",
-  inherit = Fireblaze,
+FirebaseEmailLink <- R6::R6Class(
+  "FirebaseEmailLink",
+  inherit = Firebase,
   public = list(
 #' @details Configure
 #' @param url The link is handled in the web action widgets, 

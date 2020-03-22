@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • firebase</title>
+<title>Email Link — FirebaseEmailLink • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -44,7 +44,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Email Link — FirebaseEmailLink" />
+<meta property="og:description" content="Email Link
+Email Link" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -75,7 +77,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -179,26 +181,137 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>Email Link</h1>
+    
+    <div class="hidden name"><code>FirebaseEmailLink.Rd</code></div>
     </div>
 
-    <div id="fireblaze-0019000" class="section level1">
-<h1 class="page-header">
-<a href="#fireblaze-0019000" class="anchor"></a>fireblaze 0.0.1.9000</h1>
-<p>Initial version</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Email Link</p>
+<p>Email Link</p>
+    </div>
 
+
+
+    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
+
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseEmailLink</code></p>
+    <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
+
+    <p><div class="r6-active-bindings"></p><dl class='dl-horizontal'>
+<dt><code>email_verification</code></dt><dd><p>Email verification results</p></dd>
+
+<dt><code>email_sent</code></dt><dd><p>Email send results</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+
+    
+<h3>Public methods</h3>
+
+<ul>
+<li><p><a href='#method-config'><code>FirebaseEmailLink$config()</code></a></p></li>
+<li><p><a href='#method-send'><code>FirebaseEmailLink$send()</code></a></p></li>
+<li><p><a href='#method-verify'><code>FirebaseEmailLink$verify()</code></a></p></li>
+<li><p><a href='#method-get_email_sent'><code>FirebaseEmailLink$get_email_sent()</code></a></p></li>
+<li><p><a href='#method-get_email_verification'><code>FirebaseEmailLink$get_email_verification()</code></a></p></li>
+<li><p><a href='#method-clone'><code>FirebaseEmailLink$clone()</code></a></p></li>
+</ul>
+<p><details ><summary>Inherited methods</summary>
+<ul>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_signed_in"><a href='../../firebase/html/Firebase.html#method-req_signed_in'><code>firebase::Firebase$req_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
+</ul>
+</details>
+
+<hr>
+<a id="method-config"></a></p><h3>Method <code>config()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$config(url, ...)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>url</code></dt><dd><p>The link is handled in the web action widgets,
+this is the deep link in the continueUrl query parameter.
+Likely, your shiny application link.</p></dd>
+
+<dt><code>...</code></dt><dd><p>Any other parameter from the
+<a href='https://firebase.google.com/docs/auth/web/passing-state-in-email-actions?authuser=0#passing_statecontinue_url_in_email_actions'>official documentation</a>.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Configure</p>
+
+<p><hr>
+<a id="method-send"></a></p><h3>Method <code>send()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$send(email)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>email</code></dt><dd><p>Email to send verification to.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Send email verification link.</p>
+
+<p><hr>
+<a id="method-verify"></a></p><h3>Method <code>verify()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$verify()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Verifies user came from email link.</p>
+
+<p><hr>
+<a id="method-get_email_sent"></a></p><h3>Method <code>get_email_sent()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$get_email_sent()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get whether email verification was correctly sent.</p>
+
+<p><hr>
+<a id="method-get_email_verification"></a></p><h3>Method <code>get_email_verification()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$get_email_verification()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get whether email verification was correctly sent.</p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseEmailLink$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#fireblaze-0019000">0.0.1.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#super-class">Super class</a></li>
+      <li><a href="#active-bindings">Active bindings</a></li>
+      <li><a href="#methods">Methods</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • firebase</title>
+<title>Fireblaze — Firebase • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -44,7 +44,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Fireblaze — Firebase" />
+<meta property="og:description" content="Use fireblaze to manage authentications." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -75,7 +76,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -179,26 +180,151 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>Fireblaze</h1>
+    
+    <div class="hidden name"><code>Firebase.Rd</code></div>
     </div>
 
-    <div id="fireblaze-0019000" class="section level1">
-<h1 class="page-header">
-<a href="#fireblaze-0019000" class="anchor"></a>fireblaze 0.0.1.9000</h1>
-<p>Initial version</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Use fireblaze to manage authentications.</p>
+    </div>
 
+
+
+    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+
+    <p><div class="r6-fields"></p><dl class='dl-horizontal'>
+<dt><code>session</code></dt><dd><p>A valid Shiny session.</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
+
+    <p><div class="r6-active-bindings"></p><dl class='dl-horizontal'>
+<dt><code>signed_in</code></dt><dd><p>Read the signed in user.</p></dd>
+
+<dt><code>signed_up</code></dt><dd><p>Read the signed in user.</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+
+    
+<h3>Public methods</h3>
+
+<ul>
+<li><p><a href='#method-new'><code>Firebase$new()</code></a></p></li>
+<li><p><a href='#method-sign_out'><code>Firebase$sign_out()</code></a></p></li>
+<li><p><a href='#method-get_signed_in'><code>Firebase$get_signed_in()</code></a></p></li>
+<li><p><a href='#method-get_signed_up'><code>Firebase$get_signed_up()</code></a></p></li>
+<li><p><a href='#method-is_signed_in'><code>Firebase$is_signed_in()</code></a></p></li>
+<li><p><a href='#method-req_signed_in'><code>Firebase$req_signed_in()</code></a></p></li>
+<li><p><a href='#method-set_language_code'><code>Firebase$set_language_code()</code></a></p></li>
+<li><p><a href='#method-clone'><code>Firebase$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$new(
+  persistence = c("none", "session", "local"),
+  config_path = "firebase.rds",
+  session = shiny::getDefaultReactiveDomain()
+)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>persistence</code></dt><dd><p>How the auth should persit: <code>none</code>, the user has to sign in at every visit,
+<code>session</code> will only persist in current tab, <code>local</code> persist even when window is closed.</p></dd>
+
+<dt><code>config_path</code></dt><dd><p>Path to the configuration file as created by <code><a href='create_config.html'>create_config</a></code>.</p></dd>
+
+<dt><code>session</code></dt><dd><p>A valid shiny session.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Initialise Fireblaze</p>
+
+<p><hr>
+<a id="method-sign_out"></a></p><h3>Method <code>sign_out()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$sign_out()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Signs user out</p>
+
+<p><hr>
+<a id="method-get_signed_in"></a></p><h3>Method <code>get_signed_in()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$get_signed_in()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Signed in user details triggered when auth states changes</p>
+
+<p><hr>
+<a id="method-get_signed_up"></a></p><h3>Method <code>get_signed_up()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$get_signed_up()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Signed up user details triggered explicitely by user (e.g.: on click)</p>
+
+<p><hr>
+<a id="method-is_signed_in"></a></p><h3>Method <code>is_signed_in()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$is_signed_in()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Check whether use is signed in</p>
+
+<p><hr>
+<a id="method-req_signed_in"></a></p><h3>Method <code>req_signed_in()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$req_signed_in()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Makes output require user sign in</p>
+
+<p><hr>
+<a id="method-set_language_code"></a></p><h3>Method <code>set_language_code()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$set_language_code(code)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>code</code></dt><dd><p>iso639-1 language code.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Set language code for auth provider</p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#fireblaze-0019000">0.0.1.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#public-fields">Public fields</a></li>
+      <li><a href="#active-bindings">Active bindings</a></li>
+      <li><a href="#methods">Methods</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

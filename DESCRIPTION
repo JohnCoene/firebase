@@ -1,4 +1,4 @@
-Package: fireblaze
+Package: firebase
 Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
 Version: 0.0.1.9000
 Authors@R: 

@@ -17,11 +17,32 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
 </div>
 
+```r
+library(shiny)
+library(fireblaze)
+
+ui <- fluidPage(
+  use_fireblaze(ui = TRUE) # import dependencies
+)
+
+server <- function(input, output){
+  f <- FireblazeUI$
+    new()$ # instantiate
+    set_providers( # define providers
+      email = TRUE, 
+      google = TRUE
+    )$
+    launch() # launch
+}
+
+shinyApp(ui, server)
+```
+
 ## Install
 
 Install from Github using remotes:
 
 ```r
 # install.packages("remotes")
-remotes::install_github("JohnCoene/fireblaze")
+remotes::install_github("JohnCoene/firebase")
 ```

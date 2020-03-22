@@ -2,13 +2,13 @@
 % Please edit documentation in R/dependencies.R
 \name{dependencies}
 \alias{dependencies}
-\alias{use_fireblaze}
-\alias{fireblaze_signin_ui}
+\alias{useFirebase}
+\alias{useFirebaseUI}
 \title{Dependencies}
 \usage{
-use_fireblaze(analytics = TRUE, firestore = FALSE)
+useFirebase(analytics = TRUE, firestore = FALSE)
 
-fireblaze_signin_ui()
+useFirebaseUI()
 }
 \arguments{
 \item{analytics}{Whether to include analytics.}
@@ -17,14 +17,14 @@ fireblaze_signin_ui()
 }
 \description{
 Include dependencies in your Shiny application.
-\code{use_fireblaze} \emph{must} be included in
+\code{use_firebase} \emph{must} be included in
 every application.
 }
 \section{Functions}{
 
 \itemize{
-\item{\code{use_fireblaze} Is required for every app that uses this package}
-\item{\code{use_fireblaze_ui} Is required for applications that use \code{\link{FireblazeUI}}}
+\item{\code{useFirebase} Is required for every app that uses this package}
+\item{\code{useFirebaseUI} Is required for applications that use \code{\link{FirebaseUI}}}
 }
 }
 

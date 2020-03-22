@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prebuilt UI • fireblaze</title>
+<title>Prebuilt UI • firebase</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -44,7 +44,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fireblaze</a>
+        <a class="navbar-link" href="../index.html">firebase</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
@@ -151,40 +151,40 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>use_fireblaze</code> in the Shiny UI, making sure to set the argument <code>ui</code> to <code>TRUE</code>. This imports the necessary dependencies., without it nothing will work.</p>
+<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>useFirebase</code> in the Shiny UI, making sure to set the argument <code>ui</code> to <code>TRUE</code>. This imports the necessary dependencies., without it nothing will work.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>)</span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
 <span id="cb1-8"><a href="#cb1-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){}</span>
 <span id="cb1-9"><a href="#cb1-9"></a></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
-<p>Next we will instantiate the authentication service. We do so by calling the <code>new</code> method on the <code>FireblazeUI</code> object.</p>
+<p>Next we will instantiate the authentication service. We do so by calling the <code>new</code> method on the <code>FirebaseUI</code> object.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb2-9"><a href="#cb2-9"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span><span class="kw">new</span>() <span class="co"># instantiate</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  f &lt;-<span class="st"> </span>FirebaseUI<span class="op">$</span><span class="kw">new</span>() <span class="co"># instantiate</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a>}</span>
 <span id="cb2-11"><a href="#cb2-11"></a></span>
 <span id="cb2-12"><a href="#cb2-12"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
 <p>Using that object <code>f</code> we just created we can configure our sign-up/sign-in options. There is but one mandatory setting; define the providers the user can use to sign-in. If you followed the <a href="get-started.html">get started guide</a> you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to <code>TRUE</code> the respective providers using the <code>set_providers</code> method.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
 <span id="cb3-4"><a href="#cb3-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>)</span>
 <span id="cb3-7"><a href="#cb3-7"></a></span>
 <span id="cb3-8"><a href="#cb3-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb3-9"><a href="#cb3-9"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  f &lt;-<span class="st"> </span>FirebaseUI<span class="op">$</span></span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
 <span id="cb3-12"><a href="#cb3-12"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
@@ -195,14 +195,14 @@
 <span id="cb3-17"><a href="#cb3-17"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
 <p>That is it for the mandatory options, you won’t be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We’ll go with the latter.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
 <span id="cb4-4"><a href="#cb4-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(<span class="dt">ui =</span> <span class="ot">TRUE</span>) <span class="co"># import dependencies</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>)</span>
 <span id="cb4-7"><a href="#cb4-7"></a></span>
 <span id="cb4-8"><a href="#cb4-8"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb4-9"><a href="#cb4-9"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>  f &lt;-<span class="st"> </span>FirebaseUI<span class="op">$</span></span>
 <span id="cb4-10"><a href="#cb4-10"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
 <span id="cb4-11"><a href="#cb4-11"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
 <span id="cb4-12"><a href="#cb4-12"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
@@ -234,11 +234,11 @@
 <a href="#ui" class="anchor"></a>UI</h3>
 <p>Rather straightforward but might not work for all elements. Use <code>reqSignin</code> to wrap UI elements that require sign in. Below we wrap some text and a plot, only signed in users can see them.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
 <span id="cb6-4"><a href="#cb6-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(), <span class="co"># import dependencies</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="kw"><a href="../reference/dependencies.html">fireblaze_signin_ui</a></span>(),</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(), <span class="co"># import dependencies</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebaseUI</a></span>(),</span>
 <span id="cb6-7"><a href="#cb6-7"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(</span>
 <span id="cb6-8"><a href="#cb6-8"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>),</span>
 <span id="cb6-9"><a href="#cb6-9"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
@@ -246,7 +246,7 @@
 <span id="cb6-11"><a href="#cb6-11"></a>)</span>
 <span id="cb6-12"><a href="#cb6-12"></a></span>
 <span id="cb6-13"><a href="#cb6-13"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb6-14"><a href="#cb6-14"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>  f &lt;-<span class="st"> </span>FirebaseUI<span class="op">$</span></span>
 <span id="cb6-15"><a href="#cb6-15"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
 <span id="cb6-16"><a href="#cb6-16"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
 <span id="cb6-17"><a href="#cb6-17"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>
@@ -266,17 +266,17 @@
 <a href="#server" class="anchor"></a>Server</h3>
 <p>Server-side you can either manually check that the user has signed in with the <code>is_signed_in</code> method, which returns <code>TRUE</code> if a user is signed in and <code>FALSE</code> otherwise. Or you can use the convenient <code>req_sign_in</code> in your outputs make sign in required for them.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fireblaze)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
 <span id="cb7-4"><a href="#cb7-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="kw"><a href="../reference/dependencies.html">use_fireblaze</a></span>(), <span class="co"># import dependencies</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="kw"><a href="../reference/dependencies.html">fireblaze_signin_ui</a></span>(),</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(), <span class="co"># import dependencies</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebaseUI</a></span>(),</span>
 <span id="cb7-7"><a href="#cb7-7"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>)), <span class="co"># hide from UI</span></span>
 <span id="cb7-8"><a href="#cb7-8"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
 <span id="cb7-9"><a href="#cb7-9"></a>)</span>
 <span id="cb7-10"><a href="#cb7-10"></a></span>
 <span id="cb7-11"><a href="#cb7-11"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
-<span id="cb7-12"><a href="#cb7-12"></a>  f &lt;-<span class="st"> </span>FireblazeUI<span class="op">$</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>  f &lt;-<span class="st"> </span>FirebaseUI<span class="op">$</span></span>
 <span id="cb7-13"><a href="#cb7-13"></a><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span><span class="st"> </span><span class="co"># instantiate</span></span>
 <span id="cb7-14"><a href="#cb7-14"></a><span class="st">    </span><span class="kw">set_providers</span>( <span class="co"># define providers</span></span>
 <span id="cb7-15"><a href="#cb7-15"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>, </span>

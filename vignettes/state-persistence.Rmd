@@ -22,7 +22,7 @@ In Firebase, there are three options.
 2. `session` - Indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. Applies only to web apps.
 3. `none` (default) - Indicates that the state will only be stored in memory and will be cleared when the window or activity is refreshed.
 
-In fireblaze, you can modify state persistence with the `persistence` argument when instantiating the class with `new`.
+In the R package, you can modify state persistence with the `persistence` argument when instantiating the class with `new`.
 
 ```r
 library(shiny)
@@ -37,14 +37,14 @@ signin <- modalDialog(
 )
 
 ui <- fluidPage(
-  use_fireblaze(),
+  useFirebase(),
   uiOutput("msg")
 )
 
 server <- function(input, output) {
   showModal(signin)
 
-  f <- FireblazeSocial$new(persistence = "local")
+  f <- FirebaseSocial$new(persistence = "local")
 
   observeEvent(input$google, {
     f$launch_google()

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The {fireblaze} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the similar sounding [firebase](https://firebase.google.com/) interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers' needs.
+The {firebase} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the [Firebase](https://firebase.google.com/) interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers' needs.
 
 <div class="alert alert-success">
 <h4>Skip ahead</h4>
@@ -39,11 +39,11 @@ After that you should be done and eventually, after an intermediary screen, be p
 
 ![](fireblaze_project.png)
 
-On the next screen name your app, here we just name it `fireblaze-demo`. Then hit "Register app". This might be confusing, a project will share sign-in users but may be comprised of different apps (iOS, web, etc.)
+On the next screen name your app, then hit "Register app". This might be confusing, a project will share sign-in users but may be comprised of different apps (iOS, web, etc.)
 
 ![](fireblazer_project_setup1.png)
 
-On the next screen simply hit "Continue to console," you should not be concerned with any of the code presented, fireblaze takes care of it for you. This will lead you straight into the project you have just created. 
+On the next screen simply hit "Continue to console," you should not be concerned with any of the code presented, {firebase} takes care of it for you. This will lead you straight into the project you have just created. 
 
 ## Define Methods
 
@@ -64,7 +64,7 @@ Fill the form as you see fit, don't forget to toggle "enable" unlike I did above
 At this point you will need the R package, install it from Github if you haven't already done so.
 
 ```r
-remotes::install_github("JohnCoene/fireblaze")
+remotes::install_github("JohnCoene/firebase")
 ```
 
 Navigate to your credentials page:
@@ -73,10 +73,10 @@ Navigate to your credentials page:
 2. Click "project settings"
 3. Scroll to the bottom of the "General" tab to find your app credentials.
 
-In there you should find two key things `apiKey` and `projectId`. We will need these to create config file for {fireblaze}: the function below creates a `fireblaze.rds` file in your working directory. 
+In there you should find two key things `apiKey` and `projectId`. We will need these to create config file for {firebase}: the function below creates a `firebase.rds` file in your working directory. 
 
 ```r
-fireblaze::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
+firebase::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
 ```
 
-This file is necessary for every project that uses {fireblaze}; the package will look for it in the working directory by default. Now that you are set up head over to the [prebuilt UI page](ui.html) to learn how to sign up/in users with a neat prebuilt UI. 
+This file is necessary for every project that uses {firebase}; the package will look for it in the working directory by default. Now that you are set up head over to the [prebuilt UI page](ui.html) to learn how to sign up/in users with a neat prebuilt UI. 
