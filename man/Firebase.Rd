@@ -31,7 +31,7 @@ Use fireblaze to manage authentications.
 \item \href{#method-get_signed_in}{\code{Firebase$get_signed_in()}}
 \item \href{#method-get_signed_up}{\code{Firebase$get_signed_up()}}
 \item \href{#method-is_signed_in}{\code{Firebase$is_signed_in()}}
-\item \href{#method-req_signed_in}{\code{Firebase$req_signed_in()}}
+\item \href{#method-req_sign_in}{\code{Firebase$req_sign_in()}}
 \item \href{#method-set_language_code}{\code{Firebase$set_language_code()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
@@ -118,11 +118,11 @@ Check whether use is signed in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-req_signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-req_signed_in}{}}}
-\subsection{Method \code{req_signed_in()}}{
+\if{html}{\out{<a id="method-req_sign_in"></a>}}
+\if{latex}{\out{\hypertarget{method-req_sign_in}{}}}
+\subsection{Method \code{req_sign_in()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$req_signed_in()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$req_sign_in()}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{

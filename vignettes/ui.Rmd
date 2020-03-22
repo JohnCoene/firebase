@@ -177,7 +177,7 @@ server <- function(input, output){
     launch() # launch
 
   output$plot <- renderPlot({
-    f$req_signed_in() # require sign in
+    f$req_sign_in() # require sign in
     plot(cars)
   })
 }

@@ -262,7 +262,7 @@ Make sure you enter the “Authorization callback URL” given to you by Firebas
 <div class="figure">
 <img src="fireblaze_github_popup.png" alt=""><p class="caption">Github popup window</p>
 </div>
-<p>Then again, we use the method <code>req_signed_in</code> to indicate observers and output that require the user to be logged in. Below we use the latter to remove the modal and display a plot.</p>
+<p>Then again, we use the method <code>req_sign_in</code> to indicate observers and output that require the user to be logged in. Below we use the latter to remove the modal and display a plot.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -293,12 +293,12 @@ Make sure you enter the “Authorization callback URL” given to you by Firebas
 <span id="cb4-28"><a href="#cb4-28"></a>  })</span>
 <span id="cb4-29"><a href="#cb4-29"></a></span>
 <span id="cb4-30"><a href="#cb4-30"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span>({</span>
-<span id="cb4-31"><a href="#cb4-31"></a>    f<span class="op">$</span><span class="kw">req_signed_in</span>()</span>
+<span id="cb4-31"><a href="#cb4-31"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>()</span>
 <span id="cb4-32"><a href="#cb4-32"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/showModal.html">removeModal</a></span>()</span>
 <span id="cb4-33"><a href="#cb4-33"></a>  })</span>
 <span id="cb4-34"><a href="#cb4-34"></a></span>
 <span id="cb4-35"><a href="#cb4-35"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
-<span id="cb4-36"><a href="#cb4-36"></a>    f<span class="op">$</span><span class="kw">req_signed_in</span>()</span>
+<span id="cb4-36"><a href="#cb4-36"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>()</span>
 <span id="cb4-37"><a href="#cb4-37"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
 <span id="cb4-38"><a href="#cb4-38"></a>  })</span>
 <span id="cb4-39"><a href="#cb4-39"></a>}</span>

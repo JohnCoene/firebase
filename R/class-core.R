@@ -51,7 +51,7 @@ Firebase <- R6::R6Class(
       invisible(user$signed_in)
     },
 #' @details Makes output require user sign in
-    req_signed_in = function(){
+    req_sign_in = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user
       req(user$signed_in)

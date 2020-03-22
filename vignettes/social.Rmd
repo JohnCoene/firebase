@@ -134,7 +134,7 @@ shinyApp(ui, server)
 
 ![Github popup window](fireblaze_github_popup.png)
 
-Then again, we use the method `req_signed_in` to indicate observers and output that require the user to be logged in. Below we use the latter to remove the modal and display a plot.
+Then again, we use the method `req_sign_in` to indicate observers and output that require the user to be logged in. Below we use the latter to remove the modal and display a plot.
 
 ```r
 library(shiny)
@@ -167,12 +167,12 @@ server <- function(input, output) {
   })
 
   observe({
-    f$req_signed_in()
+    f$req_sign_in()
     removeModal()
   })
 
   output$plot <- renderPlot({
-    f$req_signed_in()
+    f$req_sign_in()
     plot(cars)
   })
 }
