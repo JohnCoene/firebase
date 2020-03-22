@@ -79,7 +79,10 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
         return(false);
       },
       uiShown: function() {
-        document.getElementById('loader').style.display = 'none';
+        var loader = document.getElementById('loader');
+        
+        if(loader)
+          loader.style.display = 'none';
       }
     },
     credentialHelper: helper,
