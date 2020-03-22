@@ -14,6 +14,8 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
 </div>
 
+An application that provides authentication could look like this.
+
 ```r
 library(shiny)
 library(fireblaze)

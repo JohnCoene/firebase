@@ -150,11 +150,11 @@
 <p>In Firebase, there are three options.</p>
 <ol style="list-style-type: decimal">
 <li>
+<code>none</code> (default) - Indicates that the state will only be stored in memory and will be cleared when the window or activity is refreshed.</li>
+<li>
 <code>local</code>- Indicates that the state will be persisted even when the browser window is closed or the activity is destroyed in React Native. An explicit sign out is needed to clear that state. Note that Firebase Auth web sessions are single host origin and will be persisted for a single domain only.</li>
 <li>
 <code>session</code> - Indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. Applies only to web apps.</li>
-<li>
-<code>none</code> (default) - Indicates that the state will only be stored in memory and will be cleared when the window or activity is refreshed.</li>
 </ol>
 <p>In the R package, you can modify state persistence with the <code>persistence</code> argument when instantiating the class with <code>new</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
