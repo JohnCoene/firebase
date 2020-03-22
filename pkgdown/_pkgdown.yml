@@ -14,13 +14,13 @@ navbar:
       href: LICENSE.html
     - icon: fa-newspaper-o
       href: news/index.html
-    - icon: fa-code
+    - text: "Reference"
       href: "reference/"
-    - icon: fa-rocket
-      text: "Get Started"
+    - text: "Get Started"
       href: articles/get-started.html
-    - text: "Authenticate"
+    - text: "Guides"
       menu: 
+        - text: "Authenticate"
         - text: "Prebuilt UI"
           href: articles/ui.html
         - text: "Social Login"
@@ -29,10 +29,12 @@ navbar:
           href: articles/email-password.html
         - text: "Email Link"
           href: articles/email-link.html
-    - text: "Configure"
-      menu: 
+        - text: "------------------"
+        - text: "Configure"
         - text: "State Persistence"
           href: articles/state-persistence.html
+        - text: "Signed in user"
+          href: articles/user.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/JohnCoene/fireblaze

@@ -114,25 +114,19 @@
   </a>
 </li>
 <li>
-  <a href="../reference/">
-    <span class="fa fa-code"></span>
-     
-  </a>
+  <a href="../reference/">Reference</a>
 </li>
 <li>
-  <a href="../articles/get-started.html">
-    <span class="fa fa-rocket"></span>
-     
-    Get Started
-  </a>
+  <a href="../articles/get-started.html">Get Started</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Authenticate
+    Guides
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Authenticate</li>
     <li>
       <a href="../articles/ui.html">Prebuilt UI</a>
     </li>
@@ -145,17 +139,13 @@
     <li>
       <a href="../articles/email-link.html">Email Link</a>
     </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Configure
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">Configure</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
+    </li>
+    <li>
+      <a href="../articles/user.html">Signed in user</a>
     </li>
   </ul>
 </li>
@@ -236,13 +226,16 @@
   twitter = FALSE,
   github = FALSE,
   email = FALSE,
+  microsoft = FALSE,
+  apple = FALSE,
+  yahoo = FALSE,
   phone = FALSE,
   anonymous = FALSE
 )</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl class='dl-horizontal'>
-<dt><code>google, facebook, twitter, github, email, phone, anonymous</code></dt><dd><p>Set to <code>TRUE</code> the providers you want to use, at least one.</p></dd>
+<dt><code>google, facebook, twitter, github, email, microsoft, apple, yahoo, phone, anonymous</code></dt><dd><p>Set to <code>TRUE</code> the providers you want to use, at least one.</p></dd>
 
 </dl><p></div></p>
 <h3>Details</h3>

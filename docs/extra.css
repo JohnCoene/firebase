@@ -84,6 +84,7 @@ pre {
 
 .navbar-default .navbar-nav .open .dropdown-menu>li>a{
   color: white;
+  font-weight: 600;
   background-color: #039be5;
 }
 
@@ -100,4 +101,9 @@ a:hover, a:focus {
 
 .navbar-link{
   color: white !important;
+}
+
+.dropdown-header{
+  color: #ffca28;
+  font-weight: 600;
 }

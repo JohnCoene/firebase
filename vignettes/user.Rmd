@@ -1,0 +1,60 @@
+---
+title: "Signed in User"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Signed in User}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+user <- list(signed_in = TRUE, user = list(uid = "XXxxX", 
+    displayName = "John", photoURL = "https://lh3.googleusercontent.com/a-/XXxxX", 
+    email = "myemail@gmail.com", emailVerified = TRUE, phoneNumber = NULL, 
+    isAnonymous = FALSE, tenantId = NULL, providerData = list(
+        list(uid = "XXxxX", displayName = "John Coene", 
+            photoURL = "https://lh3.googleusercontent.com/a-/XXxxX", 
+            email = "jcoenep@gmail.com", phoneNumber = NULL, 
+            providerId = "google.com")), apiKey = "XXxxX", 
+    appName = "[DEFAULT]", authDomain = "my-package.firebaseapp.com", 
+    stsTokenManager = list(apiKey = "XXxxX", 
+        refreshToken = "XXxxX", 
+        accessToken = "XXxxX", 
+        expirationTime = 1584898232000), redirectEventId = NULL, 
+    lastLoginAt = "1584894612585", createdAt = "1584894612585", 
+    multiFactor = list(enrolledFactors = list())))
+```
+
+## Sign in
+
+You can always access the signed in user with the `get_signed_in` method. This returns a list of length 2:
+
+1. `signed_in`: boolean
+2. `user`: a list (`NULL` if signed out)
+
+The user object returned looks like.
+
+```{r, echo = FALSE}
+print(user)
+```
+
+Note this is technically like a Shiny input and behaves as such. Therefore the snippet below will work. Note that it will be triggered on load.
+
+```r
+# initialise
+f <- FireblazeUI$new()$launch()
+
+observeEvent(f$get_signed_in(), {
+  # do somethind
+})
+```
+
+However one should probably only rely on the `get_signed_in` to retrieve information about the logged in user, the methods `is_signed_in` and `req_sign_in` should be used in observers instead. The first returns `TRUE` if the user is signed in. The second, `req_sign_in` is a convenience method which essentially does `req(f$is_signed_in)` which allows "marking" outputs and observers that require sign in. 
+
+## Sign out
+
+A single method is shared across all authentication methods, simply call `sign_out` method.
