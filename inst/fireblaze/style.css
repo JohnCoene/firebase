@@ -1,3 +1,7 @@
 .fireblaze__hidden{
   opacity: 0;
 }
+
+.fireblaze__hidden_ui{
+  opacity: 0;
+}
