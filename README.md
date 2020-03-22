@@ -10,7 +10,7 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 ![R-CMD-check](https://github.com/JohnCoene/firebase/workflows/R-CMD-check/badge.svg)
 <!-- badges: end -->
 
-[Website](https://firebase.john-coene.com)
+[Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase)
 
 </div>
 

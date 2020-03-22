@@ -1,5 +1,6 @@
 // global variables
-var ui;
+var ui, ui_opts;
+var ui_initialised = false;
 
 window.state = {
   initialised: false,
@@ -29,12 +30,21 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
     firebase.auth().onAuthStateChanged(function(user) {
       if(user){
+
+        // show signin authorised
         showHideOnLogin("show");
         $("#fireblaze-signin-ui").hide();
+
+        // set input
         Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: true, user: user});
         Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: true, user: user});
+
       } else {
+
+        // hide signin required
         showHideOnLogin("hide");
+
+        // set error input
         Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: false, user: null});
         Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: false, user: null});
       }
@@ -69,12 +79,16 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
 // Config init
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
-  ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+  if(!ui_initialised) {
+    ui_initialised = true;
+    ui = new firebaseui.auth.AuthUI(firebase.auth());
+  }
+
   var providers = signinOpts(msg.providers);
-  console.log(providers);
   var helper = accountHelper(msg.account_helper);
 
-  var opts = {
+  ui_opts = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl){
         Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: true, response: firebase.auth().currentUser});
@@ -94,7 +108,7 @@ Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
     privacyPolicyUrl: msg.privacy_policy_url
   };
 
-  ui.start("#fireblaze-signin-ui", opts)
+  ui.start("#fireblaze-signin-ui", ui_opts);
 });
 
 // Sign out
@@ -102,6 +116,11 @@ Shiny.addCustomMessageHandler('fireblaze-signout', function(msg) {
 
   firebase.auth().signOut()
     .then(function() {
+      if(ui_initialised){
+        ui.start("#fireblaze-signin-ui", ui_opts);
+        $("#fireblaze-signin-ui").show();
+      }
+
       Shiny.setInputValue('fireblaze_' + 'signout', {success: true, response: 'successful'})
     }).catch(function(error) {
       Shiny.setInputValue('fireblaze_' + 'signout', {success: false, response: error})

@@ -30,11 +30,13 @@ navbar:
         - text: "Email Link"
           href: articles/email-link.html
         - text: "------------------"
-        - text: "Configure"
+        - text: "Usage"
         - text: "State Persistence"
           href: articles/state-persistence.html
         - text: "Signed in user"
           href: articles/user.html
+        - text: "Demo"
+          href: articles/demo.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/JohnCoene/fireblaze

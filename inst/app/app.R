@@ -4,6 +4,7 @@ library(firebase)
 ui <- fluidPage(
   useFirebase(),
   useFirebaseUI(),
+  reqSignin(actionButton("signout", "Sign out")),
   uiOutput("msg"),
   plotOutput("plot")
 )
@@ -33,6 +34,11 @@ server <- function(input, output){
     
     h4("Welcome,", user$user$displayName)
   })
+
+  observeEvent(input$signout, {
+    f$sign_out()
+  })
+
 }
 
 shinyApp(ui, server)

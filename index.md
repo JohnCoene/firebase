@@ -8,6 +8,7 @@
 Authenticate Shiny users with [Google Firebase](https://firebase.google.com).
 
 <a href="articles/get-started.html" class="btn btn-default"><i class="fa fa-rocket blue__color"></i> Get Started</a>
+<a href="shiny.john-coene.com/firebase" target="_blank" class="btn btn-default"><i class="fa fa-desktop blue__color"></i> Demo</a>
 <a href="https://github.com/JohnCoene/firelbaze" class="btn btn-default"><i class="fa fa-github blue__color"></i> Github</a>
 
 ## Authentication Methods
