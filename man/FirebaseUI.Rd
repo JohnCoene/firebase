@@ -52,6 +52,9 @@ Use fireblaze to manage authentications.
   twitter = FALSE,
   github = FALSE,
   email = FALSE,
+  microsoft = FALSE,
+  apple = FALSE,
+  yahoo = FALSE,
   phone = FALSE,
   anonymous = FALSE
 )}\if{html}{\out{</div>}}
@@ -60,7 +63,7 @@ Use fireblaze to manage authentications.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{google, facebook, twitter, github, email, phone, anonymous}}{Set to \code{TRUE} the providers you want to use, at least one.}
+\item{\code{google, facebook, twitter, github, email, microsoft, apple, yahoo, phone, anonymous}}{Set to \code{TRUE} the providers you want to use, at least one.}
 }
 \if{html}{\out{</div>}}
 }

@@ -71,6 +71,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 Shiny.addCustomMessageHandler('fireblaze-ui-config', function(msg) {
   ui = new firebaseui.auth.AuthUI(firebase.auth());
   var providers = signinOpts(msg.providers);
+  console.log(providers);
   var helper = accountHelper(msg.account_helper);
 
   var opts = {

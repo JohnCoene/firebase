@@ -2,6 +2,15 @@
 function signinOpts(opts){
   var signin = [];
 
+  if(opts.microsoft)
+    signin.push("microsoft.com");
+
+  if(opts.yahoo)
+    signin.push("yahoo.com");
+
+  if(opts.apple)
+    signin.push("apple.com");
+
   if(opts.google)
     signin.push(firebase.auth.GoogleAuthProvider.PROVIDER_ID);
 
