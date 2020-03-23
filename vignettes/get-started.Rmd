@@ -59,6 +59,10 @@ Click Email/password then the first enable button at the top. We will cover the 
 
 Fill the form as you see fit, don't forget to toggle "enable" unlike I did above, and click save.
 
+Finally set the redirect URLs, these are the URLs to which the user can be redirected after authenticating.
+
+![](firebase_redirect.png)
+
 ## Configuration
 
 At this point you will need the R package, install it from Github if you haven't already done so.

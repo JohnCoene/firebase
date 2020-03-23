@@ -17,7 +17,8 @@ server <- function(input, output){
       google = TRUE,
       github = TRUE,
       twitter = TRUE,
-      facebook = TRUE
+      facebook = TRUE,
+      microsoft = TRUE
     )$
     launch()
 
