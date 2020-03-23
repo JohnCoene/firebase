@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The code for the [demo](https://shiny.john-coene.com/firebase) which provides 5 different sign in methods uses the `FirebaseUI` and is remarkably simple, see below.
+The code for the [demo](https://shiny.john-coene.com/firebase) which provides 6 different sign in methods uses the `FirebaseUI` and is remarkably simple, see below.
 
 ```r
 library(shiny)
@@ -36,7 +36,8 @@ server <- function(input, output){
       google = TRUE,
       github = TRUE,
       twitter = TRUE,
-      facebook = TRUE
+      facebook = TRUE,
+      microsoft = TRUE
     )$
     launch()
 
