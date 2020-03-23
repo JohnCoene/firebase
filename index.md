@@ -1,4 +1,4 @@
-# Firebase <img src="logo.png" align="right" height="200px" />
+# Firebase <img src="logo.png" align="right" height="250px" />
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)

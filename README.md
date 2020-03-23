@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="man/figures/logo.png" height="200px">
+<img src="man/figures/logo.png" height="250px">
 
 Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
