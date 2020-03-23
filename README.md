@@ -28,7 +28,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output){
-  f <- FireblazeUI$
+  f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
       email = TRUE, 
