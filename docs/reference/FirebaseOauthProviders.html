@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Social — FirebaseSocial • firebase</title>
+<title>OAuth Providers — FirebaseOauthProviders • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -44,8 +44,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Social — FirebaseSocial" />
-<meta property="og:description" content="Use social sites for authentication." />
+<meta property="og:title" content="OAuth Providers — FirebaseOauthProviders" />
+<meta property="og:description" content="OAuth Providers
+OAuth Providers" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -176,32 +177,30 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Social</h1>
+    <h1>OAuth Providers</h1>
     
-    <div class="hidden name"><code>FirebaseSocial.Rd</code></div>
+    <div class="hidden name"><code>FirebaseOauthProviders.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Use social sites for authentication.</p>
+    <p>OAuth Providers</p>
+<p>OAuth Providers</p>
     </div>
 
 
 
     <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
 
-    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseSocial</code></p>
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseOauthProviders</code></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
 <h3>Public methods</h3>
 
 <ul>
-<li><p><a href='#method-set_scope'><code>FirebaseSocial$set_scope()</code></a></p></li>
-<li><p><a href='#method-launch_google'><code>FirebaseSocial$launch_google()</code></a></p></li>
-<li><p><a href='#method-launch_github'><code>FirebaseSocial$launch_github()</code></a></p></li>
-<li><p><a href='#method-launch_facebook'><code>FirebaseSocial$launch_facebook()</code></a></p></li>
-<li><p><a href='#method-launch_twitter'><code>FirebaseSocial$launch_twitter()</code></a></p></li>
-<li><p><a href='#method-clone'><code>FirebaseSocial$clone()</code></a></p></li>
+<li><p><a href='#method-set_provider'><code>FirebaseOauthProviders$set_provider()</code></a></p></li>
+<li><p><a href='#method-launch'><code>FirebaseOauthProviders$launch()</code></a></p></li>
+<li><p><a href='#method-clone'><code>FirebaseOauthProviders$clone()</code></a></p></li>
 </ul>
 <p><details ><summary>Inherited methods</summary>
 <ul>
@@ -216,24 +215,24 @@
 </details>
 
 <hr>
-<a id="method-set_scope"></a></p><h3>Method <code>set_scope()</code></h3>
+<a id="method-set_provider"></a></p><h3>Method <code>set_provider()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$set_scope(scope)</pre><p></div></p>
+<p><div class="r"></p><pre>FirebaseOauthProviders$set_provider(provider)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl class='dl-horizontal'>
-<dt><code>scope</code></dt><dd><p>Google scope.</p></dd>
+<dt><code>provider</code></dt><dd><p>The provider to user, e.g.: <code>microsoft.com</code>, <code>yahoo.com</code> or <code>google.com</code>.</p></dd>
 
 </dl><p></div></p>
 <h3>Details</h3>
-<p>Define the scope to request from Google.</p>
+<p>Define provider to use</p>
 
 <p><hr>
-<a id="method-launch_google"></a></p><h3>Method <code>launch_google()</code></h3>
+<a id="method-launch"></a></p><h3>Method <code>launch()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$launch_google(flow = c("popup", "redirect"))</pre><p></div></p>
+<p><div class="r"></p><pre>FirebaseOauthProviders$launch(flow = c("popup", "redirect"))</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl class='dl-horizontal'>
@@ -244,51 +243,9 @@
 <p>Launch sign in with Google.</p>
 
 <p><hr>
-<a id="method-launch_github"></a></p><h3>Method <code>launch_github()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$launch_github(flow = c("popup", "redirect"))</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
-<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Launch sign in with Github.</p>
-
-<p><hr>
-<a id="method-launch_facebook"></a></p><h3>Method <code>launch_facebook()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$launch_facebook(flow = c("popup", "redirect"))</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
-<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Launch sign in with Facebook.</p>
-
-<p><hr>
-<a id="method-launch_twitter"></a></p><h3>Method <code>launch_twitter()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$launch_twitter(flow = c("popup", "redirect"))</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
-<dt><code>flow</code></dt><dd><p>Authentication flow, either popup or redirect.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Launch sign in with Facebook.</p>
-
-<p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseSocial$clone(deep = FALSE)</pre><p></div></p>
+<p><div class="r"></p><pre>FirebaseOauthProviders$clone(deep = FALSE)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl class='dl-horizontal'>

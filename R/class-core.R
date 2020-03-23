@@ -19,7 +19,11 @@ Firebase <- R6::R6Class(
       # check that config is present
       stopifno_config(config_path)
 
+      # keep session
       self$session <- session
+
+      # generate a unique id
+      private$unique_id <- create_unique_id()
 
       conf <- read_config(config_path)
       msg <- list(
@@ -92,6 +96,7 @@ Firebase <- R6::R6Class(
     },
     .user_signed_in = list(signed_in = FALSE, user = NULL),
     .user_sign_up = list(signed_up = FALSE, user = NULL),
-    .language_code = NULL
+    .language_code = NULL,
+    unique_id = NULL
   )
 )

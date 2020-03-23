@@ -23,6 +23,8 @@ Currently the following methods from Google Firebase are available in the packag
 * Github
 * Facebook
 * Twitter
+* Microsoft
+* Yahoo!
 
 ## Install
 

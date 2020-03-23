@@ -95,6 +95,9 @@
     <li>
       <a href="../articles/email-link.html">Email Link</a>
     </li>
+    <li>
+      <a href="../articles/oauth-providers.html">Oauth Providers</a>
+    </li>
     <li class="divider">
     <li class="dropdown-header">Usage</li>
     <li>
@@ -139,7 +142,7 @@
 
     
     
-<p>The code for the <a href="https://shiny.john-coene.com/firebase">demo</a> which provides 6 different sign in methods uses the <code>FirebaseUI</code> and is remarkably simple, see below.</p>
+<p>The code for the <a href="https://shiny.john-coene.com/firebase">demo</a> which provides 7 different sign in methods uses the <code>FirebaseUI</code> and is remarkably simple, see below.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -156,35 +159,36 @@
 <span id="cb1-14"><a href="#cb1-14"></a><span class="st">    </span><span class="kw">new</span>(<span class="st">"session"</span>)<span class="op">$</span></span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="st">    </span><span class="kw">set_providers</span>(</span>
 <span id="cb1-16"><a href="#cb1-16"></a>      <span class="dt">email =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb1-17"><a href="#cb1-17"></a>      <span class="dt">google =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb1-18"><a href="#cb1-18"></a>      <span class="dt">github =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb1-19"><a href="#cb1-19"></a>      <span class="dt">twitter =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb1-20"><a href="#cb1-20"></a>      <span class="dt">facebook =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb1-21"><a href="#cb1-21"></a>      <span class="dt">microsoft =</span> <span class="ot">TRUE</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>    )<span class="op">$</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="st">    </span><span class="kw">launch</span>()</span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
-<span id="cb1-26"><a href="#cb1-26"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>() <span class="co"># require sign in</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
-<span id="cb1-28"><a href="#cb1-28"></a>  })</span>
-<span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a>  output<span class="op">$</span>msg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span>({</span>
-<span id="cb1-31"><a href="#cb1-31"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>() <span class="co"># require sign in</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a>    user &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_signed_in</span>() <span class="co"># get logged in user info</span></span>
-<span id="cb1-34"><a href="#cb1-34"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(user)</span>
-<span id="cb1-35"><a href="#cb1-35"></a>    </span>
-<span id="cb1-36"><a href="#cb1-36"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"Welcome,"</span>, user<span class="op">$</span>user<span class="op">$</span>displayName)</span>
-<span id="cb1-37"><a href="#cb1-37"></a>  })</span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>signout, {</span>
-<span id="cb1-40"><a href="#cb1-40"></a>    f<span class="op">$</span><span class="kw">sign_out</span>()</span>
-<span id="cb1-41"><a href="#cb1-41"></a>  })</span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a>}</span>
-<span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+<span id="cb1-17"><a href="#cb1-17"></a>      <span class="dt">yahoo =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-18"><a href="#cb1-18"></a>      <span class="dt">google =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-19"><a href="#cb1-19"></a>      <span class="dt">github =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-20"><a href="#cb1-20"></a>      <span class="dt">twitter =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-21"><a href="#cb1-21"></a>      <span class="dt">facebook =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-22"><a href="#cb1-22"></a>      <span class="dt">microsoft =</span> <span class="ot">TRUE</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>    )<span class="op">$</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="st">    </span><span class="kw">launch</span>()</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>() <span class="co"># require sign in</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
+<span id="cb1-29"><a href="#cb1-29"></a>  })</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>  output<span class="op">$</span>msg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span>({</span>
+<span id="cb1-32"><a href="#cb1-32"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>() <span class="co"># require sign in</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a>    user &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_signed_in</span>() <span class="co"># get logged in user info</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(user)</span>
+<span id="cb1-36"><a href="#cb1-36"></a>    </span>
+<span id="cb1-37"><a href="#cb1-37"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"Welcome,"</span>, user<span class="op">$</span>user<span class="op">$</span>displayName)</span>
+<span id="cb1-38"><a href="#cb1-38"></a>  })</span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>signout, {</span>
+<span id="cb1-41"><a href="#cb1-41"></a>    f<span class="op">$</span><span class="kw">sign_out</span>()</span>
+<span id="cb1-42"><a href="#cb1-42"></a>  })</span>
+<span id="cb1-43"><a href="#cb1-43"></a></span>
+<span id="cb1-44"><a href="#cb1-44"></a>}</span>
+<span id="cb1-45"><a href="#cb1-45"></a></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

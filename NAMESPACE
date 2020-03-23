@@ -2,6 +2,7 @@
 
 export(FirebaseEmailLink)
 export(FirebaseEmailPassword)
+export(FirebaseOauthProviders)
 export(FirebaseSocial)
 export(FirebaseUI)
 export(check_urls)

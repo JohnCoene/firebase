@@ -43,3 +43,12 @@ check_urls <- function(fireblaze_ui){
 
   invisible()
 }
+
+#' ID
+#' 
+#' Generates a unique id.
+#' 
+#' @keywords internal
+create_unique_id <- function(){
+  paste0(sample(c(letters, 1:26), 26), collapse = "") 
+}

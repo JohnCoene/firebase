@@ -29,6 +29,8 @@ navbar:
           href: articles/email-password.html
         - text: "Email Link"
           href: articles/email-link.html
+        - text: "Oauth Providers"
+          href: articles/oauth-providers.html
         - text: "------------------"
         - text: "Usage"
         - text: "State Persistence"

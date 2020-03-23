@@ -16,6 +16,21 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
 </div>
 
+## Authentication Methods
+
+Currently the following methods from Google Firebase are available in the package:
+
+* Email & Password
+* Email Link
+* Google
+* Github
+* Facebook
+* Twitter
+* Microsoft
+* Yahoo!
+
+## Example
+
 An application that provides authentication could look like this.
 
 ```r
