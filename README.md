@@ -20,7 +20,7 @@ An application that provides authentication could look like this.
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 ui <- fluidPage(
   useFireblaze(), # import dependencies,
