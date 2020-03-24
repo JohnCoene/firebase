@@ -5,6 +5,7 @@ articles:
   demo: demo.html
   email-link: email-link.html
   email-password: email-password.html
+  flow: flow.html
   get-started: get-started.html
   manage: manage.html
   oauth-providers: oauth-providers.html

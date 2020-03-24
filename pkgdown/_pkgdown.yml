@@ -35,6 +35,8 @@ navbar:
         - text: "Usage"
         - text: "State Persistence"
           href: articles/state-persistence.html
+        - text: "Flow"
+          href: articles/flow.html
         - text: "Manage Users"
           href: articles/manage.html
         - text: "Demo"

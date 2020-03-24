@@ -32,6 +32,7 @@ Use fireblaze to manage authentications.
 \item \href{#method-get_signed_up}{\code{Firebase$get_signed_up()}}
 \item \href{#method-is_signed_in}{\code{Firebase$is_signed_in()}}
 \item \href{#method-req_sign_in}{\code{Firebase$req_sign_in()}}
+\item \href{#method-req_sign_out}{\code{Firebase$req_sign_out()}}
 \item \href{#method-set_language_code}{\code{Firebase$set_language_code()}}
 \item \href{#method-delete_user}{\code{Firebase$delete_user()}}
 \item \href{#method-get_delete_user}{\code{Firebase$get_delete_user()}}
@@ -125,6 +126,19 @@ Check whether use is signed in
 \subsection{Method \code{req_sign_in()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$req_sign_in()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Makes output require user sign in
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-req_sign_out"></a>}}
+\if{latex}{\out{\hypertarget{method-req_sign_out}{}}}
+\subsection{Method \code{req_sign_out()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$req_sign_out()}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{

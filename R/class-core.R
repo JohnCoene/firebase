@@ -60,6 +60,12 @@ Firebase <- R6::R6Class(
       private$.user_signed_in <- user
       req(user$signed_in)
     },
+#' @details Makes output require user sign in
+    req_sign_out = function(){
+      user <- private$get_input("signed_in_user")
+      private$.user_signed_in <- user
+      req(!user$signed_in)
+    },
 #' @details Set language code for auth provider
 #' @param code iso639-1 language code.
     set_language_code = function(code){
