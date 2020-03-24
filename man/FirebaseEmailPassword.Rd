@@ -26,6 +26,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-get_reset}{\code{FirebaseEmailPassword$get_reset()}}
 \item \href{#method-send_verification_email}{\code{FirebaseEmailPassword$send_verification_email()}}
 \item \href{#method-get_verification_email}{\code{FirebaseEmailPassword$get_verification_email()}}
+\item \href{#method-set_password}{\code{FirebaseEmailPassword$set_password()}}
+\item \href{#method-get_password}{\code{FirebaseEmailPassword$get_password()}}
 \item \href{#method-re_authenticate}{\code{FirebaseEmailPassword$re_authenticate()}}
 \item \href{#method-get_re_authenticated}{\code{FirebaseEmailPassword$get_re_authenticated()}}
 \item \href{#method-clone}{\code{FirebaseEmailPassword$clone()}}
@@ -161,6 +163,42 @@ Send the user a verification email
 
 \subsection{Details}{
 Get result of verification email sending procedure
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_password"></a>}}
+\if{latex}{\out{\hypertarget{method-set_password}{}}}
+\subsection{Method \code{set_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$set_password(password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{password}}{The authenticated user password, the user should be prompted
+to enter it.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Set user password
+
+Useful to provide ability to change password.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_password"></a>}}
+\if{latex}{\out{\hypertarget{method-get_password}{}}}
+\subsection{Method \code{get_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_password()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get response from set_password
 }
 
 }

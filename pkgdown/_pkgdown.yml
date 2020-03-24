@@ -35,8 +35,8 @@ navbar:
         - text: "Usage"
         - text: "State Persistence"
           href: articles/state-persistence.html
-        - text: "Signed in user"
-          href: articles/user.html
+        - text: "Manage Users"
+          href: articles/manage.html
         - text: "Demo"
           href: articles/demo.html
   right:

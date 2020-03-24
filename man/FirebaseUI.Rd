@@ -25,6 +25,14 @@ Use fireblaze to manage authentications.
 \item \href{#method-set_tos_url}{\code{FirebaseUI$set_tos_url()}}
 \item \href{#method-set_privacy_policy_url}{\code{FirebaseUI$set_privacy_policy_url()}}
 \item \href{#method-launch}{\code{FirebaseUI$launch()}}
+\item \href{#method-reset_password}{\code{FirebaseUI$reset_password()}}
+\item \href{#method-get_reset}{\code{FirebaseUI$get_reset()}}
+\item \href{#method-send_verification_email}{\code{FirebaseUI$send_verification_email()}}
+\item \href{#method-get_verification_email}{\code{FirebaseUI$get_verification_email()}}
+\item \href{#method-set_password}{\code{FirebaseUI$set_password()}}
+\item \href{#method-get_password}{\code{FirebaseUI$get_password()}}
+\item \href{#method-re_authenticate}{\code{FirebaseUI$re_authenticate()}}
+\item \href{#method-get_re_authenticated}{\code{FirebaseUI$get_re_authenticated()}}
 \item \href{#method-clone}{\code{FirebaseUI$clone()}}
 }
 }
@@ -137,6 +145,140 @@ one of their saved accounts. You can disable it by specifying the value below.}
 }
 \subsection{Details}{
 Setup the signin form.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-reset_password"></a>}}
+\if{latex}{\out{\hypertarget{method-reset_password}{}}}
+\subsection{Method \code{reset_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$reset_password(email = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{email}}{Email to send reset link to, if missing looks for current logged in user's email}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Reset user password
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_reset"></a>}}
+\if{latex}{\out{\hypertarget{method-get_reset}{}}}
+\subsection{Method \code{get_reset()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_reset()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get whether password reset email was successfully sent
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-send_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-send_verification_email}{}}}
+\subsection{Method \code{send_verification_email()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$send_verification_email()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Send the user a verification email
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-get_verification_email}{}}}
+\subsection{Method \code{get_verification_email()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_verification_email()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get result of verification email sending procedure
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set_password"></a>}}
+\if{latex}{\out{\hypertarget{method-set_password}{}}}
+\subsection{Method \code{set_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$set_password(password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{password}}{The authenticated user password, the user should be prompted
+to enter it.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Set user password
+
+Useful to provide ability to change password.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_password"></a>}}
+\if{latex}{\out{\hypertarget{method-get_password}{}}}
+\subsection{Method \code{get_password()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_password()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get response from set_password
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-re_authenticate"></a>}}
+\if{latex}{\out{\hypertarget{method-re_authenticate}{}}}
+\subsection{Method \code{re_authenticate()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$re_authenticate(password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{password}}{The authenticated user password, the user should be prompted
+to enter it.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Re-authenticate the user.
+
+Some security-sensitive actions—such as deleting an account, setting a
+primary email address, and changing a password—require that the user has
+recently signed in. If you perform one of these actions, and the user signed
+in too long ago, the action fails with an error.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_re_authenticated"></a>}}
+\if{latex}{\out{\hypertarget{method-get_re_authenticated}{}}}
+\subsection{Method \code{get_re_authenticated()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_re_authenticated()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get response from re_authenticate
 }
 
 }

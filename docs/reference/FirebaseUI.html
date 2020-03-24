@@ -148,7 +148,7 @@
       <a href="../articles/state-persistence.html">State Persistence</a>
     </li>
     <li>
-      <a href="../articles/user.html">Signed in user</a>
+      <a href="../articles/manage.html">Manage Users</a>
     </li>
     <li>
       <a href="../articles/demo.html">Demo</a>
@@ -208,6 +208,14 @@
 <li><p><a href='#method-set_tos_url'><code>FirebaseUI$set_tos_url()</code></a></p></li>
 <li><p><a href='#method-set_privacy_policy_url'><code>FirebaseUI$set_privacy_policy_url()</code></a></p></li>
 <li><p><a href='#method-launch'><code>FirebaseUI$launch()</code></a></p></li>
+<li><p><a href='#method-reset_password'><code>FirebaseUI$reset_password()</code></a></p></li>
+<li><p><a href='#method-get_reset'><code>FirebaseUI$get_reset()</code></a></p></li>
+<li><p><a href='#method-send_verification_email'><code>FirebaseUI$send_verification_email()</code></a></p></li>
+<li><p><a href='#method-get_verification_email'><code>FirebaseUI$get_verification_email()</code></a></p></li>
+<li><p><a href='#method-set_password'><code>FirebaseUI$set_password()</code></a></p></li>
+<li><p><a href='#method-get_password'><code>FirebaseUI$get_password()</code></a></p></li>
+<li><p><a href='#method-re_authenticate'><code>FirebaseUI$re_authenticate()</code></a></p></li>
+<li><p><a href='#method-get_re_authenticated'><code>FirebaseUI$get_re_authenticated()</code></a></p></li>
 <li><p><a href='#method-clone'><code>FirebaseUI$clone()</code></a></p></li>
 </ul>
 <p><details ><summary>Inherited methods</summary>
@@ -296,6 +304,100 @@ one of their saved accounts. You can disable it by specifying the value below.</
 </dl><p></div></p>
 <h3>Details</h3>
 <p>Setup the signin form.</p>
+
+<p><hr>
+<a id="method-reset_password"></a></p><h3>Method <code>reset_password()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$reset_password(email = NULL)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>email</code></dt><dd><p>Email to send reset link to, if missing looks for current logged in user's email</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Reset user password</p>
+
+<p><hr>
+<a id="method-get_reset"></a></p><h3>Method <code>get_reset()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$get_reset()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get whether password reset email was successfully sent</p>
+
+<p><hr>
+<a id="method-send_verification_email"></a></p><h3>Method <code>send_verification_email()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$send_verification_email()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Send the user a verification email</p>
+
+<p><hr>
+<a id="method-get_verification_email"></a></p><h3>Method <code>get_verification_email()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$get_verification_email()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get result of verification email sending procedure</p>
+
+<p><hr>
+<a id="method-set_password"></a></p><h3>Method <code>set_password()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$set_password(password)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>password</code></dt><dd><p>The authenticated user password, the user should be prompted
+to enter it.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Set user password</p>
+<p>Useful to provide ability to change password.</p>
+
+<p><hr>
+<a id="method-get_password"></a></p><h3>Method <code>get_password()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$get_password()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get response from set_password</p>
+
+<p><hr>
+<a id="method-re_authenticate"></a></p><h3>Method <code>re_authenticate()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$re_authenticate(password)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>password</code></dt><dd><p>The authenticated user password, the user should be prompted
+to enter it.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Re-authenticate the user.</p>
+<p>Some security-sensitive actions—such as deleting an account, setting a
+primary email address, and changing a password—require that the user has
+recently signed in. If you perform one of these actions, and the user signed
+in too long ago, the action fails with an error.</p>
+
+<p><hr>
+<a id="method-get_re_authenticated"></a></p><h3>Method <code>get_re_authenticated()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>FirebaseUI$get_re_authenticated()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get response from re_authenticate</p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>

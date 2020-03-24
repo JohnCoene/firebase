@@ -1,4 +1,4 @@
-pandoc: 2.9.1
+pandoc: 2.9.1.1
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
@@ -6,9 +6,9 @@ articles:
   email-link: email-link.html
   email-password: email-password.html
   get-started: get-started.html
+  manage: manage.html
   oauth-providers: oauth-providers.html
   social: social.html
   state-persistence: state-persistence.html
   ui: ui.html
-  user: user.html
 

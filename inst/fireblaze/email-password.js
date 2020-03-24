@@ -52,3 +52,15 @@ Shiny.addCustomMessageHandler('fireblaze-re-authenticate', function(msg) {
       Shiny.setInputValue('fireblaze_' + 're_authenticate', {success: false, response: error});
     });
 });
+
+// set password
+Shiny.addCustomMessageHandler('fireblaze-set-password', function(msg) {
+  var user = firebase.auth().currentUser;
+  
+  user.updatePassword(msg.password)
+    .then(function() {
+      Shiny.setInputValue('fireblaze_' + 'set_password', {success: true, response: 'successful'});
+    }).catch(function(error) {
+      Shiny.setInputValue('fireblaze_' + 'set_password', {success: false, response: error});
+    });
+});

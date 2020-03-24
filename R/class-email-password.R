@@ -74,6 +74,19 @@ FirebaseEmailPassword <- R6::R6Class(
       private$get_input("verification_email_sent")
       invisible(self)
     },
+#' @details Set user password
+#' 
+#' Useful to provide ability to change password.
+#' 
+#' @param password The authenticated user password, the user should be prompted 
+#' to enter it.
+    set_password = function(password){
+      super$send("set-password", list(password = password))
+    },
+#' @details Get response from set_password
+    get_password = function(){
+      super$get_input("set_password")
+    },
 #' @details Re-authenticate the user.
 #' 
 #' Some security-sensitive actions—such as deleting an account, setting a 
@@ -84,11 +97,11 @@ FirebaseEmailPassword <- R6::R6Class(
 #' @param password The authenticated user password, the user should be prompted 
 #' to enter it.
     re_authenticate = function(password){
-      private$send("re-authenticate", list(password = password))
+      super$send("re-authenticate", list(password = password))
     },
 #' @details Get response from re_authenticate
     get_re_authenticated = function(){
-      private$get_input("re_authenticate")
+      super$get_input("re_authenticate")
     }
   ),
   active = list(
