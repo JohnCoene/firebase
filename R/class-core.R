@@ -67,6 +67,16 @@ Firebase <- R6::R6Class(
       private$send("language-code", list(code = code))
       private$.language_code <- code
       invisible(self)
+    },
+#' @details Send the user a verification email
+    send_verification_email = function(){
+      private$send("send-verification-email")
+      invisible(self)
+    },
+#' @details Get result of verification email sending procedure
+    get_verification_email = function(){
+      private$get_input("verification_email_sent")
+      invisible(self)
     }
   ),
   active = list(

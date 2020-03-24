@@ -22,7 +22,7 @@ First, instantiate the authentication from `FirebaseOauthProviders`, then define
 
 Below we have the authentication launch at the click of a button. We provide Microsoft by simply setting `microsoft.com` as provider. All that is needed to change to say Yahoo! is to change the provider to `yahoo.com` for instance.
 
-```{r}
+```r
 library(shiny)
 library(firebase)
 

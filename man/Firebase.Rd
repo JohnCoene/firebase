@@ -33,6 +33,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-is_signed_in}{\code{Firebase$is_signed_in()}}
 \item \href{#method-req_sign_in}{\code{Firebase$req_sign_in()}}
 \item \href{#method-set_language_code}{\code{Firebase$set_language_code()}}
+\item \href{#method-send_verification_email}{\code{Firebase$send_verification_email()}}
+\item \href{#method-get_verification_email}{\code{Firebase$get_verification_email()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
 }
@@ -147,6 +149,32 @@ Makes output require user sign in
 }
 \subsection{Details}{
 Set language code for auth provider
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-send_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-send_verification_email}{}}}
+\subsection{Method \code{send_verification_email()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$send_verification_email()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Send the user a verification email
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-get_verification_email}{}}}
+\subsection{Method \code{get_verification_email()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_verification_email()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get result of verification email sending procedure
 }
 
 }

@@ -143,3 +143,14 @@ Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
       Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: 'unsuccessful'})
     });
 });
+
+// Send email verification
+Shiny.addCustomMessageHandler('fireblaze-send-verification-email', function(msg) {
+  var user = firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function() {
+    Shiny.setInputValue('fireblaze_' + 'verification_email_sent', {success: true, response: 'successful'})
+  }).catch(function(error) {
+    Shiny.setInputValue('fireblaze_' + 'verification_email_sent', {success: false, response: error})
+  });
+});
