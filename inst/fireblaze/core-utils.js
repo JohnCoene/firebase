@@ -24,3 +24,19 @@ function showHideOnLogin(method){
     }
   }
 }
+
+
+// toggle elements 
+function showHideOnLogout(method){
+  var els = document.getElementsByClassName('fireblaze__requires__signout');
+
+  for(var i = 0; i < els.length; i++){
+    if(method == "hide") {
+      els[i].classList.remove('fireblaze__hidden');
+      $(els[i]).hide();
+    } else if(method == "show") {
+      els[i].classList.remove('fireblaze__hidden');
+      $(els[i]).show();
+    }
+  }
+}

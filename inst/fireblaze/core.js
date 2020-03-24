@@ -33,6 +33,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
         // show signin authorised
         showHideOnLogin("show");
+        showHideOnLogout("hide");
         $("#fireblaze-signin-ui").hide();
 
         // set input
@@ -43,6 +44,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
         // hide signin required
         showHideOnLogin("hide");
+        showHideOnLogout("show");
 
         // set error input
         Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: false, user: null});
