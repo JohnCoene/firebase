@@ -11,7 +11,7 @@
 reqSignin <- function(...) {
   tags <- list(...)
 
-  warning("This is not secure, see documentation", call. = FALSE)
+  warning("`reqSignin` is not secure, see documentation", call. = FALSE)
 
   if (length(tags) == 1 && inherits(tags[[1]], "shiny.tag")) {
     tags[[1]] <-
@@ -25,6 +25,6 @@ reqSignin <- function(...) {
   } else if (length(tags) > 1) {
     return( lapply(tags, reqSignin) )
   } else {
-    stop("Invalid shiny tags")
+    stop("Invalid shiny tags", call. = FALSE)
   }
 }

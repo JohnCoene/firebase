@@ -68,15 +68,14 @@ Firebase <- R6::R6Class(
       private$.language_code <- code
       invisible(self)
     },
-#' @details Send the user a verification email
-    send_verification_email = function(){
-      private$send("send-verification-email")
+#' @details Delete the user
+    delete_user = function(){
+      private$send("delete-user")
       invisible(self)
     },
-#' @details Get result of verification email sending procedure
-    get_verification_email = function(){
-      private$get_input("verification_email_sent")
-      invisible(self)
+#' @details Get result of user deletion
+    get_delete_user = function(){
+      private$get_input("deleted_user")
     }
   ),
   active = list(

@@ -133,24 +133,14 @@ Shiny.addCustomMessageHandler('fireblaze-language-code', function(msg) {
   firebase.auth().languageCode = msg.code;
 });
 
-// Language code
-Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
-  
-  firebase.auth().sendPasswordResetEmail(msg.email)
+// Delete User
+Shiny.addCustomMessageHandler('fireblaze-delete-user', function(msg) {
+  let user = firebase.auth().currentUser;
+
+  user.delete()
     .then(function() {
-      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: true, response: 'successful'})
+      Shiny.setInputValue('fireblaze_' + 'deleted_user', {success: true, response: 'successful'})
     }).catch(function(error) {
-      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: 'unsuccessful'})
+      Shiny.setInputValue('fireblaze_' + 'deleted_user', {success: false, response: error})
     });
-});
-
-// Send email verification
-Shiny.addCustomMessageHandler('fireblaze-send-verification-email', function(msg) {
-  var user = firebase.auth().currentUser;
-
-  user.sendEmailVerification().then(function() {
-    Shiny.setInputValue('fireblaze_' + 'verification_email_sent', {success: true, response: 'successful'})
-  }).catch(function(error) {
-    Shiny.setInputValue('fireblaze_' + 'verification_email_sent', {success: false, response: error})
-  });
 });
