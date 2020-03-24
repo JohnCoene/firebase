@@ -12,7 +12,7 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/firebase?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/firebase)
 <!-- badges: end -->
 
-[Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase)
+[Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase) | [Reference](https://firebase.john-coene.com/reference/)
 
 </div>
 
