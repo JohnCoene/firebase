@@ -73,6 +73,22 @@ FirebaseEmailPassword <- R6::R6Class(
     get_verification_email = function(){
       private$get_input("verification_email_sent")
       invisible(self)
+    },
+#' @details Re-authenticate the user.
+#' 
+#' Some security-sensitive actions—such as deleting an account, setting a 
+#' primary email address, and changing a password—require that the user has 
+#' recently signed in. If you perform one of these actions, and the user signed 
+#' in too long ago, the action fails with an error. 
+#' 
+#' @param password The authenticated user password, the user should be prompted 
+#' to enter it.
+    re_authenticate = function(password){
+      private$send("re-authenticate", list(password = password))
+    },
+#' @details Get response from re_authenticate
+    get_re_authenticated = function(){
+      private$get_input("re_authenticate")
     }
   ),
   active = list(

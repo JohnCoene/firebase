@@ -26,6 +26,8 @@ Use fireblaze to manage authentications.
 \item \href{#method-get_reset}{\code{FirebaseEmailPassword$get_reset()}}
 \item \href{#method-send_verification_email}{\code{FirebaseEmailPassword$send_verification_email()}}
 \item \href{#method-get_verification_email}{\code{FirebaseEmailPassword$get_verification_email()}}
+\item \href{#method-re_authenticate}{\code{FirebaseEmailPassword$re_authenticate()}}
+\item \href{#method-get_re_authenticated}{\code{FirebaseEmailPassword$get_re_authenticated()}}
 \item \href{#method-clone}{\code{FirebaseEmailPassword$clone()}}
 }
 }
@@ -159,6 +161,45 @@ Send the user a verification email
 
 \subsection{Details}{
 Get result of verification email sending procedure
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-re_authenticate"></a>}}
+\if{latex}{\out{\hypertarget{method-re_authenticate}{}}}
+\subsection{Method \code{re_authenticate()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$re_authenticate(password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{password}}{The authenticated user password, the user should be prompted
+to enter it.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Re-authenticate the user.
+
+Some security-sensitive actions—such as deleting an account, setting a
+primary email address, and changing a password—require that the user has
+recently signed in. If you perform one of these actions, and the user signed
+in too long ago, the action fails with an error.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_re_authenticated"></a>}}
+\if{latex}{\out{\hypertarget{method-get_re_authenticated}{}}}
+\subsection{Method \code{get_re_authenticated()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_re_authenticated()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get response from re_authenticate
 }
 
 }

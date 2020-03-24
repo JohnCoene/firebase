@@ -39,3 +39,16 @@ Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
       Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: 'unsuccessful'})
     });
 });
+
+// Reauthenticate
+Shiny.addCustomMessageHandler('fireblaze-re-authenticate', function(msg) {
+  var user = firebase.auth().currentUser;
+  var credential = firebase.auth.EmailAuthProvider.credential(user.email, msg.password);
+  
+  user.reauthenticateWithCredential(credential)
+    .then(function() {
+      Shiny.setInputValue('fireblaze_' + 're_authenticate', {success: true, response: 'successful'});
+    }).catch(function(error) {
+      Shiny.setInputValue('fireblaze_' + 're_authenticate', {success: false, response: error});
+    });
+});
