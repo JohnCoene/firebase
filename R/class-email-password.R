@@ -63,6 +63,16 @@ FirebaseEmailPassword <- R6::R6Class(
 #' @details Get whether password reset email was successfully sent 
     get_reset = function(){
       super$get_input("reset_email_sent")
+    },
+#' @details Send the user a verification email
+    send_verification_email = function(){
+      private$send("send-verification-email")
+      invisible(self)
+    },
+#' @details Get result of verification email sending procedure
+    get_verification_email = function(){
+      private$get_input("verification_email_sent")
+      invisible(self)
     }
   ),
   active = list(
