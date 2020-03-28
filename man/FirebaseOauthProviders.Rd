@@ -4,9 +4,36 @@
 \alias{FirebaseOauthProviders}
 \title{OAuth Providers}
 \description{
-OAuth Providers
+Use OAuth provides such as Github or Facebook to allow users to conveniently sign in.
+}
+\examples{
+library(shiny)
+library(firebase)
 
-OAuth Providers
+ui <- fluidPage(
+  useFirebase(),
+  actionButton("signin", "Sign in with Microsoft", icon = icon("microsoft")),
+  plotOutput("plot")
+)
+
+server <- function(input, output, session){
+  f <- FirebaseOauthProviders$
+    new()$
+    set_provider("microsoft.com")
+
+  observeEvent(input$signin, {
+    f$launch()
+  })
+
+  output$plot <- renderPlot({
+    f$req_sign_in()
+    plot(cars)
+  })
+  
+}
+
+\dontrun{shinyApp(ui, server)}
+
 }
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseOauthProviders}

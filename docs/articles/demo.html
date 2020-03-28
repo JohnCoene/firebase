@@ -182,7 +182,7 @@
 <span id="cb1-34"><a href="#cb1-34"></a>    user &lt;-<span class="st"> </span>f<span class="op">$</span><span class="kw">get_signed_in</span>() <span class="co"># get logged in user info</span></span>
 <span id="cb1-35"><a href="#cb1-35"></a>    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(user)</span>
 <span id="cb1-36"><a href="#cb1-36"></a>    </span>
-<span id="cb1-37"><a href="#cb1-37"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"Welcome,"</span>, user<span class="op">$</span>user<span class="op">$</span>displayName)</span>
+<span id="cb1-37"><a href="#cb1-37"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"Welcome,"</span>, user<span class="op">$</span>response<span class="op">$</span>displayName)</span>
 <span id="cb1-38"><a href="#cb1-38"></a>  })</span>
 <span id="cb1-39"><a href="#cb1-39"></a></span>
 <span id="cb1-40"><a href="#cb1-40"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>signout, {</span>

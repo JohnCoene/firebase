@@ -14,20 +14,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-The easiest way to provide Shiny authentication with {fireblaze} is probably using the prebuilt UI put together by Google itself.
+The easiest way to provide Shiny authentication with {firebase} is probably using the prebuilt UI put together by Google itself.
 
 We first configure the UI to include the sign-in services we want to enable, we launch the authentication service (together with the UI), then observe the user's interactions with the UI; sign-up success or failure.
 
 ## Introduction
 
-To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure to set the argument `ui` to `TRUE`. This imports the necessary dependencies., without it nothing will work.
+To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure you also place `useFirebaseUI` in there. This imports the necessary dependencies., without it nothing will work.
 
 ```r
 library(shiny)
 library(firebase)
 
 ui <- fluidPage(
-  useFirebase(ui = TRUE) # import dependencies
+  useFirebase(), # import dependencies
+  useFirebaseUI() # import UI
 )
 
 server <- function(input, output){}
@@ -42,7 +43,8 @@ library(shiny)
 library(firebase)
 
 ui <- fluidPage(
-  useFirebase(ui = TRUE) # import dependencies
+  useFirebase(), # import dependencies
+  useFirebaseUI() # import UI
 )
 
 server <- function(input, output){
@@ -59,7 +61,8 @@ library(shiny)
 library(firebase)
 
 ui <- fluidPage(
-  useFirebase(ui = TRUE) # import dependencies
+  useFirebase(), # import dependencies
+  useFirebaseUI() # import UI
 )
 
 server <- function(input, output){
@@ -74,14 +77,15 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-That is it for the mandatory options, you won't be able to launch the authentication method if you have not set the providers, {fireblaze} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We'll go with the latter.
+That is it for the mandatory options, you won't be able to launch the authentication method if you have not set the providers, {firebase} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We'll go with the latter.
 
 ```r
 library(shiny)
 library(firebase)
 
 ui <- fluidPage(
-  useFirebase(ui = TRUE) # import dependencies
+  useFirebase(), # import dependencies
+  useFirebaseUI() # import UI
 )
 
 server <- function(input, output){

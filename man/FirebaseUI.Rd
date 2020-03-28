@@ -6,6 +6,27 @@
 \description{
 Use fireblaze to manage authentications.
 }
+\examples{
+library(shiny)
+library(firebase)
+
+ui <- fluidPage(
+  useFirebase(), # import dependencies
+  useFirebaseUI() # import UI
+)
+
+server <- function(input, output){
+  f <- FirebaseUI$
+    new()$ # instantiate
+    set_providers( # define providers
+      email = TRUE, 
+      google = TRUE
+    )
+}
+
+\dontrun{shinyApp(ui, server)}
+
+}
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseUI}
 }

@@ -5,6 +5,26 @@
 #' @field tos_url URL to the Terms of Service page.
 #' @field privacy_policy_url The URL to the Privacy Policy page.
 #' 
+#' @examples 
+#' library(shiny)
+#' library(firebase)
+#' 
+#' ui <- fluidPage(
+#'   useFirebase(), # import dependencies
+#'   useFirebaseUI() # import UI
+#' )
+#' 
+#' server <- function(input, output){
+#'   f <- FirebaseUI$
+#'     new()$ # instantiate
+#'     set_providers( # define providers
+#'       email = TRUE, 
+#'       google = TRUE
+#'     )
+#' }
+#' 
+#' \dontrun{shinyApp(ui, server)}
+#' 
 #' @export
 FirebaseUI <- R6::R6Class(
   "FirebaseUI",

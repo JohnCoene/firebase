@@ -2,6 +2,38 @@
 #' 
 #' Use social sites for authentication.
 #' 
+#' @examples 
+#' library(shiny)
+#' library(firebase)
+#' 
+#' # define signin
+#' signin <- modalDialog(
+#'   title = "Login",
+#'   actionButton("google", "Google", icon = icon("google"), class = "btn-danger"),
+#'   actionButton("github", "Github", icon = icon("github")),
+#'   footer = NULL
+#' )
+#' 
+#' ui <- fluidPage(
+#'   useFirebase()
+#' )
+#' 
+#' server <- function(input, output) {
+#'   showModal(signin)
+#' 
+#'   f <- FirebaseSocial$new()
+#' 
+#'   observeEvent(input$google, {
+#'     f$launch_google()
+#'   })
+#' 
+#'   observeEvent(input$github, {
+#'     f$launch_github()
+#'   })
+#' }
+#' 
+#' \dontrun{shinyApp(ui, server)}
+#' 
 #' @export
 FirebaseSocial <- R6::R6Class(
   "FirebaseSocial",

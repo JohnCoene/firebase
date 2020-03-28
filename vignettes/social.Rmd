@@ -75,7 +75,7 @@ We are then going to initialise the authentication from the `FirebaseSocial` obj
 
 ```r
 library(shiny)
-library(fireblaze
+library(firebase)
 
 # define signin
 signin <- modalDialog(

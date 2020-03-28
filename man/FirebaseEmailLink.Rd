@@ -11,11 +11,44 @@ Other methods to pick up whether user signs in still apply. This
 is for added security measures.
 }
 \examples{
-\dontrun{
-f <- FirebaseEmailLink$
- new()$ # create
- config(url = "https://me.shinyapps.io/myApp/")
+library(shiny)
+library(firebase)
+
+options(shiny.port = 3000) 
+
+ui <- fluidPage(
+  useFirebase(),
+  textInput("email", "Your email"),
+  actionButton("submit", "Submit")
+)
+
+server <- function(input, output){
+
+  f <- FireblazeEmailLink$
+    new()$
+    config(url = "http://127.0.0.1:3000")
+
+  observeEvent(input$submit, {
+    if(input$email == "")
+      return()
+    
+    f$send(input$email)
+  })
+
+  observeEvent(f$get_email_sent(), {
+    sent <- f$get_email_sent()
+
+    if(sent$success)
+      showNotification("Email sent", type = "message")
+  })
+
+  observeEvent(f$get_email_verification(), {
+    print(f$get_email_verification())
+  })
+
 }
+
+\dontrun{shinyApp(ui, server)}
 
 
 ## ------------------------------------------------

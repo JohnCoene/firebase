@@ -25,19 +25,19 @@ Below we force shiny to run on port 3000 so we can reference the redirect URL in
 
 ```r
 library(shiny)
-library(fireblaze)
+library(firebase)
 
 options(shiny.port = 3000) 
 
 ui <- fluidPage(
-  use_fireblaze(),
+  useFirebase(),
   textInput("email", "Your email"),
   actionButton("submit", "Submit")
 )
 
 server <- function(input, output){
 
-  f <- FireblazeEmailLink$
+  f <- FirebaseEmailLink$
     new()$
     config(url = "http://127.0.0.1:3000")
 
