@@ -1,6 +1,7 @@
 Package: firebase
 Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
 Version: 0.0.1.9000
+Date: 2020-03-28
 Authors@R: 
     person(
       given = "John",
@@ -8,7 +9,7 @@ Authors@R:
       role = c("aut", "cre"),
       email = "jcoenep@gmail.com"
     )
-Description: Authenticate users in 'Shiny' applications using 'Google Firebase'.
+Description: Authenticate users in 'Shiny' applications using 'Google Firebase' using any of the many methods provided; email and password, sign in with 'Github', etc.
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
@@ -18,3 +19,5 @@ Imports:
   cli,
   shiny
 RoxygenNote: 7.1.0
+URL: http://firebase.john-coene.com/
+BugReports: https://github.com/JohnCoene/firebase/issues
