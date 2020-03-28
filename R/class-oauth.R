@@ -7,6 +7,7 @@ FirebaseOauthProviders <- R6::R6Class(
   public = list(
 #' @details Define provider to use
 #' @param provider The provider to user, e.g.: \code{microsoft.com}, \code{yahoo.com} or \code{google.com}.
+#' @return self
     set_provider = function(provider){
       if(missing(provider))
         stop("Missing provider", call. = FALSE)
@@ -18,6 +19,7 @@ FirebaseOauthProviders <- R6::R6Class(
     },
 #' @details Launch sign in with Google.
 #' @param flow Authentication flow, either popup or redirect.
+#' @return self
     launch = function(flow = c("popup", "redirect")){
       private$launch_oauth(match.arg(flow))
       invisible(self)

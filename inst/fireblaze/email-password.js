@@ -36,7 +36,7 @@ Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
     .then(function() {
       Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: true, response: 'successful'})
     }).catch(function(error) {
-      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: 'unsuccessful'})
+      Shiny.setInputValue('fireblaze_' + 'reset_email_sent', {success: false, response: error})
     });
 });
 

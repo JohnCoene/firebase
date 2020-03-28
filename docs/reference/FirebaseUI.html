@@ -225,6 +225,7 @@
 <ul>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-delete_user'><code>firebase::Firebase$delete_user()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
@@ -261,6 +262,8 @@
 <h3>Details</h3>
 <p>Define signin and login providers.</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-set_tos_url"></a></p><h3>Method <code>set_tos_url()</code></h3>
 
@@ -275,6 +278,8 @@
 <h3>Details</h3>
 <p>Defines Tterms of Services URL</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-set_privacy_policy_url"></a></p><h3>Method <code>set_privacy_policy_url()</code></h3>
 
@@ -289,6 +294,8 @@
 <h3>Details</h3>
 <p>Defines Privacy Policy URL</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-launch"></a></p><h3>Method <code>launch()</code></h3>
 
@@ -309,6 +316,8 @@ one of their saved accounts. You can disable it by specifying the value below.</
 <h3>Details</h3>
 <p>Setup the signin form.</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-reset_password"></a></p><h3>Method <code>reset_password()</code></h3>
 
@@ -323,6 +332,8 @@ one of their saved accounts. You can disable it by specifying the value below.</
 <h3>Details</h3>
 <p>Reset user password</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-get_reset"></a></p><h3>Method <code>get_reset()</code></h3>
 
@@ -332,6 +343,10 @@ one of their saved accounts. You can disable it by specifying the value below.</
 <h3>Details</h3>
 <p>Get whether password reset email was successfully sent</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating whether email reset was successful and <code>response</code>
+containing <code>successful</code> or the error.</p>
 <p><hr>
 <a id="method-send_verification_email"></a></p><h3>Method <code>send_verification_email()</code></h3>
 
@@ -341,6 +356,8 @@ one of their saved accounts. You can disable it by specifying the value below.</
 <h3>Details</h3>
 <p>Send the user a verification email</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-get_verification_email"></a></p><h3>Method <code>get_verification_email()</code></h3>
 
@@ -350,6 +367,10 @@ one of their saved accounts. You can disable it by specifying the value below.</
 <h3>Details</h3>
 <p>Get result of verification email sending procedure</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating whether email verification was successfully sent and <code>response</code>
+containing <code>successful</code> or the error.</p>
 <p><hr>
 <a id="method-set_password"></a></p><h3>Method <code>set_password()</code></h3>
 
@@ -366,6 +387,8 @@ to enter it.</p></dd>
 <p>Set user password</p>
 <p>Useful to provide ability to change password.</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-get_password"></a></p><h3>Method <code>get_password()</code></h3>
 
@@ -375,6 +398,10 @@ to enter it.</p></dd>
 <h3>Details</h3>
 <p>Get response from set_password</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating whether setting password was successfully set and <code>response</code>
+containing <code>successful</code> as string or the error.</p>
 <p><hr>
 <a id="method-re_authenticate"></a></p><h3>Method <code>re_authenticate()</code></h3>
 
@@ -403,6 +430,10 @@ in too long ago, the action fails with an error.</p>
 <h3>Details</h3>
 <p>Get response from re_authenticate</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating whether re-authentication was successful and <code>response</code>
+containing <code>successful</code> as string or the error.</p>
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>

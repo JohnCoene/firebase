@@ -192,6 +192,10 @@ Email Link" />
 
 
 
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Other methods to pick up whether user signs in still apply. This
+is for added security measures.</p>
     <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
 
     <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseEmailLink</code></p>
@@ -211,7 +215,6 @@ Email Link" />
 <ul>
 <li><p><a href='#method-config'><code>FirebaseEmailLink$config()</code></a></p></li>
 <li><p><a href='#method-send'><code>FirebaseEmailLink$send()</code></a></p></li>
-<li><p><a href='#method-verify'><code>FirebaseEmailLink$verify()</code></a></p></li>
 <li><p><a href='#method-get_email_sent'><code>FirebaseEmailLink$get_email_sent()</code></a></p></li>
 <li><p><a href='#method-get_email_verification'><code>FirebaseEmailLink$get_email_verification()</code></a></p></li>
 <li><p><a href='#method-clone'><code>FirebaseEmailLink$clone()</code></a></p></li>
@@ -220,6 +223,7 @@ Email Link" />
 <ul>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-delete_user'><code>firebase::Firebase$delete_user()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
@@ -264,15 +268,8 @@ Likely, your shiny application link.</p></dd>
 <h3>Details</h3>
 <p>Send email verification link.</p>
 
-<p><hr>
-<a id="method-verify"></a></p><h3>Method <code>verify()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseEmailLink$verify()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Verifies user came from email link.</p>
-
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-get_email_sent"></a></p><h3>Method <code>get_email_sent()</code></h3>
 
@@ -282,6 +279,10 @@ Likely, your shiny application link.</p></dd>
 <h3>Details</h3>
 <p>Get whether email verification was correctly sent.</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther sending the email was successful and <code>response</code>
+containing the email used to sign in or the error if sending failed.</p>
 <p><hr>
 <a id="method-get_email_verification"></a></p><h3>Method <code>get_email_verification()</code></h3>
 
@@ -289,8 +290,12 @@ Likely, your shiny application link.</p></dd>
 <p><div class="r"></p><pre>FirebaseEmailLink$get_email_verification()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Get whether email verification was correctly sent.</p>
+<p>Get whether user is signing in from email verification.</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther signing in from the verification link was successful and <code>response</code>
+containing the result of the sign in or the error if signing in failed.</p>
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
@@ -308,6 +313,7 @@ Likely, your shiny application link.</p></dd>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#note">Note</a></li>
       <li><a href="#super-class">Super class</a></li>
       <li><a href="#active-bindings">Active bindings</a></li>
       <li><a href="#methods">Methods</a></li>

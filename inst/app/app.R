@@ -33,7 +33,7 @@ server <- function(input, output){
     user <- f$get_signed_in() # get logged in user info
     print(user)
     
-    h4("Welcome,", user$user$displayName)
+    h4("Welcome,", user$response$displayName)
   })
 
   observeEvent(input$signout, {

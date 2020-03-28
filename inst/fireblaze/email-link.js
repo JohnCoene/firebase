@@ -6,6 +6,6 @@ Shiny.addCustomMessageHandler('fireblaze-send-email-link', function(msg) {
       Shiny.setInputValue('fireblaze_' + 'email_link_sent', {success: true, response: msg.email});
     })
     .catch(function(error) {
-      Shiny.setInputValue('fireblaze_' + 'email_link_sent', {success: false, error: error});
+      Shiny.setInputValue('fireblaze_' + 'email_link_sent', {success: false, response: error});
     });
 });

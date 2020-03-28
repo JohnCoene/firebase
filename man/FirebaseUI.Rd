@@ -41,6 +41,7 @@ Use fireblaze to manage authentications.
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
@@ -82,6 +83,9 @@ Use fireblaze to manage authentications.
 Define signin and login providers.
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-set_tos_url"></a>}}
@@ -102,6 +106,9 @@ Define signin and login providers.
 Defines Tterms of Services URL
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-set_privacy_policy_url"></a>}}
@@ -122,6 +129,9 @@ Defines Tterms of Services URL
 Defines Privacy Policy URL
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-launch"></a>}}
@@ -148,6 +158,9 @@ one of their saved accounts. You can disable it by specifying the value below.}
 Setup the signin form.
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-reset_password"></a>}}
@@ -168,6 +181,9 @@ Setup the signin form.
 Reset user password
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_reset"></a>}}
@@ -181,6 +197,11 @@ Reset user password
 Get whether password reset email was successfully sent
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether email reset was successful and \code{response}
+containing \code{successful} or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-send_verification_email"></a>}}
@@ -194,6 +215,9 @@ Get whether password reset email was successfully sent
 Send the user a verification email
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_verification_email"></a>}}
@@ -207,6 +231,11 @@ Send the user a verification email
 Get result of verification email sending procedure
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether email verification was successfully sent and \code{response}
+containing \code{successful} or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-set_password"></a>}}
@@ -230,6 +259,9 @@ Set user password
 Useful to provide ability to change password.
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_password"></a>}}
@@ -243,6 +275,11 @@ Useful to provide ability to change password.
 Get response from set_password
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether setting password was successfully set and \code{response}
+containing \code{successful} as string or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-re_authenticate"></a>}}
@@ -282,6 +319,11 @@ in too long ago, the action fails with an error.
 Get response from re_authenticate
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether re-authentication was successful and \code{response}
+containing \code{successful} as string or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

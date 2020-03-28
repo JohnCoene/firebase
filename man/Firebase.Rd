@@ -28,6 +28,7 @@ Use fireblaze to manage authentications.
 \itemize{
 \item \href{#method-new}{\code{Firebase$new()}}
 \item \href{#method-sign_out}{\code{Firebase$sign_out()}}
+\item \href{#method-get_sign_out}{\code{Firebase$get_sign_out()}}
 \item \href{#method-get_signed_in}{\code{Firebase$get_signed_in()}}
 \item \href{#method-get_signed_up}{\code{Firebase$get_signed_up()}}
 \item \href{#method-is_signed_in}{\code{Firebase$is_signed_in()}}
@@ -77,9 +78,30 @@ Initialise Fireblaze
 }
 
 \subsection{Details}{
-Signs user out
+Signs out user
 }
 
+\subsection{Returns}{
+self
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_sign_out"></a>}}
+\if{latex}{\out{\hypertarget{method-get_sign_out}{}}}
+\subsection{Method \code{get_sign_out()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_sign_out()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get signed out results
+}
+
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther signing out was successful and \code{response}
+containing \code{sucessful} or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_signed_in"></a>}}
@@ -93,6 +115,11 @@ Signs user out
 Signed in user details triggered when auth states changes
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther signing in was successful and \code{response}
+containing the user object or \code{NULL} if signing in failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_signed_up"></a>}}
@@ -103,9 +130,14 @@ Signed in user details triggered when auth states changes
 }
 
 \subsection{Details}{
-Signed up user details triggered explicitely by user (e.g.: on click)
+Get results of a sign up
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther signing in was successful and \code{response}
+containing the user object or \code{NULL} if signing in failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-is_signed_in"></a>}}
@@ -119,6 +151,9 @@ Signed up user details triggered explicitely by user (e.g.: on click)
 Check whether use is signed in
 }
 
+\subsection{Returns}{
+A boolean indicating whether user has successfully signed in.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-req_sign_in"></a>}}
@@ -129,7 +164,7 @@ Check whether use is signed in
 }
 
 \subsection{Details}{
-Makes output require user sign in
+Makes Shiny output, observer, or reactive require the user to be signed in
 }
 
 }
@@ -142,7 +177,7 @@ Makes output require user sign in
 }
 
 \subsection{Details}{
-Makes output require user sign in
+Makes Shiny output, observer, or reactive require the user to be signed out
 }
 
 }
@@ -165,6 +200,9 @@ Makes output require user sign in
 Set language code for auth provider
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-delete_user"></a>}}
@@ -178,6 +216,9 @@ Set language code for auth provider
 Delete the user
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_delete_user"></a>}}
@@ -189,8 +230,16 @@ Delete the user
 
 \subsection{Details}{
 Get result of user deletion
+
+
+Get results of a sign up
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther deletion was successful and \code{response}
+containing either \code{successful} string or the error if signing in failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

@@ -8,6 +8,10 @@ Email Link
 
 Email Link
 }
+\note{
+Other methods to pick up whether user signs in still apply. This
+is for added security measures.
+}
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseEmailLink}
 }
@@ -25,7 +29,6 @@ Email Link
 \itemize{
 \item \href{#method-config}{\code{FirebaseEmailLink$config()}}
 \item \href{#method-send}{\code{FirebaseEmailLink$send()}}
-\item \href{#method-verify}{\code{FirebaseEmailLink$verify()}}
 \item \href{#method-get_email_sent}{\code{FirebaseEmailLink$get_email_sent()}}
 \item \href{#method-get_email_verification}{\code{FirebaseEmailLink$get_email_verification()}}
 \item \href{#method-clone}{\code{FirebaseEmailLink$clone()}}
@@ -36,6 +39,7 @@ Email Link
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
@@ -91,19 +95,9 @@ Configure
 Send email verification link.
 }
 
+\subsection{Returns}{
+self
 }
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-verify"></a>}}
-\if{latex}{\out{\hypertarget{method-verify}{}}}
-\subsection{Method \code{verify()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailLink$verify()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Verifies user came from email link.
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_email_sent"></a>}}
@@ -117,6 +111,11 @@ Verifies user came from email link.
 Get whether email verification was correctly sent.
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther sending the email was successful and \code{response}
+containing the email used to sign in or the error if sending failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_email_verification"></a>}}
@@ -127,9 +126,14 @@ Get whether email verification was correctly sent.
 }
 
 \subsection{Details}{
-Get whether email verification was correctly sent.
+Get whether user is signing in from email verification.
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther signing in from the verification link was successful and \code{response}
+containing the result of the sign in or the error if signing in failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

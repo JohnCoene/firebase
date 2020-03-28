@@ -37,8 +37,8 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
         $("#fireblaze-signin-ui").hide();
 
         // set input
-        Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: true, user: user});
-        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: true, user: user});
+        Shiny.setInputValue('fireblaze_' + 'signed_in', {success: true, response: user});
+        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {success: true, response: user});
 
       } else {
 
@@ -47,8 +47,8 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
         showHideOnLogout("show");
 
         // set error input
-        Shiny.setInputValue('fireblaze_' + 'signed_in', {signed_in: false, user: null});
-        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {signed_in: false, user: null});
+        Shiny.setInputValue('fireblaze_' + 'signed_in', {success: false, response: null});
+        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {success: false, response: null});
       }
     });
 
@@ -61,7 +61,6 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
       // the flow on the same device where they started it.
       var email = window.localStorage.getItem('fireblazeEmailSignIn');
       if (!email) {
-        console.log("no email verification link found");
         Shiny.setInputValue('fireblaze_' + 'email_verification', {success: false, response: "Cannot find email"});
       }
       // The client SDK will parse the code from the link for you.

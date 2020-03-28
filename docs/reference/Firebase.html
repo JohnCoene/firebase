@@ -212,6 +212,7 @@
 <ul>
 <li><p><a href='#method-new'><code>Firebase$new()</code></a></p></li>
 <li><p><a href='#method-sign_out'><code>Firebase$sign_out()</code></a></p></li>
+<li><p><a href='#method-get_sign_out'><code>Firebase$get_sign_out()</code></a></p></li>
 <li><p><a href='#method-get_signed_in'><code>Firebase$get_signed_in()</code></a></p></li>
 <li><p><a href='#method-get_signed_up'><code>Firebase$get_signed_up()</code></a></p></li>
 <li><p><a href='#method-is_signed_in'><code>Firebase$is_signed_in()</code></a></p></li>
@@ -252,8 +253,23 @@
 <p><div class="r"></p><pre>Firebase$sign_out()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Signs user out</p>
+<p>Signs out user</p>
 
+<h3>Returns</h3>
+<p>self</p>
+<p><hr>
+<a id="method-get_sign_out"></a></p><h3>Method <code>get_sign_out()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Firebase$get_sign_out()</pre><p></div></p>
+
+<h3>Details</h3>
+<p>Get signed out results</p>
+
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther signing out was successful and <code>response</code>
+containing <code>sucessful</code> or the error.</p>
 <p><hr>
 <a id="method-get_signed_in"></a></p><h3>Method <code>get_signed_in()</code></h3>
 
@@ -263,6 +279,10 @@
 <h3>Details</h3>
 <p>Signed in user details triggered when auth states changes</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther signing in was successful and <code>response</code>
+containing the user object or <code>NULL</code> if signing in failed.</p>
 <p><hr>
 <a id="method-get_signed_up"></a></p><h3>Method <code>get_signed_up()</code></h3>
 
@@ -270,8 +290,12 @@
 <p><div class="r"></p><pre>Firebase$get_signed_up()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Signed up user details triggered explicitely by user (e.g.: on click)</p>
+<p>Get results of a sign up</p>
 
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther signing in was successful and <code>response</code>
+containing the user object or <code>NULL</code> if signing in failed.</p>
 <p><hr>
 <a id="method-is_signed_in"></a></p><h3>Method <code>is_signed_in()</code></h3>
 
@@ -281,6 +305,8 @@
 <h3>Details</h3>
 <p>Check whether use is signed in</p>
 
+<h3>Returns</h3>
+<p>A boolean indicating whether user has successfully signed in.</p>
 <p><hr>
 <a id="method-req_sign_in"></a></p><h3>Method <code>req_sign_in()</code></h3>
 
@@ -288,7 +314,7 @@
 <p><div class="r"></p><pre>Firebase$req_sign_in()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Makes output require user sign in</p>
+<p>Makes Shiny output, observer, or reactive require the user to be signed in</p>
 
 <p><hr>
 <a id="method-req_sign_out"></a></p><h3>Method <code>req_sign_out()</code></h3>
@@ -297,7 +323,7 @@
 <p><div class="r"></p><pre>Firebase$req_sign_out()</pre><p></div></p>
 
 <h3>Details</h3>
-<p>Makes output require user sign in</p>
+<p>Makes Shiny output, observer, or reactive require the user to be signed out</p>
 
 <p><hr>
 <a id="method-set_language_code"></a></p><h3>Method <code>set_language_code()</code></h3>
@@ -313,6 +339,8 @@
 <h3>Details</h3>
 <p>Set language code for auth provider</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-delete_user"></a></p><h3>Method <code>delete_user()</code></h3>
 
@@ -322,6 +350,8 @@
 <h3>Details</h3>
 <p>Delete the user</p>
 
+<h3>Returns</h3>
+<p>self</p>
 <p><hr>
 <a id="method-get_delete_user"></a></p><h3>Method <code>get_delete_user()</code></h3>
 
@@ -331,6 +361,12 @@
 <h3>Details</h3>
 <p>Get result of user deletion</p>
 
+<p>Get results of a sign up</p>
+
+<h3>Returns</h3>
+<p>A list of length 2 containing <code>success</code> a boolean
+indicating wherther deletion was successful and <code>response</code>
+containing either <code>successful</code> string or the error if signing in failed.</p>
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>

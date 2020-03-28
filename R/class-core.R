@@ -32,42 +32,59 @@ Firebase <- R6::R6Class(
       )
       private$send("initialize", msg)
     },
-#' @details Signs user out
+#' @details Signs out user
+#' @return self
     sign_out = function(){
-      private$send("signout")$response
+      private$send("signout")
+      invisible(self)
+    },
+#' @details Get signed out results
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther signing out was successful and \code{response}
+#' containing \code{sucessful} or the error.
+    get_sign_out = function(){
+      private$get_input("signout")
     },
 #' @details Signed in user details triggered when auth states changes
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther signing in was successful and \code{response}
+#' containing the user object or \code{NULL} if signing in failed.
     get_signed_in = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user
       invisible(user)
     },
-#' @details Signed up user details triggered explicitely by user (e.g.: on click)
+#' @details Get results of a sign up
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther signing in was successful and \code{response}
+#' containing the user object or \code{NULL} if signing in failed.
     get_signed_up = function(){
       user <- private$get_input("signed_up_user")
       private$.user_sign_up <- user
       invisible(user)
     },
 #' @details Check whether use is signed in
+#' @return A boolean indicating whether user has successfully signed in.
     is_signed_in = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user
-      invisible(user$signed_in)
+      invisible(user$success)
     },
-#' @details Makes output require user sign in
+#' @details Makes Shiny output, observer, or reactive require the user to be signed in
     req_sign_in = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user
-      req(user$signed_in)
+      req(user$success)
     },
-#' @details Makes output require user sign in
+#' @details Makes Shiny output, observer, or reactive require the user to be signed out
     req_sign_out = function(){
       user <- private$get_input("signed_in_user")
       private$.user_signed_in <- user
-      req(!user$signed_in)
+      req(!user$success)
     },
 #' @details Set language code for auth provider
 #' @param code iso639-1 language code.
+#' @return self
     set_language_code = function(code){
       if(missing(code)) stop("Missing code", call. = FALSE)
       private$send("language-code", list(code = code))
@@ -75,11 +92,16 @@ Firebase <- R6::R6Class(
       invisible(self)
     },
 #' @details Delete the user
+#' @return self
     delete_user = function(){
       private$send("delete-user")
       invisible(self)
     },
 #' @details Get result of user deletion
+#' @details Get results of a sign up
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther deletion was successful and \code{response}
+#' containing either \code{successful} string or the error if signing in failed.
     get_delete_user = function(){
       private$get_input("deleted_user")
     }

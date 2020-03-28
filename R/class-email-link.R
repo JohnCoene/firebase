@@ -19,6 +19,7 @@ FirebaseEmailLink <- R6::R6Class(
     },
 #' @details Send email verification link.
 #' @param email Email to send verification to.
+#' @return self
     send = function(email){
       if(missing(email)) stop("Missing email", call. = FALSE)
       if(is.null(private$.config)) stop("Missing config, see `config` method", call. = FALSE)
@@ -31,18 +32,23 @@ FirebaseEmailLink <- R6::R6Class(
       super$send("send-email-link", msg)
       invisible(self)
     },
-#' @details Verifies user came from email link.
-    verify = function(){
-      super$send("verify-email", msg)
-      invisible(self)
-    },
 #' @details Get whether email verification was correctly sent.
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther sending the email was successful and \code{response}
+#' containing the email used to sign in or the error if sending failed.
     get_email_sent = function(){
       email_sent <- super$get_input("email_link_sent")
       private$.email_sent <- email_sent
       return(email_sent)
     },
-#' @details Get whether email verification was correctly sent.
+#' @details Get whether user is signing in from email verification.
+#' 
+#' @note Other methods to pick up whether user signs in still apply. This
+#' is for added security measures.
+#' 
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther signing in from the verification link was successful and \code{response}
+#' containing the result of the sign in or the error if signing in failed.
     get_email_verification = function(){
       verification <- super$get_input("email_verification")
       private$.email_verification <- verification

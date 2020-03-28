@@ -7,11 +7,13 @@ FirebaseEmailPassword <- R6::R6Class(
   "FirebaseEmailPassword",
   inherit = Firebase,
   public = list(
-#' @details Sign in with create
+#' @details Create an account
+#' 
+#' @note Also signs in the user if successful.
 #' 
 #' @param email,password Credentials as entered by the user.
 #' 
-#' @return \code{NULL} if successful, the error otherwise.
+#' @return self
     create = function(email, password){
       # prepare message
       msg <- list(email = email, password = password)
@@ -19,9 +21,7 @@ FirebaseEmailPassword <- R6::R6Class(
       # Signin
       super$send("create-email-password", msg)
 
-      results <- super$get_input("create_email_password")
-      
-      return(results)
+      invisible(self)
     },
 #' @details Sign in with email
 #' 
@@ -34,21 +34,20 @@ FirebaseEmailPassword <- R6::R6Class(
 
       # Signin
       super$send("signin-email-password", msg)
-      super$get_signed_in()
-
-      # catch error
-      results <- super$get_input("signin_email_password")
-      
-      invisible(results$response)
+      invisible(self)
     },
 #' @details Get account creation results
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating wherther creation was successful and \code{response}
+#' containing the result of account creation or the error if failed.
     get_created = function(){
       created <- super$get_input("created_email_user")
       private$.created <- created
       return(created)
     },
 #' @details Reset user password
-#' @param email Email to send reset link to, if missing looks for current logged in user's email
+#' @param email Email to send reset link to, if missing looks for current logged in user's email.
+#' @return self
     reset_password = function(email = NULL){
       if(is.null(email))
         email <- private$.user_signed_in$user$email
@@ -61,18 +60,24 @@ FirebaseEmailPassword <- R6::R6Class(
       invisible(self)
     },
 #' @details Get whether password reset email was successfully sent 
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating whether email reset was successful and \code{response}
+#' containing \code{successful} or the error.
     get_reset = function(){
       super$get_input("reset_email_sent")
     },
 #' @details Send the user a verification email
+#' @return self
     send_verification_email = function(){
       private$send("send-verification-email")
       invisible(self)
     },
 #' @details Get result of verification email sending procedure
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating whether email verification was successfully sent and \code{response}
+#' containing \code{successful} or the error.
     get_verification_email = function(){
       private$get_input("verification_email_sent")
-      invisible(self)
     },
 #' @details Set user password
 #' 
@@ -80,10 +85,15 @@ FirebaseEmailPassword <- R6::R6Class(
 #' 
 #' @param password The authenticated user password, the user should be prompted 
 #' to enter it.
+#' @return self
     set_password = function(password){
       super$send("set-password", list(password = password))
+      invisible(self)
     },
 #' @details Get response from set_password
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating whether setting password was successfully set and \code{response}
+#' containing \code{successful} as string or the error.
     get_password = function(){
       super$get_input("set_password")
     },
@@ -96,10 +106,15 @@ FirebaseEmailPassword <- R6::R6Class(
 #' 
 #' @param password The authenticated user password, the user should be prompted 
 #' to enter it.
+#' @return self
     re_authenticate = function(password){
       super$send("re-authenticate", list(password = password))
+      invisible(self)
     },
 #' @details Get response from re_authenticate
+#' @return A list of length 2 containing \code{success} a boolean
+#' indicating whether re-authentication was successful and \code{response}
+#' containing \code{successful} as string or the error.
     get_re_authenticated = function(){
       super$get_input("re_authenticate")
     }

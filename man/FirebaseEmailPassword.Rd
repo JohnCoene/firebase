@@ -6,6 +6,9 @@
 \description{
 Use fireblaze to manage authentications.
 }
+\note{
+Also signs in the user if successful.
+}
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseEmailPassword}
 }
@@ -38,6 +41,7 @@ Use fireblaze to manage authentications.
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
@@ -65,11 +69,11 @@ Use fireblaze to manage authentications.
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Sign in with create
+Create an account
 }
 
 \subsection{Returns}{
-\code{NULL} if successful, the error otherwise.
+self
 }
 }
 \if{html}{\out{<hr>}}
@@ -107,6 +111,11 @@ Sign in with email
 Get account creation results
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating wherther creation was successful and \code{response}
+containing the result of account creation or the error if failed.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-reset_password"></a>}}
@@ -119,7 +128,7 @@ Get account creation results
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{email}}{Email to send reset link to, if missing looks for current logged in user's email}
+\item{\code{email}}{Email to send reset link to, if missing looks for current logged in user's email.}
 }
 \if{html}{\out{</div>}}
 }
@@ -127,6 +136,9 @@ Get account creation results
 Reset user password
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_reset"></a>}}
@@ -140,6 +152,11 @@ Reset user password
 Get whether password reset email was successfully sent
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether email reset was successful and \code{response}
+containing \code{successful} or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-send_verification_email"></a>}}
@@ -153,6 +170,9 @@ Get whether password reset email was successfully sent
 Send the user a verification email
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_verification_email"></a>}}
@@ -166,6 +186,11 @@ Send the user a verification email
 Get result of verification email sending procedure
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether email verification was successfully sent and \code{response}
+containing \code{successful} or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-set_password"></a>}}
@@ -189,6 +214,9 @@ Set user password
 Useful to provide ability to change password.
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_password"></a>}}
@@ -202,6 +230,11 @@ Useful to provide ability to change password.
 Get response from set_password
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether setting password was successfully set and \code{response}
+containing \code{successful} as string or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-re_authenticate"></a>}}
@@ -228,6 +261,9 @@ recently signed in. If you perform one of these actions, and the user signed
 in too long ago, the action fails with an error.
 }
 
+\subsection{Returns}{
+self
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_re_authenticated"></a>}}
@@ -241,6 +277,11 @@ in too long ago, the action fails with an error.
 Get response from re_authenticate
 }
 
+\subsection{Returns}{
+A list of length 2 containing \code{success} a boolean
+indicating whether re-authentication was successful and \code{response}
+containing \code{successful} as string or the error.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
