@@ -12,6 +12,8 @@
 #' 
 #' @return Path to file.
 #' 
+#' @examples create_config("xXxxx", "my-project")
+#' 
 #' @export
 create_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
 

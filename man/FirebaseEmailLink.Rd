@@ -4,13 +4,41 @@
 \alias{FirebaseEmailLink}
 \title{Email Link}
 \description{
-Email Link
-
-Email Link
+Sign in the user by emailing them a link.
 }
 \note{
 Other methods to pick up whether user signs in still apply. This
 is for added security measures.
+}
+\examples{
+\dontrun{
+f <- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")
+}
+
+
+## ------------------------------------------------
+## Method `FirebaseEmailLink$config`
+## ------------------------------------------------
+
+\dontrun{
+f <- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")
+}
+
+## ------------------------------------------------
+## Method `FirebaseEmailLink$send`
+## ------------------------------------------------
+
+\dontrun{
+f <- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")$
+ send("user@email.com")
+}
+
 }
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseEmailLink}
@@ -75,6 +103,18 @@ Likely, your shiny application link.}
 Configure
 }
 
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+f <- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-send"></a>}}
@@ -98,6 +138,20 @@ Send email verification link.
 \subsection{Returns}{
 self
 }
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+f <- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")$
+ send("user@email.com")
+}
+
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_email_sent"></a>}}

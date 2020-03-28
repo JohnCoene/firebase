@@ -1,5 +1,14 @@
 #' Email Link
 #' 
+#' Sign in the user by emailing them a link.
+#' 
+#' @examples
+#' \dontrun{
+#' f <- FirebaseEmailLink$
+#'  new()$ # create
+#'  config(url = "https://me.shinyapps.io/myApp/")
+#' }
+#' 
 #' @export
 FirebaseEmailLink <- R6::R6Class(
   "FirebaseEmailLink",
@@ -11,6 +20,13 @@ FirebaseEmailLink <- R6::R6Class(
 #' Likely, your shiny application link.
 #' @param ... Any other parameter from the 
 #' \href{https://firebase.google.com/docs/auth/web/passing-state-in-email-actions?authuser=0#passing_statecontinue_url_in_email_actions}{official documentation}.
+#' 
+#' @examples
+#' \dontrun{
+#' f <- FirebaseEmailLink$
+#'  new()$ # create
+#'  config(url = "https://me.shinyapps.io/myApp/")
+#' }
     config = function(url, ...){
       if(missing(url)) stop("Missing url", call. = FALSE)
       config <- list(handleCodeInApp = TRUE, url = url, ...)
@@ -19,6 +35,15 @@ FirebaseEmailLink <- R6::R6Class(
     },
 #' @details Send email verification link.
 #' @param email Email to send verification to.
+#' 
+#' @examples
+#' \dontrun{
+#' f <- FirebaseEmailLink$
+#'  new()$ # create
+#'  config(url = "https://me.shinyapps.io/myApp/")$
+#'  send("user@@email.com")
+#' }
+#' 
 #' @return self
     send = function(email){
       if(missing(email)) stop("Missing email", call. = FALSE)

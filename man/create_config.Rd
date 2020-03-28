@@ -25,3 +25,7 @@ Create the configuration file necessary to running fireblaze.
 \details{
 Do not share this file with anyone.
 }
+\examples{
+create_config("xXxxx", "my-project")
+
+}
