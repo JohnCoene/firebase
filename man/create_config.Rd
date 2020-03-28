@@ -26,6 +26,6 @@ Create the configuration file necessary to running fireblaze.
 Do not share this file with anyone.
 }
 \examples{
-create_config("xXxxx", "my-project")
+\dontrun{create_config("xXxxx", "my-project")}
 
 }
