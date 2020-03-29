@@ -45,8 +45,7 @@
   
 
 <meta property="og:title" content="Email Link — FirebaseEmailLink" />
-<meta property="og:description" content="Email Link
-Email Link" />
+<meta property="og:description" content="Sign in the user by emailing them a link." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -90,7 +89,7 @@ Email Link" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -181,13 +180,12 @@ Email Link" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Email Link</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-email-link.R'><code>R/class-email-link.R</code></a></small>
     <div class="hidden name"><code>FirebaseEmailLink.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Email Link</p>
-<p>Email Link</p>
+    <p>Sign in the user by emailing them a link.</p>
     </div>
 
 
@@ -254,6 +252,14 @@ Likely, your shiny application link.</p></dd>
 <h3>Details</h3>
 <p>Configure</p>
 
+<h3>Examples</h3>
+<p><div class="r example copy"></p><pre>\dontrun{
+f &lt;- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")
+}
+</pre><p></div></p>
+
 <p><hr>
 <a id="method-send"></a></p><h3>Method <code>send()</code></h3>
 
@@ -270,6 +276,16 @@ Likely, your shiny application link.</p></dd>
 
 <h3>Returns</h3>
 <p>self</p>
+<h3>Examples</h3>
+<p><div class="r example copy"></p><pre>\dontrun{
+f &lt;- FirebaseEmailLink$
+ new()$ # create
+ config(url = "https://me.shinyapps.io/myApp/")$
+ send("user@email.com")
+}
+
+</pre><p></div></p>
+
 <p><hr>
 <a id="method-get_email_sent"></a></p><h3>Method <code>get_email_sent()</code></h3>
 
@@ -309,6 +325,67 @@ containing the result of the sign in or the error if signing in failed.</p>
 
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>firebase</span>)
+
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>shiny.port</span> <span class='kw'>=</span> <span class='fl'>3000</span>)
+
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='dependencies.html'>useFirebase</a></span>(),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>textInput</a></span>(<span class='st'>"email"</span>, <span class='st'>"Your email"</span>),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"submit"</span>, <span class='st'>"Submit"</span>)
+)
+
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
+
+  <span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='no'>FireblazeEmailLink</span>$
+    <span class='fu'>new</span>()$
+    <span class='fu'>config</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"http://127.0.0.1:3000"</span>)
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>submit</span>, {
+    <span class='kw'>if</span>(<span class='no'>input</span>$<span class='no'>email</span> <span class='kw'>==</span> <span class='st'>""</span>)
+      <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>()
+
+    <span class='no'>f</span>$<span class='fu'>send</span>(<span class='no'>input</span>$<span class='no'>email</span>)
+  })
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>f</span>$<span class='fu'>get_email_sent</span>(), {
+    <span class='no'>sent</span> <span class='kw'>&lt;-</span> <span class='no'>f</span>$<span class='fu'>get_email_sent</span>()
+
+    <span class='kw'>if</span>(<span class='no'>sent</span>$<span class='no'>success</span>)
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showNotification.html'>showNotification</a></span>(<span class='st'>"Email sent"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"message"</span>)
+  })
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>f</span>$<span class='fu'>get_email_verification</span>(), {
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>f</span>$<span class='fu'>get_email_verification</span>())
+  })
+
+}
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+
+
+<span class='co'>## ------------------------------------------------</span>
+<span class='co'>## Method `FirebaseEmailLink$config`</span>
+<span class='co'>## ------------------------------------------------</span>
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='no'>FirebaseEmailLink</span>$
+ <span class='fu'>new</span>()$ <span class='co'># create</span>
+ <span class='fu'>config</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://me.shinyapps.io/myApp/"</span>)
+}
+
+<span class='co'>## ------------------------------------------------</span>
+<span class='co'>## Method `FirebaseEmailLink$send`</span>
+<span class='co'>## ------------------------------------------------</span>
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='no'>FirebaseEmailLink</span>$
+ <span class='fu'>new</span>()$ <span class='co'># create</span>
+ <span class='fu'>config</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://me.shinyapps.io/myApp/"</span>)$
+ <span class='fu'>send</span>(<span class='st'>"user@email.com"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -317,6 +394,7 @@ containing the result of the sign in or the error if signing in failed.</p>
       <li><a href="#super-class">Super class</a></li>
       <li><a href="#active-bindings">Active bindings</a></li>
       <li><a href="#methods">Methods</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
@@ -325,7 +403,7 @@ containing the result of the sign in or the error if signing in failed.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by John Coene.</p>
+  <p>Developed by <a href='http://john-coene.com'>John Coene</a>.</p>
 </div>
 
 <div class="pkgdown">

@@ -44,3 +44,7 @@ navbar:
   right:
     - icon: fa-github fa-lg
       href: https://github.com/JohnCoene/fireblaze
+
+authors:
+  John Coene:
+    href: http://john-coene.com

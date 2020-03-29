@@ -89,7 +89,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -180,7 +180,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Social</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-social.R'><code>R/class-social.R</code></a></small>
     <div class="hidden name"><code>FirebaseSocial.Rd</code></div>
     </div>
 
@@ -315,12 +315,44 @@
 
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>firebase</span>)
+
+<span class='co'># define signin</span>
+<span class='no'>signin</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/modalDialog.html'>modalDialog</a></span>(
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Login"</span>,
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"google"</span>, <span class='st'>"Google"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span>(<span class='st'>"google"</span>), <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"btn-danger"</span>),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"github"</span>, <span class='st'>"Github"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span>(<span class='st'>"github"</span>)),
+  <span class='kw'>footer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='dependencies.html'>useFirebase</a></span>()
+)
+
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/showModal.html'>showModal</a></span>(<span class='no'>signin</span>)
+
+  <span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='no'>FirebaseSocial</span>$<span class='fu'>new</span>()
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>google</span>, {
+    <span class='no'>f</span>$<span class='fu'>launch_google</span>()
+  })
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>github</span>, {
+    <span class='no'>f</span>$<span class='fu'>launch_github</span>()
+  })
+}
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#super-class">Super class</a></li>
       <li><a href="#methods">Methods</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
@@ -329,7 +361,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by John Coene.</p>
+  <p>Developed by <a href='http://john-coene.com'>John Coene</a>.</p>
 </div>
 
 <div class="pkgdown">
