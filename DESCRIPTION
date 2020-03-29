@@ -9,7 +9,9 @@ Authors@R:
       role = c("aut", "cre"),
       email = "jcoenep@gmail.com"
     )
-Description: Authenticate users in 'Shiny' applications using 'Google Firebase' using any of the many methods provided; email and password, sign in with 'Github', etc.
+Description: Authenticate users in 'Shiny' applications using 'Google Firebase' 
+    with any of the many methods provided; email and password, email link, or
+    using a third-party provider such as 'Github', 'Twitter', or 'Google'.
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
@@ -19,5 +21,5 @@ Imports:
   cli,
   shiny
 RoxygenNote: 7.1.0
-URL: http://firebase.john-coene.com/
+URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues

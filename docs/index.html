@@ -18,7 +18,9 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Integrates Google Firebase Authentication Method with Shiny ">
-<meta property="og:description" content="Authenticate users in Shiny applications using Google Firebase.">
+<meta property="og:description" content="Authenticate users in Shiny applications using Google Firebase 
+    with any of the many methods provided; email and password, email link, or
+    using a third-party provider such as Github, Twitter, or Google.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -139,7 +141,7 @@
 <a href="#firebase-" class="anchor"></a>Firebase <img src="logo.png" align="right" height="250px">
 </h1></div>
 <!-- badges: start -->
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <img src="https://github.com/JohnCoene/fireblaze/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"><a href="https://travis-ci.org/JohnCoene/firebase"><img src="https://travis-ci.org/JohnCoene/firebase.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/JohnCoene/firebase"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/firebase?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <!-- badges: end --></p>
+<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <img src="https://github.com/JohnCoene/fireblaze/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"><a href="https://travis-ci.org/JohnCoene/firebase"><img src="https://travis-ci.org/JohnCoene/firebase.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/JohnCoene/firebase"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/firebase?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <!-- badges: end --></p>
 <p>Authenticate Shiny users with <a href="https://firebase.google.com">Google Firebase</a>.</p>
 <p><a href="articles/get-started.html" class="btn btn-default"><i class="fa fa-rocket blue__color"></i> Get Started</a> <a href="https://shiny.john-coene.com/firebase" target="_blank" class="btn btn-default"><i class="fa fa-desktop blue__color"></i> Demo</a> <a href="https://github.com/JohnCoene/firebase" class="btn btn-default"><i class="fa fa-github blue__color"></i> Github</a></p>
 <div id="authentication-methods" class="section level2">
@@ -183,7 +185,16 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/JohnCoene/firebase">https://​github.com/​JohnCoene/​firebase</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/JohnCoene/firebase/issues">https://​github.com/​JohnCoene/​firebase/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
