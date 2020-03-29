@@ -13,3 +13,4 @@
 ^CODE_OF_CONDUCT\.md$
 firebase.rds
 ^cran-comments\.md$
+^CRAN-RELEASE$
