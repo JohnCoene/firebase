@@ -26,9 +26,16 @@ Currently the following methods from Google Firebase are available in the packag
 * Microsoft
 * Yahoo!
 
+
 ## Install
 
-Install from Github using remotes:
+Install the stable version from CRAN:
+
+```r
+install.packages("firebase")
+```
+
+Install the development from Github using remotes:
 
 ```r
 # install.packages("remotes")

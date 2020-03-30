@@ -25,15 +25,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -71,7 +69,6 @@
 
   gtag('config', 'UA-74544116-1');
 </script>
-
 
   </head>
 
@@ -173,7 +170,6 @@
 </div><!--/.navbar -->
 
       
-
       </header>
 
 <div class="row">
@@ -197,16 +193,12 @@
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
 <dt><code>tos_url</code></dt><dd><p>URL to the Terms of Service page.</p></dd>
-
-<dt><code>privacy_policy_url</code></dt><dd><p>The URL to the Privacy Policy page.</p></dd>
-
+    <dt><code>privacy_policy_url</code></dt><dd><p>The URL to the Privacy Policy page.</p></dd>
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
-    
-<h3>Public methods</h3>
-
-<ul>
+    <h3>Public methods</h3>
+    <ul>
 <li><p><a href='#method-set_providers'><code>FirebaseUI$set_providers()</code></a></p></li>
 <li><p><a href='#method-set_tos_url'><code>FirebaseUI$set_tos_url()</code></a></p></li>
 <li><p><a href='#method-set_privacy_policy_url'><code>FirebaseUI$set_privacy_policy_url()</code></a></p></li>
@@ -236,12 +228,10 @@
 <li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
 </ul>
 </details>
-
-<hr>
+    <hr>
 <a id="method-set_providers"></a></p><h3>Method <code>set_providers()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$set_providers(
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$set_providers(
   google = FALSE,
   facebook = FALSE,
   twitter = FALSE,
@@ -252,206 +242,175 @@
   yahoo = FALSE,
   phone = FALSE,
   anonymous = FALSE
-)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>google, facebook, twitter, github, email, microsoft, apple, yahoo, phone, anonymous</code></dt><dd><p>Set to <code>TRUE</code> the providers you want to use, at least one.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Define signin and login providers.</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+</dl>
+</div>
+    <h3>Details</h3>
+    Define signin and login providers.
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-set_tos_url"></a></p><h3>Method <code>set_tos_url()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$set_tos_url(url)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$set_tos_url(url)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>url</code></dt><dd><p>URL to use.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Defines Tterms of Services URL</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+</dl>
+</div>
+    <h3>Details</h3>
+    Defines Tterms of Services URL
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-set_privacy_policy_url"></a></p><h3>Method <code>set_privacy_policy_url()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$set_privacy_policy_url(url)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$set_privacy_policy_url(url)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>url</code></dt><dd><p>URL to use.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Defines Privacy Policy URL</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+</dl>
+</div>
+    <h3>Details</h3>
+    Defines Privacy Policy URL
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-launch"></a></p><h3>Method <code>launch()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$launch(flow = c("popup", "redirect"), account_helper = FALSE)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$launch(flow = c("popup", "redirect"), account_helper = FALSE)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>flow</code></dt><dd><p>The signin flow to use, popup or redirect.</p></dd>
-
-<dt><code>account_helper</code></dt><dd><p>Wether to use accountchooser.com upon signing in or signing up with email,
+    <dt><code>account_helper</code></dt><dd><p>Wether to use accountchooser.com upon signing in or signing up with email,
 the user will be redirected to the accountchooser.com website and will be able to select
 one of their saved accounts. You can disable it by specifying the value below.</p></dd>
-
-<dt><code>...</code></dt><dd><p>Any other option to pass to Firebase UI.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Setup the signin form.</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+    <dt><code>...</code></dt><dd><p>Any other option to pass to Firebase UI.</p></dd>
+</dl>
+</div>
+    <h3>Details</h3>
+    Setup the signin form.
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-reset_password"></a></p><h3>Method <code>reset_password()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$reset_password(email = NULL)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$reset_password(email = NULL)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>email</code></dt><dd><p>Email to send reset link to, if missing looks for current logged in user's email</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Reset user password</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+</dl>
+</div>
+    <h3>Details</h3>
+    Reset user password
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-get_reset"></a></p><h3>Method <code>get_reset()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$get_reset()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Get whether password reset email was successfully sent</p>
-
-<h3>Returns</h3>
-<p>A list of length 2 containing <code>success</code> a boolean
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$get_reset()</pre></div>
+    <h3>Details</h3>
+    Get whether password reset email was successfully sent
+    <h3>Returns</h3>
+    A list of length 2 containing <code>success</code> a boolean
 indicating whether email reset was successful and <code>response</code>
-containing <code>successful</code> or the error.</p>
-<p><hr>
+containing <code>successful</code> or the error.
+    <p><hr>
 <a id="method-send_verification_email"></a></p><h3>Method <code>send_verification_email()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$send_verification_email()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Send the user a verification email</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$send_verification_email()</pre></div>
+    <h3>Details</h3>
+    Send the user a verification email
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-get_verification_email"></a></p><h3>Method <code>get_verification_email()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$get_verification_email()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Get result of verification email sending procedure</p>
-
-<h3>Returns</h3>
-<p>A list of length 2 containing <code>success</code> a boolean
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$get_verification_email()</pre></div>
+    <h3>Details</h3>
+    Get result of verification email sending procedure
+    <h3>Returns</h3>
+    A list of length 2 containing <code>success</code> a boolean
 indicating whether email verification was successfully sent and <code>response</code>
-containing <code>successful</code> or the error.</p>
-<p><hr>
+containing <code>successful</code> or the error.
+    <p><hr>
 <a id="method-set_password"></a></p><h3>Method <code>set_password()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$set_password(password)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$set_password(password)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>password</code></dt><dd><p>The authenticated user password, the user should be prompted
 to enter it.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Set user password</p>
-<p>Useful to provide ability to change password.</p>
-
-<h3>Returns</h3>
-<p>self</p>
-<p><hr>
+</dl>
+</div>
+    <h3>Details</h3>
+    Set user password
+    Useful to provide ability to change password.
+    <h3>Returns</h3>
+    self
+    <p><hr>
 <a id="method-get_password"></a></p><h3>Method <code>get_password()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$get_password()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Get response from set_password</p>
-
-<h3>Returns</h3>
-<p>A list of length 2 containing <code>success</code> a boolean
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$get_password()</pre></div>
+    <h3>Details</h3>
+    Get response from set_password
+    <h3>Returns</h3>
+    A list of length 2 containing <code>success</code> a boolean
 indicating whether setting password was successfully set and <code>response</code>
-containing <code>successful</code> as string or the error.</p>
-<p><hr>
+containing <code>successful</code> as string or the error.
+    <p><hr>
 <a id="method-re_authenticate"></a></p><h3>Method <code>re_authenticate()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$re_authenticate(password)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$re_authenticate(password)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>password</code></dt><dd><p>The authenticated user password, the user should be prompted
 to enter it.</p></dd>
-
-</dl><p></div></p>
-<h3>Details</h3>
-<p>Re-authenticate the user.</p>
-<p>Some security-sensitive actions—such as deleting an account, setting a
+</dl>
+</div>
+    <h3>Details</h3>
+    Re-authenticate the user.
+    Some security-sensitive actions—such as deleting an account, setting a
 primary email address, and changing a password—require that the user has
 recently signed in. If you perform one of these actions, and the user signed
-in too long ago, the action fails with an error.</p>
-
-<p><hr>
+in too long ago, the action fails with an error.
+    <p><hr>
 <a id="method-get_re_authenticated"></a></p><h3>Method <code>get_re_authenticated()</code></h3>
-
-<h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$get_re_authenticated()</pre><p></div></p>
-
-<h3>Details</h3>
-<p>Get response from re_authenticate</p>
-
-<h3>Returns</h3>
-<p>A list of length 2 containing <code>success</code> a boolean
+    <h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$get_re_authenticated()</pre></div>
+    <h3>Details</h3>
+    Get response from re_authenticate
+    <h3>Returns</h3>
+    A list of length 2 containing <code>success</code> a boolean
 indicating whether re-authentication was successful and <code>response</code>
-containing <code>successful</code> as string or the error.</p>
-<p><hr>
+containing <code>successful</code> as string or the error.
+    <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>FirebaseUI$clone(deep = FALSE)</pre><p></div></p>
-
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+    The objects of this class are cloneable with this method.
+<h3>Usage</h3>
+    <div class="r"><pre>FirebaseUI$clone(deep = FALSE)</pre></div>
+    <h3>Arguments</h3>
+    <div class="arguments">
+<dl class='dl-horizontal'>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
-
-</dl><p></div></p>
-
-
+</dl>
+</div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>firebase</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>shiny</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>firebase</span>)
 
-<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidPage</a></span>(
   <span class='fu'><a href='dependencies.html'>useFirebase</a></span>(), <span class='co'># import dependencies</span>
   <span class='fu'><a href='dependencies.html'>useFirebaseUI</a></span>() <span class='co'># import UI</span>
 )
@@ -463,9 +422,10 @@ containing <code>successful</code> as string or the error.</p>
       <span class='kw'>email</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
       <span class='kw'>google</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
     )
-}
-
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></pre>
+}</div><span class='co'># NOT RUN {</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -479,23 +439,19 @@ containing <code>successful</code> as string or the error.</p>
   </div>
 </div>
 
-
       <footer>
       <div class="copyright">
   <p>Developed by <a href='http://john-coene.com'>John Coene</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
-
       </footer>
    </div>
 
   
 
-
   </body>
 </html>
-
 

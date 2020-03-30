@@ -13,9 +13,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="flow">
 <meta property="og:description" content="">
@@ -131,7 +130,6 @@
 <!--/.navbar -->
 
       
-
       </header><script src="flow_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -167,18 +165,18 @@ This method is convenient but not secure use the “server” method instead.
 </p>
 </div>
 <p>Rather straightforward but might not work for all elements. Use <code>reqSignin</code> to wrap UI elements that require sign in. Below we wrap some text and a plot, only signed in users can see them. There is also the corollary, <code>reqSignout</code> which will only show when the user is not signed in.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(firebase)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidPage</a></span>(</span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(), <span class="co"># import dependencies</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebaseUI</a></span>(),</span>
 <span id="cb1-7"><a href="#cb1-7"></a>  <span class="kw"><a href="../reference/reqSignout.html">reqSignout</a></span>(</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h1</a></span>(<span class="st">"Please sign in"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/builder">h1</a></span>(<span class="st">"Please sign in"</span>)</span>
 <span id="cb1-9"><a href="#cb1-9"></a>  ),</span>
 <span id="cb1-10"><a href="#cb1-10"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(</span>
-<span id="cb1-11"><a href="#cb1-11"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>),</span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/builder">h4</a></span>(<span class="st">"VIP plot below"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/plotOutput">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
 <span id="cb1-13"><a href="#cb1-13"></a>  )</span>
 <span id="cb1-14"><a href="#cb1-14"></a>)</span>
 <span id="cb1-15"><a href="#cb1-15"></a></span>
@@ -191,12 +189,12 @@ This method is convenient but not secure use the “server” method instead.
 <span id="cb1-22"><a href="#cb1-22"></a>    )<span class="op">$</span></span>
 <span id="cb1-23"><a href="#cb1-23"></a><span class="st">    </span><span class="kw">launch</span>() <span class="co"># launch</span></span>
 <span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
-<span id="cb1-26"><a href="#cb1-26"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
+<span id="cb1-25"><a href="#cb1-25"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/renderPlot">renderPlot</a></span>({</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(cars)</span>
 <span id="cb1-27"><a href="#cb1-27"></a>  })</span>
 <span id="cb1-28"><a href="#cb1-28"></a>}</span>
 <span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(ui, server)</span></code></pre></div>
 </div>
 <div id="server" class="section level3">
 <h3 class="hasAnchor">
@@ -210,15 +208,15 @@ Important
 You are strongly advised to use this method.
 </p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(firebase)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(shiny)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(firebase)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>ui &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/fluidPage">fluidPage</a></span>(</span>
 <span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebase</a></span>(), <span class="co"># import dependencies</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>  <span class="kw"><a href="../reference/dependencies.html">useFirebaseUI</a></span>(),</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span>(<span class="st">"msg"</span>),</span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h4</a></span>(<span class="st">"VIP plot below"</span>)), <span class="co"># hide from UI</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/htmlOutput">uiOutput</a></span>(<span class="st">"msg"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="kw"><a href="../reference/reqSignin.html">reqSignin</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/builder">h4</a></span>(<span class="st">"VIP plot below"</span>)), <span class="co"># hide from UI</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/plotOutput">plotOutput</a></span>(<span class="st">"plot"</span>)</span>
 <span id="cb2-10"><a href="#cb2-10"></a>)</span>
 <span id="cb2-11"><a href="#cb2-11"></a></span>
 <span id="cb2-12"><a href="#cb2-12"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
@@ -230,18 +228,18 @@ You are strongly advised to use this method.
 <span id="cb2-18"><a href="#cb2-18"></a>    )<span class="op">$</span></span>
 <span id="cb2-19"><a href="#cb2-19"></a><span class="st">    </span><span class="kw">launch</span>() <span class="co"># launch</span></span>
 <span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a>  output<span class="op">$</span>msg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span>({</span>
+<span id="cb2-21"><a href="#cb2-21"></a>  output<span class="op">$</span>msg &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/renderUI">renderUI</a></span>({</span>
 <span id="cb2-22"><a href="#cb2-22"></a>    f<span class="op">$</span><span class="kw">req_sign_out</span>()</span>
-<span id="cb2-23"><a href="#cb2-23"></a>    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h2</a></span>(<span class="st">"Please sign in"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/builder">h2</a></span>(<span class="st">"Please sign in"</span>)</span>
 <span id="cb2-24"><a href="#cb2-24"></a>  })</span>
 <span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({</span>
+<span id="cb2-26"><a href="#cb2-26"></a>  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/renderPlot">renderPlot</a></span>({</span>
 <span id="cb2-27"><a href="#cb2-27"></a>    f<span class="op">$</span><span class="kw">req_sign_in</span>() <span class="co"># require sign in</span></span>
-<span id="cb2-28"><a href="#cb2-28"></a>    <span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(cars)</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(cars)</span>
 <span id="cb2-29"><a href="#cb2-29"></a>  })</span>
 <span id="cb2-30"><a href="#cb2-30"></a>}</span>
 <span id="cb2-31"><a href="#cb2-31"></a></span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(ui, server)</span></code></pre></div>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/shiny/topics/shinyApp">shinyApp</a></span>(ui, server)</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -261,20 +259,17 @@ You are strongly advised to use this method.
 </div>
 
 
-
       <footer><div class="copyright">
   <p>Developed by <a href="http://john-coene.com">John Coene</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
-
       </footer>
 </div>
 
   
-
 
   </body>
 </html>
