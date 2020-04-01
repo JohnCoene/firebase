@@ -32,6 +32,15 @@ Firebase <- R6::R6Class(
       )
       private$send("initialize", msg)
     },
+#' @details Print the class
+    print = function(){
+      cli::rule("Firebase")
+      signin <- "No user is signed in"
+      if(private$.user_signed_in$signed_in)
+        signin <- "A user is signed in"
+      
+      cli::cli_alert_info(signin, "\n")
+    },
 #' @details Signs out user
 #' @return self
     sign_out = function(){

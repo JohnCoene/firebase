@@ -1,6 +1,6 @@
 Package: firebase
 Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
-Version: 0.1.0
+Version: 0.1.1.9000
 Date: 2020-03-28
 Authors@R: 
     person(

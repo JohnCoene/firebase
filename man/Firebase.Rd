@@ -27,6 +27,7 @@ Use fireblaze to manage authentications.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Firebase$new()}}
+\item \href{#method-print}{\code{Firebase$print()}}
 \item \href{#method-sign_out}{\code{Firebase$sign_out()}}
 \item \href{#method-get_sign_out}{\code{Firebase$get_sign_out()}}
 \item \href{#method-get_signed_in}{\code{Firebase$get_signed_in()}}
@@ -66,6 +67,19 @@ Use fireblaze to manage authentications.
 }
 \subsection{Details}{
 Initialise Fireblaze
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
+\subsection{Method \code{print()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$print()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Print the class
 }
 
 }
