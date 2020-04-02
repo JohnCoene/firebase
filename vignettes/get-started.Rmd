@@ -80,7 +80,7 @@ Navigate to your credentials page:
 In there you should find two key things `apiKey` and `projectId`. We will need these to create config file for {firebase}: the function below creates a `firebase.rds` file in your working directory. 
 
 ```r
-firebase::create_config(api_key = "xXxxXxx", project_id = "my-project-package")
+firebase::firebase_config(api_key = "xXxxXxx", project_id = "my-project-package")
 ```
 
 This file is necessary for every project that uses {firebase}; the package will look for it in the working directory by default. Now that you are set up head over to the [prebuilt UI page](ui.html) to learn how to sign up/in users with a neat prebuilt UI. 

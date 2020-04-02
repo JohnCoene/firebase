@@ -60,7 +60,7 @@ Use firebase to manage authentications.
 \item{\code{persistence}}{How the auth should persit: \code{none}, the user has to sign in at every visit,
 \code{session} will only persist in current tab, \code{local} persist even when window is closed.}
 
-\item{\code{config_path}}{Path to the configuration file as created by \code{\link{create_config}}.}
+\item{\code{config_path}}{Path to the configuration file as created by \code{\link{firebase_config}}.}
 
 \item{\code{session}}{A valid shiny session.}
 }
