@@ -1,6 +1,6 @@
-#' Fireblaze
+#' Firebase
 #' 
-#' Use fireblaze to manage authentications.
+#' Use firebase to manage authentications.
 #' 
 #' @field session A valid Shiny session.
 #' 
@@ -9,7 +9,7 @@ Firebase <- R6::R6Class(
   "Firebase",
   public = list(
     session = NULL,
-#' @details Initialise Fireblaze
+#' @details Initialise firebase
 #' 
 #' @param config_path Path to the configuration file as created by \code{\link{create_config}}.
 #' @param session A valid shiny session.

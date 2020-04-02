@@ -16,7 +16,7 @@
 #' 
 #' server <- function(input, output){
 #' 
-#'   f <- FireblazeEmailLink$
+#'   f <- FirebaseEmailLink$
 #'     new()$
 #'     config(url = "http://127.0.0.1:3000")
 #' 

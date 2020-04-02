@@ -4,7 +4,7 @@
 \alias{FirebaseUI}
 \title{Prebuilt UI}
 \description{
-Use fireblaze to manage authentications.
+Use firebase to manage authentications.
 }
 \examples{
 library(shiny)

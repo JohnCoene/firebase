@@ -2,9 +2,9 @@
 % Please edit documentation in R/class-core.R
 \name{Firebase}
 \alias{Firebase}
-\title{Fireblaze}
+\title{Firebase}
 \description{
-Use fireblaze to manage authentications.
+Use firebase to manage authentications.
 }
 \keyword{internal}
 \section{Public fields}{
@@ -66,7 +66,7 @@ Use fireblaze to manage authentications.
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Initialise Fireblaze
+Initialise firebase
 }
 
 }
