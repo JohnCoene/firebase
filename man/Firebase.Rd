@@ -38,6 +38,7 @@ Use firebase to manage authentications.
 \item \href{#method-set_language_code}{\code{Firebase$set_language_code()}}
 \item \href{#method-delete_user}{\code{Firebase$delete_user()}}
 \item \href{#method-get_delete_user}{\code{Firebase$get_delete_user()}}
+\item \href{#method-get_access_token}{\code{Firebase$get_access_token()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
 }
@@ -244,15 +245,28 @@ self
 
 \subsection{Details}{
 Get result of user deletion
-
-
-Get results of a sign up
 }
 
 \subsection{Returns}{
 A list of length 2 containing \code{success} a boolean
 indicating wherther deletion was successful and \code{response}
 containing either \code{successful} string or the error if signing in failed.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_access_token"></a>}}
+\if{latex}{\out{\hypertarget{method-get_access_token}{}}}
+\subsection{Method \code{get_access_token()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_access_token()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Get user access token
+}
+
+\subsection{Returns}{
+Access token
 }
 }
 \if{html}{\out{<hr>}}

@@ -6,7 +6,7 @@
 \alias{useFirebaseUI}
 \title{Dependencies}
 \usage{
-useFirebase(analytics = TRUE, firestore = FALSE)
+useFirebase(analytics = FALSE, firestore = FALSE)
 
 useFirebaseUI()
 }

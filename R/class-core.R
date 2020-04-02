@@ -107,12 +107,19 @@ Firebase <- R6::R6Class(
       invisible(self)
     },
 #' @details Get result of user deletion
-#' @details Get results of a sign up
 #' @return A list of length 2 containing \code{success} a boolean
 #' indicating wherther deletion was successful and \code{response}
 #' containing either \code{successful} string or the error if signing in failed.
     get_delete_user = function(){
       private$get_input("deleted_user")
+    },
+#' @details Get user access token
+#' 
+#' @return Access token
+    get_access_token = function(){
+      obj <- private$get_signed_in()
+      token <- obj$response$stsTokenManager$accessToken
+      invisible(token)
     }
   ),
   active = list(

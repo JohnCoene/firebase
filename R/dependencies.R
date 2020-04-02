@@ -18,7 +18,7 @@
 #' @name dependencies
 #' 
 #' @export 
-useFirebase <- function(analytics = TRUE, firestore = FALSE){
+useFirebase <- function(analytics = FALSE, firestore = FALSE){
   singleton(
     tags$head(
       tags$link(type = "text/css", rel = "stylesheet", href = "fireblaze/style.css"),
@@ -55,4 +55,3 @@ useFirebaseUI <- function(){
     div(id = "fireblaze-signin-ui")
   )
 }
-
