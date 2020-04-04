@@ -115,9 +115,9 @@ Firebase <- R6::R6Class(
     },
 #' @details Get user access token
 #' 
-#' @return Access token
+#' @return User's access token
     get_access_token = function(){
-      obj <- private$get_signed_in()
+      obj <- self$get_signed_in()
       token <- obj$response$stsTokenManager$accessToken
       invisible(token)
     }

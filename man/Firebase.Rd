@@ -266,7 +266,7 @@ Get user access token
 }
 
 \subsection{Returns}{
-Access token
+User's access token
 }
 }
 \if{html}{\out{<hr>}}
