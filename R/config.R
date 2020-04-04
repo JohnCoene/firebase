@@ -47,6 +47,7 @@ create_config <- function(api_key, project_id, auth_domain = NULL, overwrite = F
 
   saveRDS(lst, file = config_file)
 
+  cli::cli_alert_warning("Do not commit this file to github")
   cli::cli_alert_success("Configuration file created.")
 
   invisible(config_file)
