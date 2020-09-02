@@ -20,6 +20,6 @@ Imports:
   R6,
   cli,
   shiny
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1.9000
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues
