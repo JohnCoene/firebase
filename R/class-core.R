@@ -4,7 +4,7 @@
 #' 
 #' @field session A valid Shiny session.
 #' 
-#' @keywords internal
+#' @export
 Firebase <- R6::R6Class(
   "Firebase",
   public = list(

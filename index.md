@@ -26,7 +26,6 @@ Currently the following methods from Google Firebase are available in the packag
 * Microsoft
 * Yahoo!
 
-
 ## Install
 
 Install the stable version from CRAN:

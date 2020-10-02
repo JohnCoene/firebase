@@ -6,7 +6,6 @@
 \description{
 Use firebase to manage authentications.
 }
-\keyword{internal}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
