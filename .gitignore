@@ -2,3 +2,4 @@ firebase.rds
 dev
 inst/doc
 srcjs
+test.R
