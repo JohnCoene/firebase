@@ -73,8 +73,8 @@ observeEvent(input$reAuth, {
 })
 
 # check if reauth successful
-observeEvent(input$get_re_authenticated(), {
-  reauth <- input$get_re_authenticated()
+observeEvent(f$get_re_authenticated(), {
+  reauth <- f$get_re_authenticated()
 
   # TRUE if successful
   print(reauth$success)
