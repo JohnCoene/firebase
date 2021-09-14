@@ -40,6 +40,13 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
         Shiny.setInputValue('fireblaze_' + 'signed_in', {success: true, response: user});
         Shiny.setInputValue('fireblaze_' + 'signed_in_user', {success: true, response: user});
 
+        firebase.auth().currentUser.getIdToken(true)
+          .then(function(idToken) {
+            // console.log(idToken);
+          }).catch(function(error) {
+            // console.error(error);
+          });
+
       } else {
 
         // hide signin required
