@@ -17,6 +17,16 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
 </div>
 
+# DO NOT USE
+
+# I sincerely apologise but a grave error on my part led to a 
+# grave potential security issue, see 
+# [#11](https://github.com/JohnCoene/firebase/issues/11).
+
+I will try to fix this ASAP.
+
+Sincere Apologies.
+
 ## Authentication Methods
 
 Currently the following methods from Google Firebase are available in the package:
