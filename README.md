@@ -17,13 +17,14 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 
 </div>
 
-# UPDATE
+## CAUTION
 
 I sincerely apologise but a grave error on my part led to a grave
 potential security issue, see 
 [#11](https://github.com/JohnCoene/firebase/issues/11). 
 
 This is fixed in version `0.2.0`: update as soon as possible.
+It is available on CRAN.
 
 __Note:__ 
 You may need to refresh the cache, visit your app and
