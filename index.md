@@ -20,6 +20,10 @@ potential security issue, see
 <a href='https://github.com/JohnCoene/firebase/issues/11'>#11</a>
 This is fixed in version <code>0.2.0</code>: 
 update as soon as possible.
+
+<strong>Note:</strong> you may need to refresh the cache for login
+to work after this update. Visit your application and 
+<kbd>CTRL</kbd>/<kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>R</kbd>
 </div>
 
 ## Authentication Methods

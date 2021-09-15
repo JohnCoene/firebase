@@ -25,6 +25,10 @@ potential security issue, see
 
 This is fixed in version `0.2.0`: update as soon as possible.
 
+__Note:__ 
+You may need to refresh the cache, visit your app and
+<kbd>CTRL</kbd>/<kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>R</kbd>
+
 ## Authentication Methods
 
 Currently the following methods from Google Firebase are available in the package:
