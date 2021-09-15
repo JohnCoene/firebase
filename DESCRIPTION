@@ -1,6 +1,6 @@
 Package: firebase
 Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
-Version: 0.1.1.9000
+Version: 0.2.0.9000
 Date: 2020-03-28
 Authors@R: 
     person(
@@ -17,9 +17,11 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports:
-  R6,
-  cli,
-  shiny
+    R6,
+    cli,
+    shiny,
+    openssl,
+    jose
 RoxygenNote: 7.1.2
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues

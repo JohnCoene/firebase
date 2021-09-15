@@ -36,15 +36,13 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
         showHideOnLogout("hide");
         $("#fireblaze-signin-ui").hide();
 
-        // set input
-        Shiny.setInputValue('fireblaze_' + 'signed_in', {success: true, response: user});
-        Shiny.setInputValue('fireblaze_' + 'signed_in_user', {success: true, response: user});
-
         firebase.auth().currentUser.getIdToken(true)
-          .then(function(idToken) {
-            // console.log(idToken);
+          .then(function(token) {
+            console.log(token);
+            // set input
+            Shiny.setInputValue('fireblaze_' + 'signed_in_user', {success: true, response: user, token: token});
           }).catch(function(error) {
-            // console.error(error);
+            console.error('failed to login');
           });
 
       } else {

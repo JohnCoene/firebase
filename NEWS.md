@@ -1,3 +1,7 @@
+# firebase 0.2.0
+
+- Fix potential security issue [#11](https://github.com/JohnCoene/firebase/issues/11)
+
 # fireblaze 0.1.1
 
 - Renamed the function `create_config` to `firebase_config`

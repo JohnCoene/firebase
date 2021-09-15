@@ -30,6 +30,10 @@ Firebase <- R6::R6Class(
         conf = conf,
         persistence = match.arg(persistence)
       )
+
+      private$.project_id <- conf$projectId
+
+      # init
       private$send("initialize", msg)
     },
 #' @details Print the class
@@ -59,35 +63,35 @@ Firebase <- R6::R6Class(
 #' indicating wherther signing in was successful and \code{response}
 #' containing the user object or \code{NULL} if signing in failed.
     get_signed_in = function(){
-      user <- private$get_input("signed_in_user")
-      private$.user_signed_in <- user
-      invisible(user)
+      response <- private$get_signed_in_checked()
+      private$.user_signed_in <- response
+      invisible(response)
     },
 #' @details Get results of a sign up
 #' @return A list of length 2 containing \code{success} a boolean
 #' indicating wherther signing in was successful and \code{response}
 #' containing the user object or \code{NULL} if signing in failed.
     get_signed_up = function(){
-      user <- private$get_input("signed_up_user")
+      user <- private$get_signed_in_checked()
       private$.user_sign_up <- user
       invisible(user)
     },
 #' @details Check whether use is signed in
 #' @return A boolean indicating whether user has successfully signed in.
     is_signed_in = function(){
-      user <- private$get_input("signed_in_user")
+      user <- private$get_signed_in_checked()
       private$.user_signed_in <- user
       invisible(user$success)
     },
 #' @details Makes Shiny output, observer, or reactive require the user to be signed in
     req_sign_in = function(){
-      user <- private$get_input("signed_in_user")
+      user <- private$get_signed_in_checked()
       private$.user_signed_in <- user
       req(user$success)
     },
 #' @details Makes Shiny output, observer, or reactive require the user to be signed out
     req_sign_out = function(){
-      user <- private$get_input("signed_in_user")
+      user <- private$get_signed_in_checked()
       private$.user_signed_in <- user
       req(!user$success)
     },
@@ -147,9 +151,100 @@ Firebase <- R6::R6Class(
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]
     },
+    get_pubkeys = function(){
+      # get keys
+      keys <- tryCatch(
+        jsonlite::fromJSON('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com'),
+        error = function(e) e
+      )
+
+      if(inherits(keys, "error"))
+        return(keys)
+
+      lapply(keys, openssl::read_cert)
+    },
+    get_signed_in_checked = function(){
+      # already signed in return object
+      if(!is.null(private$.user_signed_in$user))
+        return(private$.user_signed_in)
+
+      response <- private$get_input("signed_in_user")
+
+      # check token
+      certs <- private$get_pubkeys()
+
+      if(inherits(certs, "error"))
+        return()
+
+      signature <- tryCatch(
+        jose::jwt_decode_sig(response$token, certs[[1]]$pubkey),
+        error = function(e) e
+      )
+
+      if(inherits(signature, "error"))
+        signature <- tryCatch(
+          jose::jwt_decode_sig(response$token, certs[[2]]$pubkey),
+          error = function(e) e
+        )
+
+      if(inherits(signature, "error"))
+        return()
+
+      signature_ok <- private$check_signature(signature)
+      if(!signature_ok)
+        return()
+
+      # remove token
+      response$token <- NULL
+
+      private$.user_signed_in <- response
+
+      invisible(response)
+    },
+    check_signature = function(signature){
+    	now <- as.numeric(Sys.time())
+
+    	if(as.numeric(signature$exp) < now){
+        cli::cli_alert_danger("Signture expiry is in the past")
+    		return(FALSE)
+      }
+
+    	if(as.numeric(signature$iat) > now){
+        cli::cli_alert_danger("Signture issued at time is in the future")
+    		return(FALSE)
+      }
+
+      if(signature$aud != private$.project_id){
+        cli::cli_alert_danger("Signature audience is not the project id")
+    		return(FALSE)
+      }
+
+      iss <- sprintf(
+        "https://securetoken.google.com/%s", 
+        private$.project_id
+      )
+
+      if(signature$iss != iss){
+        cli::cli_alert_danger("Signature incorrect issuer")
+    		return(FALSE)
+      }
+
+      if(signature$sub == ""){
+        cli::cli_alert_danger("Signature subject is invalid")
+    		return(FALSE)
+      }
+
+      if(signature$auth_time > now){
+        cli::cli_alert_danger("Signature auth time is in the future")
+    		return(FALSE)
+      }
+
+    	TRUE
+    },
     .user_signed_in = list(signed_in = FALSE, user = NULL),
     .user_sign_up = list(signed_up = FALSE, user = NULL),
     .language_code = NULL,
-    unique_id = NULL
+    unique_id = NULL,
+    .project_id = ""
   )
 )

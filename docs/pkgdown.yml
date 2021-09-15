@@ -1,6 +1,6 @@
-pandoc: 2.9.1
-pkgdown: 1.3.0
-pkgdown_sha: 42971af1df065ab4e804ce3ee741192468c8bbd4
+pandoc: '2.5'
+pkgdown: 1.6.1
+pkgdown_sha: ~
 articles:
   demo: demo.html
   email-link: email-link.html
@@ -12,4 +12,5 @@ articles:
   social: social.html
   state-persistence: state-persistence.html
   ui: ui.html
+last_built: 2021-09-15T07:10Z
 

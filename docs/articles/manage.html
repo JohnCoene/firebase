@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -246,10 +246,10 @@
 <code class="sourceCode R"><span class="co"># initialise</span>
 <span class="va">f</span> <span class="op">&lt;-</span> <span class="va">FireblazeUI</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="fu">launch</span><span class="op">(</span><span class="op">)</span>
 
-<span class="fu">observeEvent</span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_signed_in</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_signed_in</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
   <span class="co"># do somethind</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
-<p>However one should probably only rely on the <code>get_signed_in</code> to retrieve information about the logged in user, the methods <code>is_signed_in</code> and <code>req_sign_in</code> should be used in observers instead. The first returns <code>TRUE</code> if the user is signed in. The second, <code>req_sign_in</code> is a convenience method which essentially does <code>req(f$is_signed_in)</code> which allows “marking” outputs and observers that require sign in.</p>
+<p>However one should probably only rely on the <code>get_signed_in</code> to retrieve information about the logged in user, the methods <code>is_signed_in</code> and <code>req_sign_in</code> should be used in observers instead. The first returns <code>TRUE</code> if the user is signed in. The second, <code>req_sign_in</code> is a convenience method which essentially does <code><a href="https://rdrr.io/pkg/shiny/man/req.html">req(f$is_signed_in)</a></code> which allows “marking” outputs and observers that require sign in.</p>
 </div>
 <div id="sign-out" class="section level2">
 <h2 class="hasAnchor">
@@ -264,13 +264,13 @@
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FirebaseEmailPassword.html">FirebaseEmailPassword</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># upon clicking a button</span>
-<span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuth</span>, <span class="op">{</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuth</span>, <span class="op">{</span>
   <span class="co"># pass the freshly entered user password</span>
   <span class="va">f</span><span class="op">$</span><span class="fu">re_authenticate</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuthPassword</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 
 <span class="co"># check if reauth successful</span>
-<span class="fu">observeEvent</span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
   <span class="va">reauth</span> <span class="op">&lt;-</span> <span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>
 
   <span class="co"># TRUE if successful</span>
