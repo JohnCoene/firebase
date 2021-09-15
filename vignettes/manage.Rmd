@@ -12,21 +12,20 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-user <- list(signed_in = TRUE, user = list(uid = "XXxxX", 
-    displayName = "John", photoURL = "https://lh3.googleusercontent.com/a-/XXxxX", 
-    email = "myemail@gmail.com", emailVerified = TRUE, phoneNumber = NULL, 
-    isAnonymous = FALSE, tenantId = NULL, providerData = list(
-        list(uid = "XXxxX", displayName = "John Coene", 
-            photoURL = "https://lh3.googleusercontent.com/a-/XXxxX", 
-            email = "jcoenep@gmail.com", phoneNumber = NULL, 
-            providerId = "google.com")), apiKey = "XXxxX", 
-    appName = "[DEFAULT]", authDomain = "my-package.firebaseapp.com", 
-    stsTokenManager = list(apiKey = "XXxxX", 
-        refreshToken = "XXxxX", 
-        accessToken = "XXxxX", 
-        expirationTime = 1584898232000), redirectEventId = NULL, 
-    lastLoginAt = "1584894612585", createdAt = "1584894612585", 
-    multiFactor = list(enrolledFactors = list())))
+
+user <- list(success = TRUE, response = list(uid = "xxx", 
+    displayName = NULL, photoURL = NULL, email = "john@opifex.org", 
+    emailVerified = FALSE, phoneNumber = NULL, isAnonymous = FALSE, 
+    tenantId = NULL, providerData = list(list(uid = "john@opifex.org", 
+        displayName = NULL, photoURL = NULL, email = "john@opifex.org", 
+        phoneNumber = NULL, providerId = "password")), apiKey = "xxx", 
+    appName = "[DEFAULT]", authDomain = "fireblaze-r-package.firebaseapp.com", 
+    stsTokenManager = list(apiKey = "xxx", 
+        refreshToken = "xxx", 
+        accessToken = "xxx", 
+        expirationTime = 1631729634000), redirectEventId = NULL, 
+    lastLoginAt = "1631726033959", createdAt = "1631639076093", 
+    multiFactor = list(enrolledFactors = list()))) 
 ```
 
 ## Sign in

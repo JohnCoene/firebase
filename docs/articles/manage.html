@@ -156,100 +156,100 @@
 <code>user</code>: a list (<code>NULL</code> if signed out)</li>
 </ol>
 <p>The user object returned looks like.</p>
-<pre><code>#&gt; $signed_in
+<pre><code>#&gt; $success
 #&gt; [1] TRUE
 #&gt; 
-#&gt; $user
-#&gt; $user$uid
-#&gt; [1] "XXxxX"
+#&gt; $response
+#&gt; $response$uid
+#&gt; [1] "xxx"
 #&gt; 
-#&gt; $user$displayName
-#&gt; [1] "John"
-#&gt; 
-#&gt; $user$photoURL
-#&gt; [1] "https://lh3.googleusercontent.com/a-/XXxxX"
-#&gt; 
-#&gt; $user$email
-#&gt; [1] "myemail@gmail.com"
-#&gt; 
-#&gt; $user$emailVerified
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $user$phoneNumber
+#&gt; $response$displayName
 #&gt; NULL
 #&gt; 
-#&gt; $user$isAnonymous
+#&gt; $response$photoURL
+#&gt; NULL
+#&gt; 
+#&gt; $response$email
+#&gt; [1] "john@opifex.org"
+#&gt; 
+#&gt; $response$emailVerified
 #&gt; [1] FALSE
 #&gt; 
-#&gt; $user$tenantId
+#&gt; $response$phoneNumber
 #&gt; NULL
 #&gt; 
-#&gt; $user$providerData
-#&gt; $user$providerData[[1]]
-#&gt; $user$providerData[[1]]$uid
-#&gt; [1] "XXxxX"
+#&gt; $response$isAnonymous
+#&gt; [1] FALSE
 #&gt; 
-#&gt; $user$providerData[[1]]$displayName
-#&gt; [1] "John Coene"
-#&gt; 
-#&gt; $user$providerData[[1]]$photoURL
-#&gt; [1] "https://lh3.googleusercontent.com/a-/XXxxX"
-#&gt; 
-#&gt; $user$providerData[[1]]$email
-#&gt; [1] "jcoenep@gmail.com"
-#&gt; 
-#&gt; $user$providerData[[1]]$phoneNumber
+#&gt; $response$tenantId
 #&gt; NULL
 #&gt; 
-#&gt; $user$providerData[[1]]$providerId
-#&gt; [1] "google.com"
+#&gt; $response$providerData
+#&gt; $response$providerData[[1]]
+#&gt; $response$providerData[[1]]$uid
+#&gt; [1] "john@opifex.org"
+#&gt; 
+#&gt; $response$providerData[[1]]$displayName
+#&gt; NULL
+#&gt; 
+#&gt; $response$providerData[[1]]$photoURL
+#&gt; NULL
+#&gt; 
+#&gt; $response$providerData[[1]]$email
+#&gt; [1] "john@opifex.org"
+#&gt; 
+#&gt; $response$providerData[[1]]$phoneNumber
+#&gt; NULL
+#&gt; 
+#&gt; $response$providerData[[1]]$providerId
+#&gt; [1] "password"
 #&gt; 
 #&gt; 
 #&gt; 
-#&gt; $user$apiKey
-#&gt; [1] "XXxxX"
+#&gt; $response$apiKey
+#&gt; [1] "xxx"
 #&gt; 
-#&gt; $user$appName
+#&gt; $response$appName
 #&gt; [1] "[DEFAULT]"
 #&gt; 
-#&gt; $user$authDomain
-#&gt; [1] "my-package.firebaseapp.com"
+#&gt; $response$authDomain
+#&gt; [1] "fireblaze-r-package.firebaseapp.com"
 #&gt; 
-#&gt; $user$stsTokenManager
-#&gt; $user$stsTokenManager$apiKey
-#&gt; [1] "XXxxX"
+#&gt; $response$stsTokenManager
+#&gt; $response$stsTokenManager$apiKey
+#&gt; [1] "xxx"
 #&gt; 
-#&gt; $user$stsTokenManager$refreshToken
-#&gt; [1] "XXxxX"
+#&gt; $response$stsTokenManager$refreshToken
+#&gt; [1] "xxx"
 #&gt; 
-#&gt; $user$stsTokenManager$accessToken
-#&gt; [1] "XXxxX"
+#&gt; $response$stsTokenManager$accessToken
+#&gt; [1] "xxx"
 #&gt; 
-#&gt; $user$stsTokenManager$expirationTime
-#&gt; [1] 1.584898e+12
+#&gt; $response$stsTokenManager$expirationTime
+#&gt; [1] 1.63173e+12
 #&gt; 
 #&gt; 
-#&gt; $user$redirectEventId
+#&gt; $response$redirectEventId
 #&gt; NULL
 #&gt; 
-#&gt; $user$lastLoginAt
-#&gt; [1] "1584894612585"
+#&gt; $response$lastLoginAt
+#&gt; [1] "1631726033959"
 #&gt; 
-#&gt; $user$createdAt
-#&gt; [1] "1584894612585"
+#&gt; $response$createdAt
+#&gt; [1] "1631639076093"
 #&gt; 
-#&gt; $user$multiFactor
-#&gt; $user$multiFactor$enrolledFactors
+#&gt; $response$multiFactor
+#&gt; $response$multiFactor$enrolledFactors
 #&gt; list()</code></pre>
 <p>Note this is technically like a Shiny input and behaves as such. Therefore the snippet below will work. Note that it will be triggered on load.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># initialise</span>
 <span class="va">f</span> <span class="op">&lt;-</span> <span class="va">FireblazeUI</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="fu">launch</span><span class="op">(</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_signed_in</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+<span class="fu">observeEvent</span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_signed_in</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
   <span class="co"># do somethind</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
-<p>However one should probably only rely on the <code>get_signed_in</code> to retrieve information about the logged in user, the methods <code>is_signed_in</code> and <code>req_sign_in</code> should be used in observers instead. The first returns <code>TRUE</code> if the user is signed in. The second, <code>req_sign_in</code> is a convenience method which essentially does <code><a href="https://rdrr.io/pkg/shiny/man/req.html">req(f$is_signed_in)</a></code> which allows “marking” outputs and observers that require sign in.</p>
+<p>However one should probably only rely on the <code>get_signed_in</code> to retrieve information about the logged in user, the methods <code>is_signed_in</code> and <code>req_sign_in</code> should be used in observers instead. The first returns <code>TRUE</code> if the user is signed in. The second, <code>req_sign_in</code> is a convenience method which essentially does <code>req(f$is_signed_in)</code> which allows “marking” outputs and observers that require sign in.</p>
 </div>
 <div id="sign-out" class="section level2">
 <h2 class="hasAnchor">
@@ -264,13 +264,13 @@
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FirebaseEmailPassword.html">FirebaseEmailPassword</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># upon clicking a button</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuth</span>, <span class="op">{</span>
+<span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuth</span>, <span class="op">{</span>
   <span class="co"># pass the freshly entered user password</span>
   <span class="va">f</span><span class="op">$</span><span class="fu">re_authenticate</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">reAuthPassword</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 
 <span class="co"># check if reauth successful</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+<span class="fu">observeEvent</span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
   <span class="va">reauth</span> <span class="op">&lt;-</span> <span class="va">f</span><span class="op">$</span><span class="fu">get_re_authenticated</span><span class="op">(</span><span class="op">)</span>
 
   <span class="co"># TRUE if successful</span>
