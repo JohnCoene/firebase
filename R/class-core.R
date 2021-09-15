@@ -187,20 +187,28 @@ Firebase <- R6::R6Class(
         return()
       }
 
-      signature <- tryCatch(
-        jose::jwt_decode_sig(response$token, certs[[1]]$pubkey),
-        error = function(e) e
-      )
+      # defaults to an error
+      signature <- simpleError("Invalid Google public keys")
+      
+      if(!inherits(signature, "error")){
+        cli::cli_alert_danger("Could not parse ")
+      }
+      
+      # no token, ignore
+      if(is.null(response$token)){
+        return()
+      }
 
-      if(inherits(signature, "error"))
+      # there may be multiple certs, only one is valid
+      for(i in seq_along(certs)){
         signature <- tryCatch(
-          jose::jwt_decode_sig(response$token, certs[[2]]$pubkey),
+          jose::jwt_decode_sig(response$token, certs[[i]]$pubkey),
           error = function(e) e
         )
 
-      if(inherits(signature, "error")){
-        cli::cli_alert_danger("Could not decode JWT")
-        return()
+        # we found a valid one, we exit
+        if(!inherits(signature, "error"))
+          break
       }
 
       signature_ok <- private$check_signature(signature)
@@ -215,6 +223,12 @@ Firebase <- R6::R6Class(
       invisible(response)
     },
     check_signature = function(signature){
+
+      if(inherits(signature, "error")){
+        cli::cli_alert_danger("Invalid signature")
+        return(FALSE)
+      }
+
     	now <- as.numeric(Sys.time())
 
     	if(as.numeric(signature$exp) < now){
