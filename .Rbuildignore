@@ -16,3 +16,4 @@ firebase.rds
 ^CRAN-RELEASE$
 ^srcjs$
 test.R
+^SECURITY\.md$
