@@ -38,6 +38,7 @@ Use firebase to manage authentications.
 \item \href{#method-delete_user}{\code{Firebase$delete_user()}}
 \item \href{#method-get_delete_user}{\code{Firebase$get_delete_user()}}
 \item \href{#method-get_access_token}{\code{Firebase$get_access_token()}}
+\item \href{#method-clear}{\code{Firebase$clear()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
 }
@@ -267,6 +268,23 @@ Get user access token
 \subsection{Returns}{
 User's access token
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clear"></a>}}
+\if{latex}{\out{\hypertarget{method-clear}{}}}
+\subsection{Method \code{clear()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$clear()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Clear user session
+
+This clears the login internally and will retrigger a JWT
+token check, only useful if you are running really long
+sessions.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

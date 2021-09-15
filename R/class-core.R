@@ -124,6 +124,14 @@ Firebase <- R6::R6Class(
       obj <- self$get_signed_in()
       token <- obj$response$stsTokenManager$accessToken
       invisible(token)
+    },
+#' @details Clear user session
+#' 
+#' This clears the login internally and will retrigger a JWT 
+#' token check, only useful if you are running really long
+#' sessions.
+    clear = function(){
+      private$.user_signed_in = list(signed_in = FALSE, user = NULL)
     }
   ),
   active = list(
@@ -173,8 +181,10 @@ Firebase <- R6::R6Class(
       # check token
       certs <- private$get_pubkeys()
 
-      if(inherits(certs, "error"))
+      if(inherits(certs, "error")){
+        cli::cli_alert_danger("Could not fetch Google public keys")
         return()
+      }
 
       signature <- tryCatch(
         jose::jwt_decode_sig(response$token, certs[[1]]$pubkey),
@@ -187,8 +197,10 @@ Firebase <- R6::R6Class(
           error = function(e) e
         )
 
-      if(inherits(signature, "error"))
+      if(inherits(signature, "error")){
+        cli::cli_alert_danger("Could not decode JWT")
         return()
+      }
 
       signature_ok <- private$check_signature(signature)
       if(!signature_ok)
