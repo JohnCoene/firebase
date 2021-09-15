@@ -1,6 +1,7 @@
 # firebase 0.2.0
 
 - Fix potential security issue [#11](https://github.com/JohnCoene/firebase/issues/11)
+- Add logging in many places to make it easier to debug
 
 # fireblaze 0.1.1
 
