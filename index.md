@@ -14,7 +14,7 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com).
 <a href="https://github.com/JohnCoene/firebase" class="btn btn-default"><i class="fa fa-github blue__color"></i> Github</a>
 
 <div class="alert alert-warning" role="alert">
-<strong>Do not use<strong>
+<strong>UPDATE<strong><br/>
 I sincerely apologise but a grave error on my part led to a grave
 potential security issue, see 
 <a href='https://github.com/JohnCoene/firebase/issues/11'>#11</a>
