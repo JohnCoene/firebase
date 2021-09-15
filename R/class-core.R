@@ -132,6 +132,7 @@ Firebase <- R6::R6Class(
 #' sessions.
     clear = function(){
       private$.user_signed_in = list(signed_in = FALSE, user = NULL)
+      invisible(self)
     }
   ),
   active = list(
