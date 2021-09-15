@@ -14,7 +14,7 @@ Description: Authenticate users in 'Shiny' applications using 'Google Firebase'
     using a third-party provider such as 'Github', 'Twitter', or 'Google'.
 License: AGPL-3
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 Imports:
     R6,
