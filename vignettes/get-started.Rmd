@@ -79,6 +79,10 @@ Navigate to your credentials page:
 
 In there you should find two key things `apiKey` and `projectId`. We will need these to create config file for {firebase}: the function below creates a `firebase.rds` file in your working directory. 
 
+__Note:__ if you manually changed the `project_id` use that in
+the function call below, not the one originally created by Google.
+In brief, use the id that is found in the URL of your project.
+
 ```r
 firebase::firebase_config(api_key = "xXxxXxx", project_id = "my-project-package")
 ```

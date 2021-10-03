@@ -1,6 +1,8 @@
 #' Config
 #' 
 #' Create the configuration file necessary to running fireblaze.
+#' Note that if you changed the project you must use said ID
+#' here, not the one originally created by Google. 
 #' 
 #' @param api_key API key of your project.
 #' @param project_id Id of your web project.

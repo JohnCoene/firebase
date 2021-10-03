@@ -8,17 +8,23 @@
 \usage{
 useFirebase(analytics = FALSE, firestore = FALSE)
 
-useFirebaseUI()
+useFirebaseUI(id = "fireblaze-signin-ui")
 }
 \arguments{
 \item{analytics}{Whether to include analytics.}
 
 \item{firestore}{Whether to include firestore.}
+
+\item{id}{Id of the wrapper containing the pre-built UI.}
 }
 \description{
 Include dependencies in your Shiny application.
 \code{use_firebase} \emph{must} be included in
 every application.
+}
+\details{
+Place \code{useFirebaseUI} \emph{where} you want
+the pre-built UI to be placed.
 }
 \section{Functions}{
 
