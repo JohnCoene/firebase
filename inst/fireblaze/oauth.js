@@ -8,9 +8,9 @@ Shiny.addCustomMessageHandler('fireblaze-set-oauth-provider', function(msg) {
 Shiny.addCustomMessageHandler('fireblaze-oauth-sign-in-popup', function(msg) {
   firebase.auth().signInWithPopup(oauth_providers[msg.id])
     .then(function(result) {
-      Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: true, response: result});
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'signed_up_user', {success: true, response: result});
     }).catch(function(error) {
-      Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: false, response: error});
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'signed_up_user', {success: false, response: error});
     });
 });
 
@@ -19,8 +19,8 @@ Shiny.addCustomMessageHandler('fireblaze-oauth-sign-in-redirect', function(msg) 
 
   firebase.auth().getRedirectResult()
     .then(function(result) {
-      Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: true, response: result});
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'signed_up_user', {success: true, response: result});
     }).catch(function(error) {
-      Shiny.setInputValue('fireblaze_' + 'signed_up_user', {success: false, response: error});
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'signed_up_user', {success: false, response: error});
     });
 });

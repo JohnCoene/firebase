@@ -1,3 +1,7 @@
+# firebase 0.2.0.9000
+
+- Allow firebase to work in modules.
+
 # firebase 0.2.0
 
 - Fix potential security issue [#11](https://github.com/JohnCoene/firebase/issues/11)

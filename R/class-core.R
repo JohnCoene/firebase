@@ -33,6 +33,9 @@ Firebase <- R6::R6Class(
 
       private$.project_id <- conf$projectId
 
+      # namespace
+      private$namespace(session)
+
       # init
       private$send("initialize", msg)
     },
@@ -152,8 +155,15 @@ Firebase <- R6::R6Class(
     }
   ),
   private = list(
+    namespace = function(session){
+      ns <- session$ns(NULL)
+      if(length(ns) > 0 && ns != "")
+        ns <- paste0(ns, "-")
+      private$.ns <- ns
+    },
     send = function(func, msg = list()){
       func <- paste0("fireblaze-", func)
+      msg$ns <- private$.ns
       self$session$sendCustomMessage(func, msg)
     },
     get_input = function(name){
@@ -272,6 +282,7 @@ Firebase <- R6::R6Class(
     .user_sign_up = list(signed_up = FALSE, user = NULL),
     .language_code = NULL,
     unique_id = NULL,
-    .project_id = ""
+    .project_id = "",
+    .ns = ""
   )
 )
