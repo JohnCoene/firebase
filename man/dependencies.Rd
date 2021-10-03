@@ -4,18 +4,24 @@
 \alias{dependencies}
 \alias{useFirebase}
 \alias{useFirebaseUI}
+\alias{firebaseUIContainer}
 \title{Dependencies}
 \usage{
 useFirebase(analytics = FALSE, firestore = FALSE)
 
-useFirebaseUI(id = "fireblaze-signin-ui")
+useFirebaseUI(container = TRUE)
+
+firebaseUIContainer()
 }
 \arguments{
 \item{analytics}{Whether to include analytics.}
 
 \item{firestore}{Whether to include firestore.}
 
-\item{id}{Id of the wrapper containing the pre-built UI.}
+\item{container}{Whether to include the container that
+wraps the pre-built UI. If set to \code{FALSE} then
+one must use \code{firebaseUIContainer} where said
+pre-built UI is required.}
 }
 \description{
 Include dependencies in your Shiny application.
@@ -24,13 +30,14 @@ every application.
 }
 \details{
 Place \code{useFirebaseUI} \emph{where} you want
-the pre-built UI to be placed.
+the pre-built UI to be placed. Otherwise one
 }
 \section{Functions}{
 
 \itemize{
 \item{\code{useFirebase} Is required for every app that uses this package}
 \item{\code{useFirebaseUI} Is required for applications that use \code{\link{FirebaseUI}}}
+\item{\code{firebaseUIContainer} To place the container of the pre-built UI where desired}
 }
 }
 

@@ -25,6 +25,8 @@ Path to file.
 }
 \description{
 Create the configuration file necessary to running fireblaze.
+Note that if you changed the project you must use said ID
+here, not the one originally created by Google.
 }
 \details{
 Do not share this file with anyone.
