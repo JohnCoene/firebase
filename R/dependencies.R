@@ -39,7 +39,8 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
       tags$script(src = "fireblaze/email-password.js"),
       tags$script(src = "fireblaze/email-link.js"),
       tags$script(src = "fireblaze/social.js"),
-      tags$script(src = "fireblaze/oauth.js")
+      tags$script(src = "fireblaze/oauth.js"),
+      tags$script(src = "fireblaze/phone.js")
     )
   )
 }
@@ -73,4 +74,16 @@ useFirebaseUI <- function(container = TRUE){
 #' @rdname dependencies
 firebaseUIContainer <- function(){
   div(id = "fireblaze-signin-ui")
+}
+
+#' Recaptcha
+#' 
+#' Add the recaptcha, require for the `FirebasePhone`
+#' class.
+#' 
+#' @export 
+recaptcha <- function(){
+  div(
+    id = "firebase-recaptcha"
+  ) 
 }
