@@ -41,8 +41,7 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
         firebase.auth().currentUser.getIdToken(true)
           .then(function(token) {
-            // set input
-            Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: true, response: user, token: token});
+            Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: true, response: user, token: token}, {priority: 'event'});
           }).catch(function(error) {
             console.error('failed to login');
           });
