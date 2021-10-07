@@ -88,6 +88,7 @@ server <- function(input, output){
   twitter = FALSE,
   github = FALSE,
   email = FALSE,
+  email_link = FALSE,
   microsoft = FALSE,
   apple = FALSE,
   yahoo = FALSE,
@@ -99,7 +100,7 @@ server <- function(input, output){
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{google, facebook, twitter, github, email, microsoft, apple, yahoo, phone, anonymous}}{Set to \code{TRUE} the providers you want to use, at least one.}
+\item{\code{google, facebook, twitter, github, email, email_link, microsoft, apple, yahoo, phone, anonymous}}{Set to \code{TRUE} the providers you want to use, at least one.}
 }
 \if{html}{\out{</div>}}
 }

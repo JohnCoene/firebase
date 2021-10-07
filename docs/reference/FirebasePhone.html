@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • firebase</title>
+<title>Phone — FirebasePhone • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Phone — FirebasePhone" />
+<meta property="og:description" content="Phone
+Phone" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -78,7 +80,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -181,58 +183,74 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/JohnCoene/firebase/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Phone</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-phone.R'><code>R/class-phone.R</code></a></small>
+    <div class="hidden name"><code>FirebasePhone.Rd</code></div>
     </div>
 
-    <div id="firebase-0209000" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.0.9000">
-<a href="#firebase-0209000" class="anchor"></a>firebase 0.2.0.9000<small> Unreleased </small>
-</h1>
-<ul>
-<li>Allow firebase to work in modules.</li>
-<li>Add <code>email_link</code> to <code>FirebaseUI</code>.</li>
-</ul>
-</div>
-    <div id="firebase-020" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.0">
-<a href="#firebase-020" class="anchor"></a>firebase 0.2.0<small> 2021-09-15 </small>
-</h1>
-<ul>
-<li>Fix potential security issue <a href="https://github.com/JohnCoene/firebase/issues/11"><a href='https://github.com/JohnCoene/firebase/issues/11'>#11</a></a>
-</li>
-<li>Add logging in many places to make it easier to debug</li>
-</ul>
-</div>
-    <div id="fireblaze-011" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.1">
-<a href="#fireblaze-011" class="anchor"></a>fireblaze 0.1.1<small> Unreleased </small>
-</h1>
-<ul>
-<li>Renamed the function <code>create_config</code> to <code>firebase_config</code>
-</li>
-</ul>
-</div>
-    <div id="fireblaze-010" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0">
-<a href="#fireblaze-010" class="anchor"></a>fireblaze 0.1.0<small> 2020-03-30 </small>
-</h1>
-<p>First CRAN submission. All <code>get_</code> methods return a list of length 2 containing <code>success</code> a boolean indicating whether to operation was successful and <code>response</code> containing the result of the response if there is one, otherwise the string <code>successful</code>, or the <code>error</code> if there is one.</p>
-</div>
-    <div id="fireblaze-0019000" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.1.9000">
-<a href="#fireblaze-0019000" class="anchor"></a>fireblaze 0.0.1.9000<small> Unreleased </small>
-</h1>
-<p>Initial version</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Phone</p>
+<p>Phone</p>
+    </div>
 
+
+
+    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
+
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebasePhone</code></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
+
+    
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
+
+<ul>
+<li><p><a href='#method-verify'><code>FirebasePhone$verify()</code></a></p></li>
+<li><p><a href='#method-clone'><code>FirebasePhone$clone()</code></a></p></li>
+</ul>
+<p><details ><summary>Inherited methods</summary>
+<ul>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear"><a href='../../firebase/html/Firebase.html#method-clear'><code>firebase::Firebase$clear()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-delete_user'><code>firebase::Firebase$delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token"><a href='../../firebase/html/Firebase.html#method-get_access_token'><code>firebase::Firebase$get_access_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-print'><code>firebase::Firebase$print()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in"><a href='../../firebase/html/Firebase.html#method-req_sign_in'><code>firebase::Firebase$req_sign_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out"><a href='../../firebase/html/Firebase.html#method-req_sign_out'><code>firebase::Firebase$req_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
+</ul>
+</details>
+
+<hr>
+<a id="method-verify"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>verify()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>verify</span><span class='op'>(</span><span class='va'>number</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

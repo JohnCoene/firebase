@@ -34,10 +34,24 @@ FirebaseUI <- R6::R6Class(
     privacy_policy_url = "<privacy-policy-url>",
 #' @details Define signin and login providers.
 #' 
-#' @param google,facebook,twitter,github,email,microsoft,apple,yahoo,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.
+#' @param google,facebook,twitter,github,email,email_link,microsoft,apple,yahoo,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.
 #' @return self
-    set_providers = function(google = FALSE, facebook = FALSE, twitter = FALSE, github = FALSE, email = FALSE, 
-      microsoft = FALSE, apple = FALSE, yahoo = FALSE, phone = FALSE, anonymous = FALSE){
+    set_providers = function(
+      google = FALSE, 
+      facebook = FALSE, 
+      twitter = FALSE, 
+      github = FALSE, 
+      email = FALSE, 
+      email_link = FALSE,
+      microsoft = FALSE, 
+      apple = FALSE, 
+      yahoo = FALSE, 
+      phone = FALSE, 
+      anonymous = FALSE
+    ){
+
+      if(all(email, email_link))
+        stop("Must set `email` or `email_link`")
 
       opts <- list(
         google = google, 
@@ -45,6 +59,7 @@ FirebaseUI <- R6::R6Class(
         twitter = twitter, 
         github = github, 
         email = email, 
+        email_link = email_link,
         phone = phone, 
         anonymous = anonymous,
         microsoft = microsoft,

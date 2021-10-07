@@ -26,6 +26,12 @@ function signinOpts(opts){
   if(opts.email)
     signin.push(firebase.auth.EmailAuthProvider.PROVIDER_ID);
 
+  if(opts.email_link)
+    signin.push({
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
+    });
+
   if(opts.phone)
     signin.push(firebase.auth.PhoneAuthProvider.PROVIDER_ID);
 

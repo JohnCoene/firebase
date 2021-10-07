@@ -94,7 +94,7 @@ every application." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -197,7 +197,9 @@ every application.</p>
 
     <pre class="usage"><span class='fu'>useFirebase</span><span class='op'>(</span>analytics <span class='op'>=</span> <span class='cn'>FALSE</span>, firestore <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>useFirebaseUI</span><span class='op'>(</span><span class='op'>)</span></pre>
+<span class='fu'>useFirebaseUI</span><span class='op'>(</span>container <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='fu'>firebaseUIContainer</span><span class='op'>(</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,8 +212,19 @@ every application.</p>
       <th>firestore</th>
       <td><p>Whether to include firestore.</p></td>
     </tr>
+    <tr>
+      <th>container</th>
+      <td><p>Whether to include the container that
+wraps the pre-built UI. If set to <code>FALSE</code> then
+one must use <code>firebaseUIContainer</code> where said
+pre-built UI is required.</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Place <code>useFirebaseUI</code> <em>where</em> you want
+the pre-built UI to be placed. Otherwise one</p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     
@@ -219,6 +232,7 @@ every application.</p>
 <ul>
 <li><p><code>useFirebase</code> Is required for every app that uses this package</p></li>
 <li><p><code>useFirebaseUI</code> Is required for applications that use <code><a href='FirebaseUI.html'>FirebaseUI</a></code></p></li>
+<li><p><code>firebaseUIContainer</code> To place the container of the pre-built UI where desired</p></li>
 </ul>
 
 

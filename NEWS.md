@@ -1,6 +1,7 @@
 # firebase 0.2.0.9000
 
 - Allow firebase to work in modules.
+- Add `email_link` to `FirebaseUI`.
 
 # firebase 0.2.0
 
