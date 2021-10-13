@@ -92,7 +92,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -227,6 +227,8 @@
 <li><p><a href='#method-get_delete_user'><code>Firebase$get_delete_user()</code></a></p></li>
 <li><p><a href='#method-get_access_token'><code>Firebase$get_access_token()</code></a></p></li>
 <li><p><a href='#method-clear'><code>Firebase$clear()</code></a></p></li>
+<li><p><a href='#method-request_id_token'><code>Firebase$request_id_token()</code></a></p></li>
+<li><p><a href='#method-get_id_token'><code>Firebase$get_id_token()</code></a></p></li>
 <li><p><a href='#method-clone'><code>Firebase$clone()</code></a></p></li>
 </ul>
 <p><hr>
@@ -402,6 +404,31 @@ containing either <code>successful</code> string or the error if signing in fail
 <p>This clears the login internally and will retrigger a JWT
 token check, only useful if you are running really long
 sessions.</p>
+
+<p><hr>
+<a id="method-request_id_token"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>request_id_token()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>request_id_token</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Request the users' ID Token</p>
+<p>Used to retrieved the user's ID token useful to connect
+with other Google APIs and make request on the user's behalf.
+This executes the request for the id token, this request
+can only be made once the user is signed in.</p>
+<p>The actual id token is obtained with the <code>get_id_token</code>
+method.</p>
+
+<p><hr>
+<a id="method-get_id_token"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_id_token()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>get_id_token</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Retrieve the users' ID Token</p>
+<p>Also see <code>request_id_token</code>.</p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>

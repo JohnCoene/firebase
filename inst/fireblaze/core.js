@@ -146,8 +146,17 @@ Shiny.addCustomMessageHandler('fireblaze-delete-user', function(msg) {
 
   user.delete()
     .then(function() {
-      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'deleted_user', {success: true, response: 'successful'})
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'deleted_user', {success: true, response: 'successful'});
     }).catch(function(error) {
-      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'deleted_user', {success: false, response: error})
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'deleted_user', {success: false, response: error});
+    });
+});
+
+Shiny.addCustomMessageHandler('fireblaze-id-token', function(msg) {
+  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+    .then(function(idToken) {
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'id_token', {response: idToken, success: true});
+    }).catch(function(error) {
+      Shiny.setInputValue(msg.ns + 'fireblaze_' + 'id_token', {response: error, success: false});
     });
 });

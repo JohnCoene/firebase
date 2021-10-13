@@ -1,7 +1,9 @@
 # firebase 0.2.0.9000
 
 - Allow firebase to work in modules.
-- Add `email_link` to `FirebaseUI`.
+- Added `email_link` to `FirebaseUI`.
+- Added `request_token_id` and `get_id_token` methods
+to retrieve the user's id token.
 
 # firebase 0.2.0
 

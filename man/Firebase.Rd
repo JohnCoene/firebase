@@ -39,6 +39,8 @@ Use firebase to manage authentications.
 \item \href{#method-get_delete_user}{\code{Firebase$get_delete_user()}}
 \item \href{#method-get_access_token}{\code{Firebase$get_access_token()}}
 \item \href{#method-clear}{\code{Firebase$clear()}}
+\item \href{#method-request_id_token}{\code{Firebase$request_id_token()}}
+\item \href{#method-get_id_token}{\code{Firebase$get_id_token()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
 }
@@ -283,6 +285,42 @@ Clear user session
 This clears the login internally and will retrigger a JWT
 token check, only useful if you are running really long
 sessions.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-request_id_token"></a>}}
+\if{latex}{\out{\hypertarget{method-request_id_token}{}}}
+\subsection{Method \code{request_id_token()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$request_id_token()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Request the users' ID Token
+
+Used to retrieved the user's ID token useful to connect
+with other Google APIs and make request on the user's behalf.
+This executes the request for the id token, this request
+can only be made once the user is signed in.
+
+The actual id token is obtained with the \code{get_id_token}
+method.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_id_token"></a>}}
+\if{latex}{\out{\hypertarget{method-get_id_token}{}}}
+\subsection{Method \code{get_id_token()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_id_token()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Retrieve the users' ID Token
+
+Also see \code{request_id_token}.
 }
 
 }

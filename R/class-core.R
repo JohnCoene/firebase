@@ -136,6 +136,24 @@ Firebase <- R6::R6Class(
     clear = function(){
       private$.user_signed_in = list(signed_in = FALSE, user = NULL)
       invisible(self)
+    },
+#' @details Request the users' ID Token
+#' 
+#' Used to retrieved the user's ID token useful to connect
+#' with other Google APIs and make request on the user's behalf.
+#' This executes the request for the id token, this request
+#' can only be made once the user is signed in.
+#' 
+#' The actual id token is obtained with the `get_id_token`
+#' method.
+    request_id_token = function(){
+      private$send("id-token")
+    },
+#' @details Retrieve the users' ID Token
+#' 
+#' Also see `request_id_token`.
+    get_id_token = function(){
+      private$get_input("id_token")
     }
   ),
   active = list(
