@@ -1,5 +1,7 @@
 #' Phone
 #' 
+#' @noRd 
+#' @keywords internal
 FirebasePhone <- R6::R6Class(
 	"FirebasePhone",
 	inherit = Firebase,
