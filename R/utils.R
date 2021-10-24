@@ -35,7 +35,7 @@ check_providers <- function(opts){
 #' 
 #' @param fireblaze_ui An object of class \code{\link{FirebaseUI}}.
 #' 
-#' @export
+#' @keywords internal
 check_urls <- function(fireblaze_ui){
   # check if still default
   if(grepl("^<.*>$", fireblaze_ui$tos_url) || grepl("^<.*>$", fireblaze_ui$privacy_policy_url))

@@ -19,44 +19,6 @@
 #' @name config
 #' 
 #' @export
-create_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
-
-  .Deprecated("firebase_config", package = "firebase")
-
-  if(missing(api_key) || missing(project_id) )
-    stop("Missing `api_key`, or `project_id`", call. = FALSE)
-
-  if(is.null(auth_domain)){
-    auth_domain <- paste0(project_id, ".firebaseapp.com")
-    cli::cli_alert_warning(paste("Setting `auth_domain` to", auth_domain))
-  }
-
-  lst <- list(
-    apiKey = .enc(api_key),
-    authDomain = .enc(auth_domain),
-    projectId = .enc(project_id)
-  )
-
-  # check if file exists
-  exists <- has_config(config_file)
-  if(exists && overwrite)
-    cli::cli_alert_warning("Overwriting existing config file.")
-
-  if(exists && !overwrite){
-    cli::cli_alert_danger("Config file already exists, see `overwrite` argument.")
-    return(invisible())
-  }
-
-  saveRDS(lst, file = config_file)
-
-  cli::cli_alert_warning("Do not commit this file to github")
-  cli::cli_alert_success("Configuration file created.")
-
-  invisible(config_file)
-}
-
-#' @rdname config
-#' @export
 firebase_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
 
   if(missing(api_key) || missing(project_id) )
@@ -112,7 +74,6 @@ read_config <- function(path){
   invisible(config)
 }
 
-#' @rdname read_config
 #' @keywords internal
 stopifno_config <- function(path){
   has_it <- has_config(path)
@@ -123,7 +84,6 @@ stopifno_config <- function(path){
   invisible()
 }
 
-#' @rdname read_config
 #' @keywords internal
 has_config <- function(path){
   has_it <- file.exists(path)

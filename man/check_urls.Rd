@@ -12,3 +12,4 @@ check_urls(fireblaze_ui)
 \description{
 Check that tos and privacy policy urls are set.
 }
+\keyword{internal}

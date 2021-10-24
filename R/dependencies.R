@@ -75,15 +75,3 @@ useFirebaseUI <- function(container = TRUE){
 firebaseUIContainer <- function(){
   div(id = "fireblaze-signin-ui")
 }
-
-#' Recaptcha
-#' 
-#' Add the recaptcha, require for the `FirebasePhone`
-#' class.
-#' 
-#' @export 
-recaptcha <- function(){
-  div(
-    id = "firebase-recaptcha"
-  ) 
-}

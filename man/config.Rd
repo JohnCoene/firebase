@@ -2,12 +2,9 @@
 % Please edit documentation in R/config.R
 \name{config}
 \alias{config}
-\alias{create_config}
 \alias{firebase_config}
 \title{Config}
 \usage{
-create_config(api_key, project_id, auth_domain = NULL, overwrite = FALSE)
-
 firebase_config(api_key, project_id, auth_domain = NULL, overwrite = FALSE)
 }
 \arguments{
