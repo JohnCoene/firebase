@@ -1,3 +1,7 @@
+# firebase 0.2.1.9000
+
+- Add support for phone sign in.
+
 # firebase 0.2.1
 
 - Allow firebase to work in modules.

@@ -6,6 +6,8 @@ FirebasePhone <- R6::R6Class(
 	"FirebasePhone",
 	inherit = Firebase,
 	public = list(
+#' @details Verify a phhone number
+#' @param number Phone number of the user.
 		verify = function(number) {
 			if(missing(number))
 				stop("Missing `number`")
@@ -18,6 +20,8 @@ FirebasePhone <- R6::R6Class(
 				)
 			)
 		},
+#' @details Confirm a code
+#' @param code Confirmation code received by the user.
 		confirm = function(code) {
 			if(missing(code))
 				stop("Missing `code`")
@@ -31,9 +35,17 @@ FirebasePhone <- R6::R6Class(
 
 			invisible(self)
 		},
+#' @details Get Verification
+#' @return A list with a boolean (`success`) indicating
+#' whether the operation was successful and a `response`
+#' contianing the response from Firebase.
     get_verification = function(){
       super$get_input("phone_verification")
     },
+#' @details Get Confirmation
+#' @return A list with a boolean (`success`) indicating
+#' whether the operation was successful and a `response`
+#' contianing the response from Firebase.
     get_confirmation = function(){
       super$get_input("phone_confirmation")
     }

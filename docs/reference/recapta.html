@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check URLs — check_urls • firebase</title>
+<title>Recaptcha — recapta • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Check URLs — check_urls" />
-<meta property="og:description" content="Check that tos and privacy policy urls are set." />
+<meta property="og:title" content="Recaptcha — recapta" />
+<meta property="og:description" content="Add the recaptcha, require for the FirebasePhone
+class." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -185,23 +186,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check URLs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>check_urls.Rd</code></div>
+    <h1>Recaptcha</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-phone.R'><code>R/class-phone.R</code></a></small>
+    <div class="hidden name"><code>recapta.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Check that tos and privacy policy urls are set.</p>
+    <p>Add the recaptcha, require for the <code>FirebasePhone</code>
+class.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_urls</span><span class='op'>(</span><span class='va'>fireblaze_ui</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>recaptchaUI</span><span class='op'>(</span>ns <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='va'>x</span>
+<span class='op'>}</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fireblaze_ui</th>
-      <td><p>An object of class <code><a href='FirebaseUI.html'>FirebaseUI</a></code>.</p></td>
+      <th>ns</th>
+      <td><p>Namespace, optional, only required if using
+this function in multiple places.</p></td>
     </tr>
     </table>
 

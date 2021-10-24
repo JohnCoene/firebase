@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Email Link • firebase</title>
+<title>phone • firebase</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Email Link">
+<meta property="og:title" content="phone">
 <meta property="og:description" content="firebase">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -138,70 +138,84 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Email Link</h1>
+      <h1 data-toc-skip>phone</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/JohnCoene/firebase/blob/master/vignettes/email-link.Rmd"><code>vignettes/email-link.Rmd</code></a></small>
-      <div class="hidden name"><code>email-link.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/JohnCoene/firebase/blob/master/vignettes/phone.Rmd"><code>vignettes/phone.Rmd</code></a></small>
+      <div class="hidden name"><code>phone.Rmd</code></div>
 
     </div>
 
     
     
-<p>Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don’t observe for successful account creation but successful email sent with the <code>get_email_sent</code> method.</p>
+<p>In the latest version you can also allow signing in with mobile phone numbers.</p>
 <div class="alert alert-warning">
 <h4>
-Redirect URL
+Enable
 </h4>
 <p style="color:white;">
-Note that you have to specify the redirect URL in your config.
+Remember to enable this sign in method in your Firebase console.
 </p>
 </div>
-<p>Below we force shiny to run on port 3000 so we can reference the redirect URL in the <code>config</code> which is mandatory as the email link must obviously a link back to your application; <code><a href="https://rdrr.io/r/base/options.html">options(shiny.port = 3000)</a></code> is not necessary in prod.</p>
+<div id="verify" class="section level2">
+<h2 class="hasAnchor">
+<a href="#verify" class="anchor"></a>1. Verify</h2>
+<p>First, collect the user’s phone number <strong>and the recaptcha.</strong> To collect the capta, simply place <code>recaptchaUI</code> where you want it to display. Note that it will apply only after you run the <code>verfify</code> method (see below).</p>
+</div>
+<div id="confirm" class="section level2">
+<h2 class="hasAnchor">
+<a href="#confirm" class="anchor"></a>2. Confirm</h2>
+<p>Once the <code>verify</code> method has run the user receives a confirmation code that you must also capture and pass to <code>confirm</code> to confirm the authentication. The user is then automatically logged in.</p>
+</div>
+<div id="example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h2>
+<p>This is an overly simple, ugly example, but fully-functioning.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://firebase.john-coene.com/">firebase</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>shiny.port <span class="op">=</span> <span class="fl">3000</span><span class="op">)</span> 
-
 <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
-  <span class="fu"><a href="../reference/dependencies.html">useFirebase</a></span><span class="op">(</span><span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"email"</span>, <span class="st">"Your email"</span><span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"submit"</span>, <span class="st">"Submit"</span><span class="op">)</span>
+    <span class="fu"><a href="../reference/dependencies.html">useFirebase</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span>
+        <span class="st">"number"</span>,
+        <span class="st">"Number"</span>
+    <span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"verify"</span>, <span class="st">"Verify"</span><span class="op">)</span>,
+    <span class="fu"><a href="../reference/recapta.html">recaptchaUI</a></span><span class="op">(</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"code"</span>, <span class="st">"Code"</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"confirm"</span>, <span class="st">"Confirm"</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span><span class="op">{</span>
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">f</span> <span class="op">&lt;-</span> <span class="va">FirebasePhone</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
 
-  <span class="va">f</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FirebaseEmailLink.html">FirebaseEmailLink</a></span><span class="op">$</span>
-    <span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span>
-    <span class="fu">config</span><span class="op">(</span>url <span class="op">=</span> <span class="st">"http://127.0.0.1:3000"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">verify</span>, <span class="op">{</span>
+        <span class="va">f</span><span class="op">$</span><span class="fu">verify</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">number</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
 
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">submit</span>, <span class="op">{</span>
-    <span class="kw">if</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">email</span> <span class="op">==</span> <span class="st">""</span><span class="op">)</span>
-      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_verification</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+        <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_verification</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">confirm</span>, <span class="op">{</span>
+        <span class="va">f</span><span class="op">$</span><span class="fu">confirm</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">code</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
     
-    <span class="va">f</span><span class="op">$</span><span class="fu">send</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">email</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
-
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_email_sent</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
-    <span class="va">sent</span> <span class="op">&lt;-</span> <span class="va">f</span><span class="op">$</span><span class="fu">get_email_sent</span><span class="op">(</span><span class="op">)</span>
-
-    <span class="kw">if</span><span class="op">(</span><span class="va">sent</span><span class="op">$</span><span class="va">success</span><span class="op">)</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showNotification.html">showNotification</a></span><span class="op">(</span><span class="st">"Email sent"</span>, type <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
-
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_email_verification</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_email_verification</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
-
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_confirmation</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>
+        <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_confirmation</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 
