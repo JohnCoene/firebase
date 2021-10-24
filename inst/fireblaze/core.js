@@ -7,13 +7,6 @@ window.state = {
   ns: '',
   update() {
     console.log(`Fireblaze initialized: ${this.initialised}`);
-  },
-  get pageNumber() {
-    return this.initialised;
-  },
-  set pageNumber(init) {
-    this.initialised = init;
-    this.update(this.initialised);
   }
 };
 
