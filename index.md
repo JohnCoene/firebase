@@ -39,6 +39,7 @@ Currently the following methods from Google Firebase are available in the packag
 * Twitter
 * Microsoft
 * Yahoo!
+* Phone
 
 ## Install
 
