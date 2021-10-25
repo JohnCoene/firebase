@@ -1,6 +1,8 @@
 # firebase 0.2.1.9000
 
 - Add support for phone sign in.
+- Remove deprecated `create_config` function, use
+`firebase_config`.
 
 # firebase 0.2.1
 
@@ -17,7 +19,8 @@ to retrieve the user's id token.
 
 # firebase 0.1.1
 
-- Renamed the function `create_config` to `firebase_config`
+- Deprecate the function `create_config` in favour of
+`firebase_config`
 
 # firebase 0.1.0
 
