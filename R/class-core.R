@@ -15,7 +15,15 @@ Firebase <- R6::R6Class(
 #' @param session A valid shiny session.
 #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-    initialize = function(persistence = c("none", "session", "local"), config_path = "firebase.rds", session = shiny::getDefaultReactiveDomain()){
+#' @param language Sets the language to use for the UI.
+#' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
+#' Set to `browser` to use the default browser language of the user.
+    initialize = function(
+      persistence = c("session", "local", "memory"), 
+      config_path = "firebase.rds", 
+      language_code = NULL,
+      session = shiny::getDefaultReactiveDomain()
+    ){
       # check that config is present
       stopifno_config(config_path)
 
@@ -28,8 +36,10 @@ Firebase <- R6::R6Class(
       conf <- read_config(config_path)
       msg <- list(
         conf = conf,
+        languageCode = language_code,
         persistence = match.arg(persistence)
       )
+      private$.language_code <- language_code
 
       private$.project_id <- conf$projectId
 
@@ -102,6 +112,11 @@ Firebase <- R6::R6Class(
 #' @param code iso639-1 language code.
 #' @return self
     set_language_code = function(code){
+      .Deprecated(
+        "language_code",
+        "firebase",
+        "Deprecated, see the `language_code` argument of the class constructor"
+      )
       if(missing(code)) stop("Missing code", call. = FALSE)
       private$send("language-code", list(code = code))
       private$.language_code <- code

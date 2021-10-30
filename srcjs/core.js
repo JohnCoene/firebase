@@ -1,0 +1,178 @@
+import 'shiny';
+import * as firebaseui from 'firebaseui'
+import { getAuth, signOut } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import 'firebaseui/dist/firebaseui.css'
+import { 
+  persistenceOpts, 
+  showHideOnLogin, 
+  showHideOnLogout,
+  setInputValue,
+  signinOpts,
+  accountHelper,
+  setLanguageCode
+} from './utils.js';
+
+// global variables
+let ui, uiOpts;
+let uiInitialised = false;
+var globalNs = '';
+var globalInit = false;
+
+const handleCore = () => {
+  // Initialise
+  Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
+
+    if(globalInit)
+      return ;
+
+    globalInit = true;
+    // set namespace
+    globalNs = msg.ns;
+    // init
+    const app = initializeApp(msg.conf);
+
+    // auth
+    const auth = getAuth();
+    setLanguageCode(auth, msg.languageCode)
+
+    // set persistence
+    let persistence = persistenceOpts(msg.persistence);
+    setPersistence(auth, persistence)
+      .then(() => {
+        auth.onAuthStateChanged((user) => {
+          if(user){
+
+            // show signin authorised
+            showHideOnLogin("show");
+            showHideOnLogout("hide");
+            $("#fireblaze-signin-ui").hide();
+
+            auth.currentUser.getIdToken(true)
+              .then(function(token) {
+                setInputValue('signed_in_user', {success: true, response: user, token: token});
+              }).catch(function(error) {
+                console.error('failed to login');
+              });
+
+          } else {
+            // hide signin required
+            showHideOnLogin("hide");
+            showHideOnLogout("show");
+
+            // set error input
+            setInputValue('signed_in', {success: false, response: null});
+            setInputValue('signed_in_user', {success: false, response: null});
+          }
+        });
+
+        // check email verification link
+        if (auth.isSignInWithEmailLink(window.location.href)) {
+          // Additional state parameters can also be passed via URL.
+          // This can be used to continue the user's intended action before triggering
+          // the sign-in operation.
+          // Get the email if available. This should be available if the user completes
+          // the flow on the same device where they started it.
+          var email = window.localStorage.getItem('fireblazeEmailSignIn');
+          if (!email) {
+            setInputValue('email_verification', {success: false, response: "Cannot find email"});
+          }
+          // The client SDK will parse the code from the link for you.
+          auth.signInWithEmailLink(email, window.location.href)
+            .then((result) => {
+              window.localStorage.removeItem('fireblazeEmailSignIn');
+              setInputValue('email_verification', {success: true, response: result});
+            })
+            .catch((error) => {
+              setInputValue('email_verification', {success: false, response: error});
+            });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+  });
+
+  // Config init
+  Shiny.addCustomMessageHandler('fireblaze-ui-config', (msg) => {
+
+    if(!uiInitialised) {
+      uiInitialised = true;
+      ui = new firebaseui.auth.AuthUI(auth);
+    }
+
+    let providers = signinOpts(msg.providers);
+    let helper = accountHelper(auth, msg.account_helper);
+
+    uiOpts = {
+      callbacks: {
+        signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+          setInputValue('signed_up_user', {success: true, response: auth.currentUser});
+          return(false);
+        },
+        uiShown: () => {
+          var loader = document.getElementById('loader');
+          
+          if(loader)
+            loader.style.display = 'none';
+        }
+      },
+      credentialHelper: helper,
+      signInFlow: msg.flow,
+      signInOptions: providers,
+      tosUrl: msg.tos_url,
+      privacyPolicyUrl: msg.privacy_policy_url
+    };
+
+    ui.start("#fireblaze-signin-ui", uiOpts);
+  });
+
+  // Sign out
+  Shiny.addCustomMessageHandler('fireblaze-signout', (msg) => {
+
+    signOut()
+      .then(() => {
+        if(uiInitialised){
+          ui.start("#fireblaze-signin-ui", uiOpts);
+          $("#fireblaze-signin-ui").show();
+        }
+
+        setInputValue('signout', {success: true, response: 'successful'}, msg.ns);
+      }).catch((error) => {
+        setInputValue('signout', {success: false, response: error}, msg.ns);
+      });
+
+  });
+
+  // Language code
+  Shiny.addCustomMessageHandler('fireblaze-language-code', (msg) => {
+    auth.languageCode = msg.code;
+  });
+
+  // Delete User
+  Shiny.addCustomMessageHandler('fireblaze-delete-user', (msg) => {
+    auth.currentUser.delete()
+      .then(() => {
+        setInputValue('deleted_user', {success: true, response: 'successful'}, msg.ns);
+      }).catch((error) => {
+        Shiny.setInputValue('deleted_user', {success: false, response: error}, msg.ns);
+      });
+  });
+
+  Shiny.addCustomMessageHandler('fireblaze-id-token', (msg) => {
+    auth.currentUser.getIdToken(true)
+      .then((idToken) => {
+        setInputValue('id_token', {response: {idToken: idToken}, success: true}, msg.ns);
+      }).catch((error) => {
+        setInputValue('id_token', {response: error, success: false}, msg.ns);
+      });
+  });
+
+  return auth;
+}
+
+export {
+  handleCore,
+  globalNs
+}
