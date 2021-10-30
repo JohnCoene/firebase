@@ -40,6 +40,7 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
       tags$script(src = "fireblaze/email-link.js"),
       tags$script(src = "fireblaze/social.js"),
       tags$script(src = "fireblaze/oauth.js"),
+      # if(firestore) tags$script(src = "fireblaze/store.js"),
       tags$script(src = "fireblaze/phone.js")
     )
   )

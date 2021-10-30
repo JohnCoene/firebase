@@ -152,8 +152,12 @@ Firebase <- R6::R6Class(
 #' @details Retrieve the users' ID Token
 #' 
 #' Also see `request_id_token`.
+#' 
+#' @return  the id token (invisibly).
     get_id_token = function(){
-      private$get_input("id_token")
+      token <- private$get_input("id_token")
+      private$.id_token <- token
+      invisible(token)
     }
   ),
   active = list(
@@ -301,6 +305,7 @@ Firebase <- R6::R6Class(
     .language_code = NULL,
     unique_id = NULL,
     .project_id = "",
-    .ns = ""
+    .ns = "",
+    .id_token = NULL
   )
 )

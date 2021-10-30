@@ -323,6 +323,9 @@ Retrieve the users' ID Token
 Also see \code{request_id_token}.
 }
 
+\subsection{Returns}{
+the id token (invisibly).
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

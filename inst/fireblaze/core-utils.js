@@ -1,13 +1,13 @@
 // Convert persistence option to firebase
 function persistenceOpts(p){
-  var opt;
+  if(p == "session") 
+    return firebase.auth.Auth.Persistence.SESSION;
 
-  if(p == "session") opt = firebase.auth.Auth.Persistence.SESSION;
-  if(p == "none") opt = firebase.auth.Auth.Persistence.NONE;
-  if(p == "local") opt = firebase.auth.Auth.Persistence.LOCAL;
+  if(p == "none") 
+    return firebase.auth.Auth.Persistence.NONE;
 
-  return opt;
-
+  if(p == "local") 
+    return firebase.auth.Auth.Persistence.LOCAL;
 }
 
 // toggle elements 

@@ -13,67 +13,71 @@ window.state = {
 // Initialise
 Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
 
-  if(!window.state.initialised){
-    window.state.initialised = true;
-    // set namespace
-    window.state.ns = msg.ns;
-    // init
-    firebase.initializeApp(msg.conf);
+  if(window.state.initialised)
+    return ;
 
-    // set persistence
-    var persistence = persistenceOpts(msg.persistence);
-    firebase.auth().setPersistence(persistence);
+  window.state.initialised = true;
+  // set namespace
+  window.state.ns = msg.ns;
+  // init
+  firebase.initializeApp(msg.conf);
 
-    firebase.auth().onAuthStateChanged(function(user) {
-      if(user){
+  // set persistence
+  var persistence = persistenceOpts(msg.persistence);
+  firebase.auth().setPersistence(persistence)
+    .then(function() {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
 
-        // show signin authorised
-        showHideOnLogin("show");
-        showHideOnLogout("hide");
-        $("#fireblaze-signin-ui").hide();
+          // show signin authorised
+          showHideOnLogin("show");
+          showHideOnLogout("hide");
+          $("#fireblaze-signin-ui").hide();
 
-        firebase.auth().currentUser.getIdToken(true)
-          .then(function(token) {
-            Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: true, response: user, token: token}, {priority: 'event'});
-          }).catch(function(error) {
-            console.error('failed to login');
+          firebase.auth().currentUser.getIdToken(true)
+            .then(function(token) {
+              Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: true, response: user, token: token}, {priority: 'event'});
+            }).catch(function(error) {
+              console.error('failed to login');
+            });
+
+        } else {
+
+          // hide signin required
+          showHideOnLogin("hide");
+          showHideOnLogout("show");
+
+          // set error input
+          Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in', {success: false, response: null});
+          Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: false, response: null});
+        }
+      });
+
+      // check email verification link
+      if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+        // Additional state parameters can also be passed via URL.
+        // This can be used to continue the user's intended action before triggering
+        // the sign-in operation.
+        // Get the email if available. This should be available if the user completes
+        // the flow on the same device where they started it.
+        var email = window.localStorage.getItem('fireblazeEmailSignIn');
+        if (!email) {
+          Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: false, response: "Cannot find email"});
+        }
+        // The client SDK will parse the code from the link for you.
+        firebase.auth().signInWithEmailLink(email, window.location.href)
+          .then(function(result) {
+            window.localStorage.removeItem('fireblazeEmailSignIn');
+            Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: true, response: result});
+          })
+          .catch(function(error) {
+            Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: false, response: error});
           });
-
-      } else {
-
-        // hide signin required
-        showHideOnLogin("hide");
-        showHideOnLogout("show");
-
-        // set error input
-        Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in', {success: false, response: null});
-        Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'signed_in_user', {success: false, response: null});
       }
+    })
+    .catch(function(error) {
+      console.error(error);
     });
-
-    // check email verification link
-    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-      // Additional state parameters can also be passed via URL.
-      // This can be used to continue the user's intended action before triggering
-      // the sign-in operation.
-      // Get the email if available. This should be available if the user completes
-      // the flow on the same device where they started it.
-      var email = window.localStorage.getItem('fireblazeEmailSignIn');
-      if (!email) {
-        Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: false, response: "Cannot find email"});
-      }
-      // The client SDK will parse the code from the link for you.
-      firebase.auth().signInWithEmailLink(email, window.location.href)
-        .then(function(result) {
-          window.localStorage.removeItem('fireblazeEmailSignIn');
-          Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: true, response: result});
-        })
-        .catch(function(error) {
-          Shiny.setInputValue(window.state.ns + 'fireblaze_' + 'email_verification', {success: false, response: error});
-        });
-    }
-
-  }
 
 });
 
