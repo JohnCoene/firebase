@@ -4,17 +4,20 @@ import {
 	oauthProviders,
 	signInWithPopup,
 	signInWithRedirect,
-	getRedirectResult
+	getRedirectResult,
+	getAuth,
 } from 'firebase/auth';
 
 let oauthProviders = [];
 
-export const handleOauth = (auth) => {
+export const handleOauth = () => {
 	Shiny.addCustomMessageHandler('fireblaze-set-oauth-provider', (msg) => {
-		oauthProviders[msg.id] = new firebase.auth.OAuthProvider(msg.provider);
+		const auth = getAuth();
+		oauthProviders[msg.id] = new auth.OAuthProvider(msg.provider);
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-oauth-sign-in-popup', (msg) => {
+		const auth = getAuth();
 		signInWithPopup(auth, oauthProviders[msg.id])
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -24,6 +27,7 @@ export const handleOauth = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-oauth-sign-in-redirect', (msg) => {
+		const auth = getAuth();
 		signInWithRedirect(auth, oauthProviders[msg.id]);
 
 		getRedirectResult()

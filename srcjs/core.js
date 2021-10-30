@@ -1,8 +1,14 @@
 import 'shiny';
 import * as firebaseui from 'firebaseui'
-import { getAuth, signOut } from "firebase/auth";
+import { 
+  getAuth, 
+  signOut, 
+  setPersistence,
+  isSignInWithEmailLink,
+} from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import 'firebaseui/dist/firebaseui.css'
+import './style.css';
 import { 
   persistenceOpts, 
   showHideOnLogin, 
@@ -29,12 +35,13 @@ const handleCore = () => {
     globalInit = true;
     // set namespace
     globalNs = msg.ns;
+
     // init
     const app = initializeApp(msg.conf);
 
     // auth
     const auth = getAuth();
-    setLanguageCode(auth, msg.languageCode)
+    setLanguageCode(msg.languageCode)
 
     // set persistence
     let persistence = persistenceOpts(msg.persistence);
@@ -67,7 +74,7 @@ const handleCore = () => {
         });
 
         // check email verification link
-        if (auth.isSignInWithEmailLink(window.location.href)) {
+        if (isSignInWithEmailLink(auth, window.location.href)) {
           // Additional state parameters can also be passed via URL.
           // This can be used to continue the user's intended action before triggering
           // the sign-in operation.
@@ -96,6 +103,8 @@ const handleCore = () => {
 
   // Config init
   Shiny.addCustomMessageHandler('fireblaze-ui-config', (msg) => {
+    const auth = getAuth();
+    console.log(auth);
 
     if(!uiInitialised) {
       uiInitialised = true;
@@ -103,7 +112,7 @@ const handleCore = () => {
     }
 
     let providers = signinOpts(msg.providers);
-    let helper = accountHelper(auth, msg.account_helper);
+    let helper = accountHelper(msg.account_helper);
 
     uiOpts = {
       callbacks: {
@@ -130,8 +139,9 @@ const handleCore = () => {
 
   // Sign out
   Shiny.addCustomMessageHandler('fireblaze-signout', (msg) => {
+    const auth = getAuth();
 
-    signOut()
+    signOut(auth)
       .then(() => {
         if(uiInitialised){
           ui.start("#fireblaze-signin-ui", uiOpts);
@@ -147,11 +157,13 @@ const handleCore = () => {
 
   // Language code
   Shiny.addCustomMessageHandler('fireblaze-language-code', (msg) => {
+    const auth = getAuth();
     auth.languageCode = msg.code;
   });
 
   // Delete User
   Shiny.addCustomMessageHandler('fireblaze-delete-user', (msg) => {
+    const auth = getAuth();
     auth.currentUser.delete()
       .then(() => {
         setInputValue('deleted_user', {success: true, response: 'successful'}, msg.ns);
@@ -161,6 +173,7 @@ const handleCore = () => {
   });
 
   Shiny.addCustomMessageHandler('fireblaze-id-token', (msg) => {
+    const auth = getAuth();
     auth.currentUser.getIdToken(true)
       .then((idToken) => {
         setInputValue('id_token', {response: {idToken: idToken}, success: true}, msg.ns);
@@ -169,7 +182,6 @@ const handleCore = () => {
       });
   });
 
-  return auth;
 }
 
 export {

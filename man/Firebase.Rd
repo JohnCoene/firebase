@@ -50,8 +50,9 @@ Use firebase to manage authentications.
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$new(
-  persistence = c("none", "session", "local"),
+  persistence = c("session", "local", "memory"),
   config_path = "firebase.rds",
+  language_code = NULL,
   session = shiny::getDefaultReactiveDomain()
 )}\if{html}{\out{</div>}}
 }
@@ -63,6 +64,10 @@ Use firebase to manage authentications.
 \code{session} will only persist in current tab, \code{local} persist even when window is closed.}
 
 \item{\code{config_path}}{Path to the configuration file as created by \code{\link{firebase_config}}.}
+
+\item{\code{language_code}}{Sets the language to use for the UI.
+Supported languages are listed \href{https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md}{here}.
+Set to \code{browser} to use the default browser language of the user.}
 
 \item{\code{session}}{A valid shiny session.}
 }

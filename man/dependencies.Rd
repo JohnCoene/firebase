@@ -9,7 +9,7 @@
 \usage{
 useFirebase(analytics = FALSE, firestore = FALSE)
 
-useFirebaseUI(container = TRUE)
+useFirebaseUI(...)
 
 firebaseUIContainer()
 }
@@ -18,10 +18,7 @@ firebaseUIContainer()
 
 \item{firestore}{Whether to include firestore.}
 
-\item{container}{Whether to include the container that
-wraps the pre-built UI. If set to \code{FALSE} then
-one must use \code{firebaseUIContainer} where said
-pre-built UI is required.}
+\item{...}{Ignored, for backwards compatibility.}
 }
 \description{
 Include dependencies in your Shiny application.

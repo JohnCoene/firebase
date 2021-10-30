@@ -15,7 +15,7 @@ Firebase <- R6::R6Class(
 #' @param session A valid shiny session.
 #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-#' @param language Sets the language to use for the UI.
+#' @param language_code Sets the language to use for the UI.
 #' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
 #' Set to `browser` to use the default browser language of the user.
     initialize = function(

@@ -19,9 +19,10 @@ Roxygen: list(markdown = TRUE)
 Imports:
     R6,
     cli,
+    jose,
     shiny,
     openssl,
-    jose
+    htmltools
 RoxygenNote: 7.1.2
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues

@@ -6,12 +6,14 @@ import {
 	sendPasswordResetEmail,
 	sendEmailVerification,
 	reauthenticateWithCredential,
-	updatePassword
+	updatePassword,
+	getAuth
 } from "firebase/auth";
 
-export const handleEmailPassword = (auth) => {
+export const handleEmailPassword = () => {
 	// create
 	Shiny.addCustomMessageHandler('fireblaze-create-email-password', function(msg) {
+		const auth = getAuth();
 		createUserWithEmailAndPassword(auth, msg.email, msg.password)
 			.then(function(result) {
 				setInputValue('created_email_user', {success: true, response: result}, msg.ns);
@@ -22,6 +24,7 @@ export const handleEmailPassword = (auth) => {
 
 	// sign in
 	Shiny.addCustomMessageHandler('fireblaze-signin-email-password', function(msg) {
+		const auth = getAuth();
 		signInWithEmailAndPassword(auth, msg.email, msg.password)
 			.then(function(result) {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -32,6 +35,7 @@ export const handleEmailPassword = (auth) => {
 
 	// Send email verification
 	Shiny.addCustomMessageHandler('fireblaze-send-verification-email', function(msg) {
+		const auth = getAuth();
 		var user = auth.currentUser;
 
 		sendEmailVerification(user)
@@ -44,6 +48,7 @@ export const handleEmailPassword = (auth) => {
 
 	// reset email
 	Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
+		const auth = getAuth();
 		
 		sendPasswordResetEmail(auth, msg.email)
 			.then(function() {
@@ -55,6 +60,7 @@ export const handleEmailPassword = (auth) => {
 
 	// Reauthenticate
 	Shiny.addCustomMessageHandler('fireblaze-re-authenticate', function(msg) {
+		const auth = getAuth();
 		var user = auth.currentUser;
 		var credential = firebase.auth.EmailAuthProvider.credential(user.email, msg.password);
 		
@@ -68,6 +74,7 @@ export const handleEmailPassword = (auth) => {
 
 	// set password
 	Shiny.addCustomMessageHandler('fireblaze-set-password', function(msg) {
+		const auth = getAuth();
 		var user = auth.currentUser;
 		
 		updatePassword(user, msg.password)

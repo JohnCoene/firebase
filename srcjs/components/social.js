@@ -4,10 +4,11 @@ import {
 	TwitterAuthProvider,
 	FacebookAuthProvider,
 	GithubAuthProvider,
-	GoogleAuthProvider
+	GoogleAuthProvider,
+	getAuth,
 } from 'firebase/auth'
 
-export const handleSocial = (auth) => {
+export const handleSocial = () => {
 	// providers
 	let twitter = new TwitterAuthProvider();
 	let facebook = new FacebookAuthProvider();
@@ -20,6 +21,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-google-sign-in-popup', (msg) => {
+		const auth = getAuth();
 		auth.signInWithPopup(google)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -29,6 +31,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-google-sign-in-redirect', (msg) => {
+		const auth = getAuth();
 		auth.signInWithRedirect(google);
 
 		auth.getRedirectResult()
@@ -45,6 +48,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-popup', (msg) => {
+		const auth = getAuth();
 		auth.signInWithPopup(facebook)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -54,6 +58,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-redirect', (msg) => {
+		const auth = getAuth();
 		auth.signInWithRedirect(facebook);
 
 		auth.getRedirectResult()
@@ -70,6 +75,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-github-sign-in-popup', (msg) => {
+		const auth = getAuth();
 		auth.signInWithPopup(github)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -79,6 +85,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-github-sign-in-redirect', (msg) => {
+		const auth = getAuth();
 		auth.signInWithRedirect(github);
 
 		auth.getRedirectResult()
@@ -95,6 +102,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-twitter-sign-in-popup', (msg) => {
+		const auth = getAuth();
 		auth.signInWithPopup(twitter)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
@@ -104,6 +112,7 @@ export const handleSocial = (auth) => {
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-twitter-sign-in-redirect', msg => {
+		const auth = getAuth();
 		auth.signInWithRedirect(twitter);
 
 		auth.getRedirectResult()

@@ -1,9 +1,11 @@
 import 'shiny';
 import { setInputValue } from '../utils';
 import { sendSignInLinkToEmail } from 'firebase/auth';
+import { getAuth } from '@firebase/auth';
 
-export const handleEmailLink = (auth) => {
+export const handleEmailLink = () => {
 	Shiny.addCustomMessageHandler('fireblaze-send-email-link', (msg) => {
+		const auth = getAuth();
 		window.localStorage.setItem('fireblazeEmailSignIn', msg.email);
 		sendSignInLinkToEmail(auth, msg.email, msg.config)
 			.then(() => {

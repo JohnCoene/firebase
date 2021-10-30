@@ -8,8 +8,10 @@ import {
   PhoneAuthProvider,
   browserSessionPersistence,
   browserLocalPersistence,
-  inMemoryPersistence
+  inMemoryPersistence,
+  getAuth,
 } from 'firebase/auth';
+import * as firebaseui from 'firebaseui'
 import { globalNs } from "./core";
 
 // Convert persistence option to firebase
@@ -108,16 +110,18 @@ const signinOpts = (opts) => {
 }
 
 // Convert sign in boolean from R to firebase strings
-const accountHelper = (auth, x) => {
+const accountHelper = (x) => {
   if(x == false)
-    return auth.CredentialHelper.NONE;
+    return firebaseui.auth.CredentialHelper.NONE;
   
-  return auth.CredentialHelper.ACCOUNT_CHOOSER_COM;
+  return firebaseui.auth.CredentialHelper.GOOGLE_YOLO;
 }
 
-const setLanguageCode = (auth, code) => {
+const setLanguageCode = (code) => {
   if(!code)
     return;
+  
+  const auth = getAuth();
 
   if(code == 'browser'){
     auth.languageCode = auth.useDeviceLanguage();

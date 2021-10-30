@@ -2,16 +2,19 @@ import 'shiny';
 import { setInputValue } from '../utils.js';
 import {
 	signInWithPhoneNumber,
-	RecaptchaVerifier
-} from 'firebase/auth'
+	RecaptchaVerifier,
+	getAuth,
+} from 'firebase/auth';
 
 let confirmationResult;
 let recaptchaVerifier;
 
-export const handlePhone = (auth) => {
+export const handlePhone = () => {
 	Shiny.addCustomMessageHandler('fireblaze-phone-verify', msg => {
 		if(!recaptchaVerifier)
 			recaptchaVerifier = new RecaptchaVerifier(msg.id);
+		
+		const auth = getAuth();
 
 		signInWithPhoneNumber(auth, msg.number, recaptchaVerifier)
 			.then(result => {
