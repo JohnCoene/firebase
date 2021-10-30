@@ -3,6 +3,7 @@
 - Add support for phone sign in.
 - Remove deprecated `create_config` function, use
 `firebase_config`.
+- Fix issue with persistence [#14](https://github.com/JohnCoene/firebase/issues/14)
 
 # firebase 0.2.1
 
