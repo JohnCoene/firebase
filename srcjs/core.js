@@ -34,7 +34,7 @@ const handleCore = () => {
     globalNs = msg.ns;
 
     // init
-    const app = initializeApp(msg.conf);
+    initializeApp(msg.conf);
 
     // auth
     const auth = getAuth();
