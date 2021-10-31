@@ -12,8 +12,6 @@ import {
   showHideOnLogin, 
   showHideOnLogout,
   setInputValue,
-  signinOpts,
-  accountHelper,
   setLanguageCode
 } from './utils.js';
 
