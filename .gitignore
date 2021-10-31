@@ -3,3 +3,4 @@ dev
 inst/doc
 srcjs
 test.R
+node_modules
