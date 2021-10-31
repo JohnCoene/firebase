@@ -1,5 +1,4 @@
 import 'shiny';
-import * as firebaseui from 'firebaseui'
 import { 
   getAuth, 
   signOut, 
@@ -7,7 +6,6 @@ import {
   isSignInWithEmailLink,
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
-import 'firebaseui/dist/firebaseui.css'
 import './style.css';
 import { 
   persistenceOpts, 
@@ -20,10 +18,9 @@ import {
 } from './utils.js';
 
 // global variables
-let ui, uiOpts;
-let uiInitialised = false;
 var globalNs = '';
 var globalInit = false;
+window.uiInitialised = false;
 
 const handleCore = () => {
   // Initialise
@@ -101,50 +98,14 @@ const handleCore = () => {
 
   });
 
-  // Config init
-  Shiny.addCustomMessageHandler('fireblaze-ui-config', (msg) => {
-    const auth = getAuth();
-    console.log(auth);
-
-    if(!uiInitialised) {
-      uiInitialised = true;
-      ui = new firebaseui.auth.AuthUI(auth);
-    }
-
-    let providers = signinOpts(msg.providers);
-    let helper = accountHelper(msg.account_helper);
-
-    uiOpts = {
-      callbacks: {
-        signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-          setInputValue('signed_up_user', {success: true, response: auth.currentUser});
-          return(false);
-        },
-        uiShown: () => {
-          var loader = document.getElementById('loader');
-          
-          if(loader)
-            loader.style.display = 'none';
-        }
-      },
-      credentialHelper: helper,
-      signInFlow: msg.flow,
-      signInOptions: providers,
-      tosUrl: msg.tos_url,
-      privacyPolicyUrl: msg.privacy_policy_url
-    };
-
-    ui.start("#fireblaze-signin-ui", uiOpts);
-  });
-
   // Sign out
   Shiny.addCustomMessageHandler('fireblaze-signout', (msg) => {
     const auth = getAuth();
 
     signOut(auth)
       .then(() => {
-        if(uiInitialised){
-          ui.start("#fireblaze-signin-ui", uiOpts);
+        if(window.uiInitialised){
+          window.ui.start("#fireblaze-signin-ui", window.uiOpts);
           $("#fireblaze-signin-ui").show();
         }
 
