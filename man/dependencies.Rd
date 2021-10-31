@@ -14,7 +14,7 @@ useFirebaseUI(...)
 firebaseUIContainer()
 }
 \arguments{
-\item{analytics}{Whether to include analytics.}
+\item{analytics}{Deprecated. Whether to include analytics.}
 
 \item{firestore}{Whether to include firestore.}
 
