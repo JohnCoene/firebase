@@ -71,14 +71,6 @@ Install the development from Github using remotes:
 remotes::install_github("JohnCoene/firebase")
 ```
 
-Get the current bleeding edge refactor with webpack 
-with [packer](https://packer.john-coene.com)
-to improve performances and use firebase JavaScript version 9.
-
-```r
-remotes::install_github("JohnCoene/firebase@packer")
-```
-
 ## Related
 
 Below are similar projects:
