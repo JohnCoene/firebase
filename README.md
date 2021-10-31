@@ -9,26 +9,12 @@ Authenticate Shiny users with [Google Firebase](https://firebase.google.com)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 ![R-CMD-check](https://github.com/JohnCoene/firebase/workflows/R-CMD-check/badge.svg)
 [![Travis build status](https://travis-ci.org/JohnCoene/firebase.svg?branch=master)](https://travis-ci.org/JohnCoene/firebase)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/firebase?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/firebase)
 [![R-CMD-check](https://github.com/JohnCoene/firebase/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/firebase/actions)
 <!-- badges: end -->
 
 [Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase) | [Reference](https://firebase.john-coene.com/reference/)
 
 </div>
-
-## CAUTION
-
-I sincerely apologise but a grave error on my part led to a grave
-potential security issue, see 
-[#11](https://github.com/JohnCoene/firebase/issues/11). 
-
-This is fixed in version `0.2.0`: update as soon as possible.
-It is available on CRAN.
-
-__Note:__ 
-You may need to refresh the cache, visit your app and
-<kbd>CTRL</kbd>/<kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>R</kbd>
 
 ## Authentication Methods
 

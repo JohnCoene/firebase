@@ -92,7 +92,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -239,8 +239,9 @@
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
-  persistence <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"session"</span>, <span class='st'>"local"</span><span class='op'>)</span>,
+  persistence <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"session"</span>, <span class='st'>"local"</span>, <span class='st'>"memory"</span><span class='op'>)</span>,
   config_path <span class='op'>=</span> <span class='st'>"firebase.rds"</span>,
+  language_code <span class='op'>=</span> <span class='cn'>NULL</span>,
   session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>)</span></pre><p></div></p>
 
@@ -250,6 +251,10 @@
 <code>session</code> will only persist in current tab, <code>local</code> persist even when window is closed.</p></dd>
 
 <dt><code>config_path</code></dt><dd><p>Path to the configuration file as created by <code><a href='config.html'>firebase_config</a></code>.</p></dd>
+
+<dt><code>language_code</code></dt><dd><p>Sets the language to use for the UI.
+Supported languages are listed <a href='https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md'>here</a>.
+Set to <code>browser</code> to use the default browser language of the user.</p></dd>
 
 <dt><code>session</code></dt><dd><p>A valid shiny session.</p></dd>
 
@@ -433,6 +438,8 @@ method.</p>
 <p>Retrieve the users' ID Token</p>
 <p>Also see <code>request_id_token</code>.</p>
 
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
+<p>the id token (invisibly).</p>
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>

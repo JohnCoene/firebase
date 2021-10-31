@@ -44,6 +44,11 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
 #' @export
 #' @rdname dependencies
 useFirebaseUI <- function(...){
+  .Deprecated(
+    "firebaseUIContainer",
+    "firebase",
+    msg = "Use `firebaseUIContainer` where you want the pre-built UI to be placed"
+  )
   div(id = "fireblaze-signin-ui")
 }
 

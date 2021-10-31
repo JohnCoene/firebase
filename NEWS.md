@@ -1,9 +1,17 @@
-# firebase 0.2.1.9000
+# firebase 1.0.0.9000
 
 - Add support for phone sign in.
 - Remove deprecated `create_config` function, use
 `firebase_config`.
-- Fix issue with persistence [#14](https://github.com/JohnCoene/firebase/issues/14)
+- Fix issue with persistence 
+[#14](https://github.com/JohnCoene/firebase/issues/14)
+- Upgrade firebase.js to modular, tree-shakable version 9 (latest)
+- Use [packer](https://packer.john-coene.com/) to bundle with
+webpack for better performances and load time.
+- Clean up core class, deprecating several (genuinely) useless
+methods.
+- Deprecate `useFirebaseUI` in favour of `firebaseUIContainer`.
+- In `useFirebase` deprecate `analytics` and `firestore` arguments.
 
 # firebase 0.2.1
 

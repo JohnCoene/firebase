@@ -3,7 +3,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(),
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(actionButton("signout", "Sign out")),
   uiOutput("msg"),
   plotOutput("plot")

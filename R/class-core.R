@@ -92,6 +92,10 @@ Firebase <- R6::R6Class(
 #' @details Check whether use is signed in
 #' @return A boolean indicating whether user has successfully signed in.
     is_signed_in = function(){
+      .Deprecated(
+        "get_signed_id", 
+        msg = "This method is method is deprecated, use `get_signed_in`"
+      )
       user <- private$get_signed_in_checked()
       private$.user_signed_in <- user
       invisible(user$success)
@@ -139,6 +143,10 @@ Firebase <- R6::R6Class(
 #' 
 #' @return User's access token
     get_access_token = function(){
+      .Deprecated(
+        "get_signed_in",
+        msg = "This method is method is deprecated, use `get_signed_in`"
+      )
       obj <- self$get_signed_in()
       token <- obj$response$stsTokenManager$accessToken
       invisible(token)
@@ -149,6 +157,7 @@ Firebase <- R6::R6Class(
 #' token check, only useful if you are running really long
 #' sessions.
     clear = function(){
+      .Deprecate("", msg = "This method is no longer necesasry to use")
       private$.user_signed_in = list(signed_in = FALSE, user = NULL)
       invisible(self)
     },
