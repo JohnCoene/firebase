@@ -14,15 +14,28 @@ import {
   setInputValue,
   setLanguageCode
 } from './utils.js';
+import { handleStorage } from './components/storage';
 
 // global variables
 var globalNs = '';
 var globalInit = false;
 window.uiInitialised = false;
+let firebaseApp;
 
 const handleCore = () => {
+  Shiny.addCustomMessageHandler('fireblaze-initialize-core', function(msg) {
+    if(firebaseApp)
+      return;
+
+    firebaseApp = initializeApp(msg.conf);
+  });
+  
+  Shiny.addCustomMessageHandler('fireblaze-initialize-storage', function(msg) {
+    handleStorage(firebaseApp);
+  });
+
   // Initialise
-  Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
+  Shiny.addCustomMessageHandler('fireblaze-initialize-auth', function(msg) {
 
     if(globalInit)
       return ;
@@ -30,9 +43,6 @@ const handleCore = () => {
     globalInit = true;
     // set namespace
     globalNs = msg.ns;
-
-    // init
-    initializeApp(msg.conf);
 
     // auth
     const auth = getAuth();

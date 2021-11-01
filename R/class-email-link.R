@@ -45,7 +45,7 @@
 #' @export
 FirebaseEmailLink <- R6::R6Class(
   "FirebaseEmailLink",
-  inherit = Firebase,
+  inherit = FirebaseAuth,
   public = list(
 #' @details Configure
 #' @param url The link is handled in the web action widgets, 
@@ -78,7 +78,7 @@ FirebaseEmailLink <- R6::R6Class(
 #' }
 #' 
 #' @return self
-    send = function(email){
+    send_email = function(email){
       if(missing(email)) stop("Missing email", call. = FALSE)
       if(is.null(private$.config)) stop("Missing config, see `config` method", call. = FALSE)
 

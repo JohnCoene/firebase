@@ -12,6 +12,9 @@ webpack for better performances and load time.
 methods.
 - Deprecate `useFirebaseUI` in favour of `firebaseUIContainer`.
 - In `useFirebase` deprecate `analytics` and `firestore` arguments.
+- **Breaking** `FirebaseEmailLink` the method called `send` has been
+renamed to `send_email`: this method was overwriting an internal 
+private method, actually breaking many things.
 
 # firebase 0.2.1
 

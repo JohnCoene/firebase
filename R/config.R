@@ -6,11 +6,13 @@
 #' 
 #' @param api_key API key of your project.
 #' @param project_id Id of your web project.
-#' @param auth_domain Authentication domain, if omitted uses,
-#' attempts to build firebase's default domain. 
+#' @param auth_domain Authentication domain, if `NULL`
+#' attempts to build firebase's default domain.
+#' @param storage_bucket URl to the bucket. if `NULL`
+#' attempts to build firebase's default storage domain.
 #' @param overwrite Whether to overwrite any existing configuration file.
 #' 
-#' @details Do not share this file with anyone.
+#' @note Do not share this file with anyone.
 #' 
 #' @return Path to file.
 #' 
@@ -19,22 +21,13 @@
 #' @name config
 #' 
 #' @export
-firebase_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
-
-  if(missing(api_key) || missing(project_id) )
-    stop("Missing `api_key`, or `project_id`", call. = FALSE)
-
-  if(is.null(auth_domain)){
-    auth_domain <- paste0(project_id, ".firebaseapp.com")
-    cli::cli_alert_warning(paste("Setting `auth_domain` to", auth_domain))
-  }
-
-  lst <- list(
-    apiKey = .enc(api_key),
-    authDomain = .enc(auth_domain),
-    projectId = .enc(project_id)
-  )
-
+firebase_config <- function(
+  api_key, 
+  project_id, 
+  auth_domain = NULL, 
+  storage_bucket = NULL,
+  overwrite = FALSE
+){
   # check if file exists
   exists <- has_config(config_file)
   if(exists && overwrite)
@@ -44,6 +37,26 @@ firebase_config <- function(api_key, project_id, auth_domain = NULL, overwrite =
     cli::cli_alert_danger("Config file already exists, see `overwrite` argument.")
     return(invisible())
   }
+
+  if(missing(api_key) || missing(project_id) )
+    stop("Missing `api_key`, or `project_id`", call. = FALSE)
+
+  if(is.null(auth_domain)){
+    auth_domain <- paste0(project_id, ".firebaseapp.com")
+    cli::cli_alert_warning(paste("Setting `auth_domain` to", auth_domain))
+  }
+  
+  if(is.null(storage_bucket)){
+    storage_bucket <- paste0(project_id, ".appspot.com")
+    cli::cli_alert_warning(paste("Setting `storage_bucket` to", storage_bucket))
+  }
+
+  lst <- list(
+    apiKey = .enc(api_key),
+    authDomain = .enc(auth_domain),
+    projectId = .enc(project_id),
+    storageBucket = .enc(storage_bucket)
+  )
 
   saveRDS(lst, file = config_file)
 

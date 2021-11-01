@@ -4,7 +4,7 @@
 #' @keywords internal
 FirebasePhone <- R6::R6Class(
 	"FirebasePhone",
-	inherit = Firebase,
+	inherit = FirebaseAuth,
 	public = list(
 #' @details Verify a phhone number
 #' @param number Phone number of the user.

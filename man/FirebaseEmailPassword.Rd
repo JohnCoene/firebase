@@ -83,8 +83,8 @@ server <- function(input, output){
 \dontrun{shinyApp(ui, server)}
 
 }
-\section{Super class}{
-\code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{FirebaseEmailPassword}
+\section{Super classes}{
+\code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{\link[firebase:FirebaseAuth]{firebase::FirebaseAuth}} -> \code{FirebaseEmailPassword}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
@@ -113,22 +113,22 @@ server <- function(input, output){
 \if{html}{
 \out{<details ><summary>Inherited methods</summary>}
 \itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear">}\href{../../firebase/html/Firebase.html#method-clear}{\code{firebase::Firebase$clear()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token">}\href{../../firebase/html/Firebase.html#method-get_access_token}{\code{firebase::Firebase$get_access_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token">}\href{../../firebase/html/Firebase.html#method-get_id_token}{\code{firebase::Firebase$get_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in">}\href{../../firebase/html/Firebase.html#method-is_signed_in}{\code{firebase::Firebase$is_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in">}\href{../../firebase/html/Firebase.html#method-req_sign_in}{\code{firebase::Firebase$req_sign_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out">}\href{../../firebase/html/Firebase.html#method-req_sign_out}{\code{firebase::Firebase$req_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token">}\href{../../firebase/html/Firebase.html#method-request_id_token}{\code{firebase::Firebase$request_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code">}\href{../../firebase/html/Firebase.html#method-set_language_code}{\code{firebase::Firebase$set_language_code()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out">}\href{../../firebase/html/Firebase.html#method-sign_out}{\code{firebase::Firebase$sign_out()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear">}\href{../../firebase/html/FirebaseAuth.html#method-clear}{\code{firebase::FirebaseAuth$clear()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-delete_user}{\code{firebase::FirebaseAuth$delete_user()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_access_token}{\code{firebase::FirebaseAuth$get_access_token()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-get_delete_user}{\code{firebase::FirebaseAuth$get_delete_user()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_id_token}{\code{firebase::FirebaseAuth$get_id_token()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-get_sign_out}{\code{firebase::FirebaseAuth$get_sign_out()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_in}{\code{firebase::FirebaseAuth$get_signed_in()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_up}{\code{firebase::FirebaseAuth$get_signed_up()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="initialize">}\href{../../firebase/html/FirebaseAuth.html#method-initialize}{\code{firebase::FirebaseAuth$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-is_signed_in}{\code{firebase::FirebaseAuth$is_signed_in()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print">}\href{../../firebase/html/FirebaseAuth.html#method-print}{\code{firebase::FirebaseAuth$print()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_in}{\code{firebase::FirebaseAuth$req_sign_in()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_out}{\code{firebase::FirebaseAuth$req_sign_out()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-request_id_token}{\code{firebase::FirebaseAuth$request_id_token()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code">}\href{../../firebase/html/FirebaseAuth.html#method-set_language_code}{\code{firebase::FirebaseAuth$set_language_code()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-sign_out}{\code{firebase::FirebaseAuth$sign_out()}}\out{</span>}
 }
 \out{</details>}
 }

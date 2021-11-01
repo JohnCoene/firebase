@@ -4,7 +4,7 @@
 \alias{Firebase}
 \title{Firebase}
 \description{
-Use firebase to manage authentications.
+Core Firebase class.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -13,34 +13,11 @@ Use firebase to manage authentications.
 }
 \if{html}{\out{</div>}}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{signed_in}}{Read the signed in user.}
-
-\item{\code{signed_up}}{Read the signed in user.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Firebase$new()}}
 \item \href{#method-print}{\code{Firebase$print()}}
-\item \href{#method-sign_out}{\code{Firebase$sign_out()}}
-\item \href{#method-get_sign_out}{\code{Firebase$get_sign_out()}}
-\item \href{#method-get_signed_in}{\code{Firebase$get_signed_in()}}
-\item \href{#method-get_signed_up}{\code{Firebase$get_signed_up()}}
-\item \href{#method-is_signed_in}{\code{Firebase$is_signed_in()}}
-\item \href{#method-req_sign_in}{\code{Firebase$req_sign_in()}}
-\item \href{#method-req_sign_out}{\code{Firebase$req_sign_out()}}
-\item \href{#method-set_language_code}{\code{Firebase$set_language_code()}}
-\item \href{#method-delete_user}{\code{Firebase$delete_user()}}
-\item \href{#method-get_delete_user}{\code{Firebase$get_delete_user()}}
-\item \href{#method-get_access_token}{\code{Firebase$get_access_token()}}
-\item \href{#method-clear}{\code{Firebase$clear()}}
-\item \href{#method-request_id_token}{\code{Firebase$request_id_token()}}
-\item \href{#method-get_id_token}{\code{Firebase$get_id_token()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
 }
@@ -50,9 +27,7 @@ Use firebase to manage authentications.
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$new(
-  persistence = c("session", "local", "memory"),
   config_path = "firebase.rds",
-  language_code = NULL,
   session = shiny::getDefaultReactiveDomain()
 )}\if{html}{\out{</div>}}
 }
@@ -60,23 +35,21 @@ Use firebase to manage authentications.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{persistence}}{How the auth should persit: \code{none}, the user has to sign in at every visit,
-\code{session} will only persist in current tab, \code{local} persist even when window is closed.}
-
 \item{\code{config_path}}{Path to the configuration file as created by \code{\link{firebase_config}}.}
-
-\item{\code{language_code}}{Sets the language to use for the UI.
-Supported languages are listed \href{https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md}{here}.
-Set to \code{browser} to use the default browser language of the user.}
 
 \item{\code{session}}{A valid shiny session.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Initialise firebase
+Initialise Firebase
+
+Initialises the Firebase application client-side.
 }
 
+\subsection{Returns}{
+Invisibly return the class.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-print"></a>}}
@@ -90,247 +63,6 @@ Initialise firebase
 Print the class
 }
 
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-sign_out}{}}}
-\subsection{Method \code{sign_out()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$sign_out()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Signs out user
-}
-
-\subsection{Returns}{
-self
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-get_sign_out}{}}}
-\subsection{Method \code{get_sign_out()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_sign_out()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Get signed out results
-}
-
-\subsection{Returns}{
-A list of length 2 containing \code{success} a boolean
-indicating wherther signing out was successful and \code{response}
-containing \code{sucessful} or the error.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-get_signed_in}{}}}
-\subsection{Method \code{get_signed_in()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_signed_in()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Signed in user details triggered when auth states changes
-}
-
-\subsection{Returns}{
-A list of length 2 containing \code{success} a boolean
-indicating wherther signing in was successful and \code{response}
-containing the user object or \code{NULL} if signing in failed.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_signed_up"></a>}}
-\if{latex}{\out{\hypertarget{method-get_signed_up}{}}}
-\subsection{Method \code{get_signed_up()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_signed_up()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Get results of a sign up
-}
-
-\subsection{Returns}{
-A list of length 2 containing \code{success} a boolean
-indicating wherther signing in was successful and \code{response}
-containing the user object or \code{NULL} if signing in failed.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-is_signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-is_signed_in}{}}}
-\subsection{Method \code{is_signed_in()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$is_signed_in()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Check whether use is signed in
-}
-
-\subsection{Returns}{
-A boolean indicating whether user has successfully signed in.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-req_sign_in"></a>}}
-\if{latex}{\out{\hypertarget{method-req_sign_in}{}}}
-\subsection{Method \code{req_sign_in()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$req_sign_in()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Makes Shiny output, observer, or reactive require the user to be signed in
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-req_sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-req_sign_out}{}}}
-\subsection{Method \code{req_sign_out()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$req_sign_out()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Makes Shiny output, observer, or reactive require the user to be signed out
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_language_code"></a>}}
-\if{latex}{\out{\hypertarget{method-set_language_code}{}}}
-\subsection{Method \code{set_language_code()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$set_language_code(code)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{code}}{iso639-1 language code.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Set language code for auth provider
-}
-
-\subsection{Returns}{
-self
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete_user"></a>}}
-\if{latex}{\out{\hypertarget{method-delete_user}{}}}
-\subsection{Method \code{delete_user()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$delete_user()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Delete the user
-}
-
-\subsection{Returns}{
-self
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_delete_user"></a>}}
-\if{latex}{\out{\hypertarget{method-get_delete_user}{}}}
-\subsection{Method \code{get_delete_user()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_delete_user()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Get result of user deletion
-}
-
-\subsection{Returns}{
-A list of length 2 containing \code{success} a boolean
-indicating wherther deletion was successful and \code{response}
-containing either \code{successful} string or the error if signing in failed.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_access_token"></a>}}
-\if{latex}{\out{\hypertarget{method-get_access_token}{}}}
-\subsection{Method \code{get_access_token()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_access_token()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Get user access token
-}
-
-\subsection{Returns}{
-User's access token
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clear"></a>}}
-\if{latex}{\out{\hypertarget{method-clear}{}}}
-\subsection{Method \code{clear()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$clear()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Clear user session
-
-This clears the login internally and will retrigger a JWT
-token check, only useful if you are running really long
-sessions.
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-request_id_token"></a>}}
-\if{latex}{\out{\hypertarget{method-request_id_token}{}}}
-\subsection{Method \code{request_id_token()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$request_id_token()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Request the users' ID Token
-
-Used to retrieved the user's ID token useful to connect
-with other Google APIs and make request on the user's behalf.
-This executes the request for the id token, this request
-can only be made once the user is signed in.
-
-The actual id token is obtained with the \code{get_id_token}
-method.
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_id_token"></a>}}
-\if{latex}{\out{\hypertarget{method-get_id_token}{}}}
-\subsection{Method \code{get_id_token()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Firebase$get_id_token()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Retrieve the users' ID Token
-
-Also see \code{request_id_token}.
-}
-
-\subsection{Returns}{
-the id token (invisibly).
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
