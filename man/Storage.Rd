@@ -8,6 +8,34 @@ Storage
 
 Storage
 }
+\examples{
+
+## ------------------------------------------------
+## Method `Storage$upload_file`
+## ------------------------------------------------
+
+\dontrun{
+s <- Storage$new()
+
+# default response
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png")
+
+observeEvent(s$get_response() {
+  # do something
+})
+
+# named response
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png", response = "fl")
+
+observeEvent(s$get_response("fl") {
+  # do something
+})
+}
+}
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{Storage}
 }
@@ -17,6 +45,7 @@ Storage
 \item \href{#method-new}{\code{Storage$new()}}
 \item \href{#method-ref}{\code{Storage$ref()}}
 \item \href{#method-upload_file}{\code{Storage$upload_file()}}
+\item \href{#method-get_response}{\code{Storage$get_response()}}
 \item \href{#method-clone}{\code{Storage$clone()}}
 }
 }
@@ -65,8 +94,9 @@ Initialises the Firebase Storage application client-side.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{path}}{Path to the file or directory, if \code{NULL}
-creates a path to the root.}
+\item{\code{path}}{Path to the file, directory, bucket, or
+full URL to file.
+.If \code{NULL} creates a path to the root.}
 }
 \if{html}{\out{</div>}}
 }
@@ -85,13 +115,21 @@ Invisibly return the class instance.
 \if{latex}{\out{\hypertarget{method-upload_file}{}}}
 \subsection{Method \code{upload_file()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Storage$upload_file(file)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Storage$upload_file(file, response = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{file}}{Path to file to upload.}
+\item{\code{file}}{Path to the file to upload.}
+
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -100,6 +138,54 @@ Upload a File
 
 Upload a file to the store system of bucket.
 Requires a valid authentication.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+s <- Storage$new()
+
+# default response
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png")
+
+observeEvent(s$get_response() {
+  # do something
+})
+
+# named response
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png", response = "fl")
+
+observeEvent(s$get_response("fl") {
+  # do something
+})
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_response"></a>}}
+\if{latex}{\out{\hypertarget{method-get_response}{}}}
+\subsection{Method \code{get_response()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Storage$get_response(response = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{Name of the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Capture response
 }
 
 }

@@ -15,6 +15,7 @@ methods.
 - **Breaking** `FirebaseEmailLink` the method called `send` has been
 renamed to `send_email`: this method was overwriting an internal 
 private method, actually breaking many things.
+- Added `Storage` to use [Firebase Storage](https://firebase.google.com/docs/storage), requires the user to be signed in.
 
 # firebase 0.2.1
 

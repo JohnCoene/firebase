@@ -21,8 +21,9 @@ Storage <- R6::R6Class(
 #' 
 #' Creates a reference to a file or directory you want to operate on.
 #' 
-#' @param path Path to the file or directory, if `NULL`
-#' creates a path to the root.
+#' @param path Path to the file, directory, bucket, or
+#' full URL to file.
+#' .If `NULL` creates a path to the root.
 #' 
 #' @return Invisibly return the class instance.
 		ref = function(path = NULL) {
@@ -34,8 +35,38 @@ Storage <- R6::R6Class(
 #' Upload a file to the store system of bucket.
 #' Requires a valid authentication.
 #' 
-#' @param file Path to file to upload.
-		upload_file = function(file){
+#' @param file Path to the file to upload.
+#' @param response A boolean or character string.
+#' `TRUE` indicates that you want to capture the
+#' results of the file upload (e.g.: success or failed)
+#' with `get_response` method. `FALSE` indicates you do
+#' not want those results back. A character string is
+#' used as named of the response which then can be used
+#' in the `get_response` method.
+#' 
+#' @examples 
+#' \dontrun{
+#' s <- Storage$new()
+#' 
+#' # default response
+#' s$
+#'   ref("test.png")$
+#'   upload_file("path/to/file.png")
+#' 
+#' observeEvent(s$get_response() {
+#'   # do something
+#' })
+#' 
+#' # named response
+#' s$
+#'   ref("test.png")$
+#'   upload_file("path/to/file.png", response = "fl")
+#' 
+#' observeEvent(s$get_response("fl") {
+#'   # do something
+#' })
+#' }
+		upload_file = function(file, response = TRUE){
 			if(missing(file))
 				stop("Missing `file`")
 
@@ -45,10 +76,28 @@ Storage <- R6::R6Class(
 
 			enc <- encode_file(enc, ext)
 
+			if(response)
+				response <- private$.default_input
+
 			super$.send(
 				"upload-file",
-				encoded = enc
+				encoded = enc,
+				response = response
 			)
+
+			invisible(self)
+		},
+#' @details Capture response
+#' 
+#' @param response Name of the response.
+		get_response = function(response = NULL){
+			if(is.null(response))
+				response <- private$.default_input
+
+			super$get_input(response)
 		}
+	),
+	private = list(
+		.default_input = "store"
 	)
 )
