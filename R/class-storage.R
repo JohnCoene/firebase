@@ -137,7 +137,7 @@ Storage <- R6::R6Class(
 #' not want those results back. A character string is
 #' used as named of the response which then can be used
 #' in the `get_response` method.
-	delete_file = function(response = TRUE) {
+		delete_file = function(response = TRUE) {
 			if(is.logical(response) && response)
 				response <- private$.default_input
 
@@ -146,10 +146,10 @@ Storage <- R6::R6Class(
 				response = response
 			)
 			invisible(self)
-	},
+		},
 #' @details File Metadata
 #' 
-#' get the metadata of a file from the store system or bucket.
+#' Get the metadata of a file from the store system or bucket.
 #' Requires a valid authentication.
 #' 
 #' @param response A boolean or character string.
@@ -159,7 +159,7 @@ Storage <- R6::R6Class(
 #' not want those results back. A character string is
 #' used as named of the response which then can be used
 #' in the `get_response` method.
-	get_metadata = function(response = TRUE) {
+		get_metadata = function(response = TRUE) {
 			if(is.logical(response) && response)
 				response <- private$.default_input
 
@@ -168,7 +168,31 @@ Storage <- R6::R6Class(
 				response = response
 			)
 			invisible(self)
-	},
+		},
+#' @details List All Files
+#' 
+#' List all files in the reference (`ref`).
+#' Requires a valid authentication.
+#' 
+#' @param response A boolean or character string.
+#' `TRUE` indicates that you want to capture the
+#' results of the file upload (e.g.: success or failed)
+#' with `get_response` method. A character string is
+#' used as named of the response which then can be used
+#' in the `get_response` method.
+		list_files_all = function(response = TRUE){
+			if(is.logical(response) && !response)
+				stop("`response` must be `TRUE` or a character string")
+
+			if(is.logical(response) && response)
+				response <- private$.default_input
+
+			private$.send(
+				"list-all-files",
+				response = response
+			)
+			invisible(self)
+		},
 #' @details Capture response
 #' 
 #' @param response Name of the response.

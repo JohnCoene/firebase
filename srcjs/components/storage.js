@@ -5,7 +5,8 @@ import {
 	uploadString, 
 	getDownloadURL,
 	deleteObject,
-	getMetadata
+	getMetadata,
+	listAll
 } from "firebase/storage";
 import { setInputValue } from '../utils.js';
 
@@ -89,6 +90,19 @@ export const handleStorage = (firebaseApp) => {
 					return;
 
 				setInputValue(msg.response, {success: true, response: metadata}, msg.ns);
+			})
+			.catch((error) => {
+				if(!msg.response)
+					return;
+				
+				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+			});
+	});
+	
+	Shiny.addCustomMessageHandler('fireblaze-list-all-files', function(msg) {
+		listAll(storageRef)
+			.then((res) => {
+				setInputValue(msg.response, {success: true, response: res.items}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)

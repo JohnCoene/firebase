@@ -65,6 +65,7 @@ observeEvent(s$get_response("dl") {
 \item \href{#method-download_file}{\code{Storage$download_file()}}
 \item \href{#method-delete_file}{\code{Storage$delete_file()}}
 \item \href{#method-get_metadata}{\code{Storage$get_metadata()}}
+\item \href{#method-list_files_all}{\code{Storage$list_files_all()}}
 \item \href{#method-get_response}{\code{Storage$get_response()}}
 \item \href{#method-clone}{\code{Storage$clone()}}
 }
@@ -292,7 +293,35 @@ in the \code{get_response} method.}
 \subsection{Details}{
 File Metadata
 
-get the metadata of a file from the store system or bucket.
+Get the metadata of a file from the store system or bucket.
+Requires a valid authentication.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-list_files_all"></a>}}
+\if{latex}{\out{\hypertarget{method-list_files_all}{}}}
+\subsection{Method \code{list_files_all()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Storage$list_files_all(response = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+List All Files
+
+List all files in the reference (\code{ref}).
 Requires a valid authentication.
 }
 
