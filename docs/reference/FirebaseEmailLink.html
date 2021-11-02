@@ -149,6 +149,11 @@
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
@@ -200,9 +205,9 @@
 
     <p>Other methods to pick up whether user signs in still apply. This
 is for added security measures.</p>
-    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
+    <h2 class="hasAnchor" id="super-classes"><a class="anchor" href="#super-classes"></a>Super classes</h2>
 
-    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebaseEmailLink</code></p>
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code><a href='FirebaseAuth.html'>firebase::FirebaseAuth</a></code> -&gt; <code>FirebaseEmailLink</code></p>
     <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
 
     <p><div class="r6-active-bindings"></p><dl>
@@ -218,29 +223,29 @@ is for added security measures.</p>
 
 <ul>
 <li><p><a href='#method-config'><code>FirebaseEmailLink$config()</code></a></p></li>
-<li><p><a href='#method-send'><code>FirebaseEmailLink$send()</code></a></p></li>
+<li><p><a href='#method-send_email'><code>FirebaseEmailLink$send_email()</code></a></p></li>
 <li><p><a href='#method-get_email_sent'><code>FirebaseEmailLink$get_email_sent()</code></a></p></li>
 <li><p><a href='#method-get_email_verification'><code>FirebaseEmailLink$get_email_verification()</code></a></p></li>
 <li><p><a href='#method-clone'><code>FirebaseEmailLink$clone()</code></a></p></li>
 </ul>
 <p><details ><summary>Inherited methods</summary>
 <ul>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear"><a href='../../firebase/html/Firebase.html#method-clear'><code>firebase::Firebase$clear()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-delete_user'><code>firebase::Firebase$delete_user()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token"><a href='../../firebase/html/Firebase.html#method-get_access_token'><code>firebase::Firebase$get_access_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token"><a href='../../firebase/html/Firebase.html#method-get_id_token'><code>firebase::Firebase$get_id_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-print'><code>firebase::Firebase$print()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in"><a href='../../firebase/html/Firebase.html#method-req_sign_in'><code>firebase::Firebase$req_sign_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out"><a href='../../firebase/html/Firebase.html#method-req_sign_out'><code>firebase::Firebase$req_sign_out()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token"><a href='../../firebase/html/Firebase.html#method-request_id_token'><code>firebase::Firebase$request_id_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear"><a href='../../firebase/html/FirebaseAuth.html#method-clear'><code>firebase::FirebaseAuth$clear()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-delete_user'><code>firebase::FirebaseAuth$delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token"><a href='../../firebase/html/FirebaseAuth.html#method-get_access_token'><code>firebase::FirebaseAuth$get_access_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-get_delete_user'><code>firebase::FirebaseAuth$get_delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-get_id_token'><code>firebase::FirebaseAuth$get_id_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-get_sign_out'><code>firebase::FirebaseAuth$get_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-get_signed_in'><code>firebase::FirebaseAuth$get_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up"><a href='../../firebase/html/FirebaseAuth.html#method-get_signed_up'><code>firebase::FirebaseAuth$get_signed_up()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="initialize"><a href='../../firebase/html/FirebaseAuth.html#method-initialize'><code>firebase::FirebaseAuth$initialize()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-is_signed_in'><code>firebase::FirebaseAuth$is_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print"><a href='../../firebase/html/FirebaseAuth.html#method-print'><code>firebase::FirebaseAuth$print()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in"><a href='../../firebase/html/FirebaseAuth.html#method-req_sign_in'><code>firebase::FirebaseAuth$req_sign_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-req_sign_out'><code>firebase::FirebaseAuth$req_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-request_id_token'><code>firebase::FirebaseAuth$request_id_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code"><a href='../../firebase/html/FirebaseAuth.html#method-set_language_code'><code>firebase::FirebaseAuth$set_language_code()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-sign_out'><code>firebase::FirebaseAuth$sign_out()</code></a></span></p></li>
 </ul>
 </details>
 
@@ -272,10 +277,10 @@ f &lt;- FirebaseEmailLink$
 </pre><p></div></p>
 
 <p><hr>
-<a id="method-send"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>send()</code></h3>
+<a id="method-send_email"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>send_email()</code></h3>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>FirebaseEmailLink</span><span class='op'>$</span><span class='fu'>send</span><span class='op'>(</span><span class='va'>email</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>FirebaseEmailLink</span><span class='op'>$</span><span class='fu'>send_email</span><span class='op'>(</span><span class='va'>email</span><span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
@@ -388,7 +393,7 @@ containing the result of the sign in or the error if signing in failed.</p>
 <span class='op'>}</span>
 
 <span class='co'>## ------------------------------------------------</span>
-<span class='co'>## Method `FirebaseEmailLink$send`</span>
+<span class='co'>## Method `FirebaseEmailLink$send_email`</span>
 <span class='co'>## ------------------------------------------------</span>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

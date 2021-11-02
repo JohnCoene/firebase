@@ -102,6 +102,11 @@
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
     </li>
     <li class="divider">
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider">
     <li class="dropdown-header">Usage</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
@@ -180,7 +185,7 @@ Note that you have to specify the redirect URL in your config.
     <span class="kw">if</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">email</span> <span class="op">==</span> <span class="st">""</span><span class="op">)</span>
       <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="op">)</span>
     
-    <span class="va">f</span><span class="op">$</span><span class="fu">send</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">email</span><span class="op">)</span>
+    <span class="va">f</span><span class="op">$</span><span class="fu">send_email</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">email</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">f</span><span class="op">$</span><span class="fu">get_email_sent</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span>

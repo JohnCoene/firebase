@@ -148,6 +148,11 @@
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
@@ -200,6 +205,11 @@
 <li>Upgrade firebase.js to modular, tree-shakable version 9 (latest)</li>
 <li>Use <a href="https://packer.john-coene.com/">packer</a> to bundle with webpack for better performances and load time.</li>
 <li>Clean up core class, deprecating several (genuinely) useless methods.</li>
+<li>Deprecate <code>useFirebaseUI</code> in favour of <code>firebaseUIContainer</code>.</li>
+<li>In <code>useFirebase</code> deprecate <code>analytics</code> and <code>firestore</code> arguments.</li>
+<li>
+<strong>Breaking</strong> <code>FirebaseEmailLink</code> the method called <code>send</code> has been renamed to <code>send_email</code>: this method was overwriting an internal private method, actually breaking many things.</li>
+<li>Added <code>Storage</code> to use <a href="https://firebase.google.com/docs/storage">Firebase Storage</a>, requires the user to be signed in.</li>
 </ul>
 </div>
     <div id="firebase-021" class="section level1">

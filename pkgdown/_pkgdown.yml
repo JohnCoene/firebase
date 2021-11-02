@@ -34,6 +34,10 @@ navbar:
         - text: "Oauth Providers"
           href: articles/oauth-providers.html
         - text: "------------------"
+        - text: "Storage"
+        - text: "Usage"
+          href: articles/storage.html
+        - text: "------------------"
         - text: "Usage"
         - text: "State Persistence"
           href: articles/state-persistence.html

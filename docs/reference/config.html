@@ -151,6 +151,11 @@ here, not the one originally created by Google." />
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
@@ -198,7 +203,13 @@ Note that if you changed the project you must use said ID
 here, not the one originally created by Google.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>firebase_config</span><span class='op'>(</span><span class='va'>api_key</span>, <span class='va'>project_id</span>, auth_domain <span class='op'>=</span> <span class='cn'>NULL</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>firebase_config</span><span class='op'>(</span>
+  <span class='va'>api_key</span>,
+  <span class='va'>project_id</span>,
+  auth_domain <span class='op'>=</span> <span class='cn'>NULL</span>,
+  storage_bucket <span class='op'>=</span> <span class='cn'>NULL</span>,
+  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -213,8 +224,13 @@ here, not the one originally created by Google.</p>
     </tr>
     <tr>
       <th>auth_domain</th>
-      <td><p>Authentication domain, if omitted uses,
+      <td><p>Authentication domain, if <code>NULL</code>
 attempts to build firebase's default domain.</p></td>
+    </tr>
+    <tr>
+      <th>storage_bucket</th>
+      <td><p>URl to the bucket. if <code>NULL</code>
+attempts to build firebase's default storage domain.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
@@ -225,7 +241,7 @@ attempts to build firebase's default domain.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Path to file.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Do not share this file with anyone.</p>
 
