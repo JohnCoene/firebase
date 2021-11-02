@@ -35,6 +35,23 @@ observeEvent(s$get_response("fl") {
   # do something
 })
 }
+
+## ------------------------------------------------
+## Method `Storage$download_file`
+## ------------------------------------------------
+
+\dontrun{
+s <- Storage$new()
+
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png")$
+  download_file("dl")
+
+observeEvent(s$get_response("dl") {
+  # do something
+})
+}
 }
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}} -> \code{Storage}
@@ -45,6 +62,7 @@ observeEvent(s$get_response("fl") {
 \item \href{#method-new}{\code{Storage$new()}}
 \item \href{#method-ref}{\code{Storage$ref()}}
 \item \href{#method-upload_file}{\code{Storage$upload_file()}}
+\item \href{#method-download_file}{\code{Storage$download_file()}}
 \item \href{#method-get_response}{\code{Storage$get_response()}}
 \item \href{#method-clone}{\code{Storage$clone()}}
 }
@@ -160,6 +178,54 @@ s$
   upload_file("path/to/file.png", response = "fl")
 
 observeEvent(s$get_response("fl") {
+  # do something
+})
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-download_file"></a>}}
+\if{latex}{\out{\hypertarget{method-download_file}{}}}
+\subsection{Method \code{download_file()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Storage$download_file(response = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Download a File
+
+Download a file to the store system of bucket.
+Requires a valid authentication.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+s <- Storage$new()
+
+s$
+  ref("test.png")$
+  upload_file("path/to/file.png")$
+  download_file("dl")
+
+observeEvent(s$get_response("dl") {
   # do something
 })
 }

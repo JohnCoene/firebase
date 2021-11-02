@@ -76,7 +76,7 @@ Storage <- R6::R6Class(
 
 			enc <- encode_file(enc, ext)
 
-			if(response)
+			if(is.logical(response) && response)
 				response <- private$.default_input
 
 			super$.send(
@@ -85,6 +85,42 @@ Storage <- R6::R6Class(
 				response = response
 			)
 
+			invisible(self)
+		},
+#' @details Download a File
+#' 
+#' Download a file to the store system of bucket.
+#' Requires a valid authentication.
+#' 
+#' @param response A boolean or character string.
+#' `TRUE` indicates that you want to capture the
+#' results of the file upload (e.g.: success or failed)
+#' with `get_response` method. `FALSE` indicates you do
+#' not want those results back. A character string is
+#' used as named of the response which then can be used
+#' in the `get_response` method.
+#' 
+#' @examples 
+#' \dontrun{
+#' s <- Storage$new()
+#' 
+#' s$
+#'   ref("test.png")$
+#'   upload_file("path/to/file.png")$
+#'   download_file("dl")
+#' 
+#' observeEvent(s$get_response("dl") {
+#'   # do something
+#' })
+#' }
+		download_file = function(response = TRUE){
+			if(is.logical(response) && response)
+				response <- private$.default_input
+
+			private$.send(
+				"download-file",
+				response = response
+			)
 			invisible(self)
 		},
 #' @details Capture response
