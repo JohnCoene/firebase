@@ -35,7 +35,7 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
   htmlDependency(
     "firebase",
     utils::packageVersion("firebase"),
-    src = ".",
+    src = "packer",
     package = "firebase",
     script = "index.js"
   )
