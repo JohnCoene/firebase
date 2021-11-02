@@ -1,5 +1,11 @@
 import 'shiny'
-import { getStorage, ref, uploadString, getDownloadURL } from "firebase/storage";
+import { 
+	getStorage, 
+	ref, 
+	uploadString, 
+	getDownloadURL,
+	deleteObject
+} from "firebase/storage";
 import { setInputValue } from '../utils.js';
 
 let storage;
@@ -50,6 +56,22 @@ export const handleStorage = (firebaseApp) => {
 				}
 
 				setInputValue(msg.response, data, msg.ns);
+			})
+			.catch((error) => {
+				if(!msg.response)
+					return;
+				
+				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+			});
+	});
+
+  Shiny.addCustomMessageHandler('fireblaze-delete-file', function(msg) {
+		deleteObject(storageRef)
+			.then(() => {
+				if(!msg.response)
+					return;
+
+				setInputValue(msg.response, {success: true, response: null}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)

@@ -20,6 +20,8 @@ Storage <- R6::R6Class(
 #' @details Reference
 #' 
 #' Creates a reference to a file or directory you want to operate on.
+#' Note that this reference persists, make sure you change it
+#' between operations.
 #' 
 #' @param path Path to the file, directory, bucket, or
 #' full URL to file.
@@ -32,7 +34,7 @@ Storage <- R6::R6Class(
 		},
 #' @details Upload a File
 #' 
-#' Upload a file to the store system of bucket.
+#' Upload a file to the store system or bucket.
 #' Requires a valid authentication.
 #' 
 #' @param file Path to the file to upload.
@@ -89,7 +91,7 @@ Storage <- R6::R6Class(
 		},
 #' @details Download a File
 #' 
-#' Download a file to the store system of bucket.
+#' Download a file from the store system or bucket.
 #' Requires a valid authentication.
 #' 
 #' @param response A boolean or character string.
@@ -123,6 +125,28 @@ Storage <- R6::R6Class(
 			)
 			invisible(self)
 		},
+#' @details Delete a File
+#' 
+#' Delete a file from the store system or bucket.
+#' Requires a valid authentication.
+#' 
+#' @param response A boolean or character string.
+#' `TRUE` indicates that you want to capture the
+#' results of the file upload (e.g.: success or failed)
+#' with `get_response` method. `FALSE` indicates you do
+#' not want those results back. A character string is
+#' used as named of the response which then can be used
+#' in the `get_response` method.
+	delete_file = function(response = TRUE) {
+			if(is.logical(response) && response)
+				response <- private$.default_input
+
+			private$.send(
+				"delete-file",
+				response = response
+			)
+			invisible(self)
+	},
 #' @details Capture response
 #' 
 #' @param response Name of the response.

@@ -63,6 +63,7 @@ observeEvent(s$get_response("dl") {
 \item \href{#method-ref}{\code{Storage$ref()}}
 \item \href{#method-upload_file}{\code{Storage$upload_file()}}
 \item \href{#method-download_file}{\code{Storage$download_file()}}
+\item \href{#method-delete_file}{\code{Storage$delete_file()}}
 \item \href{#method-get_response}{\code{Storage$get_response()}}
 \item \href{#method-clone}{\code{Storage$clone()}}
 }
@@ -122,6 +123,8 @@ full URL to file.
 Reference
 
 Creates a reference to a file or directory you want to operate on.
+Note that this reference persists, make sure you change it
+between operations.
 }
 
 \subsection{Returns}{
@@ -154,7 +157,7 @@ in the \code{get_response} method.}
 \subsection{Details}{
 Upload a File
 
-Upload a file to the store system of bucket.
+Upload a file to the store system or bucket.
 Requires a valid authentication.
 }
 
@@ -211,7 +214,7 @@ in the \code{get_response} method.}
 \subsection{Details}{
 Download a File
 
-Download a file to the store system of bucket.
+Download a file from the store system or bucket.
 Requires a valid authentication.
 }
 
@@ -232,6 +235,35 @@ observeEvent(s$get_response("dl") {
 }
 \if{html}{\out{</div>}}
 
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delete_file"></a>}}
+\if{latex}{\out{\hypertarget{method-delete_file}{}}}
+\subsection{Method \code{delete_file()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Storage$delete_file(response = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Delete a File
+
+Delete a file from the store system or bucket.
+Requires a valid authentication.
 }
 
 }
