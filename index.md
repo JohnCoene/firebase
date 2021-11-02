@@ -46,6 +46,7 @@ remotes::install_github("JohnCoene/firebase")
 
 Below are similar projects:
 
+- [polished](https://polished.tech/)
 - [SaaS with R by Mark Edmondson](https://github.com/MarkEdmondson1234/Shiny-R-SaaS/)
 - [Firebase with R by Andy Merlino](https://github.com/shinyonfire/sof-auth-example)
 - [Auth0 with Shiny](https://auth0.com/blog/adding-authentication-to-shiny-server/)

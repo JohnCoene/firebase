@@ -1,5 +1,5 @@
 Package: firebase
-Title: Integrates 'Google Firebase' Authentication Method with 'Shiny' 
+Title: Integrates 'Google Firebase' Authentication Storage, and Analytics with 'Shiny' 
 Version: 1.0.0.9000
 Date: 2021-10-24
 Authors@R: 
@@ -12,6 +12,8 @@ Authors@R:
 Description: Authenticate users in 'Shiny' applications using 'Google Firebase' 
     with any of the many methods provided; email and password, email link, or
     using a third-party provider such as 'Github', 'Twitter', or 'Google'.
+    use 'Firebase Storage' to store files securely, and leverage 'Firebase Analytics'
+    to easily log events and better understand your audience.
 License: AGPL-3
 Encoding: UTF-8
 LazyData: false
