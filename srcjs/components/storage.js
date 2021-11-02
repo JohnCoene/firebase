@@ -4,7 +4,8 @@ import {
 	ref, 
 	uploadString, 
 	getDownloadURL,
-	deleteObject
+	deleteObject,
+	getMetadata
 } from "firebase/storage";
 import { setInputValue } from '../utils.js';
 
@@ -72,6 +73,22 @@ export const handleStorage = (firebaseApp) => {
 					return;
 
 				setInputValue(msg.response, {success: true, response: null}, msg.ns);
+			})
+			.catch((error) => {
+				if(!msg.response)
+					return;
+				
+				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+			});
+	});
+  
+	Shiny.addCustomMessageHandler('fireblaze-get-metadata', function(msg) {
+		getMetadata(storageRef)
+			.then((metadata) => {
+				if(!msg.response)
+					return;
+
+				setInputValue(msg.response, {success: true, response: metadata}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)

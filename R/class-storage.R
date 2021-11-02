@@ -147,6 +147,28 @@ Storage <- R6::R6Class(
 			)
 			invisible(self)
 	},
+#' @details File Metadata
+#' 
+#' get the metadata of a file from the store system or bucket.
+#' Requires a valid authentication.
+#' 
+#' @param response A boolean or character string.
+#' `TRUE` indicates that you want to capture the
+#' results of the file upload (e.g.: success or failed)
+#' with `get_response` method. `FALSE` indicates you do
+#' not want those results back. A character string is
+#' used as named of the response which then can be used
+#' in the `get_response` method.
+	get_metadata = function(response = TRUE) {
+			if(is.logical(response) && response)
+				response <- private$.default_input
+
+			private$.send(
+				"get-metadata",
+				response = response
+			)
+			invisible(self)
+	},
 #' @details Capture response
 #' 
 #' @param response Name of the response.

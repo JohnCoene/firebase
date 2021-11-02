@@ -64,6 +64,7 @@ observeEvent(s$get_response("dl") {
 \item \href{#method-upload_file}{\code{Storage$upload_file()}}
 \item \href{#method-download_file}{\code{Storage$download_file()}}
 \item \href{#method-delete_file}{\code{Storage$delete_file()}}
+\item \href{#method-get_metadata}{\code{Storage$get_metadata()}}
 \item \href{#method-get_response}{\code{Storage$get_response()}}
 \item \href{#method-clone}{\code{Storage$clone()}}
 }
@@ -263,6 +264,35 @@ in the \code{get_response} method.}
 Delete a File
 
 Delete a file from the store system or bucket.
+Requires a valid authentication.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_metadata"></a>}}
+\if{latex}{\out{\hypertarget{method-get_metadata}{}}}
+\subsection{Method \code{get_metadata()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Storage$get_metadata(response = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+File Metadata
+
+get the metadata of a file from the store system or bucket.
 Requires a valid authentication.
 }
 
