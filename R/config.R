@@ -10,6 +10,7 @@
 #' attempts to build firebase's default domain.
 #' @param storage_bucket URl to the bucket. if `NULL`
 #' attempts to build firebase's default storage domain.
+#' @param app_id Application ID, necessary for Analytics.
 #' @param overwrite Whether to overwrite any existing configuration file.
 #' 
 #' @note Do not share this file with anyone.
@@ -26,8 +27,13 @@ firebase_config <- function(
   project_id, 
   auth_domain = NULL, 
   storage_bucket = NULL,
+  app_id = NULL,
   overwrite = FALSE
 ){
+
+  if(is.null(app_id))
+    cli::cli_alert_warning("`app_id` is not set, analytics will not work")
+
   # check if file exists
   exists <- has_config(config_file)
   if(exists && overwrite)
@@ -55,7 +61,8 @@ firebase_config <- function(
     apiKey = .enc(api_key),
     authDomain = .enc(auth_domain),
     projectId = .enc(project_id),
-    storageBucket = .enc(storage_bucket)
+    storageBucket = .enc(storage_bucket),
+    appId = .enc(app_id)
   )
 
   saveRDS(lst, file = config_file)

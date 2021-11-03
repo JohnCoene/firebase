@@ -27,9 +27,7 @@ Imports:
     htmltools
 Suggests:
     knitr,
-    base64enc,
-    rmarkdown
+    base64enc
 RoxygenNote: 7.1.2
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues
-VignetteBuilder: knitr

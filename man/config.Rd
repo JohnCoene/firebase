@@ -10,6 +10,7 @@ firebase_config(
   project_id,
   auth_domain = NULL,
   storage_bucket = NULL,
+  app_id = NULL,
   overwrite = FALSE
 )
 }
@@ -23,6 +24,8 @@ attempts to build firebase's default domain.}
 
 \item{storage_bucket}{URl to the bucket. if \code{NULL}
 attempts to build firebase's default storage domain.}
+
+\item{app_id}{Application ID, necessary for Analytics.}
 
 \item{overwrite}{Whether to overwrite any existing configuration file.}
 }

@@ -1,5 +1,5 @@
 import 'shiny'
-import { getAnalytics, logEvent } from 'firebase/analytics.js';
+import { getAnalytics, logEvent, setUserProperties} from 'firebase/analytics';
 
 let analytics;
 
@@ -10,7 +10,16 @@ const handleAnalytics = () => {
 	});
 	
 	Shiny.addCustomMessageHandler('fireblaze-log-event', (msg) => {
-		logEvent(analytics, msg.event);
+		if(!msg.params){
+			logEvent(analytics, msg.event);
+			return;
+		}
+
+		logEvent(analytics, msg.event, msg.params);
+	});
+	
+	Shiny.addCustomMessageHandler('fireblaze-set-user-properties', (msg) => {
+		setUserProperties(analytics, msg.props);
 	});
 }
 
