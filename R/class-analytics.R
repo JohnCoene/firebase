@@ -44,9 +44,12 @@ Analytics <- R6::R6Class(
 			if("" %in% nms)
 				stop("Must pass named options")
 
+			if(c("Age", "Gender", "Interest") %in% nms)
+				stop("Cannot use `Age`, `Gender`, or `Interest` properties, they are reserved")
+
 			super$.send(
 				"set-user-properties",
-				props = props
+				props = as.list(props)
 			)
 
 			invisible(self)
