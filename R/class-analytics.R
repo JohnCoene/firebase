@@ -27,6 +27,9 @@ Analytics <- R6::R6Class(
 #' method from registering event but default Google
 #' Analytics will still be running.
 		launch = function() {
+			if(!super$.enabled)
+				return(self)
+
 			super$.send("initialize-analytics")
 		},
 #' @details Enable Tracking
@@ -51,7 +54,7 @@ Analytics <- R6::R6Class(
 #' @param params Event parameters.
 		log_event = function(event, params = NULL) {
 			if(!private$.enaled)
-				return(sefl)
+				return(self)
 
 			if(missing(event))
 				stop("Missing `event`")
@@ -69,7 +72,7 @@ Analytics <- R6::R6Class(
 #' @param ... Named arguments defining the properties of the user.
 		set_user_properties = function(...){
 			if(!private$.enaled)
-				return(sefl)
+				return(self)
 
 			props <- list(...)
 			if(!length(props))
