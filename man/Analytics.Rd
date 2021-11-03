@@ -38,6 +38,14 @@ Analytics
 \if{html}{\out{<div class="r">}}\preformatted{Analytics$new(enable = TRUE)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{enable}}{Whether to internally enable analytics
+see \code{launch} method.}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Details}{
 Initialise
 

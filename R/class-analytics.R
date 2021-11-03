@@ -8,6 +8,9 @@ Analytics <- R6::R6Class(
 #' @details Initialise
 #' 
 #' Initialise an analytics object.
+#' 
+#' @param enable Whether to internally enable analytics
+#' see `launch` method.
 		initialize = function(enable = TRUE){
 			super$initialize()
 			private$.enabled <- FALSE
