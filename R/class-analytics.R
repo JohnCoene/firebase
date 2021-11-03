@@ -8,9 +8,38 @@ Analytics <- R6::R6Class(
 #' @details Initialise
 #' 
 #' Initialise an analytics object.
-		initialize = function(){
+		initialize = function(enable = TRUE){
 			super$initialize()
+			private$.enabled <- FALSE
+		},
+#' @details Launch
+#' 
+#' Launch the analytics tracking.
+#' Note that analytics is not launched by the
+#' constructor in order to be able to enable
+#' or disable the tracking prior to the launch.
+#' This is because once Google Analytics is 
+#' launched it cannot be disabled. If needed
+#' ask the user before running this method.
+#' The enabling and disabling of tracking provided
+#' by the package is only internal, e.g.: disabling
+#' tracking during a session will stop the `log_event`
+#' method from registering event but default Google
+#' Analytics will still be running.
+		launch = function() {
 			super$.send("initialize-analytics")
+		},
+#' @details Enable Tracking
+#' Internally enables tracking.
+		enable = function(){
+			private$.enabled <- TRUE
+		},
+#' @details Disable Tracking
+#' Internally disables tracking: running methods
+#' from this instance of the class will not actually
+#' register with Google Analytics.
+		disable = function() {
+			private$.enabled <- FALSE
 		},
 #' @details Log Event
 #' 
@@ -21,6 +50,9 @@ Analytics <- R6::R6Class(
 #' of supported events.
 #' @param params Event parameters.
 		log_event = function(event, params = NULL) {
+			if(!private$.enaled)
+				return(sefl)
+
 			if(missing(event))
 				stop("Missing `event`")
 
@@ -36,6 +68,9 @@ Analytics <- R6::R6Class(
 #' 
 #' @param ... Named arguments defining the properties of the user.
 		set_user_properties = function(...){
+			if(!private$.enaled)
+				return(sefl)
+
 			props <- list(...)
 			if(!length(props))
 				stop("Must pass named properties")
@@ -54,5 +89,8 @@ Analytics <- R6::R6Class(
 
 			invisible(self)
 		}
+	),
+	private = list(
+		.enabled = TRUE
 	)
 )

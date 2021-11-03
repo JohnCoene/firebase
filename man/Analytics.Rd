@@ -15,6 +15,9 @@ Analytics
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Analytics$new()}}
+\item \href{#method-launch}{\code{Analytics$launch()}}
+\item \href{#method-enable}{\code{Analytics$enable()}}
+\item \href{#method-disable}{\code{Analytics$disable()}}
 \item \href{#method-log_event}{\code{Analytics$log_event()}}
 \item \href{#method-set_user_properties}{\code{Analytics$set_user_properties()}}
 \item \href{#method-clone}{\code{Analytics$clone()}}
@@ -32,13 +35,69 @@ Analytics
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Analytics$new()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Analytics$new(enable = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Details}{
 Initialise
 
 Initialise an analytics object.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-launch"></a>}}
+\if{latex}{\out{\hypertarget{method-launch}{}}}
+\subsection{Method \code{launch()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Analytics$launch()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Launch
+
+Launch the analytics tracking.
+Note that analytics is not launched by the
+constructor in order to be able to enable
+or disable the tracking prior to the launch.
+This is because once Google Analytics is
+launched it cannot be disabled. If needed
+ask the user before running this method.
+The enabling and disabling of tracking provided
+by the package is only internal, e.g.: disabling
+tracking during a session will stop the \code{log_event}
+method from registering event but default Google
+Analytics will still be running.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-enable"></a>}}
+\if{latex}{\out{\hypertarget{method-enable}{}}}
+\subsection{Method \code{enable()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Analytics$enable()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Enable Tracking
+Internally enables tracking.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-disable"></a>}}
+\if{latex}{\out{\hypertarget{method-disable}{}}}
+\subsection{Method \code{disable()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Analytics$disable()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Disable Tracking
+Internally disables tracking: running methods
+from this instance of the class will not actually
+register with Google Analytics.
 }
 
 }
