@@ -156,6 +156,11 @@ here, not the one originally created by Google." />
       <a href="../articles/storage.html">Usage</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Analytics</li>
+    <li>
+      <a href="../articles/analytics.html">Usage</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
     <li>
       <a href="../articles/state-persistence.html">State Persistence</a>
@@ -208,6 +213,7 @@ here, not the one originally created by Google.</p>
   <span class='va'>project_id</span>,
   auth_domain <span class='op'>=</span> <span class='cn'>NULL</span>,
   storage_bucket <span class='op'>=</span> <span class='cn'>NULL</span>,
+  app_id <span class='op'>=</span> <span class='cn'>NULL</span>,
   overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
@@ -231,6 +237,10 @@ attempts to build firebase's default domain.</p></td>
       <th>storage_bucket</th>
       <td><p>URl to the bucket. if <code>NULL</code>
 attempts to build firebase's default storage domain.</p></td>
+    </tr>
+    <tr>
+      <th>app_id</th>
+      <td><p>Application ID, necessary for Analytics.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>

@@ -93,7 +93,7 @@ class." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -101,19 +101,19 @@ class." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
 <li>
   <a href="../LICENSE.html">
-    <span class="fas fa-balance-scale"></span>
+    <span class="fa fa-balance-scale"></span>
      
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fas fa-newspaper-o"></span>
+    <span class="fa fa-newspaper-o"></span>
      
   </a>
 </li>
@@ -144,7 +144,20 @@ class." />
       <a href="../articles/email-link.html">Email Link</a>
     </li>
     <li>
+      <a href="../articles/phone.html">Phone</a>
+    </li>
+    <li>
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Analytics</li>
+    <li>
+      <a href="../articles/analytics.html">Usage</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
@@ -166,7 +179,7 @@ class." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/JohnCoene/fireblaze">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -184,7 +197,7 @@ class." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Recaptcha</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/dependencies.R'><code>R/dependencies.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-phone.R'><code>R/class-phone.R</code></a></small>
     <div class="hidden name"><code>recaptcha.Rd</code></div>
     </div>
 
@@ -193,8 +206,19 @@ class." />
 class.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>recaptcha</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>recaptchaUI</span><span class='op'>(</span>ns <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='va'>x</span>
+<span class='op'>}</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>ns</th>
+      <td><p>Namespace, optional, only required if using
+this function in multiple places.</p></td>
+    </tr>
+    </table>
 
 
   </div>

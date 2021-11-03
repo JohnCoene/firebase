@@ -1,7 +1,8 @@
 #' Phone
 #' 
-#' @noRd 
-#' @keywords internal
+#' Use mobile phone numbers to authenticate users.
+#' 
+#' @export
 FirebasePhone <- R6::R6Class(
 	"FirebasePhone",
 	inherit = FirebaseAuth,
@@ -60,7 +61,7 @@ FirebasePhone <- R6::R6Class(
 #' @param ns Namespace, optional, only required if using
 #' this function in multiple places.
 #' 
-#' @name recapta
+#' @name recaptcha
 #' @export 
 recaptchaUI <- function(ns = function(x) {x}){
   div(

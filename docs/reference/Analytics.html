@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Firebase — Firebase • firebase</title>
+<title>Analytics — Analytics • firebase</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Firebase — Firebase" />
-<meta property="og:description" content="Core Firebase class." />
+<meta property="og:title" content="Analytics — Analytics" />
+<meta property="og:description" content="Analytics
+Analytics" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -195,68 +196,137 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Firebase</h1>
-    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-core.R'><code>R/class-core.R</code></a></small>
-    <div class="hidden name"><code>Firebase.Rd</code></div>
+    <h1>Analytics</h1>
+    <small class="dont-index">Source: <a href='https://github.com/JohnCoene/firebase/blob/master/R/class-analytics.R'><code>R/class-analytics.R</code></a></small>
+    <div class="hidden name"><code>Analytics.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Core Firebase class.</p>
+    <p>Analytics</p>
+<p>Analytics</p>
     </div>
 
 
 
-    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
 
-    <p><div class="r6-fields"></p><dl>
-<dt><code>session</code></dt><dd><p>A valid Shiny session.</p></dd>
-
-</dl><p></div></p>
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>Analytics</code></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
-<li><p><a href='#method-new'><code>Firebase$new()</code></a></p></li>
-<li><p><a href='#method-print'><code>Firebase$print()</code></a></p></li>
-<li><p><a href='#method-clone'><code>Firebase$clone()</code></a></p></li>
+<li><p><a href='#method-new'><code>Analytics$new()</code></a></p></li>
+<li><p><a href='#method-launch'><code>Analytics$launch()</code></a></p></li>
+<li><p><a href='#method-enable'><code>Analytics$enable()</code></a></p></li>
+<li><p><a href='#method-disable'><code>Analytics$disable()</code></a></p></li>
+<li><p><a href='#method-log_event'><code>Analytics$log_event()</code></a></p></li>
+<li><p><a href='#method-set_user_properties'><code>Analytics$set_user_properties()</code></a></p></li>
+<li><p><a href='#method-clone'><code>Analytics$clone()</code></a></p></li>
 </ul>
-<p><hr>
+<p><details open ><summary>Inherited methods</summary>
+<ul>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-print'><code>firebase::Firebase$print()</code></a></span></p></li>
+</ul>
+</details>
+
+<hr>
 <a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
-  config_path <span class='op'>=</span> <span class='st'>"firebase.rds"</span>,
-  session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>enable <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
-<dt><code>config_path</code></dt><dd><p>Path to the configuration file as created by <code><a href='config.html'>firebase_config</a></code>.</p></dd>
-
-<dt><code>session</code></dt><dd><p>A valid shiny session.</p></dd>
+<dt><code>enable</code></dt><dd><p>Whether to internally enable analytics
+see <code>launch</code> method.</p></dd>
 
 </dl><p></div></p>
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
-<p>Initialise Firebase</p>
-<p>Initialises the Firebase application client-side.</p>
+<p>Initialise</p>
+<p>Initialise an analytics object.</p>
 
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
-<p>Invisibly return the class.</p>
 <p><hr>
-<a id="method-print"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/base/print.html'>print()</a></code></h3>
+<a id="method-launch"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>launch()</code></h3>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>print</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>launch</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
-<p>Print the class</p>
+<p>Launch</p>
+<p>Launch the analytics tracking.
+Note that analytics is not launched by the
+constructor in order to be able to enable
+or disable the tracking prior to the launch.
+This is because once Google Analytics is
+launched it cannot be disabled. If needed
+ask the user before running this method.
+The enabling and disabling of tracking provided
+by the package is only internal, e.g.: disabling
+tracking during a session will stop the <code>log_event</code>
+method from registering event but default Google
+Analytics will still be running.</p>
+
+<p><hr>
+<a id="method-enable"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>enable()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>enable</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Enable Tracking
+Internally enables tracking.</p>
+
+<p><hr>
+<a id="method-disable"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>disable()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>disable</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Disable Tracking
+Internally disables tracking: running methods
+from this instance of the class will not actually
+register with Google Analytics.</p>
+
+<p><hr>
+<a id="method-log_event"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>log_event()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>log_event</span><span class='op'>(</span><span class='va'>event</span>, params <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>event</code></dt><dd><p>Event to log choose from
+<a href='https://support.google.com/analytics/answer/9234069'>this list</a>
+of supported events.</p></dd>
+
+<dt><code>params</code></dt><dd><p>Event parameters.</p></dd>
+
+</dl><p></div></p>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Log Event</p>
+<p>Log an event.</p>
+
+<p><hr>
+<a id="method-set_user_properties"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>set_user_properties()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>set_user_properties</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>...</code></dt><dd><p>Named arguments defining the properties of the user.</p></dd>
+
+</dl><p></div></p>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Set user properties</p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>Firebase</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>Analytics</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>

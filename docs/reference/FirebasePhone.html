@@ -49,8 +49,7 @@
   
 
 <meta property="og:title" content="Phone — FirebasePhone" />
-<meta property="og:description" content="Phone
-Phone" />
+<meta property="og:description" content="Use mobile phone numbers to authenticate users." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -93,7 +92,7 @@ Phone" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -101,19 +100,19 @@ Phone" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
 <li>
   <a href="../LICENSE.html">
-    <span class="fas fa-balance-scale"></span>
+    <span class="fa fa-balance-scale"></span>
      
   </a>
 </li>
 <li>
   <a href="../news/index.html">
-    <span class="fas fa-newspaper-o"></span>
+    <span class="fa fa-newspaper-o"></span>
      
   </a>
 </li>
@@ -144,7 +143,20 @@ Phone" />
       <a href="../articles/email-link.html">Email Link</a>
     </li>
     <li>
+      <a href="../articles/phone.html">Phone</a>
+    </li>
+    <li>
       <a href="../articles/oauth-providers.html">Oauth Providers</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Storage</li>
+    <li>
+      <a href="../articles/storage.html">Usage</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Analytics</li>
+    <li>
+      <a href="../articles/analytics.html">Usage</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Usage</li>
@@ -166,7 +178,7 @@ Phone" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/JohnCoene/fireblaze">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -189,15 +201,14 @@ Phone" />
     </div>
 
     <div class="ref-description">
-    <p>Phone</p>
-<p>Phone</p>
+    <p>Use mobile phone numbers to authenticate users.</p>
     </div>
 
 
 
-    <h2 class="hasAnchor" id="super-class"><a class="anchor" href="#super-class"></a>Super class</h2>
+    <h2 class="hasAnchor" id="super-classes"><a class="anchor" href="#super-classes"></a>Super classes</h2>
 
-    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code>FirebasePhone</code></p>
+    <p><code><a href='Firebase.html'>firebase::Firebase</a></code> -&gt; <code><a href='FirebaseAuth.html'>firebase::FirebaseAuth</a></code> -&gt; <code>FirebasePhone</code></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
@@ -205,26 +216,29 @@ Phone" />
 
 <ul>
 <li><p><a href='#method-verify'><code>FirebasePhone$verify()</code></a></p></li>
+<li><p><a href='#method-confirm'><code>FirebasePhone$confirm()</code></a></p></li>
+<li><p><a href='#method-get_verification'><code>FirebasePhone$get_verification()</code></a></p></li>
+<li><p><a href='#method-get_confirmation'><code>FirebasePhone$get_confirmation()</code></a></p></li>
 <li><p><a href='#method-clone'><code>FirebasePhone$clone()</code></a></p></li>
 </ul>
 <p><details ><summary>Inherited methods</summary>
 <ul>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear"><a href='../../firebase/html/Firebase.html#method-clear'><code>firebase::Firebase$clear()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-delete_user'><code>firebase::Firebase$delete_user()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token"><a href='../../firebase/html/Firebase.html#method-get_access_token'><code>firebase::Firebase$get_access_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token"><a href='../../firebase/html/Firebase.html#method-get_id_token'><code>firebase::Firebase$get_id_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-initialize'><code>firebase::Firebase$initialize()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-print'><code>firebase::Firebase$print()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in"><a href='../../firebase/html/Firebase.html#method-req_sign_in'><code>firebase::Firebase$req_sign_in()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out"><a href='../../firebase/html/Firebase.html#method-req_sign_out'><code>firebase::Firebase$req_sign_out()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token"><a href='../../firebase/html/Firebase.html#method-request_id_token'><code>firebase::Firebase$request_id_token()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></span></p></li>
-<li><p><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-sign_out'><code>firebase::Firebase$sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear"><a href='../../firebase/html/FirebaseAuth.html#method-clear'><code>firebase::FirebaseAuth$clear()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-delete_user'><code>firebase::FirebaseAuth$delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token"><a href='../../firebase/html/FirebaseAuth.html#method-get_access_token'><code>firebase::FirebaseAuth$get_access_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-get_delete_user'><code>firebase::FirebaseAuth$get_delete_user()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-get_id_token'><code>firebase::FirebaseAuth$get_id_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-get_sign_out'><code>firebase::FirebaseAuth$get_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-get_signed_in'><code>firebase::FirebaseAuth$get_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up"><a href='../../firebase/html/FirebaseAuth.html#method-get_signed_up'><code>firebase::FirebaseAuth$get_signed_up()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="initialize"><a href='../../firebase/html/FirebaseAuth.html#method-initialize'><code>firebase::FirebaseAuth$initialize()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-is_signed_in'><code>firebase::FirebaseAuth$is_signed_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print"><a href='../../firebase/html/FirebaseAuth.html#method-print'><code>firebase::FirebaseAuth$print()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in"><a href='../../firebase/html/FirebaseAuth.html#method-req_sign_in'><code>firebase::FirebaseAuth$req_sign_in()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-req_sign_out'><code>firebase::FirebaseAuth$req_sign_out()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-request_id_token'><code>firebase::FirebaseAuth$request_id_token()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code"><a href='../../firebase/html/FirebaseAuth.html#method-set_language_code'><code>firebase::FirebaseAuth$set_language_code()</code></a></span></p></li>
+<li><p><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-sign_out'><code>firebase::FirebaseAuth$sign_out()</code></a></span></p></li>
 </ul>
 </details>
 
@@ -234,6 +248,54 @@ Phone" />
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>verify</span><span class='op'>(</span><span class='va'>number</span><span class='op'>)</span></pre><p></div></p>
 
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>number</code></dt><dd><p>Phone number of the user.</p></dd>
+
+</dl><p></div></p>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Verify a phhone number</p>
+
+<p><hr>
+<a id="method-confirm"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>confirm()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>confirm</span><span class='op'>(</span><span class='va'>code</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>code</code></dt><dd><p>Confirmation code received by the user.</p></dd>
+
+</dl><p></div></p>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Confirm a code</p>
+
+<p><hr>
+<a id="method-get_verification"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_verification()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>get_verification</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Get Verification</p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
+<p>A list with a boolean (<code>success</code>) indicating
+whether the operation was successful and a <code>response</code>
+contianing the response from Firebase.</p>
+<p><hr>
+<a id="method-get_confirmation"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_confirmation()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>FirebasePhone</span><span class='op'>$</span><span class='fu'>get_confirmation</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Details</h4>
+<p>Get Confirmation</p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
+<p>A list with a boolean (<code>success</code>) indicating
+whether the operation was successful and a <code>response</code>
+contianing the response from Firebase.</p>
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>

@@ -5,6 +5,46 @@ template:
     bootswatch: paper
     ganalytics: UA-74544116-1
 
+reference:
+  - title: "Dependecies"
+    desc: "Dependencies"
+    contents: 
+      - dependencies
+  - title: "Config"
+    desc: "Configuration"
+    contents: 
+      - matches("config")
+  - title: "Require"
+    desc: "Require sign in or out, not these areinsecure. Use methods instead.."
+    contents: 
+      - starts_with("req")
+  - title: "Core"
+    desc: "Core class"
+    contents: 
+      - Firebase
+  - title: "Authentication"
+    desc: "Classes that pertain to authentication"
+    contents: 
+      - FirebaseAuth
+      - FirebaseUI
+      - FirebaseSocial
+      - FirebaseOauthProviders
+      - FirebasePhone
+      - FirebaseEmailPassword
+      - FirebaseEmailLink
+  - title: "Storage"
+    desc: "Classes that pertain to storage"
+    contents: 
+      - Storage
+  - title: "Analytics"
+    desc: "Classes that pertain to analytics"
+    contents: 
+      - Analytics
+  - title: "Misc"
+    desc: "miscellaneous"
+    contents: 
+      - recaptcha
+
 navbar:
   title: "echarts4r"
   left:
@@ -37,6 +77,10 @@ navbar:
         - text: "Storage"
         - text: "Usage"
           href: articles/storage.html
+        - text: "------------------"
+        - text: "Analytics"
+        - text: "Usage"
+          href: articles/analytics.html
         - text: "------------------"
         - text: "Usage"
         - text: "State Persistence"

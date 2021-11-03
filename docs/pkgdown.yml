@@ -2,6 +2,7 @@ pandoc: '2.5'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  analytics: analytics.html
   demo: demo.html
   email-link: email-link.html
   email-password: email-password.html
@@ -14,5 +15,5 @@ articles:
   state-persistence: state-persistence.html
   storage: storage.html
   ui: ui.html
-last_built: 2021-11-02T20:00Z
+last_built: 2021-11-03T21:40Z
 
