@@ -88,6 +88,7 @@ remotes::install_github("JohnCoene/firebase")
 Get the current bleeding edge refactor with webpack 
 with [packer](https://packer.john-coene.com)
 to improve performances and use firebase JavaScript version 9.
+It also includes two new classes `Storage` and `Analytics`.
 
 ```r
 remotes::install_github("JohnCoene/firebase@packer")
