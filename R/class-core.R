@@ -22,9 +22,6 @@ Firebase <- R6::R6Class(
 			session = shiny::getDefaultReactiveDomain()
 		){
 
-      # check that config is present
-      stopifno_config(config_path)
-
 			conf <- read_config(config_path)
       self$session <- session
       private$.unique_id <- create_unique_id()

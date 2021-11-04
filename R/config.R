@@ -1,5 +1,8 @@
 #' Config
 #' 
+#' Configure Firebase, either using a config file or by setting
+#' environment variables (see section below).
+#' 
 #' Create the configuration file necessary to running fireblaze.
 #' Note that if you changed the project you must use said ID
 #' here, not the one originally created by Google. 
@@ -12,6 +15,13 @@
 #' attempts to build firebase's default storage domain.
 #' @param app_id Application ID, necessary for Analytics.
 #' @param overwrite Whether to overwrite any existing configuration file.
+#' 
+#' @section Environment Variables:
+#' - `FIREBASE_API_KEY`
+#' - `FIREBASE_PROJECT_ID`
+#' - `FIREBASE_AUTH_DOMAIN`
+#' - `FIREBASE_STORAGE_BUCKET`
+#' - `FIREBASE_APP_ID`
 #' 
 #' @note Do not share this file with anyone.
 #' 
@@ -44,7 +54,7 @@ firebase_config <- function(
     return(invisible())
   }
 
-  if(missing(api_key) || missing(project_id) )
+  if(missing(api_key) || missing(project_id))
     stop("Missing `api_key`, or `project_id`", call. = FALSE)
 
   if(is.null(auth_domain)){
@@ -85,13 +95,44 @@ read_config <- function(path){
   if(missing(path))
     stop("Missing `path`", call. = FALSE)
 
-  stopifno_config(path)
+  if(!has_config(path)) {
+    config <- get_config_from_env()
+  } else {
+    config <- readRDS(path)
+    config <- lapply(config, .dec)
+  }
 
-  config <- readRDS(path)
-  config <- lapply(config, .dec)
-
-  # avoid printing creds
   invisible(config)
+}
+
+get_config_from_env <- function(){
+
+  api_key <- Sys.getenv("FIREBASE_API_KEY")
+  project_id <- Sys.getenv("FIREBASE_PROJECT_ID")
+  auth_domain <- Sys.getenv("FIREBASE_AUTH_DOMAIN")
+  storage_bucket <- Sys.getenv("FIREBASE_STORAGE_BUCKET")
+  app_id <- Sys.getenv("FIREBASE_APP_ID")
+  
+  if(api_key == "" || project_id == "")
+    stop("Cannot find configuration file, see `?firebase_config`", call. = FALSE)
+
+  if(auth_domain == ""){
+    auth_domain <- paste0(project_id, ".firebaseapp.com")
+    cli::cli_alert_warning(paste("Setting `auth_domain` to", auth_domain))
+  }
+  
+  if(storage_bucket == ""){
+    storage_bucket <- paste0(project_id, ".appspot.com")
+    cli::cli_alert_warning(paste("Setting `storage_bucket` to", storage_bucket))
+  }
+
+  list(
+    apiKey = api_key,
+    authDomain = auth_domain,
+    projectId = project_id,
+    storageBucket = storage_bucket,
+    appId = app_id
+  )
 }
 
 #' @keywords internal

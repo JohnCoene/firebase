@@ -33,6 +33,10 @@ attempts to build firebase's default storage domain.}
 Path to file.
 }
 \description{
+Configure Firebase, either using a config file or by setting
+environment variables (see section below).
+}
+\details{
 Create the configuration file necessary to running fireblaze.
 Note that if you changed the project you must use said ID
 here, not the one originally created by Google.
@@ -40,6 +44,17 @@ here, not the one originally created by Google.
 \note{
 Do not share this file with anyone.
 }
+\section{Environment Variables}{
+
+\itemize{
+\item \code{FIREBASE_API_KEY}
+\item \code{FIREBASE_PROJECT_ID}
+\item \code{FIREBASE_AUTH_DOMAIN}
+\item \code{FIREBASE_STORAGE_BUCKET}
+\item \code{FIREBASE_APP_ID}
+}
+}
+
 \examples{
 \dontrun{firebase_config("xXxxx", "my-project")}
 
