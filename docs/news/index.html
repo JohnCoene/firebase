@@ -214,7 +214,11 @@
 <li>In <code>useFirebase</code> deprecate <code>analytics</code> and <code>firestore</code> arguments.</li>
 <li>
 <strong>Breaking</strong> <code>FirebaseEmailLink</code> the method called <code>send</code> has been renamed to <code>send_email</code>: this method was overwriting an internal private method, actually breaking many things.</li>
-<li>Added <code>Storage</code> to use <a href="https://firebase.google.com/docs/storage">Firebase Storage</a>, requires the user to be signed in.</li>
+<li>Added <code>Storage</code> class to use <a href="https://firebase.google.com/docs/storage">Firebase Storage</a>, requires the user to be signed in.</li>
+<li>Added <code>Analytics</code> class to use <a href="https://firebase.google.com/docs/analytics">Firebase Analytics</a>
+</li>
+<li>Add ability to use environment variables instead of the firebase config file <a href="https://github.com/JohnCoene/firebase/issues/15"><a href='https://github.com/JohnCoene/firebase/issues/15'>#15</a></a>
+</li>
 </ul>
 </div>
     <div id="firebase-021" class="section level1">
