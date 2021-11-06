@@ -6,6 +6,9 @@ import {
 	GithubAuthProvider,
 	GoogleAuthProvider,
 	getAuth,
+	signInWithPopup,
+	signInWithRedirect,
+	getRedirectResult
 } from 'firebase/auth'
 
 export const handleSocial = () => {
@@ -22,7 +25,7 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-google-sign-in-popup', (msg) => {
 		const auth = getAuth();
-		auth.signInWithPopup(google)
+		signInWithPopup(auth, google)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch((error) => {
@@ -32,9 +35,9 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-google-sign-in-redirect', (msg) => {
 		const auth = getAuth();
-		auth.signInWithRedirect(google);
+		signInWithRedirect(auth, google);
 
-		auth.getRedirectResult()
+		getRedirectResult(auth)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch((error) => {
@@ -49,7 +52,7 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-popup', (msg) => {
 		const auth = getAuth();
-		auth.signInWithPopup(facebook)
+		signInWithPopup(auth, facebook)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch((error) => {
@@ -59,9 +62,9 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-facebook-sign-in-redirect', (msg) => {
 		const auth = getAuth();
-		auth.signInWithRedirect(facebook);
+		signInWithRedirect(auth, facebook);
 
-		auth.getRedirectResult()
+		getRedirectResult(auth)
 			.then((result) => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch((error) => {
@@ -76,7 +79,7 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-github-sign-in-popup', (msg) => {
 		const auth = getAuth();
-		auth.signInWithPopup(github)
+		signInWithPopup(auth, github)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch(error => {
@@ -86,9 +89,9 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-github-sign-in-redirect', (msg) => {
 		const auth = getAuth();
-		auth.signInWithRedirect(github);
+		signInWithRedirect(auth, github);
 
-		auth.getRedirectResult()
+		getRedirectResult(auth)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch(error => {
@@ -103,7 +106,7 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-twitter-sign-in-popup', (msg) => {
 		const auth = getAuth();
-		auth.signInWithPopup(twitter)
+		signInWithPopup(auth, twitter)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch(error => {
@@ -113,9 +116,9 @@ export const handleSocial = () => {
 
 	Shiny.addCustomMessageHandler('fireblaze-twitter-sign-in-redirect', msg => {
 		const auth = getAuth();
-		auth.signInWithRedirect(twitter);
+		signInWithRedirect(auth, twitter);
 
-		auth.getRedirectResult()
+		getRedirectResult(auth)
 			.then(result => {
 				setInputValue('signed_up_user', {success: true, response: result}, msg.ns);
 			}).catch(error => {

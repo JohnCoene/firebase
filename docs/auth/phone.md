@@ -7,7 +7,6 @@ mobile phone numbers.
 		Remember to enable this sign in method in your Firebase
 		console.
 
-
 ## 1. Verify
 
 First, collect the user's phone number __and the recaptcha.__
@@ -59,6 +58,50 @@ server <- function(input, output, session) {
 	observeEvent(f$get_confirmation(), {
 		print(f$get_confirmation())
 	})
+}
+
+shinyApp(ui, server)
+```
+
+## Invisible Recaptcha
+
+Recaptcha is ugly and annoying, you can hide it.
+To do so, simply pass the id of the button used to verify
+the phone number to the `verify` method.
+
+If you need to capture the results of the recaptcha use the
+`get_recaptcha` method.
+
+```r
+ui <- fluidPage(
+    useFirebase(),
+    textInput(
+        "number",
+        "Number"
+    ),
+    actionButton("verify", "Verify"),
+    textInput("code", "Code"),
+    actionButton("confirm", "Confirm")
+)
+
+server <- function(input, output, session) {
+    f <- FirebasePhone$new()
+
+    observeEvent(input$verify, {
+        f$verify(input$number, id = "verify")
+    })
+
+    observeEvent(f$get_verification(), {
+        print(f$get_verification())
+    })
+
+    observeEvent(input$confirm, {
+        f$confirm(input$code)
+    })
+    
+    observeEvent(f$get_confirmation(), {
+        print(f$get_confirmation())
+    })
 }
 
 shinyApp(ui, server)

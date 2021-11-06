@@ -13,6 +13,7 @@ Use mobile phone numbers to authenticate users.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-verify}{\code{FirebasePhone$verify()}}
+\item \href{#method-get_recaptcha}{\code{FirebasePhone$get_recaptcha()}}
 \item \href{#method-confirm}{\code{FirebasePhone$confirm()}}
 \item \href{#method-get_verification}{\code{FirebasePhone$get_verification()}}
 \item \href{#method-get_confirmation}{\code{FirebasePhone$get_confirmation()}}
@@ -46,18 +47,35 @@ Use mobile phone numbers to authenticate users.
 \if{latex}{\out{\hypertarget{method-verify}{}}}
 \subsection{Method \code{verify()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FirebasePhone$verify(number)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FirebasePhone$verify(number, id = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{number}}{Phone number of the user.}
+
+\item{\code{id}}{Id of the button that triggers verification.
+If this is \code{NULL} the user has to go through the recaptcha,
+if not \code{NULL} is invisible.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 Verify a phhone number
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_recaptcha"></a>}}
+\if{latex}{\out{\hypertarget{method-get_recaptcha}{}}}
+\subsection{Method \code{get_recaptcha()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebasePhone$get_recaptcha()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Results from the recaptcha
 }
 
 }

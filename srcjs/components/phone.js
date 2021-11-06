@@ -6,16 +6,37 @@ import {
 	getAuth,
 } from 'firebase/auth';
 
-let confirmationResult;
-let recaptchaVerifier;
+var confirmationResult;
+var recaptchaVerifier;
 
 export const handlePhone = () => {
 	Shiny.addCustomMessageHandler('fireblaze-phone-verify', msg => {
-		if(!recaptchaVerifier)
-			recaptchaVerifier = new RecaptchaVerifier(msg.id);
-		
 		const auth = getAuth();
+		if(!recaptchaVerifier){
 
+			if(msg.id == 'firebase-recaptcha')
+				recaptchaVerifier = new RecaptchaVerifier(msg.id, {
+					callback: (response) => {
+						setInputValue(
+							'phone_recaptcha',
+							response,
+							msg.ns
+						);
+					}
+				}, auth);
+			else
+				recaptchaVerifier = new RecaptchaVerifier(msg.id, {
+					size: 'invisible',
+					callback: (response) => {
+						setInputValue(
+							'phone_recaptcha',
+							response,
+							msg.ns
+						);
+					}
+				}, auth);	
+		}
+		
 		signInWithPhoneNumber(auth, msg.number, recaptchaVerifier)
 			.then(result => {
 				confirmationResult = result;
@@ -25,7 +46,9 @@ export const handlePhone = () => {
 					msg.ns
 				);
 			}).catch(error => {
-				recaptchaVerifier.reset(msg.id);
+				recaptchaVerifier.render().then(function(widgetId) {
+					grecaptcha.reset(widgetId);
+				});
 				setInputValue(
 					'phone_verification',
 					{success: false, response: error},

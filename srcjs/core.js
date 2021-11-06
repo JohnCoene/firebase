@@ -4,6 +4,8 @@ import {
   signOut, 
   setPersistence,
   isSignInWithEmailLink,
+  signInWithEmailLink,
+  onAuthStateChanged
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import './style.css';
@@ -52,7 +54,7 @@ const handleCore = () => {
     let persistence = persistenceOpts(msg.persistence);
     setPersistence(auth, persistence)
       .then(() => {
-        auth.onAuthStateChanged((user) => {
+        onAuthStateChanged(auth, (user) => {
           if(user){
 
             // show signin authorised
@@ -90,7 +92,7 @@ const handleCore = () => {
             setInputValue('email_verification', {success: false, response: "Cannot find email"});
           }
           // The client SDK will parse the code from the link for you.
-          auth.signInWithEmailLink(email, window.location.href)
+          signInWithEmailLink(auth, email, window.location.href)
             .then((result) => {
               window.localStorage.removeItem('fireblazeEmailSignIn');
               setInputValue('email_verification', {success: true, response: result});

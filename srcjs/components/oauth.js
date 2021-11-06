@@ -1,19 +1,18 @@
 import 'shiny';
 import { setInputValue } from '../utils';
 import { 
-	oauthProviders,
 	signInWithPopup,
 	signInWithRedirect,
 	getRedirectResult,
 	getAuth,
+	OAuthProvider
 } from 'firebase/auth';
 
 let oauthProviders = [];
 
 export const handleOauth = () => {
 	Shiny.addCustomMessageHandler('fireblaze-set-oauth-provider', (msg) => {
-		const auth = getAuth();
-		oauthProviders[msg.id] = new auth.OAuthProvider(msg.provider);
+		oauthProviders[msg.id] = new OAuthProvider(msg.provider);
 	});
 
 	Shiny.addCustomMessageHandler('fireblaze-oauth-sign-in-popup', (msg) => {

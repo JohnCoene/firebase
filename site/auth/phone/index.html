@@ -417,6 +417,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#invisible-recaptcha" class="md-nav__link">
+    Invisible Recaptcha
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -694,6 +701,45 @@ the authentication. The user is then automatically logged in.</p>
 
     <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$verify,</span> <span style="color: #d0d0d0">{</span>
         <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">verify</span><span style="color: #d0d0d0">(input$number)</span>
+    <span style="color: #d0d0d0">})</span>
+
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_verification</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_verification</span><span style="color: #d0d0d0">())</span>
+    <span style="color: #d0d0d0">})</span>
+
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$confirm,</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">confirm</span><span style="color: #d0d0d0">(input$code)</span>
+    <span style="color: #d0d0d0">})</span>
+
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_confirmation</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_confirmation</span><span style="color: #d0d0d0">())</span>
+    <span style="color: #d0d0d0">})</span>
+<span style="color: #d0d0d0">}</span>
+
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
+</code></pre></div>
+<h2 id="invisible-recaptcha">Invisible Recaptcha<a class="headerlink" href="#invisible-recaptcha" title="Permanent link">&para;</a></h2>
+<p>Recaptcha is ugly and annoying, you can hide it.
+To do so, simply pass the id of the button used to verify
+the phone number to the <code>verify</code> method.</p>
+<p>If you need to capture the results of the recaptcha use the
+<code>get_recaptcha</code> method.</p>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+    <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+    <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span>
+        <span style="color: #ed9d13">&quot;number&quot;</span><span style="color: #d0d0d0">,</span>
+        <span style="color: #ed9d13">&quot;Number&quot;</span>
+    <span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;verify&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Verify&quot;</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;code&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Code&quot;</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;confirm&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Confirm&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
+
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output,</span> <span style="color: #d0d0d0">session)</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebasePhone$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
+
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$verify,</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">verify</span><span style="color: #d0d0d0">(input$number,</span> <span style="color: #d0d0d0">id</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;verify&quot;</span><span style="color: #d0d0d0">)</span>
     <span style="color: #d0d0d0">})</span>
 
     <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_verification</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
