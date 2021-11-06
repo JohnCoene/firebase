@@ -1,0 +1,1356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Google Firebase for the shiny framework.">
+      
+      
+      
+        <meta name="author" content="John Coene">
+      
+      
+      <link rel="shortcut icon" href="../logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Storage - firebase</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700%7CJetBrains+Mono&display=fallback">
+        <style>body,input{font-family:"Raleway",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"JetBrains Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-74544116-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="firebase" class="md-header-nav__button md-logo" aria-label="firebase">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            firebase
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Storage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/JohnCoene/firebase/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guide/get-started/" class="md-tabs__link">
+        Get Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../auth/ui/" class="md-tabs__link">
+        Authentication
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Storage
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../analytics/" class="md-tabs__link">
+      Analytics
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../misc/changelog/" class="md-tabs__link">
+      Changelog
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../misc/license/" class="md-tabs__link">
+      License
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../misc/coc/" class="md-tabs__link">
+      Code of Conduct
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="firebase" class="md-nav__button md-logo" aria-label="firebase">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    firebase
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/JohnCoene/firebase/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Get Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Get Started" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/get-started/" class="md-nav__link">
+        Project Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Authentication
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Authentication" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/ui/" class="md-nav__link">
+        Prebuilt UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/social/" class="md-nav__link">
+        Social Login
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/email-password/" class="md-nav__link">
+        Email & Password
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/email-link/" class="md-nav__link">
+        Email Link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/oauth-providers/" class="md-nav__link">
+        OAuth Providers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/phone/" class="md-nav__link">
+        Phone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/state-persistence/" class="md-nav__link">
+        State Persistence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/flow/" class="md-nav__link">
+        Flow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/manage/" class="md-nav__link">
+        Manage Users
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/demo/" class="md-nav__link">
+        Demo
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Storage
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialise" class="md-nav__link">
+    Initialise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload" class="md-nav__link">
+    Upload
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        Analytics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/coc/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialise" class="md-nav__link">
+    Initialise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload" class="md-nav__link">
+    Upload
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/JohnCoene/firebase/edit/master/docs/storage.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h1>
+<p>Firebase comes with many features, it is not limited to 
+authentication. This document covers 
+<a href="https://firebase.google.com/docs/storage">Firebase Storage</a>,
+a storage system akin to AWS S3 though more flexible.</p>
+<p>Firebase Storage stores files, you can add files, download files,
+delete files, and list the files. These files can be in buckets,
+or directories.</p>
+<p>This requires the authentication to work, which has the advantage
+of easily ensuring that only those who may access certain files can.</p>
+<p>Let&rsquo;s start from a basic application that features authentication.
+The app below uses the pre-built UI, probably the simplest app
+that can be made using Firebase.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
+  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
+  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
+  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Logged in!&quot;</span><span class="p">))</span> <span class="c1"># hide from UI</span>
+<span class="p">)</span>
+
+<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
+    <span class="nf">new</span><span class="p">()</span><span class="o">$</span> <span class="c1"># instantiate</span>
+    <span class="nf">set_providers</span><span class="p">(</span> <span class="c1"># define providers</span>
+      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> 
+      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
+    <span class="p">)</span><span class="o">$</span>
+    <span class="nf">launch</span><span class="p">()</span> <span class="c1"># launch</span>
+<span class="p">}</span>
+
+<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="initialise">Initialise<a class="headerlink" href="#initialise" title="Permanent link">&para;</a></h2>
+<p>To use the storage we need to Initialise it client-side, it&rsquo;s
+very simple.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
+  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
+  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
+  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Logged in!&quot;</span><span class="p">))</span> <span class="c1"># hide from UI</span>
+<span class="p">)</span>
+
+<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
+    <span class="nf">new</span><span class="p">()</span><span class="o">$</span> <span class="c1"># instantiate</span>
+    <span class="nf">set_providers</span><span class="p">(</span> <span class="c1"># define providers</span>
+      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> 
+      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
+    <span class="p">)</span><span class="o">$</span>
+    <span class="nf">launch</span><span class="p">()</span> <span class="c1"># launch</span>
+
+  <span class="n">s</span> <span class="o">&lt;-</span> <span class="n">Storage</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span> <span class="c1"># initialise</span>
+<span class="p">}</span>
+
+<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<p>A crucial concept with the <code>Storage</code> is the idea of the 
+reference. The reference is the path, directory, or bucket
+one is currently working with.</p>
+<p>This is defined by a method on its own, methods used subsequently
+will then use this as reference.</p>
+<p>For instance one can reference the file <code>test.png</code> even if it does
+not exist, then calling the method to upload a file will upload 
+the file as <code>test.png</code>. <em>Make sure you keep track of this.</em></p>
+<h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h2>
+<p>Much of JavaScript works asynchronously, it&rsquo;s certainly one of its
+strong points. This means that when a function is called we do not
+receive the result from said function straight away, we get a promise
+back. Exactly like the R {promises} package.</p>
+<p>Hence when triggering a sign in with other classes of the package
+the response is not returned by the same function. This is because
+the results of the authentication are returned later, and we cannot
+know when.</p>
+<p>The same applies to the storage: when we upload a file we cannot 
+know whether the upload was successful at the time of the upload,
+only later, and so on for every action we take on the storage.</p>
+<p>Therefore, upon performing such actions (upload, delete, etc.)
+we (optionally) specify a <code>response</code>. This response identifier
+can then be used with the <code>get_response</code> method to retrieve 
+the results of said operation: <code>get_response</code> acts exactly like
+any other shiny <code>input</code>.</p>
+<h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
+<p>We can then upload a file with the <code>upload_file</code> method.</p>
+<p>Note that below we use a file on disk but you can use uploaded
+files: the method accepts the path to a file which can be obtained
+from a file upload in Shiny.</p>
+<p>We also set the reference (<code>ref</code>) to <code>test.png</code>, we&rsquo;ll be working with this
+file; it does not exist yet, we&rsquo;ll create it, download it, delete it,
+etc.</p>
+<p>The button to upload is only rendered if the user is logged in.
+The button triggers to <code>upload_file</code> method that uploads a file
+from the disk.</p>
+<p>We then retrieve and print the result of the upload with the 
+<code>get_response</code> method.</p>
+<p>Note that you can set <code>response</code> to <code>FALSE</code> if you do not want
+to retrieve the results.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
+  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
+  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
+  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Logged in!&quot;</span><span class="p">)),</span> <span class="c1"># hide from UI</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;uploadUI&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
+    <span class="nf">new</span><span class="p">()</span><span class="o">$</span> <span class="c1"># instantiate</span>
+    <span class="nf">set_providers</span><span class="p">(</span> <span class="c1"># define providers</span>
+      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> 
+      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
+    <span class="p">)</span><span class="o">$</span>
+    <span class="nf">launch</span><span class="p">()</span> <span class="c1"># launch</span>
+
+  <span class="n">s</span> <span class="o">&lt;-</span> <span class="n">Storage</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+    <span class="o">$</span><span class="nf">ref</span><span class="p">(</span><span class="s">&quot;test.png&quot;</span><span class="p">)</span>
+
+  <span class="c1"># upload a file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">uploadUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;upload&quot;</span><span class="p">,</span> <span class="s">&quot;Upload Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">upload</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">upload_file</span><span class="p">(</span><span class="s">&quot;/path/to/file.png&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">())</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h2>
+<p>Once the file uploaded we can add a button to download the file.
+It does not truly download the file but will retrieve a valid URL
+to it. You may then do what you want with said link, download the file
+with {httr} (or {httr2}), use it as <code>src</code> atribute for a an <code>&lt;img/&gt;</code>
+tag, etc.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
+  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
+  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
+  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Logged in!&quot;</span><span class="p">)),</span> <span class="c1"># hide from UI</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;uploadUI&quot;</span><span class="p">),</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;downloadUI&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
+    <span class="nf">new</span><span class="p">()</span><span class="o">$</span> <span class="c1"># instantiate</span>
+    <span class="nf">set_providers</span><span class="p">(</span> <span class="c1"># define providers</span>
+      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> 
+      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
+    <span class="p">)</span><span class="o">$</span>
+    <span class="nf">launch</span><span class="p">()</span> <span class="c1"># launch</span>
+
+  <span class="n">s</span> <span class="o">&lt;-</span> <span class="n">Storage</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+    <span class="o">$</span><span class="nf">ref</span><span class="p">(</span><span class="s">&quot;test.png&quot;</span><span class="p">)</span>
+
+  <span class="c1"># upload a file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">uploadUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;upload&quot;</span><span class="p">,</span> <span class="s">&quot;Upload Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">upload</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">upload_file</span><span class="p">(</span><span class="s">&quot;/path/to/file.png&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">())</span>
+  <span class="p">})</span>
+
+  <span class="c1"># download a file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">downloadUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;download&quot;</span><span class="p">,</span> <span class="s">&quot;Download Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">download</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">download_file</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">))</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
+<p>To delete a file simply call the <code>delete_file</code> method.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
+  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
+  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
+  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Logged in!&quot;</span><span class="p">)),</span> <span class="c1"># hide from UI</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;uploadUI&quot;</span><span class="p">),</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;downloadUI&quot;</span><span class="p">),</span>
+  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;deleteUI&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
+    <span class="nf">new</span><span class="p">()</span><span class="o">$</span> <span class="c1"># instantiate</span>
+    <span class="nf">set_providers</span><span class="p">(</span> <span class="c1"># define providers</span>
+      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> 
+      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
+    <span class="p">)</span><span class="o">$</span>
+    <span class="nf">launch</span><span class="p">()</span> <span class="c1"># launch</span>
+
+  <span class="n">s</span> <span class="o">&lt;-</span> <span class="n">Storage</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+    <span class="o">$</span><span class="nf">ref</span><span class="p">(</span><span class="s">&quot;test.png&quot;</span><span class="p">)</span>
+
+  <span class="c1"># upload a file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">uploadUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;upload&quot;</span><span class="p">,</span> <span class="s">&quot;Upload Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">upload</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">upload_file</span><span class="p">(</span><span class="s">&quot;/path/to/file.png&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">())</span>
+  <span class="p">})</span>
+
+  <span class="c1"># download a file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">downloadUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;download&quot;</span><span class="p">,</span> <span class="s">&quot;Download Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">download</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">download_file</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;dl&quot;</span><span class="p">))</span>
+  <span class="p">})</span>
+
+  <span class="c1"># delete file</span>
+  <span class="n">output</span><span class="o">$</span><span class="n">deleteUI</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
+    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+
+    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;delete&quot;</span><span class="p">,</span> <span class="s">&quot;Delete Image&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">delete</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">s</span><span class="o">$</span><span class="nf">delete_file</span><span class="p">(</span><span class="s">&quot;del&quot;</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;del&quot;</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="o">$</span><span class="nf">get_response</span><span class="p">(</span><span class="s">&quot;del&quot;</span><span class="p">))</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="other-methods">Other Methods<a class="headerlink" href="#other-methods" title="Permanent link">&para;</a></h2>
+<p>There are other methods to list files, and retrieve metadata but
+they work exactly like all others so we&rsquo;ll live it at that</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../auth/demo/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Demo
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../analytics/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Analytics
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 John Coene
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.tabs', 'search.suggest'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

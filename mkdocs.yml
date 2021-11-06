@@ -1,0 +1,66 @@
+site_name: firebase
+
+theme:
+  name: material
+  logo: logo.png
+  favicon: logo.png
+  palette:
+    scheme: default
+    primary: blue
+    accent: blue
+  font:
+    text: Raleway
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - search.suggest
+
+repo_url: https://github.com/JohnCoene/firebase
+repo_name: Github
+site_description: Google Firebase for the shiny framework.
+site_author: John Coene
+copyright: Copyright &copy; 2021 John Coene
+
+google_analytics:
+  - UA-74544116-1
+  - auto
+
+markdown_extensions:
+    - admonition
+    - meta
+    - smarty
+    - pymdownx.highlight:
+        linenums: true
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.inlinehilite
+    - attr_list
+    - toc:
+        permalink: True
+        separator: "-"
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg 
+
+nav:
+  - Home: index.md
+  - Get Started: 
+    - Project Setup: guide/get-started.md
+    - Config: guide/config.md
+  - Authentication:
+    - Prebuilt UI: auth/ui.md
+    - Social Login: auth/social.md
+    - Email & Password: auth/email-password.md
+    - Email Link: auth/email-link.md
+    - OAuth Providers: auth/oauth-providers.md
+    - Phone: auth/phone.md
+    - State Persistence: auth/state-persistence.md
+    - Flow: auth/flow.md
+    - Manage Users: auth/manage.md
+    - Demo: auth/demo.md
+  - Storage: storage.md 
+  - Analytics: analytics.md 
+  - Changelog: misc/changelog.md 
+  - License: misc/license.md
+  - Code of Conduct: misc/coc.md
