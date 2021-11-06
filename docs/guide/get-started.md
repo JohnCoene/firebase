@@ -1,9 +1,9 @@
-# Get Satrted
+# Get Started
 
 The {firebase} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the [Firebase](https://firebase.google.com/) interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers' needs.
 
 
-!!! "Skip Ahead"
+!!! note "Skip Ahead"
 	In this first section we create a 
 	[Google Firebase](https://firebase.google.com) project, 
 	if you know how to do this or already have one, skip to the
