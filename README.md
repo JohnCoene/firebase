@@ -9,7 +9,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 ![R-CMD-check](https://github.com/JohnCoene/firebase/workflows/R-CMD-check/badge.svg)
 [![Travis build status](https://travis-ci.org/JohnCoene/firebase.svg?branch=master)](https://travis-ci.org/JohnCoene/firebase)
-![packer-check](https://github.com/JohnCoene/firebase/workflows/packer-check/badge.svg)
+[![packer](https://github.com/JohnCoene/firebase/actions/workflows/packer-check.yml/badge.svg)](https://github.com/JohnCoene/firebase/actions/workflows/packer-check.yml)
 <!-- badges: end -->
 
 [Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase) | [Get Started](https://firebase.john-coene.com/guide/get-started/)
