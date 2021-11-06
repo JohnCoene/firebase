@@ -35,7 +35,7 @@ jobs:
           done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "20.04"))') 
 
       - name: Install Dependencies
-        run: Rscript -e "remotes::install_deps(dependencies = TRUE);install.packages('packer')"
+        run: Rscript -e "remotes::install_deps(dependencies = TRUE)"
 
       - name: Install NPM Dependencies
         run: Rscript -e "packer:::engine_install()"
