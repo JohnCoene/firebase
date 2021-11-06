@@ -12,7 +12,7 @@
 Integration of [Google Firebase](https://firebase.google.com/)
 services with [shiny](https://shiny.rstudio.com/).
 
-[Get Started](/guide/get-started/){.md-button .md-button--primary}
+[:material-exclamation: Get Started](/guide/get-started/){.md-button .md-button--primary}
 
 ## Features
 
@@ -27,10 +27,10 @@ services with [shiny](https://shiny.rstudio.com/).
     - :material-yahoo: Yahoo!
     - :material-phone: Phone
  
-!!! abstract "Analytics"
+!!! note "Analytics"
     Track users, events, and more.
 
-!!! info "Storage"
+!!! note "Storage"
     Use Firebase storage to securely store files.
 
 ## Installation

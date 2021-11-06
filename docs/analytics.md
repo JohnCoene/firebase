@@ -6,8 +6,8 @@ Analytics.
 You can conditionally log event with the `log_events` method as 
 well as register custom user properties with `set_user_properties`.
 
-Note the caveats of toggling Google Analytics off in
-[the docs](reference/Analytics).
+!!! Note Toggle Analytics
+    Toggle the analytics on in your Firebase console.
 
 ## Example
 

@@ -12,7 +12,8 @@ theme:
     text: Raleway
     code: JetBrains Mono
   features:
-    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
     - search.suggest
 
 repo_url: https://github.com/JohnCoene/firebase
@@ -62,8 +63,11 @@ nav:
     - Flow: auth/flow.md
     - Manage Users: auth/manage.md
     - Demo: auth/demo.md
-  - Storage: storage.md 
-  - Analytics: analytics.md 
-  - Changelog: misc/changelog.md 
-  - License: misc/license.md
-  - Code of Conduct: misc/coc.md
+  - Storage: 
+    - Class: storage.md 
+  - Analytics: 
+    - Class: analytics.md 
+  - Misc:
+    - Changelog: misc/changelog.md 
+    - License: misc/license.md
+    - Code of Conduct: misc/coc.md
