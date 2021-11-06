@@ -4,7 +4,7 @@
 \alias{read_config}
 \title{Config Internal}
 \usage{
-read_config(path)
+read_config(path = "firebase.rds")
 }
 \arguments{
 \item{path}{Path to config file}

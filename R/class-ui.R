@@ -28,7 +28,7 @@
 #' @export
 FirebaseUI <- R6::R6Class(
   "FirebaseUI",
-  inherit = Firebase,
+  inherit = FirebaseAuth,
   public = list(
     tos_url = "<tos-url>",
     privacy_policy_url = "<privacy-policy-url>",

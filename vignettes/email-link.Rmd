@@ -45,7 +45,7 @@ server <- function(input, output){
     if(input$email == "")
       return()
     
-    f$send(input$email)
+    f$send_email(input$email)
   })
 
   observeEvent(f$get_email_sent(), {

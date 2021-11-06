@@ -33,7 +33,7 @@
 #' @export 
 FirebaseOauthProviders <- R6::R6Class(
   "FirebaseOauthProviders",
-  inherit = Firebase,
+  inherit = FirebaseAuth,
   public = list(
 #' @details Define provider to use
 #' @param provider The provider to user, e.g.: \code{microsoft.com}, \code{yahoo.com} or \code{google.com}.
@@ -42,7 +42,7 @@ FirebaseOauthProviders <- R6::R6Class(
       if(missing(provider))
         stop("Missing provider", call. = FALSE)
 
-      super$send("set-oauth-provider", list(id = super$unique_id, provider = provider))
+      super$send("set-oauth-provider", list(id = super$.unique_id, provider = provider))
 
       private$.provider <- provider
       invisible(self)
@@ -59,7 +59,7 @@ FirebaseOauthProviders <- R6::R6Class(
     .provider = NULL,
     launch_oauth = function(flow = c("popup", "redirect")){
       call <- paste0("oauth-sign-in-", flow)
-      super$send(call, list(id = super$unique_id))
+      super$send(call, list(id = super$.unique_id))
     }
   )
 )

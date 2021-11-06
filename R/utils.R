@@ -52,3 +52,30 @@ check_urls <- function(fireblaze_ui){
 create_unique_id <- function(){
   paste0(sample(c(letters, 1:26), 26), collapse = "") 
 }
+
+#' Check that a package installed
+#' 
+#' Checks that a package is installed, throws
+#' an error if it is not.
+#' 
+#' @param pkg Package name.
+#' 
+#' @keywords internal
+check_installed <- function(pkg) {
+  if(missing(pkg))
+    stop("Missing `pkg`", call. = FALSE)
+
+  if(requireNamespace(pkg, quietly = TRUE))
+    return()
+
+  msg <- sprintf("This requires the pacakge: `%s`", pkg)
+  stop(msg)
+}
+
+encode_file <- function(enc, ext){
+  switch(
+    ext,
+    "png" = sprintf("data:image/png;base64,%s", enc),
+    sprintf("data:text/plain;base64,%s", enc)
+  )
+}

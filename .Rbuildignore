@@ -17,3 +17,12 @@ firebase.rds
 ^srcjs$
 test.R
 ^SECURITY\.md$
+^node_modules$
+^package\.json$
+^package-lock\.json$
+^webpack\.dev\.js$
+^webpack\.prod\.js$
+^webpack\.common\.js$
+^makefile$
+^mkdocs\.yml$
+^site$

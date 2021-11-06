@@ -1,9 +1,28 @@
-# firebase 0.2.1.9000
+# firebase 1.0.0.9000
 
 - Add support for phone sign in.
 - Remove deprecated `create_config` function, use
 `firebase_config`.
-- Fix issue with persistence [#14](https://github.com/JohnCoene/firebase/issues/14)
+- Fix issue with persistence 
+[#14](https://github.com/JohnCoene/firebase/issues/14)
+- Upgrade firebase.js to modular, tree-shakable version 9 (latest)
+- Use [packer](https://packer.john-coene.com/) to bundle with
+webpack for better performances and load time.
+- Clean up core class, deprecating several (genuinely) useless
+methods.
+- Deprecate `useFirebaseUI` in favour of `firebaseUIContainer`.
+- In `useFirebase` deprecate `analytics` and `firestore` arguments.
+- **Breaking** `FirebaseEmailLink` the method called `send` has been
+renamed to `send_email`: this method was overwriting an internal 
+private method, actually breaking many things.
+- Added `Storage` class to use 
+[Firebase Storage](https://firebase.google.com/docs/storage),
+requires the user to be signed in.
+- Added `Analytics` class to use 
+[Firebase Analytics](https://firebase.google.com/docs/analytics)
+- Add ability to use environment variables instead of the firebase
+config file
+[#15](https://github.com/JohnCoene/firebase/issues/15)
 
 # firebase 0.2.1
 

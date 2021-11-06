@@ -167,7 +167,6 @@ library(firebase)
 ui <- fluidPage(
   useFirebase(), # import dependencies
   useFirebaseUI(),
-  reqSignin(h4("VIP plot below")), # hide from UI
   plotOutput("plot")
 )
 

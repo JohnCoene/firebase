@@ -78,7 +78,7 @@
 #' @export
 FirebaseEmailPassword <- R6::R6Class(
   "FirebaseEmailPassword",
-  inherit = Firebase,
+  inherit = FirebaseAuth,
   public = list(
 #' @details Create an account
 #' 

@@ -4,12 +4,9 @@
 #' \code{use_firebase} \emph{must} be included in 
 #' every application.
 #' 
-#' @param analytics Whether to include analytics.
+#' @param analytics Deprecated. Whether to include analytics.
 #' @param firestore Whether to include firestore.
-#' @param container Whether to include the container that
-#' wraps the pre-built UI. If set to \code{FALSE} then
-#' one must use \code{firebaseUIContainer} where said
-#' pre-built UI is required.
+#' @param ... Ignored, for backwards compatibility.
 #' 
 #' @details Place \code{useFirebaseUI} \emph{where} you want
 #' the pre-built UI to be placed. Otherwise one
@@ -22,53 +19,37 @@
 #' }
 #' 
 #' @importFrom shiny tags tagList singleton div req
+#' @importFrom htmltools htmlDependency
 #' 
 #' @name dependencies
 #' 
 #' @export 
 useFirebase <- function(analytics = FALSE, firestore = FALSE){
-  singleton(
-    tags$head(
-      tags$link(type = "text/css", rel = "stylesheet", href = "fireblaze/style.css"),
-      tags$script(src = "firebase/js/firebase-app.js"),
-      tags$script(src = "firebase/js/firebase-auth.js"),
-      if(analytics) tags$script(src = "firebase/js/firebase-analytics.js"),
-      if(firestore) tags$script(src = "firebase/js/firebase-firestore.js"),
-      tags$script(src = "fireblaze/core-utils.js"),
-      tags$script(src = "fireblaze/core.js"),
-      tags$script(src = "fireblaze/email-password.js"),
-      tags$script(src = "fireblaze/email-link.js"),
-      tags$script(src = "fireblaze/social.js"),
-      tags$script(src = "fireblaze/oauth.js"),
-      # if(firestore) tags$script(src = "fireblaze/store.js"),
-      tags$script(src = "fireblaze/phone.js")
+  if(any(analytics, firestore))
+    .Deprecated(
+      "analytics and firestore",
+      package = "firebase",
+      msg = "analytics and firestore arguments are deprecated"
     )
+
+  htmlDependency(
+    "firebase",
+    utils::packageVersion("firebase"),
+    src = "packer",
+    package = "firebase",
+    script = "index.js"
   )
 }
 
 #' @export
 #' @rdname dependencies
-useFirebaseUI <- function(container = TRUE){
-  # dependencies plus signin container
-  deps <- singleton(
-    tags$head(
-      tags$script(src = "fireblaze/ui-utils.js"),
-      tags$script(src = "firebase-ui/js/firebase-ui.js"),
-      tags$link(
-        type = "text/css",
-        rel = "stylesheet",
-        href = "firebase-ui/css/firebase-ui.css"
-      )
-    )
+useFirebaseUI <- function(...){
+  .Deprecated(
+    "firebaseUIContainer",
+    "firebase",
+    msg = "Use `firebaseUIContainer` where you want the pre-built UI to be placed"
   )
-
-  if(!container)
-    return(deps)
-
-  tagList(
-    deps,
-    div(id = "fireblaze-signin-ui")
-  )
+  div(id = "fireblaze-signin-ui")
 }
 
 #' @export

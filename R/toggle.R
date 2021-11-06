@@ -9,6 +9,8 @@
 #' 
 #' @seealso \code{\link{reqSignout}}
 #' 
+#' @importFrom shiny tagAppendAttributes
+#' 
 #' @export
 reqSignin <- function(...) {
   tags <- list(...)
@@ -17,7 +19,7 @@ reqSignin <- function(...) {
 
   if (length(tags) == 1 && inherits(tags[[1]], "shiny.tag")) {
     tags[[1]] <-
-      shiny::tagAppendAttributes(
+      tagAppendAttributes(
         tags[[1]],
         class = "fireblaze__requires__signin fireblaze__hidden"
       )
@@ -42,6 +44,8 @@ reqSignin <- function(...) {
 #' 
 #' @seealso \code{\link{reqSignin}}
 #' 
+#' @importFrom shiny tagAppendAttributes
+#' 
 #' @export
 reqSignout <- function(...) {
   tags <- list(...)
@@ -50,7 +54,7 @@ reqSignout <- function(...) {
 
   if (length(tags) == 1 && inherits(tags[[1]], "shiny.tag")) {
     tags[[1]] <-
-      shiny::tagAppendAttributes(
+      tagAppendAttributes(
         tags[[1]],
         class = "fireblaze__requires__signout fireblaze__hidden"
       )

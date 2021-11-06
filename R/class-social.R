@@ -37,7 +37,7 @@
 #' @export
 FirebaseSocial <- R6::R6Class(
   "FirebaseSocial",
-  inherit = Firebase,
+  inherit = FirebaseAuth,
   public = list(
 #' @details Define the scope to request from Google.
 #' @param scope Google scope.

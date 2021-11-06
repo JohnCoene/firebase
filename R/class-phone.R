@@ -1,24 +1,32 @@
 #' Phone
 #' 
-#' @noRd 
-#' @keywords internal
+#' Use mobile phone numbers to authenticate users.
+#' 
+#' @export
 FirebasePhone <- R6::R6Class(
 	"FirebasePhone",
-	inherit = Firebase,
+	inherit = FirebaseAuth,
 	public = list(
 #' @details Verify a phhone number
 #' @param number Phone number of the user.
-		verify = function(number) {
+#' @param id Id of the button that triggers verification.
+#' If this is `NULL` the user has to go through the recaptcha,
+#' if not `NULL` is invisible.
+		verify = function(number, id = NULL) {
 			if(missing(number))
 				stop("Missing `number`")
 
-      super$send(
+			id <- ifelse(is.null(id), "firebase-recaptcha", id)
+
+      super$.send(
 				"phone-verify", 
-				list(
-					id = "firebase-recaptcha",
-					number = number
-				)
+				id = id,
+				number = number
 			)
+		},
+#' @details Results from the recaptcha
+		get_recaptcha = function(){
+      super$get_input("phone_recaptcha")
 		},
 #' @details Confirm a code
 #' @param code Confirmation code received by the user.
@@ -60,7 +68,7 @@ FirebasePhone <- R6::R6Class(
 #' @param ns Namespace, optional, only required if using
 #' this function in multiple places.
 #' 
-#' @name recapta
+#' @name recaptcha
 #' @export 
 recaptchaUI <- function(ns = function(x) {x}){
   div(
