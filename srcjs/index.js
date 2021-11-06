@@ -6,9 +6,11 @@ import { handlePhone } from './components/phone.js';
 import { handleSocial } from './components/social.js';
 import { handleAnalytics } from './components/analytics.js';
 import { handleUI } from './ui.js';
+import { handleOauth } from './components/oauth.js';
 
 handleUI();
 handleCore();
+handleOauth();
 handlePhone();
 handleSocial();
 handleAnalytics();
