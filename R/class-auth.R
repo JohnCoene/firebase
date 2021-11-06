@@ -2,6 +2,11 @@
 #' 
 #' Use firebase to manage authentications.
 #' 
+#' @importFrom cli cli_rule cli_alert_danger cli_alert_info cli_alert_warning cli_alert_warning
+#' @importFrom jsonlite fromJSON
+#' @importFrom jose jwt_decode_sig
+#' @importFrom openssl read_cert
+#' 
 #' @export
 FirebaseAuth <- R6::R6Class(
   "FirebaseAuth",
@@ -35,12 +40,12 @@ FirebaseAuth <- R6::R6Class(
     },
 #' @details Print the class
     print = function(){
-      cli::rule("Firebase Authentication")
+      rule("Firebase Authentication")
       signin <- "No user is signed in"
       if(private$.user_signed_in$signed_in)
         signin <- "A user is signed in"
       
-      cli::cli_alert_info(signin, "\n")
+      cli_alert_info(signin, "\n")
     },
 #' @details Signs out user
 #' @return self
@@ -188,14 +193,14 @@ FirebaseAuth <- R6::R6Class(
     get_pubkeys = function(){
       # get keys
       keys <- tryCatch(
-        jsonlite::fromJSON('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com'),
+        fromJSON('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com'),
         error = function(e) e
       )
 
       if(inherits(keys, "error"))
         return(keys)
 
-      lapply(keys, openssl::read_cert)
+      lapply(keys, read_cert)
     },
     get_signed_in_checked = function(){
       # already signed in return object
@@ -208,7 +213,7 @@ FirebaseAuth <- R6::R6Class(
       certs <- private$get_pubkeys()
 
       if(inherits(certs, "error")){
-        cli::cli_alert_danger("Could not fetch Google public keys")
+        cli_alert_danger("Could not fetch Google public keys")
         return()
       }
 
@@ -216,7 +221,7 @@ FirebaseAuth <- R6::R6Class(
       signature <- simpleError("Invalid Google public keys")
       
       if(!inherits(signature, "error")){
-        cli::cli_alert_danger("Could not parse signature")
+        cli_alert_danger("Could not parse signature")
         return()
       }
       
@@ -228,7 +233,7 @@ FirebaseAuth <- R6::R6Class(
       # there may be multiple certs, only one is valid
       for(i in seq_along(certs)){
         signature <- tryCatch(
-          jose::jwt_decode_sig(response$token, certs[[i]]$pubkey),
+          jwt_decode_sig(response$token, certs[[i]]$pubkey),
           error = function(e) e
         )
 
@@ -251,24 +256,24 @@ FirebaseAuth <- R6::R6Class(
     check_signature = function(signature){
 
       if(inherits(signature, "error")){
-        cli::cli_alert_danger("Invalid signature")
+        cli_alert_danger("Invalid signature")
         return(FALSE)
       }
 
     	now <- as.numeric(Sys.time())
 
     	if(as.numeric(signature$exp) < now){
-        cli::cli_alert_danger("Signture expiry is in the past")
+        cli_alert_danger("Signture expiry is in the past")
     		return(FALSE)
       }
 
     	if(as.numeric(signature$iat) > now){
-        cli::cli_alert_danger("Signture issued at time is in the future")
+        cli_alert_danger("Signture issued at time is in the future")
     		return(FALSE)
       }
 
       if(signature$aud != super$get_project_id()){
-        cli::cli_alert_danger("Signature audience is not the project id")
+        cli_alert_danger("Signature audience is not the project id")
     		return(FALSE)
       }
       
@@ -278,17 +283,17 @@ FirebaseAuth <- R6::R6Class(
       )
 
       if(signature$iss != iss){
-        cli::cli_alert_danger("Signature incorrect issuer")
+        cli_alert_danger("Signature incorrect issuer")
     		return(FALSE)
       }
 
       if(signature$sub == ""){
-        cli::cli_alert_danger("Signature subject is invalid")
+        cli_alert_danger("Signature subject is invalid")
     		return(FALSE)
       }
 
       if(signature$auth_time > now){
-        cli::cli_alert_danger("Signature auth time is in the future")
+        cli_alert_danger("Signature auth time is in the future")
     		return(FALSE)
       }
 

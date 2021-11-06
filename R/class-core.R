@@ -37,7 +37,7 @@ Firebase <- R6::R6Class(
 		},
 #' @details Print the class
     print = function(){
-      cli::rule("Firebase")
+      rule("Firebase")
     }
 	),
 	private = list(

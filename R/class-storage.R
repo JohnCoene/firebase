@@ -1,5 +1,7 @@
 #' Storage
 #' 
+#' @importFrom base64enc base64encode
+#' 
 Storage <- R6::R6Class(
 	"Storage",
 	inherit = Firebase,
@@ -73,7 +75,7 @@ Storage <- R6::R6Class(
 				stop("Missing `file`")
 
 			check_installed("base64enc")
-			enc <- base64enc::base64encode(file)
+			enc <- base64encode(file)
 			ext <- tools::file_ext(file)
 
 			enc <- encode_file(enc, ext)

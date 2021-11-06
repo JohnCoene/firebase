@@ -37,9 +37,12 @@ Configure Firebase, either using a config file or by setting
 environment variables (see section below).
 }
 \details{
-Create the configuration file necessary to running fireblaze.
+Creates the configuration file necessary to running fireblaze.
 Note that if you changed the project you must use said ID
 here, not the one originally created by Google.
+
+Classes of the package look first for the configuration file
+then, if not found look for the environment variables.
 }
 \note{
 Do not share this file with anyone.
