@@ -27,8 +27,6 @@ Imports:
     jsonlite,
     base64enc,
     htmltools
-Suggests:
-    packer
 RoxygenNote: 7.1.2
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues
