@@ -29,8 +29,5 @@ jobs:
         with:
           extra-packages: packer
 
-      - name: Install NPM Dependencies
-        run: Rscript -e "packer:::engine_install()"
-
       - name: Check minification
-        run: Rscript -e "packer:::are_minified('inst')"
+        run: Rscript -e "packer:::are_minified('inst/packer')"
