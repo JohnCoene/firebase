@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -715,13 +715,11 @@
                 
                 <h1 id="get-satrted">Get Satrted<a class="headerlink" href="#get-satrted" title="Permanent link">&para;</a></h1>
 <p>The {firebase} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the <a href="https://firebase.google.com/">Firebase</a> interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers&rsquo; needs.</p>
-<div class="admonition skip ahead">
-<p class="admonition-title">Skip</p>
-<p>In this first section we create a 
-<a href="https://firebase.google.com">Google Firebase</a> project, 
-if you know how to do this or already have one, skip to the
-<a href="#configuration">package configuration</a> section.</p>
-</div>
+<p>!!! &ldquo;Skip Ahead&rdquo;
+    In this first section we create a 
+    <a href="https://firebase.google.com">Google Firebase</a> project, 
+    if you know how to do this or already have one, skip to the
+    <a href="#configuration">package configuration</a> section.</p>
 <h2 id="create-a-project">Create a Project<a class="headerlink" href="#create-a-project" title="Permanent link">&para;</a></h2>
 <p>First, create a Google firebase account if you do not already have one; head to <a href="https://firebase.google.com/">firebase.google.com</a>, and set up your account. Once this done you will be presented with the screen below.</p>
 <p><img alt="" src="../fireblaze_home.png" /></p>
@@ -743,7 +741,6 @@ if you know how to do this or already have one, skip to the
 <p>Fill the form as you see fit, don&rsquo;t forget to toggle &ldquo;enable&rdquo; unlike I did above, and click save.</p>
 <p>Finally set the redirect URLs, these are the URLs to which the user can be redirected after authenticating, add your <code>localhost</code> and or <code>127.0.0.1</code> so that your application can be tested locally. You will eventually have to add the URL of your the application(s).</p>
 <p><img alt="" src="../firebase_redirect.png" /></p>
-<p>Now you set up the right <a href="/auth/config">configuration</a>.</p>
                 
               
               

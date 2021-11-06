@@ -38,7 +38,3 @@ You can either create a configuration file with the
 
 This is necessary for every project that uses {firebase}; the package will, first, look for it in the working directory by
 default, second it will look for the environment variables. 
-
-Now that you are set up head over to the 
-[prebuilt UI page](/auth/ui) to learn how to sign up/in users 
-with a neat prebuilt UI.

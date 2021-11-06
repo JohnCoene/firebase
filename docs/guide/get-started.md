@@ -3,7 +3,7 @@
 The {firebase} package lets you create mechanisms to authenticate Shiny users. It does so by wrapping the [Firebase](https://firebase.google.com/) interface by Google. This probably raises a first question, is it free? The answer to which is, this package only features the free functionalities which should, for now, probably fulfil most Shiny developers' needs.
 
 
-!!! Skip Ahead
+!!! "Skip Ahead"
 	In this first section we create a 
 	[Google Firebase](https://firebase.google.com) project, 
 	if you know how to do this or already have one, skip to the
@@ -50,5 +50,3 @@ Fill the form as you see fit, don't forget to toggle "enable" unlike I did above
 Finally set the redirect URLs, these are the URLs to which the user can be redirected after authenticating, add your `localhost` and or `127.0.0.1` so that your application can be tested locally. You will eventually have to add the URL of your the application(s).
 
 ![](firebase_redirect.png)
-
-Now you set up the right [configuration](/auth/config).

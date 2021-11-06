@@ -12,7 +12,7 @@
 ![packer-check](https://github.com/JohnCoene/firebase/workflows/packer-check/badge.svg)
 <!-- badges: end -->
 
-[Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase) | [Reference](https://firebase.john-coene.com/reference/)
+[Website](https://firebase.john-coene.com) | [Demo](https://shiny.john-coene.com/firebase) | [Get Started](https://firebase.john-coene.com/guide/get-started/)
 
 </div>
 

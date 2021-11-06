@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -657,99 +657,53 @@
                 
                 <h1 id="demo">Demo<a class="headerlink" href="#demo" title="Permanent link">&para;</a></h1>
 <p>The code for the <a href="https://shiny.john-coene.com/firebase">demo</a> which provides 7 different sign in methods uses the <code>FirebaseUI</code> and is remarkably simple, see below.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span>
-  <span class="nf">useFirebaseUI</span><span class="p">(),</span>
-  <span class="nf">reqSignin</span><span class="p">(</span><span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signout&quot;</span><span class="p">,</span> <span class="s">&quot;Sign out&quot;</span><span class="p">)),</span>
-  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;msg&quot;</span><span class="p">),</span>
-  <span class="nf">plotOutput</span><span class="p">(</span><span class="s">&quot;plot&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+  <span style="color: #447fcf">useFirebaseUI</span><span style="color: #d0d0d0">(),</span>
+  <span style="color: #447fcf">reqSignin</span><span style="color: #d0d0d0">(</span><span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signout&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Sign out&quot;</span><span style="color: #d0d0d0">)),</span>
+  <span style="color: #447fcf">uiOutput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;msg&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">plotOutput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;plot&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
-    <span class="nf">new</span><span class="p">(</span><span class="s">&quot;session&quot;</span><span class="p">)</span><span class="o">$</span>
-    <span class="nf">set_providers</span><span class="p">(</span>
-      <span class="n">email</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">yahoo</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">github</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">twitter</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">facebook</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-      <span class="n">microsoft</span> <span class="o">=</span> <span class="kc">TRUE</span>
-    <span class="p">)</span><span class="o">$</span>
-    <span class="nf">launch</span><span class="p">()</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseUI$</span>
+    <span style="color: #447fcf">new</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;session&quot;</span><span style="color: #d0d0d0">)$</span>
+    <span style="color: #447fcf">set_providers</span><span style="color: #d0d0d0">(</span>
+      <span style="color: #d0d0d0">email</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">yahoo</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">google</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">github</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">twitter</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">facebook</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span><span style="color: #d0d0d0">,</span>
+      <span style="color: #d0d0d0">microsoft</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span>
+    <span style="color: #d0d0d0">)$</span>
+    <span style="color: #447fcf">launch</span><span style="color: #d0d0d0">()</span>
 
-  <span class="n">output</span><span class="o">$</span><span class="n">plot</span> <span class="o">&lt;-</span> <span class="nf">renderPlot</span><span class="p">({</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span> <span class="c1"># require sign in</span>
-    <span class="nf">plot</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #d0d0d0">output$plot</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">renderPlot</span><span style="color: #d0d0d0">({</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">req_sign_in</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># require sign in</span>
+    <span style="color: #447fcf">plot</span><span style="color: #d0d0d0">(cars)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="n">output</span><span class="o">$</span><span class="n">msg</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span> <span class="c1"># require sign in</span>
+  <span style="color: #d0d0d0">output$msg</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">renderUI</span><span style="color: #d0d0d0">({</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">req_sign_in</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># require sign in</span>
 
-    <span class="n">user</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="o">$</span><span class="nf">get_signed_in</span><span class="p">()</span> <span class="c1"># get logged in user info</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span style="color: #d0d0d0">user</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">get_signed_in</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># get logged in user info</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(user)</span>
 
-    <span class="nf">h4</span><span class="p">(</span><span class="s">&quot;Welcome,&quot;</span><span class="p">,</span> <span class="n">user</span><span class="o">$</span><span class="n">response</span><span class="o">$</span><span class="n">displayName</span><span class="p">)</span>
-  <span class="p">})</span>
+    <span style="color: #447fcf">h4</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Welcome,&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">user$response$displayName)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">signout</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">sign_out</span><span class="p">()</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$signout,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">sign_out</span><span style="color: #d0d0d0">()</span>
+  <span style="color: #d0d0d0">})</span>
 
-<span class="p">}</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
                 
               
               

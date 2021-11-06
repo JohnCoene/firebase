@@ -1,3 +1,5 @@
+<img src="logo.png" width="200" style="float:right" />
+
 # Firebase
 
 <!-- badges: start -->
@@ -9,6 +11,8 @@
 
 Integration of [Google Firebase](https://firebase.google.com/)
 services with [shiny](https://shiny.rstudio.com/).
+
+[Get Started](/guide/get-started/){.md-button .md-button--primary}
 
 ## Features
 
@@ -31,18 +35,19 @@ services with [shiny](https://shiny.rstudio.com/).
 
 ## Installation
 
-Install the stable version from CRAN:
+=== "CRAN"
+    Install the stable version from CRAN:
 
-```r
-install.packages("firebase")
-```
-
-Install the development from Github using remotes:
-
-```r
-# install.packages("remotes")
-remotes::install_github("JohnCoene/firebase")
-```
+    ```r
+    install.packages("firebase")
+    ```
+=== "Github"
+    Install the development from Github using remotes:
+    
+    ```r
+    # install.packages("remotes")
+    remotes::install_github("JohnCoene/firebase")
+    ```
 
 ## Related
 

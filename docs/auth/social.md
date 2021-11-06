@@ -9,7 +9,7 @@ Google Firebase integrates nicely with multiple social sites so users can easily
 
 ## Console
 
-First, these need to be setup in the Firebase console. If you followed the [get started guide](/guide/get-started.md) you should already have enabled Google. Now we'll setup Github!
+First, these need to be setup in the Firebase console. If you followed the [get started guide](/guide/get-started/) you should already have enabled Google. Now we'll setup Github!
 
 1. Head over to the [Firebase console](https://console.firebase.google.com/)
 2. Go to your project

@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -746,79 +746,43 @@ code that you must also capture and pass to <code>confirm</code> to confirm
 the authentication. The user is then automatically logged in.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>This is an overly simple, ugly example, but fully-functioning.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-    <span class="nf">useFirebase</span><span class="p">(),</span>
-    <span class="nf">textInput</span><span class="p">(</span>
-        <span class="s">&quot;number&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Number&quot;</span>
-    <span class="p">),</span>
-    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;verify&quot;</span><span class="p">,</span> <span class="s">&quot;Verify&quot;</span><span class="p">),</span>
-    <span class="nf">recaptchaUI</span><span class="p">(),</span>
-    <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;code&quot;</span><span class="p">,</span> <span class="s">&quot;Code&quot;</span><span class="p">),</span>
-    <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;confirm&quot;</span><span class="p">,</span> <span class="s">&quot;Confirm&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+    <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+    <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span>
+        <span style="color: #ed9d13">&quot;number&quot;</span><span style="color: #d0d0d0">,</span>
+        <span style="color: #ed9d13">&quot;Number&quot;</span>
+    <span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;verify&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Verify&quot;</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">recaptchaUI</span><span style="color: #d0d0d0">(),</span>
+    <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;code&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Code&quot;</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;confirm&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Confirm&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">session</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebasePhone</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output,</span> <span style="color: #d0d0d0">session)</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebasePhone$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
 
-    <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">verify</span><span class="p">,</span> <span class="p">{</span>
-        <span class="n">f</span><span class="o">$</span><span class="nf">verify</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">number</span><span class="p">)</span>
-    <span class="p">})</span>
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$verify,</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">verify</span><span style="color: #d0d0d0">(input$number)</span>
+    <span style="color: #d0d0d0">})</span>
 
-    <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_verification</span><span class="p">(),</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_verification</span><span class="p">())</span>
-    <span class="p">})</span>
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_verification</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_verification</span><span style="color: #d0d0d0">())</span>
+    <span style="color: #d0d0d0">})</span>
 
-    <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">confirm</span><span class="p">,</span> <span class="p">{</span>
-        <span class="n">f</span><span class="o">$</span><span class="nf">confirm</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">code</span><span class="p">)</span>
-    <span class="p">})</span>
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$confirm,</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">confirm</span><span style="color: #d0d0d0">(input$code)</span>
+    <span style="color: #d0d0d0">})</span>
 
-    <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_confirmation</span><span class="p">(),</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_confirmation</span><span class="p">())</span>
-    <span class="p">})</span>
-<span class="p">}</span>
+    <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_confirmation</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_confirmation</span><span style="color: #d0d0d0">())</span>
+    <span style="color: #d0d0d0">})</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
                 
               
               

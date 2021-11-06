@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -763,91 +763,7 @@
 <li><code>user</code>: a list (<code>NULL</code> if signed out)</li>
 </ol>
 <p>The user object returned looks like.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>#&gt; $success
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code>#&gt; $success
 #&gt; [1] TRUE
 #&gt; 
 #&gt; $response
@@ -933,57 +849,35 @@
 #&gt; $response$multiFactor$enrolledFactors
 #&gt; list()
 </code></pre></div>
-</td></tr></table>
 <p>Note this is technically like a Shiny input and behaves as such. Therefore the snippet below will work. Note that it will be triggered on load.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># initialise</span>
-<span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FireblazeUI</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span><span class="o">$</span><span class="nf">launch</span><span class="p">()</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #999999; font-style: italic"># initialise</span>
+<span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FireblazeUI$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span><span style="color: #447fcf">launch</span><span style="color: #d0d0d0">()</span>
 
-<span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_signed_in</span><span class="p">(),</span> <span class="p">{</span>
-  <span class="c1"># do somethind</span>
-<span class="p">})</span>
+<span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_signed_in</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #999999; font-style: italic"># do somethind</span>
+<span style="color: #d0d0d0">})</span>
 </code></pre></div>
-</td></tr></table>
 <p>However one should probably only rely on the <code>get_signed_in</code> to retrieve information about the logged in user, the methods <code>is_signed_in</code> and <code>req_sign_in</code> should be used in observers instead. The first returns <code>TRUE</code> if the user is signed in. The second, <code>req_sign_in</code> is a convenience method which essentially does <code>req(f$is_signed_in)</code> which allows &ldquo;marking&rdquo; outputs and observers that require sign in. </p>
 <h2 id="sign-out">Sign out<a class="headerlink" href="#sign-out" title="Permanent link">&para;</a></h2>
 <p>A single method is shared across all authentication methods, simply call <code>sign_out</code> method.</p>
 <h2 id="re-auth">Re-auth<a class="headerlink" href="#re-auth" title="Permanent link">&para;</a></h2>
 <p>Two sensitive operations, deleting an account, and changing a password (only application to email &amp; password method), might require that you re-authenticate the user. These operations being dangerous they will fail if the user has been signed in for a long time and you will have to first re-authenticate them using their current password.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseEmailPassword</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailPassword$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
 
-<span class="c1"># upon clicking a button</span>
-<span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">reAuth</span><span class="p">,</span> <span class="p">{</span>
-  <span class="c1"># pass the freshly entered user password</span>
-  <span class="n">f</span><span class="o">$</span><span class="nf">re_authenticate</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">reAuthPassword</span><span class="p">)</span>
-<span class="p">})</span>
+<span style="color: #999999; font-style: italic"># upon clicking a button</span>
+<span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$reAuth,</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #999999; font-style: italic"># pass the freshly entered user password</span>
+  <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">re_authenticate</span><span style="color: #d0d0d0">(input$reAuthPassword)</span>
+<span style="color: #d0d0d0">})</span>
 
-<span class="c1"># check if reauth successful</span>
-<span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_re_authenticated</span><span class="p">(),</span> <span class="p">{</span>
-  <span class="n">reauth</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="o">$</span><span class="nf">get_re_authenticated</span><span class="p">()</span>
+<span style="color: #999999; font-style: italic"># check if reauth successful</span>
+<span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_re_authenticated</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #d0d0d0">reauth</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">get_re_authenticated</span><span style="color: #d0d0d0">()</span>
 
-  <span class="c1"># TRUE if successful</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">reauth</span><span class="o">$</span><span class="n">success</span><span class="p">)</span>
-<span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># TRUE if successful</span>
+  <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(reauth$success)</span>
+<span style="color: #d0d0d0">})</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
 <p>Simply use the <code>delete_user</code> method and observe the result with the <code>get_delete_user</code> method. This will likely required re-authentication.</p>
 <h2 id="email-password">Email &amp; Password<a class="headerlink" href="#email-password" title="Permanent link">&para;</a></h2>

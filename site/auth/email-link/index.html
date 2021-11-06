@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -662,83 +662,45 @@
 <p>Note that you have to specify the redirect URL in your config.</p>
 </div>
 <p>Below we force shiny to run on port 3000 so we can reference the redirect URL in the <code>config</code> which is mandatory as the email link must obviously a link back to your application; <code>options(shiny.port = 3000)</code> is not necessary in prod. </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="nf">options</span><span class="p">(</span><span class="n">shiny.port</span> <span class="o">=</span> <span class="m">3000</span><span class="p">)</span> 
+<span style="color: #447fcf">options</span><span style="color: #d0d0d0">(shiny.port</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">3000</span><span style="color: #d0d0d0">)</span> 
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;submit&quot;</span><span class="p">,</span> <span class="s">&quot;Submit&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;submit&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Submit&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
 
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseEmailLink</span><span class="o">$</span>
-    <span class="nf">new</span><span class="p">()</span><span class="o">$</span>
-    <span class="nf">config</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://127.0.0.1:3000&quot;</span><span class="p">)</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailLink$</span>
+    <span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span>
+    <span style="color: #447fcf">config</span><span style="color: #d0d0d0">(url</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;http://127.0.0.1:3000&quot;</span><span style="color: #d0d0d0">)</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">submit</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">if</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">email</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-      <span class="nf">return</span><span class="p">()</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$submit,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">if</span><span style="color: #d0d0d0">(input$email</span> <span style="color: #d0d0d0">==</span> <span style="color: #ed9d13">&quot;&quot;</span><span style="color: #d0d0d0">)</span>
+      <span style="color: #447fcf">return</span><span style="color: #d0d0d0">()</span>
 
-    <span class="n">f</span><span class="o">$</span><span class="nf">send_email</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">email</span><span class="p">)</span>
-  <span class="p">})</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">send_email</span><span style="color: #d0d0d0">(input$email)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_email_sent</span><span class="p">(),</span> <span class="p">{</span>
-    <span class="n">sent</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="o">$</span><span class="nf">get_email_sent</span><span class="p">()</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_email_sent</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">sent</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">get_email_sent</span><span style="color: #d0d0d0">()</span>
 
-    <span class="nf">if</span><span class="p">(</span><span class="n">sent</span><span class="o">$</span><span class="n">success</span><span class="p">)</span>
-      <span class="nf">showNotification</span><span class="p">(</span><span class="s">&quot;Email sent&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span><span class="p">)</span>
-  <span class="p">})</span>
+    <span style="color: #447fcf">if</span><span style="color: #d0d0d0">(sent$success)</span>
+      <span style="color: #447fcf">showNotification</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Email sent&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">type</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;message&quot;</span><span style="color: #d0d0d0">)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_email_verification</span><span class="p">(),</span> <span class="p">{</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_email_verification</span><span class="p">())</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_email_verification</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_email_verification</span><span style="color: #d0d0d0">())</span>
+  <span style="color: #d0d0d0">})</span>
 
-<span class="p">}</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
                 
               
               

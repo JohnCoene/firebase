@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -664,81 +664,44 @@
 <li><code>session</code> - Indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. Applies only to web apps.</li>
 </ol>
 <p>In the R package, you can modify state persistence with the <code>persistence</code> argument when instantiating the class with <code>new</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">fireblaze</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(fireblaze)</span>
 
-<span class="c1"># define signin</span>
-<span class="n">signin</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Login&quot;</span><span class="p">,</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;google&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="n">icon</span> <span class="o">=</span> <span class="nf">icon</span><span class="p">(</span><span class="s">&quot;google&quot;</span><span class="p">),</span> <span class="n">class</span> <span class="o">=</span> <span class="s">&quot;btn-danger&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;github&quot;</span><span class="p">,</span> <span class="s">&quot;Github&quot;</span><span class="p">,</span> <span class="n">icon</span> <span class="o">=</span> <span class="nf">icon</span><span class="p">(</span><span class="s">&quot;github&quot;</span><span class="p">)),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="kc">NULL</span>
-<span class="p">)</span>
+<span style="color: #999999; font-style: italic"># define signin</span>
+<span style="color: #d0d0d0">signin</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Login&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;google&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Google&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">icon</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">icon</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;google&quot;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">class</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;btn-danger&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;github&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Github&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">icon</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">icon</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;github&quot;</span><span style="color: #d0d0d0">)),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">NULL</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span>
-  <span class="nf">uiOutput</span><span class="p">(</span><span class="s">&quot;msg&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+  <span style="color: #447fcf">uiOutput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;msg&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">showModal</span><span class="p">(</span><span class="n">signin</span><span class="p">)</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output)</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(signin)</span>
 
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseSocial</span><span class="o">$</span><span class="nf">new</span><span class="p">(</span><span class="n">persistence</span> <span class="o">=</span> <span class="s">&quot;local&quot;</span><span class="p">)</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseSocial$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">(persistence</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;local&quot;</span><span style="color: #d0d0d0">)</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">google</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">launch_google</span><span class="p">()</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$google,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">launch_google</span><span style="color: #d0d0d0">()</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">github</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">launch_github</span><span class="p">()</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$github,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">launch_github</span><span style="color: #d0d0d0">()</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="n">output</span><span class="o">$</span><span class="n">msg</span> <span class="o">&lt;-</span> <span class="nf">renderUI</span><span class="p">({</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+  <span style="color: #d0d0d0">output$msg</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">renderUI</span><span style="color: #d0d0d0">({</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">req_sign_in</span><span style="color: #d0d0d0">()</span>
 
-    <span class="nf">h3</span><span class="p">(</span><span class="s">&quot;Welcome!&quot;</span><span class="p">)</span>
-  <span class="p">})</span>
-<span class="p">}</span>
+    <span style="color: #447fcf">h3</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Welcome!&quot;</span><span style="color: #d0d0d0">)</span>
+  <span style="color: #d0d0d0">})</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
                 
               
               

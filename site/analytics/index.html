@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -705,65 +705,36 @@ well as register custom user properties with <code>set_user_properties</code>.</
 <p>Note the caveats of toggling Google Analytics off in
 <a href="reference/Analytics">the docs</a>.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span>
-  <span class="nf">firebaseUIContainer</span><span class="p">()</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
+  <span style="color: #447fcf">firebaseUIContainer</span><span style="color: #d0d0d0">()</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseUI</span><span class="o">$</span>
-    <span class="nf">new</span><span class="p">()</span><span class="o">$</span>
-    <span class="nf">set_providers</span><span class="p">(</span>
-      <span class="n">google</span> <span class="o">=</span> <span class="kc">TRUE</span>
-    <span class="p">)</span><span class="o">$</span>
-    <span class="nf">launch</span><span class="p">()</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseUI$</span>
+    <span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span>
+    <span style="color: #447fcf">set_providers</span><span style="color: #d0d0d0">(</span>
+      <span style="color: #d0d0d0">google</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">TRUE</span>
+    <span style="color: #d0d0d0">)$</span>
+    <span style="color: #447fcf">launch</span><span style="color: #d0d0d0">()</span>
 
-  <span class="n">a</span> <span class="o">&lt;-</span> <span class="n">Analytics</span><span class="o">$</span>
-    <span class="nf">new</span><span class="p">()</span><span class="o">$</span>
-    <span class="nf">launch</span><span class="p">()</span>
+  <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">Analytics$</span>
+    <span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span>
+    <span style="color: #447fcf">launch</span><span style="color: #d0d0d0">()</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_signed_in</span><span class="p">(),</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_signed_in</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">req_sign_in</span><span style="color: #d0d0d0">()</span>
 
-    <span class="n">a</span><span class="o">$</span><span class="nf">log_event</span><span class="p">(</span><span class="s">&#39;notification_received&#39;</span><span class="p">);</span>
-    <span class="n">a</span><span class="o">$</span><span class="nf">set_user_properties</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="s">&quot;free&quot;</span><span class="p">)</span>
-  <span class="p">})</span>
-<span class="p">}</span>
+    <span style="color: #d0d0d0">a$</span><span style="color: #447fcf">log_event</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&#39;notification_received&#39;</span><span style="color: #d0d0d0">);</span>
+    <span style="color: #d0d0d0">a$</span><span style="color: #447fcf">set_user_properties</span><span style="color: #d0d0d0">(level</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;free&quot;</span><span style="color: #d0d0d0">)</span>
+  <span style="color: #d0d0d0">})</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
                 
               
               

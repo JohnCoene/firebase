@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -657,9 +657,8 @@
                 
                 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
 <p>At this point you will need the R package, install it from Github if you haven&rsquo;t already done so.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;JohnCoene/firebase&quot;</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #d0d0d0">remotes::</span><span style="color: #447fcf">install_github</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;JohnCoene/firebase&quot;</span><span style="color: #d0d0d0">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Navigate to your credentials page:</p>
 <ol>
 <li>Click the gear icon <i class="fa fa-cog"></i> in the top left.</li>
@@ -685,22 +684,15 @@ In brief, use the id that is found in the URL of your project.</p>
 </ul>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Config file</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">firebase</span><span class="o">::</span><span class="nf">firebase_config</span><span class="p">(</span>
-    <span class="n">api_key</span> <span class="o">=</span> <span class="s">&quot;xXxxXxx&quot;</span><span class="p">,</span> 
-    <span class="n">project_id</span> <span class="o">=</span> <span class="s">&quot;my-project-package&quot;</span>
-<span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #d0d0d0">firebase::</span><span style="color: #447fcf">firebase_config</span><span style="color: #d0d0d0">(</span>
+    <span style="color: #d0d0d0">api_key</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;xXxxXxx&quot;</span><span style="color: #d0d0d0">,</span> 
+    <span style="color: #d0d0d0">project_id</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;my-project-package&quot;</span>
+<span style="color: #d0d0d0">)</span>
 </code></pre></div>
-</td></tr></table>
 </div>
 </div>
 <p>This is necessary for every project that uses {firebase}; the package will, first, look for it in the working directory by
 default, second it will look for the environment variables. </p>
-<p>Now that you are set up head over to the 
-<a href="/auth/ui">prebuilt UI page</a> to learn how to sign up/in users 
-with a neat prebuilt UI.</p>
                 
               
               

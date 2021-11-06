@@ -40,7 +40,7 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
-Using that object `f` we just created we can configure our sign-up/sign-in options. There is but one mandatory setting; define the providers the user can use to sign-in. If you followed the [get started guide](/guide/get-started.md) you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to `TRUE` the respective providers using the `set_providers` method.
+Using that object `f` we just created we can configure our sign-up/sign-in options. There is but one mandatory setting; define the providers the user can use to sign-in. If you followed the [get started guide](/guide/get-started/) you have already set-up the email and password as well as Google sign-in method. Let us configure these; set to `TRUE` the respective providers using the `set_providers` method.
 
 ```r
 library(shiny)

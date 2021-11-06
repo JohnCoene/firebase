@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -658,350 +658,181 @@
                 <h1 id="email-password">Email &amp; Password<a class="headerlink" href="#email-password" title="Permanent link">&para;</a></h1>
 <p>As shown in the <a href="/guide/ui.md">Prebuilt UI page</a> one can allow users to sign in with an email and a password. A we detail here we can also do so by building the UI ourselves, which very straightforward using shiny&rsquo;s inputs. However, while the prebuilt UI does not distinguish between account creation and signing in, we will here.</p>
 <p>We will thus build an application that, using an email and password, allows the user to create an account then login with said account. Let us first build the skeleton of the application. </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="c1"># modals</span>
-<span class="n">register</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Register&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;create&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #999999; font-style: italic"># modals</span>
+<span style="color: #d0d0d0">register</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">sign_in</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Sign in&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin&quot;</span><span class="p">,</span> <span class="s">&quot;Sign in&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">sign_in</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;register_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Signin&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span> <span style="color: #999999; font-style: italic"># import dependencies</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;register_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Signin&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
 
-  <span class="c1"># open modals</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">register_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">register</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># open modals</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$register_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(register)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">signin_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">sign_in</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$signin_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(sign_in)</span>
+  <span style="color: #d0d0d0">})</span>
 
-<span class="p">}</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Now with this skeleton ready let&rsquo;s initialise firebase and implement the account creation. </p>
 <p>First, initialise the authentication with <code>FirebaseEmailPassword</code>. Then use the <code>create</code> method to create the user&rsquo;s account using their email and password. One thing in the snippet below that is optional but very nice to have is to observe the <code>get_created</code> method. This method returns information on the account creation; a <code>list</code> that contains the object <code>success</code>, a boolean indicating whether the authentication was successful as well as the <code>response</code> from Firebase. Observing for changes in the account creation lets us show a notification to the user and remove the modal when necessary.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="c1"># modals</span>
-<span class="n">register</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Register&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;create&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #999999; font-style: italic"># modals</span>
+<span style="color: #d0d0d0">register</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">sign_in</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Sign in&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin&quot;</span><span class="p">,</span> <span class="s">&quot;Sign in&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">sign_in</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;register_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Signin&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span> <span style="color: #999999; font-style: italic"># import dependencies</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;register_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Signin&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
 
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseEmailPassword</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailPassword$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
 
-  <span class="c1"># open modals</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">register_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">register</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># open modals</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$register_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(register)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">signin_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">sign_in</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$signin_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(sign_in)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="c1"># create the user</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">create</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">create</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">email_create</span><span class="p">,</span> <span class="n">input</span><span class="o">$</span><span class="n">password_create</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># create the user</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$create,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">create</span><span style="color: #d0d0d0">(input$email_create,</span> <span style="color: #d0d0d0">input$password_create)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="c1"># check if creation sucessful</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_created</span><span class="p">(),</span> <span class="p">{</span>
-    <span class="n">created</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="o">$</span><span class="nf">get_created</span><span class="p">()</span>
+  <span style="color: #999999; font-style: italic"># check if creation sucessful</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_created</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">created</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">get_created</span><span style="color: #d0d0d0">()</span>
 
-    <span class="nf">if</span><span class="p">(</span><span class="n">created</span><span class="o">$</span><span class="n">success</span><span class="p">){</span>
-      <span class="nf">removeModal</span><span class="p">()</span>
-      <span class="nf">showNotification</span><span class="p">(</span><span class="s">&quot;Account created!&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span><span class="p">)</span>
-    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
-      <span class="nf">showNotification</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;error&quot;</span><span class="p">)</span>
-    <span class="p">}</span>
+    <span style="color: #447fcf">if</span><span style="color: #d0d0d0">(created$success){</span>
+      <span style="color: #447fcf">removeModal</span><span style="color: #d0d0d0">()</span>
+      <span style="color: #447fcf">showNotification</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Account created!&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">type</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;message&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">}</span> <span style="color: #d0d0d0">else</span> <span style="color: #d0d0d0">{</span>
+      <span style="color: #447fcf">showNotification</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Error!&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">type</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;error&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">}</span>
 
-    <span class="c1"># print results to the console</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">created</span><span class="p">)</span>
-  <span class="p">})</span>
+    <span style="color: #999999; font-style: italic"># print results to the console</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(created)</span>
+  <span style="color: #d0d0d0">})</span>
 
-<span class="p">}</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
 <p>The sign in process is like that of other authentication methods.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">shiny</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">firebase</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
-<span class="c1"># modals</span>
-<span class="n">register</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Register&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_create&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;create&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #999999; font-style: italic"># modals</span>
+<span style="color: #d0d0d0">register</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;create&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">sign_in</span> <span class="o">&lt;-</span> <span class="nf">modalDialog</span><span class="p">(</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Sign in&quot;</span><span class="p">,</span>
-  <span class="nf">textInput</span><span class="p">(</span><span class="s">&quot;email_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your email&quot;</span><span class="p">),</span>
-  <span class="nf">passwordInput</span><span class="p">(</span><span class="s">&quot;password_signin&quot;</span><span class="p">,</span> <span class="s">&quot;Your password&quot;</span><span class="p">),</span>
-  <span class="n">footer</span> <span class="o">=</span> <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin&quot;</span><span class="p">,</span> <span class="s">&quot;Sign in&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">sign_in</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">modalDialog</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #d0d0d0">title</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">,</span>
+  <span style="color: #447fcf">textInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;email_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your email&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">passwordInput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;password_signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Your password&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #d0d0d0">footer</span> <span style="color: #d0d0d0">=</span> <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Sign in&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">ui</span> <span class="o">&lt;-</span> <span class="nf">fluidPage</span><span class="p">(</span>
-  <span class="nf">useFirebase</span><span class="p">(),</span> <span class="c1"># import dependencies</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;register_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Register&quot;</span><span class="p">),</span>
-  <span class="nf">actionButton</span><span class="p">(</span><span class="s">&quot;signin_modal&quot;</span><span class="p">,</span> <span class="s">&quot;Signin&quot;</span><span class="p">),</span>
-  <span class="nf">plotOutput</span><span class="p">(</span><span class="s">&quot;plot&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
+  <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span> <span style="color: #999999; font-style: italic"># import dependencies</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;register_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Register&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">actionButton</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;signin_modal&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;Signin&quot;</span><span style="color: #d0d0d0">),</span>
+  <span style="color: #447fcf">plotOutput</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;plot&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">)</span>
 
-<span class="n">server</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">){</span>
+<span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
 
-  <span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FirebaseEmailPassword</span><span class="o">$</span><span class="nf">new</span><span class="p">()</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailPassword$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
 
-  <span class="c1"># open modals</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">register_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">register</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># open modals</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$register_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(register)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">signin_modal</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">showModal</span><span class="p">(</span><span class="n">sign_in</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$signin_modal,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">showModal</span><span style="color: #d0d0d0">(sign_in)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="c1"># create the user</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">create</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">create</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">email_create</span><span class="p">,</span> <span class="n">input</span><span class="o">$</span><span class="n">password_create</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #999999; font-style: italic"># create the user</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$create,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">create</span><span style="color: #d0d0d0">(input$email_create,</span> <span style="color: #d0d0d0">input$password_create)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="c1"># check if creation sucessful</span>
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">f</span><span class="o">$</span><span class="nf">get_created</span><span class="p">(),</span> <span class="p">{</span>
-    <span class="n">created</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="o">$</span><span class="nf">get_created</span><span class="p">()</span>
+  <span style="color: #999999; font-style: italic"># check if creation sucessful</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(f$</span><span style="color: #447fcf">get_created</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">created</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">get_created</span><span style="color: #d0d0d0">()</span>
 
-    <span class="nf">if</span><span class="p">(</span><span class="n">created</span><span class="o">$</span><span class="n">success</span><span class="p">){</span>
-      <span class="nf">removeModal</span><span class="p">()</span>
-      <span class="nf">showNotification</span><span class="p">(</span><span class="s">&quot;Account created!&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span><span class="p">)</span>
-    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
-      <span class="nf">showNotification</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;error&quot;</span><span class="p">)</span>
-    <span class="p">}</span>
+    <span style="color: #447fcf">if</span><span style="color: #d0d0d0">(created$success){</span>
+      <span style="color: #447fcf">removeModal</span><span style="color: #d0d0d0">()</span>
+      <span style="color: #447fcf">showNotification</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Account created!&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">type</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;message&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">}</span> <span style="color: #d0d0d0">else</span> <span style="color: #d0d0d0">{</span>
+      <span style="color: #447fcf">showNotification</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;Error!&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">type</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;error&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">}</span>
 
-    <span class="c1"># print results to the console</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">created</span><span class="p">)</span>
-  <span class="p">})</span>
+    <span style="color: #999999; font-style: italic"># print results to the console</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(created)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="nf">observeEvent</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">signin</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nf">removeModal</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">sign_in</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">email_signin</span><span class="p">,</span> <span class="n">input</span><span class="o">$</span><span class="n">password_signin</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$signin,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">removeModal</span><span style="color: #d0d0d0">()</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">sign_in</span><span style="color: #d0d0d0">(input$email_signin,</span> <span style="color: #d0d0d0">input$password_signin)</span>
+  <span style="color: #d0d0d0">})</span>
 
-  <span class="n">output</span><span class="o">$</span><span class="n">plot</span> <span class="o">&lt;-</span> <span class="nf">renderPlot</span><span class="p">({</span>
-    <span class="n">f</span><span class="o">$</span><span class="nf">req_sign_in</span><span class="p">()</span>
-    <span class="nf">plot</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
-  <span class="p">})</span>
+  <span style="color: #d0d0d0">output$plot</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">renderPlot</span><span style="color: #d0d0d0">({</span>
+    <span style="color: #d0d0d0">f$</span><span style="color: #447fcf">req_sign_in</span><span style="color: #d0d0d0">()</span>
+    <span style="color: #447fcf">plot</span><span style="color: #d0d0d0">(cars)</span>
+  <span style="color: #d0d0d0">})</span>
 
-<span class="p">}</span>
+<span style="color: #d0d0d0">}</span>
 
-<span class="nf">shinyApp</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+<span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-</td></tr></table>
 <p><img alt="" src="../firebase_email_password.gif" /></p>
                 
               

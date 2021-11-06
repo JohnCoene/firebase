@@ -5,9 +5,9 @@ theme:
   logo: logo.png
   favicon: logo.png
   palette:
-    scheme: default
+    scheme: slate
     primary: blue
-    accent: blue
+    accent: orange
   font:
     text: Raleway
     code: JetBrains Mono
@@ -30,7 +30,10 @@ markdown_extensions:
     - meta
     - smarty
     - pymdownx.highlight:
-        linenums: true
+        linenums: false
+        use_pygments: true
+        pygments_style: native
+        noclasses: true
     - pymdownx.details
     - pymdownx.superfences
     - pymdownx.tabbed

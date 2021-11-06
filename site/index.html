@@ -60,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
       
   
     
@@ -739,9 +739,18 @@
                   </a>
                 
                 
-                <h1 id="firebase">Firebase<a class="headerlink" href="#firebase" title="Permanent link">&para;</a></h1>
+                <p><img src="logo.png" width="200" style="float:right" /></p>
+<h1 id="firebase">Firebase<a class="headerlink" href="#firebase" title="Permanent link">&para;</a></h1>
+<!-- badges: start -->
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img alt="Lifecycle: stable" src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" /></a>
+<img alt="R-CMD-check" src="https://github.com/JohnCoene/firebase/workflows/R-CMD-check/badge.svg" />
+<a href="https://travis-ci.org/JohnCoene/firebase"><img alt="Travis build status" src="https://travis-ci.org/JohnCoene/firebase.svg?branch=master" /></a>
+<img alt="packer-check" src="https://github.com/JohnCoene/firebase/workflows/packer-check/badge.svg" /></p>
+<!-- badges: end -->
+
 <p>Integration of <a href="https://firebase.google.com/">Google Firebase</a>
 services with <a href="https://shiny.rstudio.com/">shiny</a>.</p>
+<p><a class="md-button md-button--primary" href="/guide/get-started/">Get Started</a></p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Authentication</p>
@@ -766,16 +775,18 @@ services with <a href="https://shiny.rstudio.com/">shiny</a>.</p>
 <p>Use Firebase storage to securely store files.</p>
 </div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">CRAN</label><div class="tabbed-content">
 <p>Install the stable version from CRAN:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;firebase&quot;</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">install.packages</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;firebase&quot;</span><span style="color: #d0d0d0">)</span>
 </code></pre></div>
-</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Github</label><div class="tabbed-content">
 <p>Install the development from Github using remotes:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># install.packages(&quot;remotes&quot;)</span>
-<span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;JohnCoene/firebase&quot;</span><span class="p">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #999999; font-style: italic"># install.packages(&quot;remotes&quot;)</span>
+<span style="color: #d0d0d0">remotes::</span><span style="color: #447fcf">install_github</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;JohnCoene/firebase&quot;</span><span style="color: #d0d0d0">)</span>
 </code></pre></div>
-</td></tr></table>
+</div>
+</div>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <p>Similar projects.</p>
 <ul>
