@@ -261,7 +261,7 @@ Firebase <- R6::R6Class(
         return(FALSE)
       }
 
-    	now <- as.numeric(Sys.time())
+    	now <- as.numeric(Sys.time() + private$.grace_period)
 
     	if(as.numeric(signature$exp) < now){
         cli::cli_alert_danger("Signture expiry is in the past")
@@ -306,6 +306,7 @@ Firebase <- R6::R6Class(
     unique_id = NULL,
     .project_id = "",
     .ns = "",
-    .id_token = NULL
+    .id_token = NULL,
+    .grace_period = 60
   )
 )

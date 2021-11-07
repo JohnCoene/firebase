@@ -17,3 +17,4 @@ firebase.rds
 ^srcjs$
 test.R
 ^SECURITY\.md$
+^node_modules$
