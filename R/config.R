@@ -182,11 +182,20 @@ has_config <- function(path){
 #' @keywords internal
 #' @name encryption
 .enc <- function(x){
-  charToRaw(x)
+  if(!is.null(x) && x == "")
+    return(NULL)
+
+  tryCatch(
+    charToRaw(x),
+    error = function(e) NULL
+  )
 }
 
 #' @keywords internal
 #' @rdname encryption
 .dec <- function(x){
+  if(is.null(x))
+    return(NULL)
+  
   rawToChar(x)
 }

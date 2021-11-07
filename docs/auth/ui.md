@@ -48,7 +48,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI() # import UI
+  firebaseUIContainer()
 )
 
 server <- function(input, output){
@@ -71,7 +71,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI() # import UI
+  firebaseUIContainer()
 )
 
 server <- function(input, output){
@@ -118,7 +118,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer()
   reqSignin(
     h4("VIP plot below"),
     plotOutput("plot")
@@ -152,7 +152,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer()
   plotOutput("plot")
 )
 
