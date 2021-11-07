@@ -35,6 +35,14 @@ Firebase <- R6::R6Class(
         conf = conf
 			)
 		},
+#' @details Expose App
+#' 
+#' Expose the `firebaseApp` object product of `initializeApp()` by
+#' attaching it to the `window`: access it with `window.firebaseApp`.
+    expose_app = function() {
+      private$.send("expose-app")
+      invisible(self)
+    },
 #' @details Print the class
     print = function(){
       rule("Firebase")

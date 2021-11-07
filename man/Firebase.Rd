@@ -17,6 +17,7 @@ Core Firebase class.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{Firebase$new()}}
+\item \href{#method-expose_app}{\code{Firebase$expose_app()}}
 \item \href{#method-print}{\code{Firebase$print()}}
 \item \href{#method-clone}{\code{Firebase$clone()}}
 }
@@ -50,6 +51,22 @@ Initialises the Firebase application client-side.
 \subsection{Returns}{
 Invisibly return the class.
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-expose_app"></a>}}
+\if{latex}{\out{\hypertarget{method-expose_app}{}}}
+\subsection{Method \code{expose_app()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Firebase$expose_app()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Expose App
+
+Expose the \code{firebaseApp} object product of \code{initializeApp()} by
+attaching it to the \code{window}: access it with \code{window.firebaseApp}.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-print"></a>}}

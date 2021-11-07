@@ -32,6 +32,17 @@ const handleCore = () => {
     firebaseApp = initializeApp(msg.conf);
   });
   
+  Shiny.addCustomMessageHandler('fireblaze-expose-app', function(msg) {
+    if(!firebaseApp)
+      return;
+
+    window.firebaseApp = firebaseApp;
+  });
+  
+  Shiny.addCustomMessageHandler('fireblaze-expose-auth', function(msg) {
+    window.firebaseAuth = getAuth();
+  });
+  
   Shiny.addCustomMessageHandler('fireblaze-initialize-storage', function(msg) {
     handleStorage(firebaseApp);
   });

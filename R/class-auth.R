@@ -128,6 +128,14 @@ FirebaseAuth <- R6::R6Class(
     get_delete_user = function(){
       super$get_input("deleted_user")
     },
+#' @details Expose Auth
+#' 
+#' Expose the `firebaseAuth` object the product of the authentication
+#' attaching it to the `window`: access it with `window.firebaseAuth`.
+    expose_auth = function() {
+      private$.send("expose-auth")
+      invisible(self)
+    },
 #' @details Get user access token
 #' 
 #' @return User's access token

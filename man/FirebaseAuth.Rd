@@ -33,6 +33,7 @@ Use firebase to manage authentications.
 \item \href{#method-set_language_code}{\code{FirebaseAuth$set_language_code()}}
 \item \href{#method-delete_user}{\code{FirebaseAuth$delete_user()}}
 \item \href{#method-get_delete_user}{\code{FirebaseAuth$get_delete_user()}}
+\item \href{#method-expose_auth}{\code{FirebaseAuth$expose_auth()}}
 \item \href{#method-get_access_token}{\code{FirebaseAuth$get_access_token()}}
 \item \href{#method-clear}{\code{FirebaseAuth$clear()}}
 \item \href{#method-request_id_token}{\code{FirebaseAuth$request_id_token()}}
@@ -43,6 +44,7 @@ Use firebase to manage authentications.
 \if{html}{
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
+\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
 }
 \out{</details>}
 }
@@ -261,6 +263,22 @@ A list of length 2 containing \code{success} a boolean
 indicating wherther deletion was successful and \code{response}
 containing either \code{successful} string or the error if signing in failed.
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-expose_auth"></a>}}
+\if{latex}{\out{\hypertarget{method-expose_auth}{}}}
+\subsection{Method \code{expose_auth()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$expose_auth()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Expose Auth
+
+Expose the \code{firebaseAuth} object the product of the authentication
+attaching it to the \code{window}: access it with \code{window.firebaseAuth}.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_access_token"></a>}}
