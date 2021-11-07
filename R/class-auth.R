@@ -260,7 +260,7 @@ FirebaseAuth <- R6::R6Class(
         return(FALSE)
       }
 
-    	now <- as.numeric(Sys.time())
+    	now <- as.numeric(Sys.time() + private$.grace_period)
 
     	if(as.numeric(signature$exp) < now){
         cli_alert_danger("Signture expiry is in the past")
@@ -302,6 +302,7 @@ FirebaseAuth <- R6::R6Class(
     .user_signed_in = list(signed_in = FALSE, user = NULL),
     .user_sign_up = list(signed_up = FALSE, user = NULL),
     .language_code = NULL,
-    .id_token = NULL
+    .id_token = NULL,
+    .grace_period = 300
   )
 )

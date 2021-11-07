@@ -23,6 +23,7 @@ requires the user to be signed in.
 - Add ability to use environment variables instead of the firebase
 config file
 [#15](https://github.com/JohnCoene/firebase/issues/15)
+- New documentation site
 
 # firebase 0.2.1
 
