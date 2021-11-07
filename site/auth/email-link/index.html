@@ -614,15 +614,8 @@
                 
                 <h1 id="email-link">Email Link<a class="headerlink" href="#email-link" title="Permanent link">&para;</a></h1>
 <p>Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don&rsquo;t observe for successful account creation but successful email sent with the <code>get_email_sent</code> method.</p>
-<div class="admonition warning">
-<p class="admonition-title">Redirect URL</p>
-<p>Note that you have to specify the redirect URL in your config.</p>
-</div>
-<p>Below we force shiny to run on port 3000 so we can reference the redirect URL in the <code>config</code> which is mandatory as the email link must obviously a link back to your application; <code>options(shiny.port = 3000)</code> is not necessary in prod. </p>
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
 <span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
-
-<span style="color: #447fcf">options</span><span style="color: #d0d0d0">(shiny.port</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">3000</span><span style="color: #d0d0d0">)</span> 
 
 <span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
   <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span>
@@ -632,9 +625,7 @@
 
 <span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
 
-  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailLink$</span>
-    <span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span>
-    <span style="color: #447fcf">config</span><span style="color: #d0d0d0">(url</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;http://127.0.0.1:3000&quot;</span><span style="color: #d0d0d0">)</span>
+  <span style="color: #d0d0d0">f</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">FirebaseEmailLink$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()</span>
 
   <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$submit,</span> <span style="color: #d0d0d0">{</span>
     <span style="color: #447fcf">if</span><span style="color: #d0d0d0">(input$email</span> <span style="color: #d0d0d0">==</span> <span style="color: #ed9d13">&quot;&quot;</span><span style="color: #d0d0d0">)</span>

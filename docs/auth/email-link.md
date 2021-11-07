@@ -2,16 +2,9 @@
 
 Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don't observe for successful account creation but successful email sent with the `get_email_sent` method.
 
-!!! warning "Redirect URL"
-    Note that you have to specify the redirect URL in your config.
-
-Below we force shiny to run on port 3000 so we can reference the redirect URL in the `config` which is mandatory as the email link must obviously a link back to your application; `options(shiny.port = 3000)` is not necessary in prod. 
-
 ```r
 library(shiny)
 library(firebase)
-
-options(shiny.port = 3000) 
 
 ui <- fluidPage(
   useFirebase(),
@@ -21,9 +14,7 @@ ui <- fluidPage(
 
 server <- function(input, output){
 
-  f <- FirebaseEmailLink$
-    new()$
-    config(url = "http://127.0.0.1:3000")
+  f <- FirebaseEmailLink$new()
 
   observeEvent(input$submit, {
     if(input$email == "")
