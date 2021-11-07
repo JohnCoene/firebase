@@ -24,6 +24,8 @@ requires the user to be signed in.
 config file
 [#15](https://github.com/JohnCoene/firebase/issues/15)
 - New documentation site
+- `FirebaseEmailLink` the `config` method is no longer compulsary;
+redirect URL is dynamically fetched.
 
 # firebase 0.2.1
 
