@@ -78,9 +78,8 @@ FirebaseEmailLink <- R6::R6Class(
 #' }
 #' 
 #' @return self
-    send = function(email){
+    send_email = function(email){
       if(missing(email)) stop("Missing email", call. = FALSE)
-      if(is.null(private$.config)) stop("Missing config, see `config` method", call. = FALSE)
 
       msg <- list(
         email = email,
@@ -130,7 +129,7 @@ FirebaseEmailLink <- R6::R6Class(
     }
   ),
   private = list(
-    .config = NULL,
+    .config = list(handleCodeInApp = TRUE),
     .email_sent = NULL,
     .email_verification = NULL
   )

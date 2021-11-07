@@ -62,7 +62,7 @@ f <- FirebaseEmailLink$
 }
 
 ## ------------------------------------------------
-## Method `FirebaseEmailLink$send`
+## Method `FirebaseEmailLink$send_email`
 ## ------------------------------------------------
 
 \dontrun{
@@ -89,7 +89,7 @@ f <- FirebaseEmailLink$
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-config}{\code{FirebaseEmailLink$config()}}
-\item \href{#method-send}{\code{FirebaseEmailLink$send()}}
+\item \href{#method-send_email}{\code{FirebaseEmailLink$send_email()}}
 \item \href{#method-get_email_sent}{\code{FirebaseEmailLink$get_email_sent()}}
 \item \href{#method-get_email_verification}{\code{FirebaseEmailLink$get_email_verification()}}
 \item \href{#method-clone}{\code{FirebaseEmailLink$clone()}}
@@ -155,11 +155,11 @@ f <- FirebaseEmailLink$
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-send"></a>}}
-\if{latex}{\out{\hypertarget{method-send}{}}}
-\subsection{Method \code{send()}}{
+\if{html}{\out{<a id="method-send_email"></a>}}
+\if{latex}{\out{\hypertarget{method-send_email}{}}}
+\subsection{Method \code{send_email()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailLink$send(email)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailLink$send_email(email)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

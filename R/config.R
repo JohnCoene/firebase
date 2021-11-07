@@ -106,5 +106,7 @@ has_config <- function(path){
 #' @keywords internal
 #' @rdname encryption
 .dec <- function(x){
+  if(is.null(x))
+    return()
   rawToChar(x)
 }
