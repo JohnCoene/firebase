@@ -6,10 +6,6 @@
 #' 
 #' @param analytics Whether to include analytics.
 #' @param firestore Whether to include firestore.
-#' @param container Whether to include the container that
-#' wraps the pre-built UI. If set to \code{FALSE} then
-#' one must use \code{firebaseUIContainer} where said
-#' pre-built UI is required.
 #' 
 #' @details Place \code{useFirebaseUI} \emph{where} you want
 #' the pre-built UI to be placed. Otherwise one
@@ -41,17 +37,7 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
       tags$script(src = "fireblaze/social.js"),
       tags$script(src = "fireblaze/oauth.js"),
       # if(firestore) tags$script(src = "fireblaze/store.js"),
-      tags$script(src = "fireblaze/phone.js")
-    )
-  )
-}
-
-#' @export
-#' @rdname dependencies
-useFirebaseUI <- function(container = TRUE){
-  # dependencies plus signin container
-  deps <- singleton(
-    tags$head(
+      tags$script(src = "fireblaze/phone.js"),
       tags$script(src = "fireblaze/ui-utils.js"),
       tags$script(src = "firebase-ui/js/firebase-ui.js"),
       tags$link(
@@ -61,14 +47,12 @@ useFirebaseUI <- function(container = TRUE){
       )
     )
   )
+}
 
-  if(!container)
-    return(deps)
-
-  tagList(
-    deps,
-    div(id = "fireblaze-signin-ui")
-  )
+#' @export
+#' @rdname dependencies
+useFirebaseUI <- function(){
+  div(id = "fireblaze-signin-ui")
 }
 
 #' @export
