@@ -23,11 +23,16 @@ You can either create a configuration file with the
 `firebase_config` function or by setting environment variables.
 
 === "Environment Variables"
+	Set the following environment variables:
+
 	- `FIREBASE_API_KEY`
 	- `FIREBASE_PROJECT_ID`
 	- `FIREBASE_AUTH_DOMAIN`
 	- `FIREBASE_STORAGE_BUCKET`
 	- `FIREBASE_APP_ID`
+
+	These can be placed in your `.Renviron`,
+	the easiest way to do so is with `usethis::edit_r_environ()`
 === "Config file"
 	```r
 	firebase::firebase_config(

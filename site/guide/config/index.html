@@ -632,6 +632,7 @@ In brief, use the id that is found in the URL of your project.</p>
 <p>You can either create a configuration file with the
 <code>firebase_config</code> function or by setting environment variables.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Environment Variables</label><div class="tabbed-content">
+<p>Set the following environment variables:</p>
 <ul>
 <li><code>FIREBASE_API_KEY</code></li>
 <li><code>FIREBASE_PROJECT_ID</code></li>
@@ -639,6 +640,8 @@ In brief, use the id that is found in the URL of your project.</p>
 <li><code>FIREBASE_STORAGE_BUCKET</code></li>
 <li><code>FIREBASE_APP_ID</code></li>
 </ul>
+<p>These can be placed in your <code>.Renviron</code>,
+the easiest way to do so is with <code>usethis::edit_r_environ()</code></p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Config file</label><div class="tabbed-content">
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #d0d0d0">firebase::</span><span style="color: #447fcf">firebase_config</span><span style="color: #d0d0d0">(</span>

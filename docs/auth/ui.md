@@ -4,6 +4,10 @@ The easiest way to provide Shiny authentication with {firebase} is probably usin
 
 We first configure the UI to include the sign-in services we want to enable, we launch the authentication service (together with the UI), then observe the user's interactions with the UI; sign-up success or failure.
 
+!!! danger "Persistence"
+    There seems to be an issue with the persistence with the
+    pre-built UI.
+
 ## Introduction
 
 To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure you also place `useFirebaseUI` in there. This imports the necessary dependencies., without it nothing will work.
