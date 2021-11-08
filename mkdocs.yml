@@ -52,6 +52,10 @@ nav:
   - Get Started: 
     - Project Setup: guide/get-started.md
     - Config: guide/config.md
+  - Storage: 
+    - Usage: storage.md 
+  - Analytics: 
+    - Usage: analytics.md 
   - Authentication:
     - Prebuilt UI: auth/ui.md
     - Social Login: auth/social.md
@@ -59,14 +63,10 @@ nav:
     - Email Link: auth/email-link.md
     - OAuth Providers: auth/oauth-providers.md
     - Phone: auth/phone.md
-    - State Persistence: auth/state-persistence.md
-    - Flow: auth/flow.md
     - Manage Users: auth/manage.md
-    - Demo: auth/demo.md
-  - Storage: 
-    - Class: storage.md 
-  - Analytics: 
-    - Class: analytics.md 
+    - State Persistence: auth/state-persistence.md
+    - Auth Flow: auth/flow.md
+    - Demo Code: auth/demo.md
   - Misc:
     - Changelog: misc/changelog.md 
     - License: misc/license.md

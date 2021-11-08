@@ -8,7 +8,7 @@ remotes::install_github("JohnCoene/firebase")
 
 Navigate to your credentials page:
 
-1. Click the gear icon <i class="fa fa-cog"></i> in the top left.
+1. Click the :gear: gear icon <i class="fa fa-cog"></i> in the top left.
 2. Click "project settings"
 3. Scroll to the bottom of the "General" tab to find your app credentials.
 
@@ -19,10 +19,14 @@ In there you should find two key things `apiKey` and `projectId`. We will need t
 	the function call below, not the one originally created by Google.
 	In brief, use the id that is found in the URL of your project.
 
-You can either create a configuration file with the
-`firebase_config` function or by setting environment variables.
+You have to either create a configuration file with the
+`firebase_config` function or set the following environment variables.
 
 === "Environment Variables"
+	!!!success "Recommended"
+		This method is recommended over the used of the config file.
+		You are less likely to leak sensitive information this way.
+
 	Set the following environment variables:
 
 	- `FIREBASE_API_KEY`
@@ -34,6 +38,12 @@ You can either create a configuration file with the
 	These can be placed in your `.Renviron`,
 	the easiest way to do so is with `usethis::edit_r_environ()`
 === "Config file"
+	!!! danger "Do not commit"
+			Do not commit this file to your version control system,
+			it contains sensitive information.
+
+	This will create a `firebase.rds` file at the root of your project.
+
 	```r
 	firebase::firebase_config(
 		api_key = "xXxxXxx", 

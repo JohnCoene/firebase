@@ -12,6 +12,11 @@ or directories.
 This requires the authentication to work, which has the advantage
 of easily ensuring that only those who may access certain files can.
 
+!!! tip "Permissions"
+    Note the firebase implements everything from the front-end:
+    users of your shiny application will access the storage bucket
+    via _their own firebase credentials._
+
 Let's start from a basic application that features authentication.
 The app below uses the pre-built UI, probably the simplest app
 that can be made using Firebase.
