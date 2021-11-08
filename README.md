@@ -3,7 +3,8 @@
 
 <img src="man/figures/logo.png" height="300px">
 
-[Google Firebase](https://firebase.google.com) for shiny.
+[Google Firebase](https://firebase.google.com) for shiny, 
+built with [packer](https://packer.john-coene.com).
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)

@@ -10,7 +10,8 @@
 <!-- badges: end -->
 
 Integration of [Google Firebase](https://firebase.google.com/)
-services with [shiny](https://shiny.rstudio.com/).
+services with [shiny](https://shiny.rstudio.com/),
+built with [packer](https://packer.john-coene.com).
 
 [:material-exclamation: Get Started](/guide/get-started/){.md-button .md-button--primary}
 
