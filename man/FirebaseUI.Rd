@@ -12,7 +12,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI() # import UI
+  firebaseUIContainer() # import UI
 )
 
 server <- function(input, output){

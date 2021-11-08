@@ -27,7 +27,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(h4("Logged in!")) # hide from UI
 )
 
@@ -55,7 +55,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(h4("Logged in!")) # hide from UI
 )
 
@@ -137,7 +137,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(h4("Logged in!")), # hide from UI
   uiOutput("uploadUI")
 )
@@ -187,7 +187,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(h4("Logged in!")), # hide from UI
   uiOutput("uploadUI"),
   uiOutput("downloadUI")
@@ -249,7 +249,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignin(h4("Logged in!")), # hide from UI
   uiOutput("uploadUI"),
   uiOutput("downloadUI"),

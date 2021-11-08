@@ -22,7 +22,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   reqSignout(
     h1("Please sign in")
   ),
@@ -62,7 +62,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI(),
+  firebaseUIContainer(),
   uiOutput("msg"),
   reqSignin(h4("VIP plot below")), # hide from UI
   plotOutput("plot")
