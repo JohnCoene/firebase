@@ -2,6 +2,10 @@
 
 Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don't observe for successful account creation but successful email sent with the `get_email_sent` method.
 
+!!! Note "Redirect URL"
+    By default the package dynamically sets the redirect URL,
+    this can be hardcoded with the `config` method.
+
 ```r
 library(shiny)
 library(firebase)

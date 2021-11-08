@@ -614,6 +614,11 @@
                 
                 <h1 id="email-link">Email Link<a class="headerlink" href="#email-link" title="Permanent link">&para;</a></h1>
 <p>Creating an authentication flow using an email link is very similar to creating one with an email and password. The only difference is that we we don&rsquo;t observe for successful account creation but successful email sent with the <code>get_email_sent</code> method.</p>
+<div class="admonition note">
+<p class="admonition-title">Redirect URL</p>
+<p>By default the package dynamically sets the redirect URL,
+this can be hardcoded with the <code>config</code> method.</p>
+</div>
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
 <span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 

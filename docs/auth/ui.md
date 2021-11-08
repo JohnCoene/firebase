@@ -10,7 +10,9 @@ We first configure the UI to include the sign-in services we want to enable, we 
 
 ## Introduction
 
-To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure you also place `useFirebaseUI` in there. This imports the necessary dependencies., without it nothing will work.
+To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place `useFirebase` in the Shiny UI, making sure you also place `firebaseUIContainer` where
+you want the pre-built UI to appear in your application.
+This imports the necessary dependencies., without it nothing will work.
 
 ```r
 library(shiny)
@@ -18,7 +20,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI() # import UI
+  firebaseUIContainer()
 )
 
 server <- function(input, output){}
@@ -34,7 +36,7 @@ library(firebase)
 
 ui <- fluidPage(
   useFirebase(), # import dependencies
-  useFirebaseUI() # import UI
+  firebaseUIContainer()
 )
 
 server <- function(input, output){
@@ -90,6 +92,13 @@ server <- function(input, output){
 
 shinyApp(ui, server)
 ```
+
+!!! danger "Launch"
+    Call the `launch` method only after the `firebaseUIContainer`
+    appears in the UI. This is important to know if you want the
+    pre-built UI to render in a modal, e.g.: make sure you call
+    `showModal()` before `launch`.
+
 Now if you the app presents you with a login screen! 
 
 ![Login with email or Google](ui_simple.png)

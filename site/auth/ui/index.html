@@ -677,13 +677,15 @@
 pre-built UI.</p>
 </div>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>useFirebase</code> in the Shiny UI, making sure you also place <code>useFirebaseUI</code> in there. This imports the necessary dependencies., without it nothing will work.</p>
+<p>To demonstrate we will build an application that allows users to sign-up/sign-in. The very thing we do is place <code>useFirebase</code> in the Shiny UI, making sure you also place <code>firebaseUIContainer</code> where
+you want the pre-built UI to appear in your application.
+This imports the necessary dependencies., without it nothing will work.</p>
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
 <span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
 <span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
   <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span> <span style="color: #999999; font-style: italic"># import dependencies</span>
-  <span style="color: #447fcf">useFirebaseUI</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># import UI</span>
+  <span style="color: #447fcf">firebaseUIContainer</span><span style="color: #d0d0d0">()</span>
 <span style="color: #d0d0d0">)</span>
 
 <span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){}</span>
@@ -696,7 +698,7 @@ pre-built UI.</p>
 
 <span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
   <span style="color: #447fcf">useFirebase</span><span style="color: #d0d0d0">(),</span> <span style="color: #999999; font-style: italic"># import dependencies</span>
-  <span style="color: #447fcf">useFirebaseUI</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># import UI</span>
+  <span style="color: #447fcf">firebaseUIContainer</span><span style="color: #d0d0d0">()</span>
 <span style="color: #d0d0d0">)</span>
 
 <span style="color: #d0d0d0">server</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(input,</span> <span style="color: #d0d0d0">output){</span>
@@ -726,7 +728,7 @@ pre-built UI.</p>
 <span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
 <p>That is it for the mandatory options, you won&rsquo;t be able to launch the authentication method if you have not set the providers, {firebase} will remind you to do so. Now the next thing to do is launch the authentication. You could bind that to a button or have it launched when the app loads, all up to you. We&rsquo;ll go with the latter.</p>
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
 <span style="color: #447fcf">library</span><span style="color: #d0d0d0">(firebase)</span>
 
 <span style="color: #d0d0d0">ui</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">fluidPage</span><span style="color: #d0d0d0">(</span>
@@ -746,7 +748,14 @@ pre-built UI.</p>
 
 <span style="color: #447fcf">shinyApp</span><span style="color: #d0d0d0">(ui,</span> <span style="color: #d0d0d0">server)</span>
 </code></pre></div>
-Now if you the app presents you with a login screen! </p>
+<div class="admonition danger">
+<p class="admonition-title">Launch</p>
+<p>Call the <code>launch</code> method only after the <code>firebaseUIContainer</code>
+appears in the UI. This is important to know if you want the
+pre-built UI to render in a modal, e.g.: make sure you call
+<code>showModal()</code> before <code>launch</code>.</p>
+</div>
+<p>Now if you the app presents you with a login screen! </p>
 <p><img alt="Login with email or Google" src="../ui_simple.png" /></p>
 <p>You can go ahead and login if you want to try but keep note of the following. Google Firebase manages very well the sign-up/sign-in process so that one barely sees the difference between creating an account and logging in. The first time you go through the process you create the account and are automatically signed in. If you want to test this process again, go to your Firebase console and delete yourself from the user list. </p>
 <p><img alt="Users signed up - delete or add from the console" src="../fireblaze_users.png" /></p>
