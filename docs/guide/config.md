@@ -34,6 +34,7 @@ You have to either create a configuration file with the
 	- `FIREBASE_AUTH_DOMAIN`
 	- `FIREBASE_STORAGE_BUCKET`
 	- `FIREBASE_APP_ID`
+	- `FIREBASE_DATABASE_URL`
 
 	These can be placed in your `.Renviron`,
 	the easiest way to do so is with `usethis::edit_r_environ()`

@@ -16,6 +16,8 @@
 #' attempts to build firebase's default domain.
 #' @param storage_bucket URl to the bucket. if `NULL`
 #' attempts to build firebase's default storage domain.
+#' @param database_url URL to the database, required to use
+#' the `RealtimeDatabase`.
 #' @param app_id Application ID, necessary for Analytics.
 #' @param overwrite Whether to overwrite any existing configuration file.
 #' 
@@ -25,6 +27,7 @@
 #' - `FIREBASE_AUTH_DOMAIN`
 #' - `FIREBASE_STORAGE_BUCKET`
 #' - `FIREBASE_APP_ID`
+#' - `FIREBASE_DATABASE_URL`
 #' 
 #' @note Do not share this file with anyone.
 #' 
@@ -43,6 +46,7 @@ firebase_config <- function(
   auth_domain = NULL, 
   storage_bucket = NULL,
   app_id = NULL,
+  database_url = NULL,
   overwrite = FALSE
 ){
 
@@ -77,7 +81,8 @@ firebase_config <- function(
     authDomain = .enc(auth_domain),
     projectId = .enc(project_id),
     storageBucket = .enc(storage_bucket),
-    appId = .enc(app_id)
+    appId = .enc(app_id),
+    databaseURL = .enc(database_url)
   )
 
   saveRDS(lst, file = config_file)
@@ -117,6 +122,7 @@ get_config_from_env <- function(){
   auth_domain <- Sys.getenv("FIREBASE_AUTH_DOMAIN")
   storage_bucket <- Sys.getenv("FIREBASE_STORAGE_BUCKET")
   app_id <- Sys.getenv("FIREBASE_APP_ID")
+  database_url <- Sys.getenv("FIREBASE_DATABASE_URL")
   
   if(api_key == "" || project_id == "")
     stop("Cannot find configuration file, see `?firebase_config`", call. = FALSE)
@@ -138,7 +144,8 @@ get_config_from_env <- function(){
     authDomain = auth_domain,
     projectId = project_id,
     storageBucket = storage_bucket,
-    appId = app_id
+    appId = app_id,
+    databaseURL = database_url
   )
 }
 
@@ -168,9 +175,7 @@ stopifno_config <- function(path){
 
 #' @keywords internal
 has_config <- function(path){
-  has_it <- file.exists(path)
-
-  has_it
+  file.exists(path)
 }
 
 #' Encryption

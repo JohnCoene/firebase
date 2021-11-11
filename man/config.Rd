@@ -11,6 +11,7 @@ firebase_config(
   auth_domain = NULL,
   storage_bucket = NULL,
   app_id = NULL,
+  database_url = NULL,
   overwrite = FALSE
 )
 }
@@ -26,6 +27,9 @@ attempts to build firebase's default domain.}
 attempts to build firebase's default storage domain.}
 
 \item{app_id}{Application ID, necessary for Analytics.}
+
+\item{database_url}{URL to the database, required to use
+the \code{RealtimeDatabase}.}
 
 \item{overwrite}{Whether to overwrite any existing configuration file.}
 }
@@ -55,6 +59,7 @@ Do not share this file with anyone.
 \item \code{FIREBASE_AUTH_DOMAIN}
 \item \code{FIREBASE_STORAGE_BUCKET}
 \item \code{FIREBASE_APP_ID}
+\item \code{FIREBASE_DATABASE_URL}
 }
 }
 

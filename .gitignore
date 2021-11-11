@@ -3,3 +3,4 @@ dev
 inst/doc
 test.R
 node_modules
+.Renviron
