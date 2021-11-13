@@ -13,7 +13,6 @@ import { setInputValue } from '../utils.js';
 let storage;
 
 export const handleStorage = (firebaseApp) => {
-  storage = getStorage(firebaseApp);
 	let storageRef = ref(storage);
 
   Shiny.addCustomMessageHandler('fireblaze-storage-ref', function(msg) {
