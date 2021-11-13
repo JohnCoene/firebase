@@ -19,7 +19,7 @@ Encoding: UTF-8
 LazyData: false
 Roxygen: list(markdown = TRUE)
 Imports:
-    R6,
+    R6 (>= 2.5.0),
     cli,
     jose,
     shiny,
