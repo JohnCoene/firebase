@@ -26,6 +26,8 @@ config file
 - New documentation site
 - `FirebaseEmailLink` the `config` method is no longer compulsary;
 redirect URL is dynamically fetched.
+- Fix [##17](https://github.com/JohnCoene/firebase/issues/17)
+remove babel breaks polyfill.
 
 ## firebase 0.2.1
 
