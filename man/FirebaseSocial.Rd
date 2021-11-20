@@ -45,6 +45,7 @@ server <- function(input, output) {
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
+\item \href{#method-new}{\code{FirebaseSocial$new()}}
 \item \href{#method-set_scope}{\code{FirebaseSocial$set_scope()}}
 \item \href{#method-launch_google}{\code{FirebaseSocial$launch_google()}}
 \item \href{#method-launch_github}{\code{FirebaseSocial$launch_github()}}
@@ -66,7 +67,6 @@ server <- function(input, output) {
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-get_sign_out}{\code{firebase::FirebaseAuth$get_sign_out()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_in}{\code{firebase::FirebaseAuth$get_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_up}{\code{firebase::FirebaseAuth$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="initialize">}\href{../../firebase/html/FirebaseAuth.html#method-initialize}{\code{firebase::FirebaseAuth$initialize()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-is_signed_in}{\code{firebase::FirebaseAuth$is_signed_in()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print">}\href{../../firebase/html/FirebaseAuth.html#method-print}{\code{firebase::FirebaseAuth$print()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_in}{\code{firebase::FirebaseAuth$req_sign_in()}}\out{</span>}
@@ -76,6 +76,42 @@ server <- function(input, output) {
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-sign_out}{\code{firebase::FirebaseAuth$sign_out()}}\out{</span>}
 }
 \out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$new(
+  persistence = c("session", "local", "memory"),
+  config_path = "firebase.rds",
+  language_code = NULL,
+  session = shiny::getDefaultReactiveDomain()
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{persistence}}{How the auth should persit: \code{none}, the user has to sign in at every visit,
+\code{session} will only persist in current tab, \code{local} persist even when window is closed.}
+
+\item{\code{config_path}}{Path to the configuration file as created by \code{\link{firebase_config}}.}
+
+\item{\code{language_code}}{Sets the language to use for the UI.
+Supported languages are listed \href{https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md}{here}.
+Set to \code{browser} to use the default browser language of the user.}
+
+\item{\code{session}}{A valid shiny session.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Initialiases Firebase Social
+
+Initialises the Firebase application client-side.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-set_scope"></a>}}

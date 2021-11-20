@@ -69,7 +69,10 @@ var options = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  plugins: plugins
+  plugins: plugins,
+  optimization: {
+    runtimeChunk: 'single',
+  } 
 };
 
 // add misc

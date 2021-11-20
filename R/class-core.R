@@ -62,6 +62,9 @@ Firebase <- R6::R6Class(
 			)
       self$session$sendCustomMessage(func, msg)
     },
+    .render_deps = function(deps){
+      private$.send('render-dependencies', deps = deps)
+    },
     get_input = function(name){
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]

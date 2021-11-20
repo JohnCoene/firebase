@@ -28,6 +28,8 @@ config file
 redirect URL is dynamically fetched.
 - Fix [##17](https://github.com/JohnCoene/firebase/issues/17)
 remove babel breaks polyfill.
+- Modular approach implemented: dependencies are rendered 
+client-side only where needed.
 
 ## firebase 0.2.1
 

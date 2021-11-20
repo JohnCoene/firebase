@@ -1,3 +1,40 @@
 {
-  "index": "./srcjs/index.js"
+  "core": {
+    "import": "./srcjs/core.js",
+    "dependOn": ["auth", "utilities", "storage"]
+  },
+  "ui": {
+    "import": "./srcjs/ui.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "analytics": {
+    "import": "./srcjs/components/analytics.js",
+    "dependOn": ["auth"]
+  },
+  "email-link": {
+    "import": "./srcjs/components/email-link.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "email-password": {
+    "import": "./srcjs/components/email-password.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "oauth": {
+    "import": "./srcjs/components/oauth.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "phone": {
+    "import": "./srcjs/components/phone.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "social": {
+    "import": "./srcjs/components/social.js",
+    "dependOn": ["auth", "utilities"]
+  },
+  "utilities": {
+    "import": "./srcjs/utils.js",
+    "dependOn": "auth"
+  },
+  "auth": "firebase/auth",
+  "storage": "./srcjs/components/storage"
 }

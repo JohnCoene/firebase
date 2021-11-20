@@ -3,26 +3,22 @@ import { getAnalytics, logEvent, setUserProperties} from 'firebase/analytics';
 
 let analytics;
 
-const handleAnalytics = () => {
-	Shiny.addCustomMessageHandler('fireblaze-initialize-analytics', (msg) => {
-		if(!analytics)	
-			analytics = getAnalytics();
-	});
-	
-	Shiny.addCustomMessageHandler('fireblaze-log-event', (msg) => {
-		if(!msg.params){
-			logEvent(analytics, msg.event);
-			return;
-		}
+console.info('loaded analytics module');
 
-		logEvent(analytics, msg.event, msg.params);
-	});
-	
-	Shiny.addCustomMessageHandler('fireblaze-set-user-properties', (msg) => {
-		setUserProperties(analytics, msg.props);
-	});
-}
+Shiny.addCustomMessageHandler('fireblaze-initialize-analytics', (msg) => {
+	if(!analytics)	
+		analytics = getAnalytics();
+});
 
-export {
-	handleAnalytics
-}
+Shiny.addCustomMessageHandler('fireblaze-log-event', (msg) => {
+	if(!msg.params){
+		logEvent(analytics, msg.event);
+		return;
+	}
+
+	logEvent(analytics, msg.event, msg.params);
+});
+
+Shiny.addCustomMessageHandler('fireblaze-set-user-properties', (msg) => {
+	setUserProperties(analytics, msg.props);
+});

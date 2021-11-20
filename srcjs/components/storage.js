@@ -12,6 +12,8 @@ import { setInputValue } from '../utils.js';
 
 let storage;
 
+console.info('loaded storage module');
+
 export const handleStorage = (firebaseApp) => {
 	let storageRef = ref(storage);
 

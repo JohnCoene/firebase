@@ -18,6 +18,9 @@ Storage <- R6::R6Class(
 		){
       super$initialize(config_path, session)
 			super$.send("initialize-storage")
+      super$.render_deps(
+        list(firebase_dep_storage())
+      )
 		},
 #' @details Reference
 #' 

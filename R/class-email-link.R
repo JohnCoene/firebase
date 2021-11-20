@@ -47,6 +47,33 @@ FirebaseEmailLink <- R6::R6Class(
   "FirebaseEmailLink",
   inherit = FirebaseAuth,
   public = list(
+#' @details Initialiases Firebase Email Link
+#' 
+#' Initialises the Firebase application client-side.
+#' 
+#' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
+#' @param session A valid shiny session.
+#' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
+#' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
+#' @param language_code Sets the language to use for the UI.
+#' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
+#' Set to `browser` to use the default browser language of the user.
+		initialize = function(
+      persistence = c("session", "local", "memory"), 
+      config_path = "firebase.rds", 
+      language_code = NULL,
+      session = shiny::getDefaultReactiveDomain()
+		){
+      super$initialize(
+        persistence, 
+        config_path, 
+        language_code,
+        session
+      )
+      super$.render_deps(
+        list(firebase_dep_email_link())
+      )
+		},
 #' @details Configure
 #' @param url The link is handled in the web action widgets, 
 #' this is the deep link in the continueUrl query parameter. 
@@ -81,12 +108,11 @@ FirebaseEmailLink <- R6::R6Class(
     send_email = function(email){
       if(missing(email)) stop("Missing email", call. = FALSE)
 
-      msg <- list(
-        email = email,
+      super$.send(
+        "send-email-link", 
+        email = email, 
         config = private$.config
       )
-
-      super$send("send-email-link", msg)
       invisible(self)
     },
 #' @details Get whether email verification was correctly sent.

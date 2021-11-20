@@ -37,7 +37,13 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
     utils::packageVersion("firebase"),
     src = "packer",
     package = "firebase",
-    script = "index.js"
+    script = c(
+      "runtime.js",
+      "auth.js",
+      "storage.js",
+      "utils.js",
+      "core.js"
+    )
   )
 }
 
@@ -57,3 +63,80 @@ useFirebaseUI <- function(...){
 firebaseUIContainer <- function(){
   div(id = "fireblaze-signin-ui")
 }
+
+firebase_dep_analytics <- function(){
+  htmlDependency(
+    "firebase-analytics",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "analytics.js"
+  )
+}
+
+firebase_dep_email_link <- function(){
+  htmlDependency(
+    "firebase-email-link",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "email-link.js"
+  )
+}
+
+firebase_dep_email_password <- function(){
+  htmlDependency(
+    "firebase-email-password",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "email-password.js"
+  )
+}
+
+firebase_dep_oauth <- function(){
+  htmlDependency(
+    "firebase-oauth",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "oauth.js"
+  )
+}
+
+firebase_dep_phone <- function(){
+  htmlDependency(
+    "firebase-phone",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "phone.js"
+  )
+}
+
+firebase_dep_social <- function(){
+  htmlDependency(
+    "firebase-social",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "social.js"
+  )
+}
+
+firebase_dep_storage <- function(){
+  htmlDependency(
+    "firebase-storage",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "storage.js"
+  )
+}
+
+firebase_dep_ui <- function(){
+  htmlDependency(
+    "firebase-ui",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "ui.js"
+  )
+}
+
+shiny::addResourcePath(
+  "firebase-assets",
+  system.file("packer", package = "firebase")
+)

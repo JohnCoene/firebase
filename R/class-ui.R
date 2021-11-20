@@ -32,6 +32,33 @@ FirebaseUI <- R6::R6Class(
   public = list(
     tos_url = "<tos-url>",
     privacy_policy_url = "<privacy-policy-url>",
+#' @details Initialiases Firebase UI
+#' 
+#' Initialises the Firebase application client-side.
+#' 
+#' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
+#' @param session A valid shiny session.
+#' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
+#' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
+#' @param language_code Sets the language to use for the UI.
+#' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
+#' Set to `browser` to use the default browser language of the user.
+		initialize = function(
+      persistence = c("session", "local", "memory"), 
+      config_path = "firebase.rds", 
+      language_code = NULL,
+      session = shiny::getDefaultReactiveDomain()
+		){
+      super$initialize(
+        persistence, 
+        config_path, 
+        language_code,
+        session
+      )
+      super$.render_deps(
+        list(firebase_dep_ui())
+      )
+		},
 #' @details Define signin and login providers.
 #' 
 #' @param google,facebook,twitter,github,email,email_link,microsoft,apple,yahoo,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.

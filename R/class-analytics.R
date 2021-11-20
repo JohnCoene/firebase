@@ -13,6 +13,9 @@ Analytics <- R6::R6Class(
 #' see `launch` method.
 		initialize = function(enable = TRUE){
 			super$initialize()
+			super$.render_deps(
+				list(firebase_dep_analytics())
+			)
 			private$.enabled <- FALSE
 		},
 #' @details Launch

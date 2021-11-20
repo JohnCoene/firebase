@@ -1,18 +1,10 @@
 import 'shiny';
 import {
-  TwitterAuthProvider,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-  GithubAuthProvider,
-  EmailAuthProvider,
-  PhoneAuthProvider,
   browserSessionPersistence,
   browserLocalPersistence,
   inMemoryPersistence,
   getAuth,
 } from 'firebase/auth';
-import * as firebaseui from 'firebaseui'
-import { globalNs } from "./core";
 
 // Convert persistence option to firebase
 const persistenceOpts = (p) => {
@@ -61,60 +53,12 @@ const showHideOnLogout = (method) => {
 let prefix = 'fireblaze';
 const setInputValue = (type, data, ns) => {
   if(!ns)
-    ns = globalNs;
+    ns = window.globalNs;
 
   Shiny.setInputValue(
     `${ns}${prefix}_${type}`,
     data
   );
-}
-
-// Convert sign in boolean from R to firebase strings
-const signinOpts = (opts) => {
-  var signin = [];
-
-  if(opts.microsoft)
-    signin.push("microsoft.com");
-
-  if(opts.yahoo)
-    signin.push("yahoo.com");
-
-  if(opts.apple)
-    signin.push("apple.com");
-
-  if(opts.google)
-    signin.push(GoogleAuthProvider.PROVIDER_ID);
-
-  if(opts.facebook)
-    signin.push(FacebookAuthProvider.PROVIDER_ID);
-
-  if(opts.twitter)
-    signin.push(TwitterAuthProvider.PROVIDER_ID);
-
-  if(opts.github)
-    signin.push(GithubAuthProvider.PROVIDER_ID);
-
-  if(opts.email)
-    signin.push(EmailAuthProvider.PROVIDER_ID);
-
-  if(opts.email_link)
-    signin.push({
-      provider: EmailAuthProvider.PROVIDER_ID,
-      signInMethod: EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-    });
-
-  if(opts.phone)
-    signin.push(PhoneAuthProvider.PROVIDER_ID);
-
-  return signin;
-}
-
-// Convert sign in boolean from R to firebase strings
-const accountHelper = (x) => {
-  if(x == false)
-    return firebaseui.auth.CredentialHelper.NONE;
-  
-  return firebaseui.auth.CredentialHelper.GOOGLE_YOLO;
 }
 
 const setLanguageCode = (code) => {
@@ -136,7 +80,5 @@ export {
 	showHideOnLogin,
 	showHideOnLogout,
   setInputValue,
-  signinOpts,
-  accountHelper,
   setLanguageCode,
 }
