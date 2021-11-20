@@ -151,8 +151,8 @@ server <- function(input, output){
     )$
     launch() # launch
 
-  s <- Storage$new()
-    $ref("test.png")
+  s <- Storage$new()$
+    ref("test.png")
   
   # upload a file
   output$uploadUI <- renderUI({
@@ -202,8 +202,8 @@ server <- function(input, output){
     )$
     launch() # launch
 
-  s <- Storage$new()
-    $ref("test.png")
+  s <- Storage$new()$
+    ref("test.png")
   
   # upload a file
   output$uploadUI <- renderUI({
@@ -265,8 +265,8 @@ server <- function(input, output){
     )$
     launch() # launch
 
-  s <- Storage$new()
-    $ref("test.png")
+  s <- Storage$new()$
+    ref("test.png")
   
   # upload a file
   output$uploadUI <- renderUI({
