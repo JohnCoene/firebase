@@ -16,6 +16,9 @@ export const handleStorage = (firebaseApp) => {
 	let storageRef = ref(storage);
 
   Shiny.addCustomMessageHandler('fireblaze-storage-ref', function(msg) {
+		if(!storage)
+			storage = getStorage(firebaseApp);
+
 		if(!msg.path){
 			storageRef = ref(storage);
 			return ;
