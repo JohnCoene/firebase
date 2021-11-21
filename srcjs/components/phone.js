@@ -9,8 +9,6 @@ import {
 var confirmationResult;
 var recaptchaVerifier;
 
-console.info('loaded phone module');
-
 Shiny.addCustomMessageHandler('fireblaze-phone-verify', msg => {
 	const auth = getAuth();
 	if(!recaptchaVerifier){

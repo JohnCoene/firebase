@@ -40,8 +40,7 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
     script = c(
       "runtime.js",
       "auth.js",
-      "storage.js",
-      "utils.js",
+      "utilities.js",
       "core.js"
     )
   )
@@ -133,6 +132,15 @@ firebase_dep_ui <- function(){
     utils::packageVersion("firebase"),
     src = c(href = "firebase-assets"),
     script = "ui.js"
+  )
+}
+
+firebase_dep_real_time <- function(){
+  htmlDependency(
+    "firebase-real-time",
+    utils::packageVersion("firebase"),
+    src = c(href = "firebase-assets"),
+    script = "real-time.js"
   )
 }
 

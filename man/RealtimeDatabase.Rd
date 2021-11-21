@@ -13,6 +13,12 @@ Access Firebase Realtime Database
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
+\item \href{#method-new}{\code{RealtimeDatabase$new()}}
+\item \href{#method-ref}{\code{RealtimeDatabase$ref()}}
+\item \href{#method-on_value}{\code{RealtimeDatabase$on_value()}}
+\item \href{#method-set}{\code{RealtimeDatabase$set()}}
+\item \href{#method-update}{\code{RealtimeDatabase$update()}}
+\item \href{#method-delete}{\code{RealtimeDatabase$delete()}}
 \item \href{#method-clone}{\code{RealtimeDatabase$clone()}}
 }
 }
@@ -20,10 +26,188 @@ Access Firebase Realtime Database
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
 }
 \out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$new(
+  config_path = "firebase.rds",
+  session = shiny::getDefaultReactiveDomain()
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{config_path}}{Path to the configuration file as created by \code{\link{firebase_config}}.}
+
+\item{\code{session}}{A valid shiny session.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Initialiases Firebase Storage
+
+Initialises the Firebase Storage application client-side.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ref"></a>}}
+\if{latex}{\out{\hypertarget{method-ref}{}}}
+\subsection{Method \code{ref()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$ref(path = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{path}}{Path to the database full URL to file.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Reference
+
+Creates a reference to a file or directory you want to operate on.
+Note that this reference persists, make sure you change it
+between operations.
+}
+
+\subsection{Returns}{
+Invisibly return the class instance.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-on_value"></a>}}
+\if{latex}{\out{\hypertarget{method-on_value}{}}}
+\subsection{Method \code{on_value()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$on_value(response, path = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+
+\item{\code{path}}{Path to the database full URL to file.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+On Value
+
+When \code{path} or \code{ref} sees an update it sends the new
+data to \code{response}.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-set"></a>}}
+\if{latex}{\out{\hypertarget{method-set}{}}}
+\subsection{Method \code{set()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$set(data, response = NULL, path = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{data}}{Dataset to upload.}
+
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+
+\item{\code{path}}{Path to the database full URL to file.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Set Data
+
+Pushes data to the database.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-update"></a>}}
+\if{latex}{\out{\hypertarget{method-update}{}}}
+\subsection{Method \code{update()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$update(data, response = NULL, path = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{data}}{Dataset to update.}
+
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+
+\item{\code{path}}{Path to the database full URL to file.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Update Data
+
+Update a record.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-delete}{}}}
+\subsection{Method \code{delete()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$delete(response = NULL, path = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{response}}{A boolean or character string.
+\code{TRUE} indicates that you want to capture the
+results of the file upload (e.g.: success or failed)
+with \code{get_response} method. \code{FALSE} indicates you do
+not want those results back. A character string is
+used as named of the response which then can be used
+in the \code{get_response} method.}
+
+\item{\code{path}}{Path to the database full URL to file.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Delete
+
+Delete data to the database.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

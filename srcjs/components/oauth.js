@@ -10,8 +10,6 @@ import {
 
 let oauthProviders = [];
 
-console.info('loaded oauth module');
-
 Shiny.addCustomMessageHandler('fireblaze-set-oauth-provider', (msg) => {
 	oauthProviders[msg.id] = new OAuthProvider(msg.provider);
 });

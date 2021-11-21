@@ -118,7 +118,7 @@ Initialises the Firebase Storage application client-side.
 \describe{
 \item{\code{path}}{Path to the file, directory, bucket, or
 full URL to file.
-.If \code{NULL} creates a path to the root.}
+If \code{NULL} creates a path to the root.}
 }
 \if{html}{\out{</div>}}
 }

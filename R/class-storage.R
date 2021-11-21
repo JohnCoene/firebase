@@ -17,10 +17,10 @@ Storage <- R6::R6Class(
       session = shiny::getDefaultReactiveDomain()
 		){
       super$initialize(config_path, session)
-			super$.send("initialize-storage")
       super$.render_deps(
         list(firebase_dep_storage())
       )
+			super$.send("initialize-storage")
 		},
 #' @details Reference
 #' 
@@ -30,7 +30,7 @@ Storage <- R6::R6Class(
 #' 
 #' @param path Path to the file, directory, bucket, or
 #' full URL to file.
-#' .If `NULL` creates a path to the root.
+#' If `NULL` creates a path to the root.
 #' 
 #' @return Invisibly return the class instance.
 		ref = function(path = NULL) {

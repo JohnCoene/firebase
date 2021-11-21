@@ -25,7 +25,6 @@ window.uiInitialised = false;
 let firebaseApp;
 
 Shiny.addCustomMessageHandler('fireblaze-render-dependencies', (msg) => {
-  console.log(msg);
   Shiny.renderDependencies(msg.deps);
 })
 

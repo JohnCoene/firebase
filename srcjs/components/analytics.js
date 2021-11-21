@@ -3,8 +3,6 @@ import { getAnalytics, logEvent, setUserProperties} from 'firebase/analytics';
 
 let analytics;
 
-console.info('loaded analytics module');
-
 Shiny.addCustomMessageHandler('fireblaze-initialize-analytics', (msg) => {
 	if(!analytics)	
 		analytics = getAnalytics();

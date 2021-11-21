@@ -1,7 +1,7 @@
 {
   "core": {
     "import": "./srcjs/core.js",
-    "dependOn": ["auth", "utilities", "storage"]
+    "dependOn": ["auth", "utilities"]
   },
   "ui": {
     "import": "./srcjs/ui.js",
@@ -31,10 +31,13 @@
     "import": "./srcjs/components/social.js",
     "dependOn": ["auth", "utilities"]
   },
+  "real-time": {
+    "import": "./srcjs/components/real-time.js",
+    "dependOn": "utilities"
+  },
   "utilities": {
     "import": "./srcjs/utils.js",
     "dependOn": "auth"
   },
-  "auth": "firebase/auth",
-  "storage": "./srcjs/components/storage"
+  "auth": "firebase/auth"
 }

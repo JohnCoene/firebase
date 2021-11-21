@@ -61,6 +61,16 @@ const setInputValue = (type, data, ns) => {
   );
 }
 
+const setInputValue2 = (type, data, ns) => {
+  if(!ns)
+    ns = window.globalNs;
+
+  Shiny.setInputValue(
+    `${ns}${type}`,
+    data
+  );
+}
+
 const setLanguageCode = (code) => {
   if(!code)
     return;
@@ -80,5 +90,6 @@ export {
 	showHideOnLogin,
 	showHideOnLogout,
   setInputValue,
+  setInputValue2,
   setLanguageCode,
 }

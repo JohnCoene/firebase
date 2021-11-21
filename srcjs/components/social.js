@@ -17,8 +17,6 @@ let facebook = new FacebookAuthProvider();
 let github = new GithubAuthProvider();
 let google = new GoogleAuthProvider();
 
-console.info('loaded social module');
-
 // GOOGLE
 Shiny.addCustomMessageHandler('fireblaze-google-scope', (msg) => {
 	google.addScope(msg);

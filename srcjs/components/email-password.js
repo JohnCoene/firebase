@@ -10,8 +10,6 @@ import {
 	getAuth
 } from "firebase/auth";
 
-console.info('loaded email password module');
-
 // create
 Shiny.addCustomMessageHandler('fireblaze-create-email-password', function(msg) {
 	const auth = getAuth();

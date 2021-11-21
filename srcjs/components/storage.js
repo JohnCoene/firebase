@@ -8,11 +8,9 @@ import {
 	getMetadata,
 	listAll
 } from "firebase/storage";
-import { setInputValue } from '../utils.js';
+import { setInputValue2 } from '../utils.js';
 
 let storage;
-
-console.info('loaded storage module');
 
 export const handleStorage = (firebaseApp) => {
 	let storageRef = ref(storage);
@@ -40,13 +38,13 @@ export const handleStorage = (firebaseApp) => {
 					success: true
 				}
 
-				setInputValue(msg.response, data, msg.ns);
+				setInputValue2(msg.response, data, msg.ns);
 			})
 			.catch(error => {
 				if(!msg.response)
 					return;
 				
-				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+				setInputValue2(msg.response, {success: false, response: error}, msg.ns);
 			});
 	});
 
@@ -61,13 +59,13 @@ export const handleStorage = (firebaseApp) => {
 					success: true
 				}
 
-				setInputValue(msg.response, data, msg.ns);
+				setInputValue2(msg.response, data, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)
 					return;
 				
-				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+				setInputValue2(msg.response, {success: false, response: error}, msg.ns);
 			});
 	});
 
@@ -77,13 +75,13 @@ export const handleStorage = (firebaseApp) => {
 				if(!msg.response)
 					return;
 
-				setInputValue(msg.response, {success: true, response: null}, msg.ns);
+				setInputValue2(msg.response, {success: true, response: null}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)
 					return;
 				
-				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+				setInputValue2(msg.response, {success: false, response: error}, msg.ns);
 			});
 	});
   
@@ -93,26 +91,26 @@ export const handleStorage = (firebaseApp) => {
 				if(!msg.response)
 					return;
 
-				setInputValue(msg.response, {success: true, response: metadata}, msg.ns);
+				setInputValue2(msg.response, {success: true, response: metadata}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)
 					return;
 				
-				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+				setInputValue2(msg.response, {success: false, response: error}, msg.ns);
 			});
 	});
 	
 	Shiny.addCustomMessageHandler('fireblaze-list-all-files', function(msg) {
 		listAll(storageRef)
 			.then((res) => {
-				setInputValue(msg.response, {success: true, response: res.items}, msg.ns);
+				setInputValue2(msg.response, {success: true, response: res.items}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)
 					return;
 				
-				setInputValue(msg.response, {success: false, response: error}, msg.ns);
+				setInputValue2(msg.response, {success: false, response: error}, msg.ns);
 			});
 	});
 }
