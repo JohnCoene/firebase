@@ -34,6 +34,9 @@ built with [packer](https://packer.john-coene.com).
 !!! note "Storage"
     Use Firebase storage to securely store files.
 
+!!! note "Real-time database"
+    Use Firebase real-time database.
+
 ## Installation
 
 === "CRAN"

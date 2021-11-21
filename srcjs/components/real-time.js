@@ -1,5 +1,5 @@
 import 'shiny';
-import { getDatabase, ref, set, update, remove } from 'firebase/database';
+import { getDatabase, ref, set, update, remove, onValue } from 'firebase/database';
 import { setInputValue2 } from '../utils.js';
 
 var db;
@@ -26,11 +26,13 @@ Shiny.addCustomMessageHandler('fireblaze-real-time-on-value', (msg) => {
 		if(!msg.response)
 			return;
 
+		const data = snapshot.val();
+
 		setInputValue2(
 			msg.response, 
 			{
 				success: false, 
-				response: snapshot.val()
+				response: data
 			}, 
 			msg.ns
 		);

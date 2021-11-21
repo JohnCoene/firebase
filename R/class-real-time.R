@@ -55,7 +55,8 @@ RealtimeDatabase <- R6::R6Class(
 			if(is.null(path))
 				path <- private$.ref
 
-			super$.send("real-time-on-value", path = path)
+			super$.send("real-time-on-value", response = response, path = path)
+			invisible(self)
 		},
 #' @details Set Data
 #' 
@@ -83,6 +84,7 @@ RealtimeDatabase <- R6::R6Class(
 				path = path,
 				response = response
 			)
+			invisible(self)
 		},
 #' @details Update Data
 #' 
@@ -101,7 +103,8 @@ RealtimeDatabase <- R6::R6Class(
 			if(missing(data))
 				stop("Missing `data`")
 
-			data <- apply(data, 1, as.list)
+			if(inherits(data, "data.frame"))
+				data <- apply(data, 1, as.list)
 
 			super$.send(
 				"real-time-update", 
@@ -109,6 +112,7 @@ RealtimeDatabase <- R6::R6Class(
 				path = path,
 				response = response
 			)
+			invisible(self)
 		},
 #' @details Delete
 #' 
@@ -128,6 +132,7 @@ RealtimeDatabase <- R6::R6Class(
 				path = path,
 				response = response
 			)
+			invisible(self)
 		}
 	),
 	private = list(

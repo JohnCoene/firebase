@@ -54,6 +54,8 @@ nav:
     - Config: guide/config.md
   - Storage: 
     - Usage: storage.md 
+  - Database: 
+    - Usage: real-time.md 
   - Analytics: 
     - Usage: analytics.md 
   - Authentication:
