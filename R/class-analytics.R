@@ -55,7 +55,7 @@ Analytics <- R6::R6Class(
 #' Log an event.
 #' 
 #' @param event Event to log choose from 
-#' [this list](https://support.google.com/analytics/answer/9234069)
+#' [this list](https://firebase.google.com/docs/analytics/events?platform=web)
 #' of supported events.
 #' @param params Event parameters.
 		log_event = function(event, params = NULL) {

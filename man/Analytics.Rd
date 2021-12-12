@@ -122,7 +122,7 @@ register with Google Analytics.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{event}}{Event to log choose from
-\href{https://support.google.com/analytics/answer/9234069}{this list}
+\href{https://firebase.google.com/docs/analytics/events?platform=web}{this list}
 of supported events.}
 
 \item{\code{params}}{Event parameters.}
