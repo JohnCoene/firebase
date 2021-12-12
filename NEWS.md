@@ -1,4 +1,4 @@
-# firebase 1.0.0.9000
+# firebase 1.0.0
 
 - Add support for phone sign in.
 - Remove deprecated `create_config` function, use
