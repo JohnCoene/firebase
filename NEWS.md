@@ -1,4 +1,4 @@
-# firebase 1.0.1
+# firebase 1.0.0.9000
 
 - Ressource dependencies registered on attach.
 
