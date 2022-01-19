@@ -2,7 +2,7 @@
 #' 
 #' Access Firebase Realtime Database
 #' 
-#' @keywords internal
+#' @export
 RealtimeDatabase <- R6::R6Class(
 	inherit = Firebase,
 	public = list(

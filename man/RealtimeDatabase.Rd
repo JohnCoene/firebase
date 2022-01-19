@@ -6,7 +6,6 @@
 \description{
 Access Firebase Realtime Database
 }
-\keyword{internal}
 \section{Super class}{
 \code{\link[firebase:Firebase]{firebase::Firebase}}
 }

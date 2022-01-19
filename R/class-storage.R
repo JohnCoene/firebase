@@ -2,6 +2,7 @@
 #' 
 #' @importFrom base64enc base64encode
 #' 
+#' @export
 Storage <- R6::R6Class(
 	"Storage",
 	inherit = Firebase,
