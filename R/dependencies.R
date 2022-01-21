@@ -144,7 +144,7 @@ firebase_dep_real_time <- function(){
   )
 }
 
-.onAttach <- function(...){
+.onLoad <- function(...){
   shiny::addResourcePath(
     "firebase-assets",
     system.file("packer", package = "firebase")
