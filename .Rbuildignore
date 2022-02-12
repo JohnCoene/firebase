@@ -27,3 +27,4 @@ test.R
 ^mkdocs\.yml$
 ^site$
 ^CRAN-SUBMISSION$
+^\.gitattributes$
