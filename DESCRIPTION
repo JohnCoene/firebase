@@ -1,6 +1,6 @@
 Package: firebase
 Title: Integrates 'Google Firebase' Authentication Storage, and 'Analytics' with 'Shiny'
-Version: 1.0.1
+Version: 1.0.1.9000
 Date: 2022-02-08
 Authors@R: 
     person(

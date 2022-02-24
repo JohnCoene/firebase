@@ -1,3 +1,8 @@
+## firebase 1.0.1.9000
+
+- Update firebase to `9.6.7` to fix 
+[##23](https://github.com/JohnCoene/firebase/issues/23)
+
 ## firebase 1.0.1
 
 - Ressource dependencies registered on attach.
