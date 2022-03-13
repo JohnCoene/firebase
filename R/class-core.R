@@ -73,6 +73,11 @@ Firebase <- R6::R6Class(
       ns <- session$ns(NULL)
       if(length(ns) > 0 && ns != "")
         ns <- paste0(ns, "-")
+
+      # server - no ns
+      if(length(ns) == 0L)
+        ns <- ""
+
       private$.ns <- ns
     },
     get_project_id = function() {

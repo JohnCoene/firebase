@@ -123,10 +123,11 @@ etc.
 
 The button to upload is only rendered if the user is logged in.
 The button triggers to `upload_file` method that uploads a file
-from the disk.
+from the disk. To this method we also pass the name of the input
+we want to set to capture the response.
 
-We then retrieve and print the result of the upload with the 
-`get_response` method.
+Below we set the response of the upload to `up` so we can pick
+up the response with `input$up`.
 
 Note that you can set `response` to `FALSE` if you do not want
 to retrieve the results.
@@ -162,11 +163,11 @@ server <- function(input, output){
   })
 
   observeEvent(input$upload, {
-    s$upload_file("/path/to/file.png")
+    s$upload_file("/path/to/file.png", "up")
   })
 
-  observeEvent(s$get_response(), {
-    print(s$get_response())
+  observeEvent(input$up, {
+    print(input$up)
   })
 }
 
@@ -213,11 +214,11 @@ server <- function(input, output){
   })
 
   observeEvent(input$upload, {
-    s$upload_file("/path/to/file.png")
+    s$upload_file("/path/to/file.png", "up")
   })
 
-  observeEvent(s$get_response(), {
-    print(s$get_response())
+  observeEvent(input$up, {
+    print(input$up)
   })
   
   # download a file
@@ -231,8 +232,8 @@ server <- function(input, output){
     s$download_file("dl")
   })
 
-  observeEvent(s$get_response("dl"), {
-    print(s$get_response("dl"))
+  observeEvent(input$dl, {
+    print(input$dl)
   })
 }
 
@@ -266,7 +267,7 @@ server <- function(input, output){
     launch() # launch
 
   s <- Storage$new()$
-    ref("test.png")
+    ref("logo.png")
   
   # upload a file
   output$uploadUI <- renderUI({
@@ -276,11 +277,11 @@ server <- function(input, output){
   })
 
   observeEvent(input$upload, {
-    s$upload_file("/path/to/file.png")
+    s$upload_file("docs/logo.png", "up")
   })
 
-  observeEvent(s$get_response(), {
-    print(s$get_response())
+  observeEvent(input$up, {
+    print(input$up)
   })
   
   # download a file
@@ -294,8 +295,8 @@ server <- function(input, output){
     s$download_file("dl")
   })
 
-  observeEvent(s$get_response("dl"), {
-    print(s$get_response("dl"))
+  observeEvent(input$dl, {
+    print(input$dl)
   })
   
   # delete file
@@ -309,8 +310,8 @@ server <- function(input, output){
     s$delete_file("del")
   })
 
-  observeEvent(s$get_response("del"), {
-    print(s$get_response("del"))
+  observeEvent(input$del, {
+    print(input$del)
   })
 }
 

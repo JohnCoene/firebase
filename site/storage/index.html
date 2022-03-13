@@ -890,9 +890,10 @@ file; it does not exist yet, we&rsquo;ll create it, download it, delete it,
 etc.</p>
 <p>The button to upload is only rendered if the user is logged in.
 The button triggers to <code>upload_file</code> method that uploads a file
-from the disk.</p>
-<p>We then retrieve and print the result of the upload with the 
-<code>get_response</code> method.</p>
+from the disk. To this method we also pass the name of the input
+we want to set to capture the response.</p>
+<p>Below we set the response of the upload to <code>up</code> so we can pick
+up the response with <code>input$up</code>.</p>
 <p>Note that you can set <code>response</code> to <code>FALSE</code> if you do not want
 to retrieve the results.</p>
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #447fcf">library</span><span style="color: #d0d0d0">(shiny)</span>
@@ -925,11 +926,11 @@ to retrieve the results.</p>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$upload,</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;/path/to/file.png&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;/path/to/file.png&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;up&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">())</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$up,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$up)</span>
   <span style="color: #d0d0d0">})</span>
 <span style="color: #d0d0d0">}</span>
 
@@ -972,11 +973,11 @@ tag, etc.</p>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$upload,</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;/path/to/file.png&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;/path/to/file.png&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;up&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">())</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$up,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$up)</span>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #999999; font-style: italic"># download a file</span>
@@ -990,8 +991,8 @@ tag, etc.</p>
     <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">download_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">))</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$dl,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$dl)</span>
   <span style="color: #d0d0d0">})</span>
 <span style="color: #d0d0d0">}</span>
 
@@ -1021,7 +1022,7 @@ tag, etc.</p>
     <span style="color: #447fcf">launch</span><span style="color: #d0d0d0">()</span> <span style="color: #999999; font-style: italic"># launch</span>
 
   <span style="color: #d0d0d0">s</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #d0d0d0">Storage$</span><span style="color: #447fcf">new</span><span style="color: #d0d0d0">()$</span>
-    <span style="color: #447fcf">ref</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;test.png&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #447fcf">ref</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;logo.png&quot;</span><span style="color: #d0d0d0">)</span>
 
   <span style="color: #999999; font-style: italic"># upload a file</span>
   <span style="color: #d0d0d0">output$uploadUI</span> <span style="color: #d0d0d0">&lt;-</span> <span style="color: #447fcf">renderUI</span><span style="color: #d0d0d0">({</span>
@@ -1031,11 +1032,11 @@ tag, etc.</p>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$upload,</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;/path/to/file.png&quot;</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">upload_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;docs/logo.png&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&quot;up&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">())</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$up,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$up)</span>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #999999; font-style: italic"># download a file</span>
@@ -1049,8 +1050,8 @@ tag, etc.</p>
     <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">download_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;dl&quot;</span><span style="color: #d0d0d0">))</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$dl,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$dl)</span>
   <span style="color: #d0d0d0">})</span>
 
   <span style="color: #999999; font-style: italic"># delete file</span>
@@ -1064,8 +1065,8 @@ tag, etc.</p>
     <span style="color: #d0d0d0">s$</span><span style="color: #447fcf">delete_file</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;del&quot;</span><span style="color: #d0d0d0">)</span>
   <span style="color: #d0d0d0">})</span>
 
-  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;del&quot;</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(s$</span><span style="color: #447fcf">get_response</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;del&quot;</span><span style="color: #d0d0d0">))</span>
+  <span style="color: #447fcf">observeEvent</span><span style="color: #d0d0d0">(input$del,</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #447fcf">print</span><span style="color: #d0d0d0">(input$del)</span>
   <span style="color: #d0d0d0">})</span>
 <span style="color: #d0d0d0">}</span>
 

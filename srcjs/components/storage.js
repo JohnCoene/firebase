@@ -48,15 +48,15 @@ export const handleStorage = (firebaseApp) => {
 			});
 	});
 
-  Shiny.addCustomMessageHandler('fireblaze-download-file', function(msg) {
+  Shiny.addCustomMessageHandler('fireblaze-download-file', (msg) => {
 		getDownloadURL(storageRef)
 			.then((url) => {
 				if(!msg.response)
 					return;
 
 				let data = {
+					success: true,
 					response: url,
-					success: true
 				}
 
 				setInputValue2(msg.response, data, msg.ns);
