@@ -40,12 +40,19 @@ FirebaseAuth <- R6::R6Class(
     },
 #' @details Print the class
     print = function(){
-      rule("Firebase Authentication")
-      signin <- "No user is signed in"
-      if(private$.user_signed_in$signed_in)
-        signin <- "A user is signed in"
-      
-      cli_alert_info(signin, "\n")
+      cli_rule("Firebase Authentication")
+      user <- self$get_signed_in()
+      if (!isTRUE(user$success)) {
+        cli_alert_info("No user is signed in")
+      } else {
+        cli_alert_info("A user is signed in")
+        cli::cli_dl(Filter(Negate(is.null), c(
+          uid = user$response$uid,
+          email = user$response$email,
+          emailVerified = user$response$emailVerified,
+          displayName = user$response$displayName
+        )))
+      }
     },
 #' @details Signs out user
 #' @return self
