@@ -46,12 +46,12 @@ FirebaseAuth <- R6::R6Class(
         cli_alert_info("No user is signed in")
       } else {
         cli_alert_info("A user is signed in")
-        cli::cli_dl(c(
+        cli::cli_dl(Filter(Negate(is.null), c(
           uid = user$response$uid,
           email = user$response$email,
           emailVerified = user$response$emailVerified,
           displayName = user$response$displayName
-        ))
+        )))
       }
     },
 #' @details Signs out user
