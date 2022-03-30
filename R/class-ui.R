@@ -80,6 +80,12 @@ FirebaseUI <- R6::R6Class(
       if(all(email, email_link))
         stop("Must set `email` or `email_link`")
 
+      if(email) {
+        super$.render_deps(
+          list(firebase_dep_email_password())
+        )
+      }
+
       opts <- list(
         google = google, 
         facebook = facebook, 
