@@ -62,12 +62,16 @@ On the resulting screen copy the app ID and secret to your Firebase console.
 Authenticating via Microsoft is handled by Microsoft Azure, create a free account if you do not have one the:
 
 1. Visit [the portal](https://portal.azure.com/)
-2. Search and select "Azure Active Directory"
-3. In the left sidebar under "Manage" select "App registrations"
-4. Then click <i class="fa fa-plus"></i> New registrations
-5. Under "Redirect URI" select "Web" and place the redirect URL given by Firebase
-6. Once created, on the "overview" screen copy the "Application (client) ID" to Firebase
-7. The visit "Certificates & secrets" in the sidebar
-8. Create a "New client secret" and copy it to Firebase
+2. Search and select “Azure Active Directory”
+3. In the left sidebar under “Manage” select “App registrations”
+4. Then click New registrations
+5. Under API permissions give "User.Read" permissions to Microsoft Graph API.
+6. Under “Redirect URI” select “Web” and place the redirect URL given by Firebase
+7. Once created, on the “overview” screen copy the “Application (client) ID” to
+Firebase (find it within the firebase console under microsoft Sign-in method )
+8. Then visit “Certificates & secrets” in the sidebar
+9. Create a “New client secret” and copy it (watch out you need to copy the
+"Value" not the "Secret ID" field) to Firebase (within the firebase console
+microsoft Sign-in method under "Application secret")
 
 Once this done give Microsoft 2 minutes to sync before trying the authentication.
