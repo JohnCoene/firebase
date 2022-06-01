@@ -13,7 +13,7 @@ let oauthProviders = [];
 Shiny.addCustomMessageHandler('fireblaze-set-oauth-provider', (msg) => {
 	oauthProviders[msg.id] = new OAuthProvider(msg.provider);
 
-	if(Object.entries(msg.opts).length == 0)
+	if(Object.entries(msg.opts).length > 0)
 		oauthProviders[msg.id].setCustomParameters(msg.opts)
 });
 
