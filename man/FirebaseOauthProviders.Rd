@@ -41,38 +41,38 @@ server <- function(input, output, session){
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FirebaseOauthProviders$new()}}
-\item \href{#method-set_provider}{\code{FirebaseOauthProviders$set_provider()}}
-\item \href{#method-launch}{\code{FirebaseOauthProviders$launch()}}
-\item \href{#method-clone}{\code{FirebaseOauthProviders$clone()}}
+\item \href{#method-FirebaseOauthProviders-new}{\code{FirebaseOauthProviders$new()}}
+\item \href{#method-FirebaseOauthProviders-set_provider}{\code{FirebaseOauthProviders$set_provider()}}
+\item \href{#method-FirebaseOauthProviders-launch}{\code{FirebaseOauthProviders$launch()}}
+\item \href{#method-FirebaseOauthProviders-clone}{\code{FirebaseOauthProviders$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear">}\href{../../firebase/html/FirebaseAuth.html#method-clear}{\code{firebase::FirebaseAuth$clear()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-delete_user}{\code{firebase::FirebaseAuth$delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="expose_auth">}\href{../../firebase/html/FirebaseAuth.html#method-expose_auth}{\code{firebase::FirebaseAuth$expose_auth()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_access_token}{\code{firebase::FirebaseAuth$get_access_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-get_delete_user}{\code{firebase::FirebaseAuth$get_delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_id_token}{\code{firebase::FirebaseAuth$get_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-get_sign_out}{\code{firebase::FirebaseAuth$get_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_in}{\code{firebase::FirebaseAuth$get_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_up}{\code{firebase::FirebaseAuth$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-is_signed_in}{\code{firebase::FirebaseAuth$is_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print">}\href{../../firebase/html/FirebaseAuth.html#method-print}{\code{firebase::FirebaseAuth$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_in}{\code{firebase::FirebaseAuth$req_sign_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_out}{\code{firebase::FirebaseAuth$req_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-request_id_token}{\code{firebase::FirebaseAuth$request_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code">}\href{../../firebase/html/FirebaseAuth.html#method-set_language_code}{\code{firebase::FirebaseAuth$set_language_code()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-sign_out}{\code{firebase::FirebaseAuth$sign_out()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app"><a href='../../firebase/html/Firebase.html#method-Firebase-expose_app'><code>firebase::Firebase$expose_app()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-clear'><code>firebase::FirebaseAuth$clear()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-delete_user'><code>firebase::FirebaseAuth$delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="expose_auth"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-expose_auth'><code>firebase::FirebaseAuth$expose_auth()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_access_token'><code>firebase::FirebaseAuth$get_access_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_delete_user'><code>firebase::FirebaseAuth$get_delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_id_token'><code>firebase::FirebaseAuth$get_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_sign_out'><code>firebase::FirebaseAuth$get_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_signed_in'><code>firebase::FirebaseAuth$get_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_signed_up'><code>firebase::FirebaseAuth$get_signed_up()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-is_signed_in'><code>firebase::FirebaseAuth$is_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-print'><code>firebase::FirebaseAuth$print()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-req_sign_in'><code>firebase::FirebaseAuth$req_sign_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-req_sign_out'><code>firebase::FirebaseAuth$req_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-request_id_token'><code>firebase::FirebaseAuth$request_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-set_language_code'><code>firebase::FirebaseAuth$set_language_code()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-sign_out'><code>firebase::FirebaseAuth$sign_out()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FirebaseOauthProviders-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseOauthProviders-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseOauthProviders$new(
@@ -107,17 +107,19 @@ Initialises the Firebase application client-side.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_provider"></a>}}
-\if{latex}{\out{\hypertarget{method-set_provider}{}}}
+\if{html}{\out{<a id="method-FirebaseOauthProviders-set_provider"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseOauthProviders-set_provider}{}}}
 \subsection{Method \code{set_provider()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FirebaseOauthProviders$set_provider(provider)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FirebaseOauthProviders$set_provider(provider, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{provider}}{The provider to user, e.g.: \code{microsoft.com}, \code{yahoo.com} or \code{google.com}.}
+
+\item{\code{...}}{Additional options to pass to \href{https://github.com/firebase/snippets-web/blob/69c85abdc7cd6990618720cd33aa0d1ee357c652/snippets/auth-next/microsoft-oauth/auth_msft_provider_params.js#L8-L13}{setCustomParameters}.}
 }
 \if{html}{\out{</div>}}
 }
@@ -130,8 +132,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch"></a>}}
-\if{latex}{\out{\hypertarget{method-launch}{}}}
+\if{html}{\out{<a id="method-FirebaseOauthProviders-launch"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseOauthProviders-launch}{}}}
 \subsection{Method \code{launch()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseOauthProviders$launch(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
@@ -153,8 +155,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FirebaseOauthProviders-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseOauthProviders-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

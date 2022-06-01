@@ -16,15 +16,15 @@ Core Firebase class.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Firebase$new()}}
-\item \href{#method-expose_app}{\code{Firebase$expose_app()}}
-\item \href{#method-print}{\code{Firebase$print()}}
-\item \href{#method-clone}{\code{Firebase$clone()}}
+\item \href{#method-Firebase-new}{\code{Firebase$new()}}
+\item \href{#method-Firebase-expose_app}{\code{Firebase$expose_app()}}
+\item \href{#method-Firebase-print}{\code{Firebase$print()}}
+\item \href{#method-Firebase-clone}{\code{Firebase$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Firebase-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Firebase-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$new(
@@ -53,8 +53,8 @@ Invisibly return the class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-expose_app"></a>}}
-\if{latex}{\out{\hypertarget{method-expose_app}{}}}
+\if{html}{\out{<a id="method-Firebase-expose_app"></a>}}
+\if{latex}{\out{\hypertarget{method-Firebase-expose_app}{}}}
 \subsection{Method \code{expose_app()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$expose_app()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ attaching it to the \code{window}: access it with \code{window.firebaseApp}.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-Firebase-print"></a>}}
+\if{latex}{\out{\hypertarget{method-Firebase-print}{}}}
 \subsection{Method \code{print()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Firebase$print()}\if{html}{\out{</div>}}
@@ -82,8 +82,8 @@ Print the class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Firebase-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Firebase-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

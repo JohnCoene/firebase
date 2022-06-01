@@ -21,36 +21,36 @@ Use firebase to manage authentications.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FirebaseAuth$new()}}
-\item \href{#method-print}{\code{FirebaseAuth$print()}}
-\item \href{#method-sign_out}{\code{FirebaseAuth$sign_out()}}
-\item \href{#method-get_sign_out}{\code{FirebaseAuth$get_sign_out()}}
-\item \href{#method-get_signed_in}{\code{FirebaseAuth$get_signed_in()}}
-\item \href{#method-get_signed_up}{\code{FirebaseAuth$get_signed_up()}}
-\item \href{#method-is_signed_in}{\code{FirebaseAuth$is_signed_in()}}
-\item \href{#method-req_sign_in}{\code{FirebaseAuth$req_sign_in()}}
-\item \href{#method-req_sign_out}{\code{FirebaseAuth$req_sign_out()}}
-\item \href{#method-set_language_code}{\code{FirebaseAuth$set_language_code()}}
-\item \href{#method-delete_user}{\code{FirebaseAuth$delete_user()}}
-\item \href{#method-get_delete_user}{\code{FirebaseAuth$get_delete_user()}}
-\item \href{#method-expose_auth}{\code{FirebaseAuth$expose_auth()}}
-\item \href{#method-get_access_token}{\code{FirebaseAuth$get_access_token()}}
-\item \href{#method-clear}{\code{FirebaseAuth$clear()}}
-\item \href{#method-request_id_token}{\code{FirebaseAuth$request_id_token()}}
-\item \href{#method-get_id_token}{\code{FirebaseAuth$get_id_token()}}
-\item \href{#method-clone}{\code{FirebaseAuth$clone()}}
+\item \href{#method-FirebaseAuth-new}{\code{FirebaseAuth$new()}}
+\item \href{#method-FirebaseAuth-print}{\code{FirebaseAuth$print()}}
+\item \href{#method-FirebaseAuth-sign_out}{\code{FirebaseAuth$sign_out()}}
+\item \href{#method-FirebaseAuth-get_sign_out}{\code{FirebaseAuth$get_sign_out()}}
+\item \href{#method-FirebaseAuth-get_signed_in}{\code{FirebaseAuth$get_signed_in()}}
+\item \href{#method-FirebaseAuth-get_signed_up}{\code{FirebaseAuth$get_signed_up()}}
+\item \href{#method-FirebaseAuth-is_signed_in}{\code{FirebaseAuth$is_signed_in()}}
+\item \href{#method-FirebaseAuth-req_sign_in}{\code{FirebaseAuth$req_sign_in()}}
+\item \href{#method-FirebaseAuth-req_sign_out}{\code{FirebaseAuth$req_sign_out()}}
+\item \href{#method-FirebaseAuth-set_language_code}{\code{FirebaseAuth$set_language_code()}}
+\item \href{#method-FirebaseAuth-delete_user}{\code{FirebaseAuth$delete_user()}}
+\item \href{#method-FirebaseAuth-get_delete_user}{\code{FirebaseAuth$get_delete_user()}}
+\item \href{#method-FirebaseAuth-expose_auth}{\code{FirebaseAuth$expose_auth()}}
+\item \href{#method-FirebaseAuth-get_access_token}{\code{FirebaseAuth$get_access_token()}}
+\item \href{#method-FirebaseAuth-clear}{\code{FirebaseAuth$clear()}}
+\item \href{#method-FirebaseAuth-request_id_token}{\code{FirebaseAuth$request_id_token()}}
+\item \href{#method-FirebaseAuth-get_id_token}{\code{FirebaseAuth$get_id_token()}}
+\item \href{#method-FirebaseAuth-clone}{\code{FirebaseAuth$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app"><a href='../../firebase/html/Firebase.html#method-Firebase-expose_app'><code>firebase::Firebase$expose_app()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$new(
@@ -83,8 +83,8 @@ Initialise firebase authentication
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-print"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-print}{}}}
 \subsection{Method \code{print()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$print()}\if{html}{\out{</div>}}
@@ -96,8 +96,8 @@ Print the class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-sign_out}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-sign_out"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-sign_out}{}}}
 \subsection{Method \code{sign_out()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$sign_out()}\if{html}{\out{</div>}}
@@ -112,8 +112,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-get_sign_out}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_sign_out"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_sign_out}{}}}
 \subsection{Method \code{get_sign_out()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_sign_out()}\if{html}{\out{</div>}}
@@ -130,8 +130,8 @@ containing \code{sucessful} or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-get_signed_in}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_signed_in}{}}}
 \subsection{Method \code{get_signed_in()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_signed_in()}\if{html}{\out{</div>}}
@@ -148,8 +148,8 @@ containing the user object or \code{NULL} if signing in failed.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_signed_up"></a>}}
-\if{latex}{\out{\hypertarget{method-get_signed_up}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_signed_up"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_signed_up}{}}}
 \subsection{Method \code{get_signed_up()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_signed_up()}\if{html}{\out{</div>}}
@@ -166,8 +166,8 @@ containing the user object or \code{NULL} if signing in failed.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-is_signed_in"></a>}}
-\if{latex}{\out{\hypertarget{method-is_signed_in}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-is_signed_in"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-is_signed_in}{}}}
 \subsection{Method \code{is_signed_in()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$is_signed_in()}\if{html}{\out{</div>}}
@@ -182,8 +182,8 @@ A boolean indicating whether user has successfully signed in.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-req_sign_in"></a>}}
-\if{latex}{\out{\hypertarget{method-req_sign_in}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-req_sign_in"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-req_sign_in}{}}}
 \subsection{Method \code{req_sign_in()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$req_sign_in()}\if{html}{\out{</div>}}
@@ -195,8 +195,8 @@ Makes Shiny output, observer, or reactive require the user to be signed in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-req_sign_out"></a>}}
-\if{latex}{\out{\hypertarget{method-req_sign_out}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-req_sign_out"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-req_sign_out}{}}}
 \subsection{Method \code{req_sign_out()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$req_sign_out()}\if{html}{\out{</div>}}
@@ -208,8 +208,8 @@ Makes Shiny output, observer, or reactive require the user to be signed out
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_language_code"></a>}}
-\if{latex}{\out{\hypertarget{method-set_language_code}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-set_language_code"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-set_language_code}{}}}
 \subsection{Method \code{set_language_code()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$set_language_code(code)}\if{html}{\out{</div>}}
@@ -231,8 +231,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete_user"></a>}}
-\if{latex}{\out{\hypertarget{method-delete_user}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-delete_user"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-delete_user}{}}}
 \subsection{Method \code{delete_user()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$delete_user()}\if{html}{\out{</div>}}
@@ -247,8 +247,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_delete_user"></a>}}
-\if{latex}{\out{\hypertarget{method-get_delete_user}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_delete_user"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_delete_user}{}}}
 \subsection{Method \code{get_delete_user()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_delete_user()}\if{html}{\out{</div>}}
@@ -265,8 +265,8 @@ containing either \code{successful} string or the error if signing in failed.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-expose_auth"></a>}}
-\if{latex}{\out{\hypertarget{method-expose_auth}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-expose_auth"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-expose_auth}{}}}
 \subsection{Method \code{expose_auth()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$expose_auth()}\if{html}{\out{</div>}}
@@ -281,8 +281,8 @@ attaching it to the \code{window}: access it with \code{window.firebaseAuth}.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_access_token"></a>}}
-\if{latex}{\out{\hypertarget{method-get_access_token}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_access_token"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_access_token}{}}}
 \subsection{Method \code{get_access_token()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_access_token()}\if{html}{\out{</div>}}
@@ -297,8 +297,8 @@ User's access token
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clear"></a>}}
-\if{latex}{\out{\hypertarget{method-clear}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-clear"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-clear}{}}}
 \subsection{Method \code{clear()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$clear()}\if{html}{\out{</div>}}
@@ -314,8 +314,8 @@ sessions.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-request_id_token"></a>}}
-\if{latex}{\out{\hypertarget{method-request_id_token}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-request_id_token"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-request_id_token}{}}}
 \subsection{Method \code{request_id_token()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$request_id_token()}\if{html}{\out{</div>}}
@@ -335,8 +335,8 @@ method.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_id_token"></a>}}
-\if{latex}{\out{\hypertarget{method-get_id_token}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-get_id_token"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-get_id_token}{}}}
 \subsection{Method \code{get_id_token()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseAuth$get_id_token()}\if{html}{\out{</div>}}
@@ -353,8 +353,8 @@ the id token (invisibly).
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FirebaseAuth-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseAuth-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -59,28 +59,28 @@ observeEvent(s$get_response("dl") {
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Storage$new()}}
-\item \href{#method-ref}{\code{Storage$ref()}}
-\item \href{#method-upload_file}{\code{Storage$upload_file()}}
-\item \href{#method-download_file}{\code{Storage$download_file()}}
-\item \href{#method-delete_file}{\code{Storage$delete_file()}}
-\item \href{#method-get_metadata}{\code{Storage$get_metadata()}}
-\item \href{#method-list_files_all}{\code{Storage$list_files_all()}}
-\item \href{#method-get_response}{\code{Storage$get_response()}}
-\item \href{#method-clone}{\code{Storage$clone()}}
+\item \href{#method-Storage-new}{\code{Storage$new()}}
+\item \href{#method-Storage-ref}{\code{Storage$ref()}}
+\item \href{#method-Storage-upload_file}{\code{Storage$upload_file()}}
+\item \href{#method-Storage-download_file}{\code{Storage$download_file()}}
+\item \href{#method-Storage-delete_file}{\code{Storage$delete_file()}}
+\item \href{#method-Storage-get_metadata}{\code{Storage$get_metadata()}}
+\item \href{#method-Storage-list_files_all}{\code{Storage$list_files_all()}}
+\item \href{#method-Storage-get_response}{\code{Storage$get_response()}}
+\item \href{#method-Storage-clone}{\code{Storage$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app"><a href='../../firebase/html/Firebase.html#method-Firebase-expose_app'><code>firebase::Firebase$expose_app()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-Firebase-print'><code>firebase::Firebase$print()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Storage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$new(
@@ -106,8 +106,8 @@ Initialises the Firebase Storage application client-side.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ref"></a>}}
-\if{latex}{\out{\hypertarget{method-ref}{}}}
+\if{html}{\out{<a id="method-Storage-ref"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-ref}{}}}
 \subsection{Method \code{ref()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$ref(path = NULL)}\if{html}{\out{</div>}}
@@ -135,8 +135,8 @@ Invisibly return the class instance.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-upload_file"></a>}}
-\if{latex}{\out{\hypertarget{method-upload_file}{}}}
+\if{html}{\out{<a id="method-Storage-upload_file"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-upload_file}{}}}
 \subsection{Method \code{upload_file()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$upload_file(file, response = TRUE)}\if{html}{\out{</div>}}
@@ -194,8 +194,8 @@ observeEvent(s$get_response("fl") {
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-download_file"></a>}}
-\if{latex}{\out{\hypertarget{method-download_file}{}}}
+\if{html}{\out{<a id="method-Storage-download_file"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-download_file}{}}}
 \subsection{Method \code{download_file()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$download_file(response = TRUE)}\if{html}{\out{</div>}}
@@ -242,8 +242,8 @@ observeEvent(s$get_response("dl") {
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete_file"></a>}}
-\if{latex}{\out{\hypertarget{method-delete_file}{}}}
+\if{html}{\out{<a id="method-Storage-delete_file"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-delete_file}{}}}
 \subsection{Method \code{delete_file()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$delete_file(response = TRUE)}\if{html}{\out{</div>}}
@@ -271,8 +271,8 @@ Requires a valid authentication.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_metadata"></a>}}
-\if{latex}{\out{\hypertarget{method-get_metadata}{}}}
+\if{html}{\out{<a id="method-Storage-get_metadata"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-get_metadata}{}}}
 \subsection{Method \code{get_metadata()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$get_metadata(response = TRUE)}\if{html}{\out{</div>}}
@@ -300,8 +300,8 @@ Requires a valid authentication.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-list_files_all"></a>}}
-\if{latex}{\out{\hypertarget{method-list_files_all}{}}}
+\if{html}{\out{<a id="method-Storage-list_files_all"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-list_files_all}{}}}
 \subsection{Method \code{list_files_all()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$list_files_all(response = TRUE)}\if{html}{\out{</div>}}
@@ -328,8 +328,8 @@ Requires a valid authentication.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_response"></a>}}
-\if{latex}{\out{\hypertarget{method-get_response}{}}}
+\if{html}{\out{<a id="method-Storage-get_response"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-get_response}{}}}
 \subsection{Method \code{get_response()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Storage$get_response(response = NULL)}\if{html}{\out{</div>}}
@@ -348,8 +348,8 @@ Capture response
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Storage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Storage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

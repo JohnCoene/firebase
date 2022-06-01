@@ -5,9 +5,11 @@
 \alias{recaptchaUI}
 \title{Recaptcha}
 \usage{
-recaptchaUI(ns = function(x) {
-    x
-})
+recaptchaUI(
+  ns = function(x) {
+     x
+ }
+)
 }
 \arguments{
 \item{ns}{Namespace, optional, only required if using

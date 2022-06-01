@@ -64,12 +64,20 @@ FirebaseOauthProviders <- R6::R6Class(
 		},
 #' @details Define provider to use
 #' @param provider The provider to user, e.g.: \code{microsoft.com}, \code{yahoo.com} or \code{google.com}.
+#' @param ... Additional options to pass to [setCustomParameters](https://github.com/firebase/snippets-web/blob/69c85abdc7cd6990618720cd33aa0d1ee357c652/snippets/auth-next/microsoft-oauth/auth_msft_provider_params.js#L8-L13).
 #' @return self
-    set_provider = function(provider){
+    set_provider = function(provider, ...){
       if(missing(provider))
         stop("Missing provider", call. = FALSE)
 
-      super$send("set-oauth-provider", list(id = super$.unique_id, provider = provider))
+      super$send(
+        "set-oauth-provider", 
+        list(
+          id = super$.unique_id, 
+          provider = provider,
+          opts = list(...)
+        )
+      )
 
       private$.provider <- provider
       invisible(self)

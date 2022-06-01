@@ -96,47 +96,47 @@ server <- function(input, output){
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FirebaseEmailPassword$new()}}
-\item \href{#method-create}{\code{FirebaseEmailPassword$create()}}
-\item \href{#method-sign_in}{\code{FirebaseEmailPassword$sign_in()}}
-\item \href{#method-get_created}{\code{FirebaseEmailPassword$get_created()}}
-\item \href{#method-reset_password}{\code{FirebaseEmailPassword$reset_password()}}
-\item \href{#method-get_reset}{\code{FirebaseEmailPassword$get_reset()}}
-\item \href{#method-send_verification_email}{\code{FirebaseEmailPassword$send_verification_email()}}
-\item \href{#method-get_verification_email}{\code{FirebaseEmailPassword$get_verification_email()}}
-\item \href{#method-set_password}{\code{FirebaseEmailPassword$set_password()}}
-\item \href{#method-get_password}{\code{FirebaseEmailPassword$get_password()}}
-\item \href{#method-re_authenticate}{\code{FirebaseEmailPassword$re_authenticate()}}
-\item \href{#method-get_re_authenticated}{\code{FirebaseEmailPassword$get_re_authenticated()}}
-\item \href{#method-clone}{\code{FirebaseEmailPassword$clone()}}
+\item \href{#method-FirebaseEmailPassword-new}{\code{FirebaseEmailPassword$new()}}
+\item \href{#method-FirebaseEmailPassword-create}{\code{FirebaseEmailPassword$create()}}
+\item \href{#method-FirebaseEmailPassword-sign_in}{\code{FirebaseEmailPassword$sign_in()}}
+\item \href{#method-FirebaseEmailPassword-get_created}{\code{FirebaseEmailPassword$get_created()}}
+\item \href{#method-FirebaseEmailPassword-reset_password}{\code{FirebaseEmailPassword$reset_password()}}
+\item \href{#method-FirebaseEmailPassword-get_reset}{\code{FirebaseEmailPassword$get_reset()}}
+\item \href{#method-FirebaseEmailPassword-send_verification_email}{\code{FirebaseEmailPassword$send_verification_email()}}
+\item \href{#method-FirebaseEmailPassword-get_verification_email}{\code{FirebaseEmailPassword$get_verification_email()}}
+\item \href{#method-FirebaseEmailPassword-set_password}{\code{FirebaseEmailPassword$set_password()}}
+\item \href{#method-FirebaseEmailPassword-get_password}{\code{FirebaseEmailPassword$get_password()}}
+\item \href{#method-FirebaseEmailPassword-re_authenticate}{\code{FirebaseEmailPassword$re_authenticate()}}
+\item \href{#method-FirebaseEmailPassword-get_re_authenticated}{\code{FirebaseEmailPassword$get_re_authenticated()}}
+\item \href{#method-FirebaseEmailPassword-clone}{\code{FirebaseEmailPassword$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear">}\href{../../firebase/html/FirebaseAuth.html#method-clear}{\code{firebase::FirebaseAuth$clear()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-delete_user}{\code{firebase::FirebaseAuth$delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="expose_auth">}\href{../../firebase/html/FirebaseAuth.html#method-expose_auth}{\code{firebase::FirebaseAuth$expose_auth()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_access_token}{\code{firebase::FirebaseAuth$get_access_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user">}\href{../../firebase/html/FirebaseAuth.html#method-get_delete_user}{\code{firebase::FirebaseAuth$get_delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-get_id_token}{\code{firebase::FirebaseAuth$get_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-get_sign_out}{\code{firebase::FirebaseAuth$get_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_in}{\code{firebase::FirebaseAuth$get_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up">}\href{../../firebase/html/FirebaseAuth.html#method-get_signed_up}{\code{firebase::FirebaseAuth$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in">}\href{../../firebase/html/FirebaseAuth.html#method-is_signed_in}{\code{firebase::FirebaseAuth$is_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print">}\href{../../firebase/html/FirebaseAuth.html#method-print}{\code{firebase::FirebaseAuth$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_in}{\code{firebase::FirebaseAuth$req_sign_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-req_sign_out}{\code{firebase::FirebaseAuth$req_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token">}\href{../../firebase/html/FirebaseAuth.html#method-request_id_token}{\code{firebase::FirebaseAuth$request_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code">}\href{../../firebase/html/FirebaseAuth.html#method-set_language_code}{\code{firebase::FirebaseAuth$set_language_code()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out">}\href{../../firebase/html/FirebaseAuth.html#method-sign_out}{\code{firebase::FirebaseAuth$sign_out()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app"><a href='../../firebase/html/Firebase.html#method-Firebase-expose_app'><code>firebase::Firebase$expose_app()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="clear"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-clear'><code>firebase::FirebaseAuth$clear()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-delete_user'><code>firebase::FirebaseAuth$delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="expose_auth"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-expose_auth'><code>firebase::FirebaseAuth$expose_auth()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_access_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_access_token'><code>firebase::FirebaseAuth$get_access_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_delete_user"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_delete_user'><code>firebase::FirebaseAuth$get_delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_id_token'><code>firebase::FirebaseAuth$get_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_sign_out'><code>firebase::FirebaseAuth$get_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_signed_in'><code>firebase::FirebaseAuth$get_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="get_signed_up"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-get_signed_up'><code>firebase::FirebaseAuth$get_signed_up()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="is_signed_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-is_signed_in'><code>firebase::FirebaseAuth$is_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="print"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-print'><code>firebase::FirebaseAuth$print()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_in"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-req_sign_in'><code>firebase::FirebaseAuth$req_sign_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="req_sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-req_sign_out'><code>firebase::FirebaseAuth$req_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="request_id_token"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-request_id_token'><code>firebase::FirebaseAuth$request_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="set_language_code"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-set_language_code'><code>firebase::FirebaseAuth$set_language_code()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="FirebaseAuth" data-id="sign_out"><a href='../../firebase/html/FirebaseAuth.html#method-FirebaseAuth-sign_out'><code>firebase::FirebaseAuth$sign_out()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$new(
@@ -171,8 +171,8 @@ Initialises the Firebase application client-side.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-create"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-create}{}}}
 \subsection{Method \code{create()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$create(email, password)}\if{html}{\out{</div>}}
@@ -194,8 +194,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sign_in"></a>}}
-\if{latex}{\out{\hypertarget{method-sign_in}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-sign_in"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-sign_in}{}}}
 \subsection{Method \code{sign_in()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$sign_in(email, password)}\if{html}{\out{</div>}}
@@ -217,8 +217,8 @@ Sign in with email
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_created"></a>}}
-\if{latex}{\out{\hypertarget{method-get_created}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-get_created"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-get_created}{}}}
 \subsection{Method \code{get_created()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_created()}\if{html}{\out{</div>}}
@@ -235,8 +235,8 @@ containing the result of account creation or the error if failed.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-reset_password"></a>}}
-\if{latex}{\out{\hypertarget{method-reset_password}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-reset_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-reset_password}{}}}
 \subsection{Method \code{reset_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$reset_password(email = NULL)}\if{html}{\out{</div>}}
@@ -258,8 +258,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_reset"></a>}}
-\if{latex}{\out{\hypertarget{method-get_reset}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-get_reset"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-get_reset}{}}}
 \subsection{Method \code{get_reset()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_reset()}\if{html}{\out{</div>}}
@@ -276,8 +276,8 @@ containing \code{successful} or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-send_verification_email"></a>}}
-\if{latex}{\out{\hypertarget{method-send_verification_email}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-send_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-send_verification_email}{}}}
 \subsection{Method \code{send_verification_email()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$send_verification_email()}\if{html}{\out{</div>}}
@@ -292,8 +292,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_verification_email"></a>}}
-\if{latex}{\out{\hypertarget{method-get_verification_email}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-get_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-get_verification_email}{}}}
 \subsection{Method \code{get_verification_email()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_verification_email()}\if{html}{\out{</div>}}
@@ -310,8 +310,8 @@ containing \code{successful} or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_password"></a>}}
-\if{latex}{\out{\hypertarget{method-set_password}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-set_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-set_password}{}}}
 \subsection{Method \code{set_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$set_password(password)}\if{html}{\out{</div>}}
@@ -336,8 +336,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_password"></a>}}
-\if{latex}{\out{\hypertarget{method-get_password}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-get_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-get_password}{}}}
 \subsection{Method \code{get_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_password()}\if{html}{\out{</div>}}
@@ -354,8 +354,8 @@ containing \code{successful} as string or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-re_authenticate"></a>}}
-\if{latex}{\out{\hypertarget{method-re_authenticate}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-re_authenticate"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-re_authenticate}{}}}
 \subsection{Method \code{re_authenticate()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$re_authenticate(password)}\if{html}{\out{</div>}}
@@ -383,8 +383,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_re_authenticated"></a>}}
-\if{latex}{\out{\hypertarget{method-get_re_authenticated}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-get_re_authenticated"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-get_re_authenticated}{}}}
 \subsection{Method \code{get_re_authenticated()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseEmailPassword$get_re_authenticated()}\if{html}{\out{</div>}}
@@ -401,8 +401,8 @@ containing \code{successful} as string or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FirebaseEmailPassword-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseEmailPassword-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

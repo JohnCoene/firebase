@@ -28,3 +28,4 @@ test.R
 ^site$
 ^CRAN-SUBMISSION$
 ^\.gitattributes$
+^\.vscode$

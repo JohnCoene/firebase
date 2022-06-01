@@ -12,26 +12,26 @@ Access Firebase Realtime Database
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{RealtimeDatabase$new()}}
-\item \href{#method-ref}{\code{RealtimeDatabase$ref()}}
-\item \href{#method-on_value}{\code{RealtimeDatabase$on_value()}}
-\item \href{#method-set}{\code{RealtimeDatabase$set()}}
-\item \href{#method-update}{\code{RealtimeDatabase$update()}}
-\item \href{#method-delete}{\code{RealtimeDatabase$delete()}}
-\item \href{#method-clone}{\code{RealtimeDatabase$clone()}}
+\item \href{#method-NA-new}{\code{RealtimeDatabase$new()}}
+\item \href{#method-NA-ref}{\code{RealtimeDatabase$ref()}}
+\item \href{#method-NA-on_value}{\code{RealtimeDatabase$on_value()}}
+\item \href{#method-NA-set}{\code{RealtimeDatabase$set()}}
+\item \href{#method-NA-update}{\code{RealtimeDatabase$update()}}
+\item \href{#method-NA-delete}{\code{RealtimeDatabase$delete()}}
+\item \href{#method-unknown-clone}{\code{RealtimeDatabase$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app">}\href{../../firebase/html/Firebase.html#method-expose_app}{\code{firebase::Firebase$expose_app()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="expose_app"><a href='../../firebase/html/Firebase.html#method-Firebase-expose_app'><code>firebase::Firebase$expose_app()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-Firebase-print'><code>firebase::Firebase$print()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NA-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$new(
@@ -57,8 +57,8 @@ Initialises the Firebase Storage application client-side.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ref"></a>}}
-\if{latex}{\out{\hypertarget{method-ref}{}}}
+\if{html}{\out{<a id="method-NA-ref"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-ref}{}}}
 \subsection{Method \code{ref()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$ref(path = NULL)}\if{html}{\out{</div>}}
@@ -84,8 +84,8 @@ Invisibly return the class instance.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-on_value"></a>}}
-\if{latex}{\out{\hypertarget{method-on_value}{}}}
+\if{html}{\out{<a id="method-NA-on_value"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-on_value}{}}}
 \subsection{Method \code{on_value()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$on_value(response, path = NULL)}\if{html}{\out{</div>}}
@@ -115,8 +115,8 @@ data to \code{response}.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set"></a>}}
-\if{latex}{\out{\hypertarget{method-set}{}}}
+\if{html}{\out{<a id="method-NA-set"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-set}{}}}
 \subsection{Method \code{set()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$set(data, response = NULL, path = NULL)}\if{html}{\out{</div>}}
@@ -147,8 +147,8 @@ Pushes data to the database.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-NA-update"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-update}{}}}
 \subsection{Method \code{update()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$update(data, response = NULL, path = NULL)}\if{html}{\out{</div>}}
@@ -179,8 +179,8 @@ Update a record.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-NA-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-delete}{}}}
 \subsection{Method \code{delete()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RealtimeDatabase$delete(response = NULL, path = NULL)}\if{html}{\out{</div>}}
@@ -209,8 +209,8 @@ Delete data to the database.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-unknown-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-unknown-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
