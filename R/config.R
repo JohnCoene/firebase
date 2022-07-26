@@ -35,8 +35,8 @@ firebase_config <- function(api_key, project_id, auth_domain = NULL, app_id = NU
     apiKey = .enc(api_key),
     authDomain = .enc(auth_domain),
     projectId = .enc(project_id),
-    app_id = .enc(app_id),
-    measurement_id = .enc(measurement_id)
+    appId = .enc(app_id),
+    measurementId = .enc(measurement_id)
   )
 
   # check if file exists
