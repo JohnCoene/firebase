@@ -22,6 +22,6 @@ Imports:
     shiny,
     openssl,
     jose
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues

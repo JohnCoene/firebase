@@ -45,39 +45,39 @@ server <- function(input, output) {
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-set_scope}{\code{FirebaseSocial$set_scope()}}
-\item \href{#method-launch_google}{\code{FirebaseSocial$launch_google()}}
-\item \href{#method-launch_github}{\code{FirebaseSocial$launch_github()}}
-\item \href{#method-launch_facebook}{\code{FirebaseSocial$launch_facebook()}}
-\item \href{#method-launch_twitter}{\code{FirebaseSocial$launch_twitter()}}
-\item \href{#method-clone}{\code{FirebaseSocial$clone()}}
+\item \href{#method-FirebaseSocial-set_scope}{\code{FirebaseSocial$set_scope()}}
+\item \href{#method-FirebaseSocial-launch_google}{\code{FirebaseSocial$launch_google()}}
+\item \href{#method-FirebaseSocial-launch_github}{\code{FirebaseSocial$launch_github()}}
+\item \href{#method-FirebaseSocial-launch_facebook}{\code{FirebaseSocial$launch_facebook()}}
+\item \href{#method-FirebaseSocial-launch_twitter}{\code{FirebaseSocial$launch_twitter()}}
+\item \href{#method-FirebaseSocial-clone}{\code{FirebaseSocial$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear">}\href{../../firebase/html/Firebase.html#method-clear}{\code{firebase::Firebase$clear()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token">}\href{../../firebase/html/Firebase.html#method-get_access_token}{\code{firebase::Firebase$get_access_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token">}\href{../../firebase/html/Firebase.html#method-get_id_token}{\code{firebase::Firebase$get_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in">}\href{../../firebase/html/Firebase.html#method-is_signed_in}{\code{firebase::Firebase$is_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in">}\href{../../firebase/html/Firebase.html#method-req_sign_in}{\code{firebase::Firebase$req_sign_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out">}\href{../../firebase/html/Firebase.html#method-req_sign_out}{\code{firebase::Firebase$req_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token">}\href{../../firebase/html/Firebase.html#method-request_id_token}{\code{firebase::Firebase$request_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code">}\href{../../firebase/html/Firebase.html#method-set_language_code}{\code{firebase::Firebase$set_language_code()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out">}\href{../../firebase/html/Firebase.html#method-sign_out}{\code{firebase::Firebase$sign_out()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear"><a href='../../firebase/html/Firebase.html#method-Firebase-clear'><code>firebase::Firebase$clear()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-Firebase-delete_user'><code>firebase::Firebase$delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token"><a href='../../firebase/html/Firebase.html#method-Firebase-get_access_token'><code>firebase::Firebase$get_access_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-Firebase-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token"><a href='../../firebase/html/Firebase.html#method-Firebase-get_id_token'><code>firebase::Firebase$get_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-Firebase-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-Firebase-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-Firebase-initialize'><code>firebase::Firebase$initialize()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-Firebase-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-Firebase-print'><code>firebase::Firebase$print()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in"><a href='../../firebase/html/Firebase.html#method-Firebase-req_sign_in'><code>firebase::Firebase$req_sign_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-req_sign_out'><code>firebase::Firebase$req_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token"><a href='../../firebase/html/Firebase.html#method-Firebase-request_id_token'><code>firebase::Firebase$request_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-Firebase-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-sign_out'><code>firebase::Firebase$sign_out()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_scope"></a>}}
-\if{latex}{\out{\hypertarget{method-set_scope}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-set_scope"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-set_scope}{}}}
 \subsection{Method \code{set_scope()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$set_scope(scope)}\if{html}{\out{</div>}}
@@ -99,8 +99,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch_google"></a>}}
-\if{latex}{\out{\hypertarget{method-launch_google}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-launch_google"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-launch_google}{}}}
 \subsection{Method \code{launch_google()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$launch_google(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
@@ -122,8 +122,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch_github"></a>}}
-\if{latex}{\out{\hypertarget{method-launch_github}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-launch_github"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-launch_github}{}}}
 \subsection{Method \code{launch_github()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$launch_github(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
@@ -145,8 +145,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch_facebook"></a>}}
-\if{latex}{\out{\hypertarget{method-launch_facebook}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-launch_facebook"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-launch_facebook}{}}}
 \subsection{Method \code{launch_facebook()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$launch_facebook(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
@@ -168,8 +168,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch_twitter"></a>}}
-\if{latex}{\out{\hypertarget{method-launch_twitter}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-launch_twitter"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-launch_twitter}{}}}
 \subsection{Method \code{launch_twitter()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseSocial$launch_twitter(flow = c("popup", "redirect"))}\if{html}{\out{</div>}}
@@ -191,8 +191,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FirebaseSocial-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseSocial-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

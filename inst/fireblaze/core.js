@@ -22,6 +22,9 @@ Shiny.addCustomMessageHandler('fireblaze-initialize', function(msg) {
   // init
   firebase.initializeApp(msg.conf);
 
+  if(msg.analytics)
+    var analytics = firebase.analytics();
+
   // set persistence
   var persistence = persistenceOpts(msg.persistence);
   firebase.auth().setPersistence(persistence)

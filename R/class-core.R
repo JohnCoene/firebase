@@ -15,7 +15,8 @@ Firebase <- R6::R6Class(
 #' @param session A valid shiny session.
 #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
 #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-    initialize = function(persistence = c("none", "session", "local"), config_path = "firebase.rds", session = shiny::getDefaultReactiveDomain()){
+#' @param analytics Whether to use Google Analytics.
+    initialize = function(persistence = c("none", "session", "local"), config_path = "firebase.rds", session = shiny::getDefaultReactiveDomain(), analytics = FALSE){
       # check that config is present
       stopifno_config(config_path)
 
@@ -28,7 +29,8 @@ Firebase <- R6::R6Class(
       conf <- read_config(config_path)
       msg <- list(
         conf = conf,
-        persistence = match.arg(persistence)
+        persistence = match.arg(persistence),
+        analytics = analytics
       )
 
       private$.project_id <- conf$projectId

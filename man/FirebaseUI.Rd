@@ -42,46 +42,46 @@ server <- function(input, output){
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-set_providers}{\code{FirebaseUI$set_providers()}}
-\item \href{#method-set_tos_url}{\code{FirebaseUI$set_tos_url()}}
-\item \href{#method-set_privacy_policy_url}{\code{FirebaseUI$set_privacy_policy_url()}}
-\item \href{#method-launch}{\code{FirebaseUI$launch()}}
-\item \href{#method-reset_password}{\code{FirebaseUI$reset_password()}}
-\item \href{#method-get_reset}{\code{FirebaseUI$get_reset()}}
-\item \href{#method-send_verification_email}{\code{FirebaseUI$send_verification_email()}}
-\item \href{#method-get_verification_email}{\code{FirebaseUI$get_verification_email()}}
-\item \href{#method-set_password}{\code{FirebaseUI$set_password()}}
-\item \href{#method-get_password}{\code{FirebaseUI$get_password()}}
-\item \href{#method-re_authenticate}{\code{FirebaseUI$re_authenticate()}}
-\item \href{#method-get_re_authenticated}{\code{FirebaseUI$get_re_authenticated()}}
-\item \href{#method-clone}{\code{FirebaseUI$clone()}}
+\item \href{#method-FirebaseUI-set_providers}{\code{FirebaseUI$set_providers()}}
+\item \href{#method-FirebaseUI-set_tos_url}{\code{FirebaseUI$set_tos_url()}}
+\item \href{#method-FirebaseUI-set_privacy_policy_url}{\code{FirebaseUI$set_privacy_policy_url()}}
+\item \href{#method-FirebaseUI-launch}{\code{FirebaseUI$launch()}}
+\item \href{#method-FirebaseUI-reset_password}{\code{FirebaseUI$reset_password()}}
+\item \href{#method-FirebaseUI-get_reset}{\code{FirebaseUI$get_reset()}}
+\item \href{#method-FirebaseUI-send_verification_email}{\code{FirebaseUI$send_verification_email()}}
+\item \href{#method-FirebaseUI-get_verification_email}{\code{FirebaseUI$get_verification_email()}}
+\item \href{#method-FirebaseUI-set_password}{\code{FirebaseUI$set_password()}}
+\item \href{#method-FirebaseUI-get_password}{\code{FirebaseUI$get_password()}}
+\item \href{#method-FirebaseUI-re_authenticate}{\code{FirebaseUI$re_authenticate()}}
+\item \href{#method-FirebaseUI-get_re_authenticated}{\code{FirebaseUI$get_re_authenticated()}}
+\item \href{#method-FirebaseUI-clone}{\code{FirebaseUI$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear">}\href{../../firebase/html/Firebase.html#method-clear}{\code{firebase::Firebase$clear()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user">}\href{../../firebase/html/Firebase.html#method-delete_user}{\code{firebase::Firebase$delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token">}\href{../../firebase/html/Firebase.html#method-get_access_token}{\code{firebase::Firebase$get_access_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user">}\href{../../firebase/html/Firebase.html#method-get_delete_user}{\code{firebase::Firebase$get_delete_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token">}\href{../../firebase/html/Firebase.html#method-get_id_token}{\code{firebase::Firebase$get_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out">}\href{../../firebase/html/Firebase.html#method-get_sign_out}{\code{firebase::Firebase$get_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in">}\href{../../firebase/html/Firebase.html#method-get_signed_in}{\code{firebase::Firebase$get_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up">}\href{../../firebase/html/Firebase.html#method-get_signed_up}{\code{firebase::Firebase$get_signed_up()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize">}\href{../../firebase/html/Firebase.html#method-initialize}{\code{firebase::Firebase$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in">}\href{../../firebase/html/Firebase.html#method-is_signed_in}{\code{firebase::Firebase$is_signed_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print">}\href{../../firebase/html/Firebase.html#method-print}{\code{firebase::Firebase$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in">}\href{../../firebase/html/Firebase.html#method-req_sign_in}{\code{firebase::Firebase$req_sign_in()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out">}\href{../../firebase/html/Firebase.html#method-req_sign_out}{\code{firebase::Firebase$req_sign_out()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token">}\href{../../firebase/html/Firebase.html#method-request_id_token}{\code{firebase::Firebase$request_id_token()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code">}\href{../../firebase/html/Firebase.html#method-set_language_code}{\code{firebase::Firebase$set_language_code()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out">}\href{../../firebase/html/Firebase.html#method-sign_out}{\code{firebase::Firebase$sign_out()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="clear"><a href='../../firebase/html/Firebase.html#method-Firebase-clear'><code>firebase::Firebase$clear()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="delete_user"><a href='../../firebase/html/Firebase.html#method-Firebase-delete_user'><code>firebase::Firebase$delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_access_token"><a href='../../firebase/html/Firebase.html#method-Firebase-get_access_token'><code>firebase::Firebase$get_access_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_delete_user"><a href='../../firebase/html/Firebase.html#method-Firebase-get_delete_user'><code>firebase::Firebase$get_delete_user()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_id_token"><a href='../../firebase/html/Firebase.html#method-Firebase-get_id_token'><code>firebase::Firebase$get_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-get_sign_out'><code>firebase::Firebase$get_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_in"><a href='../../firebase/html/Firebase.html#method-Firebase-get_signed_in'><code>firebase::Firebase$get_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="get_signed_up"><a href='../../firebase/html/Firebase.html#method-Firebase-get_signed_up'><code>firebase::Firebase$get_signed_up()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="initialize"><a href='../../firebase/html/Firebase.html#method-Firebase-initialize'><code>firebase::Firebase$initialize()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="is_signed_in"><a href='../../firebase/html/Firebase.html#method-Firebase-is_signed_in'><code>firebase::Firebase$is_signed_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="print"><a href='../../firebase/html/Firebase.html#method-Firebase-print'><code>firebase::Firebase$print()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_in"><a href='../../firebase/html/Firebase.html#method-Firebase-req_sign_in'><code>firebase::Firebase$req_sign_in()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="req_sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-req_sign_out'><code>firebase::Firebase$req_sign_out()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="request_id_token"><a href='../../firebase/html/Firebase.html#method-Firebase-request_id_token'><code>firebase::Firebase$request_id_token()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="set_language_code"><a href='../../firebase/html/Firebase.html#method-Firebase-set_language_code'><code>firebase::Firebase$set_language_code()</code></a></li>
+<li><span class="pkg-link" data-pkg="firebase" data-topic="Firebase" data-id="sign_out"><a href='../../firebase/html/Firebase.html#method-Firebase-sign_out'><code>firebase::Firebase$sign_out()</code></a></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_providers"></a>}}
-\if{latex}{\out{\hypertarget{method-set_providers}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-set_providers"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-set_providers}{}}}
 \subsection{Method \code{set_providers()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$set_providers(
@@ -115,8 +115,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_tos_url"></a>}}
-\if{latex}{\out{\hypertarget{method-set_tos_url}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-set_tos_url"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-set_tos_url}{}}}
 \subsection{Method \code{set_tos_url()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$set_tos_url(url)}\if{html}{\out{</div>}}
@@ -138,8 +138,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_privacy_policy_url"></a>}}
-\if{latex}{\out{\hypertarget{method-set_privacy_policy_url}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-set_privacy_policy_url"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-set_privacy_policy_url}{}}}
 \subsection{Method \code{set_privacy_policy_url()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$set_privacy_policy_url(url)}\if{html}{\out{</div>}}
@@ -161,8 +161,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-launch"></a>}}
-\if{latex}{\out{\hypertarget{method-launch}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-launch"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-launch}{}}}
 \subsection{Method \code{launch()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$launch(flow = c("popup", "redirect"), account_helper = FALSE)}\if{html}{\out{</div>}}
@@ -190,8 +190,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-reset_password"></a>}}
-\if{latex}{\out{\hypertarget{method-reset_password}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-reset_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-reset_password}{}}}
 \subsection{Method \code{reset_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$reset_password(email = NULL)}\if{html}{\out{</div>}}
@@ -213,8 +213,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_reset"></a>}}
-\if{latex}{\out{\hypertarget{method-get_reset}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-get_reset"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-get_reset}{}}}
 \subsection{Method \code{get_reset()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_reset()}\if{html}{\out{</div>}}
@@ -231,8 +231,8 @@ containing \code{successful} or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-send_verification_email"></a>}}
-\if{latex}{\out{\hypertarget{method-send_verification_email}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-send_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-send_verification_email}{}}}
 \subsection{Method \code{send_verification_email()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$send_verification_email()}\if{html}{\out{</div>}}
@@ -247,8 +247,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_verification_email"></a>}}
-\if{latex}{\out{\hypertarget{method-get_verification_email}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-get_verification_email"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-get_verification_email}{}}}
 \subsection{Method \code{get_verification_email()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_verification_email()}\if{html}{\out{</div>}}
@@ -265,8 +265,8 @@ containing \code{successful} or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_password"></a>}}
-\if{latex}{\out{\hypertarget{method-set_password}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-set_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-set_password}{}}}
 \subsection{Method \code{set_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$set_password(password)}\if{html}{\out{</div>}}
@@ -291,8 +291,8 @@ self
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_password"></a>}}
-\if{latex}{\out{\hypertarget{method-get_password}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-get_password"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-get_password}{}}}
 \subsection{Method \code{get_password()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_password()}\if{html}{\out{</div>}}
@@ -309,8 +309,8 @@ containing \code{successful} as string or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-re_authenticate"></a>}}
-\if{latex}{\out{\hypertarget{method-re_authenticate}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-re_authenticate"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-re_authenticate}{}}}
 \subsection{Method \code{re_authenticate()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$re_authenticate(password)}\if{html}{\out{</div>}}
@@ -335,8 +335,8 @@ in too long ago, the action fails with an error.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_re_authenticated"></a>}}
-\if{latex}{\out{\hypertarget{method-get_re_authenticated}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-get_re_authenticated"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-get_re_authenticated}{}}}
 \subsection{Method \code{get_re_authenticated()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FirebaseUI$get_re_authenticated()}\if{html}{\out{</div>}}
@@ -353,8 +353,8 @@ containing \code{successful} as string or the error.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FirebaseUI-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FirebaseUI-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
