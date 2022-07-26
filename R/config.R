@@ -7,7 +7,9 @@
 #' @param api_key API key of your project.
 #' @param project_id Id of your web project.
 #' @param auth_domain Authentication domain, if omitted uses,
-#' attempts to build firebase's default domain. 
+#' attempts to build firebase's default domain.
+#' @param app_id Application ID.
+#' @param measurement_id Measurement ID.
 #' @param overwrite Whether to overwrite any existing configuration file.
 #' 
 #' @details Do not share this file with anyone.
@@ -19,7 +21,7 @@
 #' @name config
 #' 
 #' @export
-firebase_config <- function(api_key, project_id, auth_domain = NULL, overwrite = FALSE){
+firebase_config <- function(api_key, project_id, auth_domain = NULL, app_id = NULL, measurement_id = NULL, overwrite = FALSE){
 
   if(missing(api_key) || missing(project_id) )
     stop("Missing `api_key`, or `project_id`", call. = FALSE)
@@ -32,7 +34,9 @@ firebase_config <- function(api_key, project_id, auth_domain = NULL, overwrite =
   lst <- list(
     apiKey = .enc(api_key),
     authDomain = .enc(auth_domain),
-    projectId = .enc(project_id)
+    projectId = .enc(project_id),
+    app_id = .enc(app_id),
+    measurement_id = .enc(measurement_id)
   )
 
   # check if file exists

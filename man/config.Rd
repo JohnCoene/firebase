@@ -5,7 +5,14 @@
 \alias{firebase_config}
 \title{Config}
 \usage{
-firebase_config(api_key, project_id, auth_domain = NULL, overwrite = FALSE)
+firebase_config(
+  api_key,
+  project_id,
+  auth_domain = NULL,
+  app_id = NULL,
+  measurement_id = NULL,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{api_key}{API key of your project.}
@@ -14,6 +21,10 @@ firebase_config(api_key, project_id, auth_domain = NULL, overwrite = FALSE)
 
 \item{auth_domain}{Authentication domain, if omitted uses,
 attempts to build firebase's default domain.}
+
+\item{app_id}{Application ID.}
+
+\item{measurement_id}{Measurement ID.}
 
 \item{overwrite}{Whether to overwrite any existing configuration file.}
 }
