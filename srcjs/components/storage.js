@@ -104,7 +104,7 @@ export const handleStorage = (firebaseApp) => {
 	Shiny.addCustomMessageHandler('fireblaze-list-all-files', function(msg) {
 		listAll(storageRef)
 			.then((res) => {
-				setInputValue2(msg.response, {success: true, response: res.items}, msg.ns);
+				setInputValue2(msg.response, {success: true, response: res}, msg.ns);
 			})
 			.catch((error) => {
 				if(!msg.response)
