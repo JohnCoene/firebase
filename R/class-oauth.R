@@ -84,17 +84,18 @@ FirebaseOauthProviders <- R6::R6Class(
     },
 #' @details Launch sign in with Google.
 #' @param flow Authentication flow, either popup or redirect.
+#' @param get_credentials Whether to extract underlying oauth credentials.
 #' @return self
-    launch = function(flow = c("popup", "redirect")){
-      private$launch_oauth(match.arg(flow))
+    launch = function(flow = c("popup", "redirect"), get_credentials = FALSE){
+      private$launch_oauth(match.arg(flow), get_credentials = get_credentials)
       invisible(self)
     }
   ),
   private = list(
     .provider = NULL,
-    launch_oauth = function(flow = c("popup", "redirect")){
+    launch_oauth = function(flow = c("popup", "redirect"), get_credentials = FALSE){
       call <- paste0("oauth-sign-in-", flow)
-      super$send(call, list(id = super$.unique_id))
+      super$send(call, list(id = super$.unique_id, credentials = get_credentials))
     }
   )
 )
