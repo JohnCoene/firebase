@@ -39,11 +39,6 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install dependencies
-        run: |
-            install.packages(c("remotes"))
-        shell: Rscript {0}
-
       - name: Cache R packages
         if: runner.os != 'Windows'
         uses: actions/cache@v3
@@ -62,6 +57,10 @@ jobs:
 
       - name: Install dependencies
         run: |
+          r = getOption("repos")
+          r["CRAN"] = "http://cran.us.r-project.org"
+          options(repos = r)
+          install.packages("remotes", repos = "http://cran.us.r-project.org")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
