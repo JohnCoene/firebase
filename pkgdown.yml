@@ -1,0 +1,19 @@
+pandoc: 3.1.1
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  analytics: analytics.html
+  demo: demo.html
+  email-link: email-link.html
+  email-password: email-password.html
+  flow: flow.html
+  get-started: get-started.html
+  manage: manage.html
+  oauth-providers: oauth-providers.html
+  phone: phone.html
+  social: social.html
+  state-persistence: state-persistence.html
+  storage: storage.html
+  ui: ui.html
+last_built: 2023-06-30T16:06Z
+
