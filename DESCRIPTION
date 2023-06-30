@@ -1,20 +1,21 @@
 Package: firebase
 Title: Integrates 'Google Firebase' Authentication Storage, and 'Analytics' with 'Shiny'
-Version: 1.0.1.9000
-Date: 2022-02-08
+Version: 1.0.2
+Date: 2023-06-30"
 Authors@R: c(
     person(
       given = "John",
       family = "Coene",
-      role = c("aut", "cre"),
+      role = c("aut", "cph"),
       email = "jcoenep@gmail.com"
     ),
+    person("David", "Munoz Tord", email = "david.munoztord@mailbox.org", role = c("cre", "ctb"), comment = c(ORCID = "0000-0001-7954-8295")),
     person(
       given = "Juha",
       family = "Itkonen",
       role = "ctb"
     ))
-Description: Authenticate users in 'Shiny' applications using 'Google Firebase' 
+Description: Authenticate users in 'Shiny' applications using 'Google Firebase'
     with any of the many methods provided; email and password, email link, or
     using a third-party provider such as 'Github', 'Twitter', or 'Google'.
     use 'Firebase Storage' to store files securely, and leverage 'Firebase Analytics'
@@ -33,6 +34,6 @@ Imports:
   htmltools
 Suggests:
   R6 (>= 2.5.0)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues
