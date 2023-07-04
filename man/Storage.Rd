@@ -14,7 +14,9 @@ Storage
 ## Method `Storage$upload_file`
 ## ------------------------------------------------
 
-\dontrun{
+
+if(interactive(){
+
 s <- Storage$new()
 
 # default response
@@ -166,7 +168,9 @@ Requires a valid authentication.
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
+\preformatted{
+if(interactive(){
+
 s <- Storage$new()
 
 # default response

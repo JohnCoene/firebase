@@ -51,25 +51,27 @@ Storage <- R6::R6Class(
 #' not want those results back. A character string is
 #' used as named of the response which then can be used
 #' in the `get_response` method.
-#' 
-#' @examples 
-#' \dontrun{
+#'
+#' @examples
+#'
+#' if(interactive(){
+#'
 #' s <- Storage$new()
-#' 
+#'
 #' # default response
 #' s$
 #'   ref("test.png")$
 #'   upload_file("path/to/file.png")
-#' 
+#'
 #' observeEvent(s$get_response() {
 #'   # do something
 #' })
-#' 
+#'
 #' # named response
 #' s$
 #'   ref("test.png")$
 #'   upload_file("path/to/file.png", response = "fl")
-#' 
+#'
 #' observeEvent(s$get_response("fl") {
 #'   # do something
 #' })

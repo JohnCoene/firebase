@@ -33,6 +33,6 @@ Imports:
   htmltools
 Suggests:
   R6 (>= 2.5.0)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 URL: https://firebase.john-coene.com/, https://github.com/JohnCoene/firebase
 BugReports: https://github.com/JohnCoene/firebase/issues
