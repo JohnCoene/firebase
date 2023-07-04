@@ -1,5 +1,7 @@
 #' Analytics
 #' 
+#' @return An object of class \code{Analytics}.
+#' 
 #' @export 
 Analytics <- R6::R6Class(
 	"Analytics",

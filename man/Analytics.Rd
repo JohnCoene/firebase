@@ -3,6 +3,9 @@
 \name{Analytics}
 \alias{Analytics}
 \title{Analytics}
+\value{
+An object of class \code{Analytics}.
+}
 \description{
 Analytics
 

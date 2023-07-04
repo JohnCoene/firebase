@@ -3,6 +3,9 @@
 \name{RealtimeDatabase}
 \alias{RealtimeDatabase}
 \title{Realtime Database}
+\value{
+An object of class \code{RealtimeDatabase}.
+}
 \description{
 Access Firebase Realtime Database
 }

@@ -3,6 +3,9 @@
 \name{Firebase}
 \alias{Firebase}
 \title{Firebase}
+\value{
+An object of class \code{Firebase}.
+}
 \description{
 Core Firebase class.
 }

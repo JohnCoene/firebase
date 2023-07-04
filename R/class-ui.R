@@ -2,6 +2,8 @@
 #' 
 #' Use firebase to manage authentications.
 #' 
+#' @return An object of class \code{FirebaseUI}.
+#' 
 #' @field tos_url URL to the Terms of Service page.
 #' @field privacy_policy_url The URL to the Privacy Policy page.
 #' 

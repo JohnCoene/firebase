@@ -3,6 +3,9 @@
 \name{FirebaseOauthProviders}
 \alias{FirebaseOauthProviders}
 \title{OAuth Providers}
+\value{
+An object of class \code{FirebaseOauthProviders}.
+}
 \description{
 Use OAuth provides such as Github or Facebook to allow users to conveniently sign in.
 }

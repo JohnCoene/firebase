@@ -2,6 +2,10 @@
 #' 
 #' Access Firebase Realtime Database
 #' 
+#' 
+#' @return An object of class \code{RealtimeDatabase}.
+#' 
+#' 
 #' @export
 RealtimeDatabase <- R6::R6Class(
 	inherit = Firebase,

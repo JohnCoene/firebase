@@ -9,6 +9,9 @@ reqSignin(...)
 \arguments{
 \item{...}{Any valid \link[shiny]{tags}.}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 Define UI element that require the user to be signed in. This
 will hide them \emph{viusally} until the user signs in.

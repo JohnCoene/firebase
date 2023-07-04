@@ -3,6 +3,9 @@
 \name{FirebasePhone}
 \alias{FirebasePhone}
 \title{Phone}
+\value{
+An object of class \code{FirebasePhone}.
+}
 \description{
 Use mobile phone numbers to authenticate users.
 }

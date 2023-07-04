@@ -3,6 +3,9 @@
 \name{Storage}
 \alias{Storage}
 \title{Storage}
+\value{
+An object of class \code{Storage}.
+}
 \description{
 Storage
 
@@ -14,9 +17,7 @@ Storage
 ## Method `Storage$upload_file`
 ## ------------------------------------------------
 
-
-if(interactive(){
-
+\dontrun{
 s <- Storage$new()
 
 # default response
@@ -24,7 +25,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png")
 
-observeEvent(s$get_response() {
+observeEvent(s$get_response(), {
   # do something
 })
 
@@ -33,7 +34,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png", response = "fl")
 
-observeEvent(s$get_response("fl") {
+observeEvent(s$get_response("fl"), {
   # do something
 })
 }
@@ -50,7 +51,7 @@ s$
   upload_file("path/to/file.png")$
   download_file("dl")
 
-observeEvent(s$get_response("dl") {
+observeEvent(s$get_response("dl"), {
   # do something
 })
 }
@@ -168,9 +169,7 @@ Requires a valid authentication.
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{
-if(interactive(){
-
+\preformatted{\dontrun{
 s <- Storage$new()
 
 # default response
@@ -178,7 +177,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png")
 
-observeEvent(s$get_response() {
+observeEvent(s$get_response(), {
   # do something
 })
 
@@ -187,7 +186,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png", response = "fl")
 
-observeEvent(s$get_response("fl") {
+observeEvent(s$get_response("fl"), {
   # do something
 })
 }
@@ -235,7 +234,7 @@ s$
   upload_file("path/to/file.png")$
   download_file("dl")
 
-observeEvent(s$get_response("dl") {
+observeEvent(s$get_response("dl"), {
   # do something
 })
 }

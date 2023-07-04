@@ -3,6 +3,9 @@
 \name{FirebaseEmailLink}
 \alias{FirebaseEmailLink}
 \title{Email Link}
+\value{
+An object of class \code{FirebaseEmailLink}.
+}
 \description{
 Sign in the user by emailing them a link.
 }
@@ -13,7 +16,7 @@ is for added security measures.
 \examples{
 library(shiny)
 library(firebase)
-
+old <- options()
 options(shiny.port = 3000) 
 
 ui <- fluidPage(
@@ -48,7 +51,12 @@ server <- function(input, output){
 
 }
 
-\dontrun{shinyApp(ui, server)}
+if(interactive()){
+   shinyApp(ui, server)
+}
+
+
+options(old)
 
 
 ## ------------------------------------------------

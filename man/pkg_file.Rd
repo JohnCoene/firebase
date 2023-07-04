@@ -9,6 +9,9 @@ pkg_file(path)
 \arguments{
 \item{path}{Path to file in \code{inst} directory.}
 }
+\value{
+Pkg path.
+}
 \description{
 Get path to internal file.
 }

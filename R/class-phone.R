@@ -2,6 +2,8 @@
 #' 
 #' Use mobile phone numbers to authenticate users.
 #' 
+#' @return An object of class \code{FirebasePhone}.
+#' 
 #' @export
 FirebasePhone <- R6::R6Class(
 	"FirebasePhone",

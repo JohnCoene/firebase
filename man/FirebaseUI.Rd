@@ -3,6 +3,9 @@
 \name{FirebaseUI}
 \alias{FirebaseUI}
 \title{Prebuilt UI}
+\value{
+An object of class \code{FirebaseUI}.
+}
 \description{
 Use firebase to manage authentications.
 }

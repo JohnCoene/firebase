@@ -18,7 +18,7 @@ Storage"><meta property="og:image" content="/logo.png"><!-- mathjax --><script s
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">firebase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1.9000</span>
       </span>
     </div>
 
@@ -226,7 +226,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png")
 
-observeEvent(s$get_response() {
+observeEvent(s$get_response(), {
   # do something
 })
 
@@ -235,7 +235,7 @@ s$
   ref("test.png")$
   upload_file("path/to/file.png", response = "fl")
 
-observeEvent(s$get_response("fl") {
+observeEvent(s$get_response("fl"), {
   # do something
 })
 }
@@ -282,7 +282,7 @@ s$
   upload_file("path/to/file.png")$
   download_file("dl")
 
-observeEvent(s$get_response("dl") {
+observeEvent(s$get_response("dl"), {
   # do something
 })
 }
@@ -423,7 +423,50 @@ Requires a valid authentication.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co">## Method `Storage$upload_file`</span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">Storage</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># default response</span></span></span>
+<span class="r-in"><span><span class="va">s</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">ref</span><span class="op">(</span><span class="st">"test.png"</span><span class="op">)</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">upload_file</span><span class="op">(</span><span class="st">"path/to/file.png"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="fu">get_response</span><span class="op">(</span><span class="op">)</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="co"># do something</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># named response</span></span></span>
+<span class="r-in"><span><span class="va">s</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">ref</span><span class="op">(</span><span class="st">"test.png"</span><span class="op">)</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">upload_file</span><span class="op">(</span><span class="st">"path/to/file.png"</span>, response <span class="op">=</span> <span class="st">"fl"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="fu">get_response</span><span class="op">(</span><span class="st">"fl"</span><span class="op">)</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="co"># do something</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co">## Method `Storage$download_file`</span></span></span>
+<span class="r-in"><span><span class="co">## ------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">Storage</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">s</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">ref</span><span class="op">(</span><span class="st">"test.png"</span><span class="op">)</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">upload_file</span><span class="op">(</span><span class="st">"path/to/file.png"</span><span class="op">)</span><span class="op">$</span></span></span>
+<span class="r-in"><span>  <span class="fu">download_file</span><span class="op">(</span><span class="st">"dl"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="fu">get_response</span><span class="op">(</span><span class="st">"dl"</span><span class="op">)</span>, <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="co"># do something</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -433,7 +476,7 @@ Requires a valid authentication.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by John Coene, David Munoz Tord.</p>
+  <p></p><p>Developed by John Coene.</p>
 </div>
 
 <div class="pkgdown">

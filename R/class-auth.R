@@ -2,6 +2,8 @@
 #' 
 #' Use firebase to manage authentications.
 #' 
+#' @return An object of class \code{FirebaseAuth}.
+#' 
 #' @importFrom cli cli_rule cli_alert_danger cli_alert_info cli_alert_warning cli_alert_warning
 #' @importFrom jsonlite fromJSON
 #' @importFrom jose jwt_decode_sig

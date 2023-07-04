@@ -3,6 +3,9 @@
 \name{FirebaseEmailPassword}
 \alias{FirebaseEmailPassword}
 \title{Email & Password}
+\value{
+An object of class \code{FirebaseEmailPassword}.
+}
 \description{
 Manage users using email and password.
 }

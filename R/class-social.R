@@ -2,6 +2,8 @@
 #' 
 #' Use social sites for authentication.
 #' 
+#' @return An object of class \code{FirebaseSocial}.
+#' 
 #' @examples 
 #' library(shiny)
 #' library(firebase)

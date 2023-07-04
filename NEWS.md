@@ -1,9 +1,10 @@
-# firebase 1.0.1.9000
+# firebase 1.0.2
 
 - Update firebase to `9.6.7` to fix 
 [#23](https://github.com/JohnCoene/firebase/issues/23)
 - Allow passing parameters to OAuth providers fixes [#33](https://github.com/JohnCoene/firebase/issues/33)
 - Fix instructions to setup Microsoft
+- Resubmit to CRAN
 
 # firebase 1.0.1
 

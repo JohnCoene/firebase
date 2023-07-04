@@ -2,6 +2,8 @@
 #' 
 #' Manage users using email and password.
 #' 
+#' @return An object of class \code{FirebaseEmailPassword}.
+#' 
 #' @examples 
 #' library(shiny)
 #' library(firebase)

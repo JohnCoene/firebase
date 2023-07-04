@@ -20,6 +20,9 @@ firebaseUIContainer()
 
 \item{...}{Ignored, for backwards compatibility.}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 Include dependencies in your Shiny application.
 \code{use_firebase} \emph{must} be included in

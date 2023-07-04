@@ -3,6 +3,9 @@
 \name{FirebaseSocial}
 \alias{FirebaseSocial}
 \title{Social}
+\value{
+An object of class \code{FirebaseSocial}.
+}
 \description{
 Use social sites for authentication.
 }

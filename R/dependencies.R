@@ -4,6 +4,8 @@
 #' \code{use_firebase} \emph{must} be included in 
 #' every application.
 #' 
+#' @return No return value, called for side effects.
+#' 
 #' @param analytics Deprecated. Whether to include analytics.
 #' @param firestore Whether to include firestore.
 #' @param ... Ignored, for backwards compatibility.

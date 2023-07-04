@@ -2,6 +2,8 @@
 #' 
 #' Core Firebase class.
 #' 
+#' @return An object of class \code{Firebase}.
+#' 
 #' @field session A valid Shiny session.
 #' 
 #' @export 

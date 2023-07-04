@@ -2,10 +2,12 @@
 #' 
 #' Sign in the user by emailing them a link.
 #' 
+#' @return An object of class \code{FirebaseEmailLink}.
+#' 
 #' @examples
 #' library(shiny)
 #' library(firebase)
-#' 
+#' old <- options()
 #' options(shiny.port = 3000) 
 #' 
 #' ui <- fluidPage(
@@ -40,7 +42,12 @@
 #' 
 #' }
 #' 
-#' \dontrun{shinyApp(ui, server)}
+#' if(interactive()){
+#'    shinyApp(ui, server)
+#' }
+#'
+#' 
+#' options(old)
 #' 
 #' @export
 FirebaseEmailLink <- R6::R6Class(

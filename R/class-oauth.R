@@ -2,6 +2,8 @@
 #' 
 #' Use OAuth provides such as Github or Facebook to allow users to conveniently sign in.
 #' 
+#' @return An object of class \code{FirebaseOauthProviders}.
+#' 
 #' @examples 
 #' library(shiny)
 #' library(firebase)

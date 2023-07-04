@@ -5,6 +5,10 @@
 #' Note that this is not secure as someone can easily change the 
 #' CSS when visiting the page to reveal those elements.
 #' 
+#' 
+#' @return No return value, called for side effects.
+#' 
+#' 
 #' @param ... Any valid \link[shiny]{tags}.
 #' 
 #' @seealso \code{\link{reqSignout}}

@@ -2,6 +2,8 @@
 #' 
 #' Get path to internal file.
 #' 
+#' @return Pkg path.
+#' 
 #' @param path Path to file in \code{inst} directory.
 #' 
 #' @keywords internal

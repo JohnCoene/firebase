@@ -3,6 +3,9 @@
 \name{FirebaseAuth}
 \alias{FirebaseAuth}
 \title{Firebase Authentication}
+\value{
+An object of class \code{FirebaseAuth}.
+}
 \description{
 Use firebase to manage authentications.
 }
