@@ -3,8 +3,7 @@ name: packer
 on:
   push:
     branches:
-      - master
-      - main
+      - DEV
 
 jobs:
   check:
