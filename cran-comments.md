@@ -1,5 +1,12 @@
 ## Notes
 
+
+### Second resubmission (answer to Victoria Wimmer)
+
+> The Date field is over a month old.
+
+Sorry indeed a commit reverted it back to last date. Fixed it and rechecked the package on rhub.
+
 ### First resubmission (answers to Victoria Wimmer)
 
 > Please proof-read your description text. Currently it reads: "...use 'Firebase Storage' to ..." -> Should probably begin with a capital "U" since it is a new sentence
