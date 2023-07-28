@@ -40,7 +40,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v2
 
 
-     - name: Install dependencies
+      - name: Install dependencies
         run: |
           r = getOption("repos")
           r["CRAN"] = "http://cran.us.r-project.org"
