@@ -280,14 +280,14 @@ FirebaseAuth <- R6::R6Class(
     	now <- as.numeric(Sys.time() + private$.grace_period)
 
     	if(as.numeric(signature$exp) < now){
-        cli_alert_danger("Signture expiry is in the past")
+        cli_alert_danger("Signature expiry is in the past")
     		return(FALSE)
       }
 
-    	if(as.numeric(signature$iat) > now){
-        cli_alert_danger("Signture issued at time is in the future")
-    		return(FALSE)
-      }
+    	# if(as.numeric(signature$iat) > now){
+      #   cli_alert_danger("Signature issued at time is in the future")
+    	# 	return(FALSE)
+      # }
 
       if(signature$aud != super$get_project_id()){
         cli_alert_danger("Signature audience is not the project id")
@@ -309,10 +309,10 @@ FirebaseAuth <- R6::R6Class(
     		return(FALSE)
       }
 
-      if(signature$auth_time > now){
-        cli_alert_danger("Signature auth time is in the future")
-    		return(FALSE)
-      }
+      # if(signature$auth_time > now){
+      #   cli_alert_danger("Signature auth time is in the future")
+    	# 	return(FALSE)
+      # }
 
       return(TRUE)
     },
