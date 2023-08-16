@@ -5,3 +5,4 @@ test.R
 node_modules
 .Renviron
 .vscode
+.Rhistory

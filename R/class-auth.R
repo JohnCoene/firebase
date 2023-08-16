@@ -273,11 +273,9 @@ FirebaseAuth <- R6::R6Class(
     check_signature = function(signature){
 
       if(inherits(signature, "error")){
-        CHOICE <- askYesNo("Invalid signature. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-        if (CHOICE == "FALSE"){
-          browser()
-          cli_alert_danger("Invalid signature")
+        cli_alert_danger("Invalid signature")
+        CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+        if (CHOICE != TRUE){
           return(FALSE)
         } else {
           print("Invalid signature but continuing...")
@@ -287,10 +285,9 @@ FirebaseAuth <- R6::R6Class(
     	now <- as.numeric(Sys.time() + private$.grace_period)
 
     	if(as.numeric(signature$exp) < now){
-    	  CHOICE <- askYesNo("Signature expiry is in the past. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-    	  if (CHOICE == "FALSE"){
-          cli_alert_danger("Signature expiry is in the past")
+    	  cli_alert_danger("Signature expiry is in the past")
+    	  CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+    	  if (CHOICE != TRUE){
     		  return(FALSE)
     	  } else {
     	      print("Signature expiry is in the past but continuing...")
@@ -298,11 +295,9 @@ FirebaseAuth <- R6::R6Class(
       }
 
     	if(as.numeric(signature$iat) > now){
-    	  CHOICE <- askYesNo("Signature expiry is in the future. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-    	  if (CHOICE == "FALSE"){
-    	    browser()
-    	    cli_alert_danger("Signature expiry is in the future")
+    	  cli_alert_danger("Signature expiry is in the future")
+    	  CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+    	  if (CHOICE != TRUE){
     	    return(FALSE)
     	  } else {
     	    print("Signature expiry is in the future but continuing...")
@@ -310,11 +305,9 @@ FirebaseAuth <- R6::R6Class(
       }
 
       if(signature$aud != super$get_project_id()){
-        CHOICE <- askYesNo("Signature audience is not the project id. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-        if (CHOICE == "FALSE"){
-          browser()
-          cli_alert_danger("Signature audience is not the project id")
+        cli_alert_danger("Signature audience is not the project id")
+        CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+        if (CHOICE != TRUE){
           return(FALSE)
         } else {
           print("Signature audience is not the project id but continuing...")
@@ -327,11 +320,9 @@ FirebaseAuth <- R6::R6Class(
       )
 
       if(signature$iss != iss){
-        CHOICE <- askYesNo("Signature incorrect issuer. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-        if (CHOICE == "FALSE"){
-          browser()
-          cli_alert_danger("Signature incorrect issuer")
+        cli_alert_danger("Signature incorrect issuer")
+        CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+        if (CHOICE != TRUE){
           return(FALSE)
         } else {
           print("Signature incorrect issuer but continuing...")
@@ -339,11 +330,9 @@ FirebaseAuth <- R6::R6Class(
       }
 
       if(signature$sub == ""){
-        CHOICE <- askYesNo("Signature subject is invalid. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-        if (CHOICE == "FALSE"){
-          browser()
-          cli_alert_danger("Signature subject is invalid")
+        cli_alert_danger("Signature subject is invalid")
+        CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+        if (CHOICE != TRUE){
           return(FALSE)
         } else {
           print("Signature subject is invalid but continuing...")
@@ -351,11 +340,9 @@ FirebaseAuth <- R6::R6Class(
       }
 
       if(signature$auth_time > now){
-        CHOICE <- askYesNo("Signature auth time is in the future. This is very unsafe in a production environment but not at all if you are just testing locally.
-    	                    Do you still want to continue ?") 
-        if (CHOICE == "FALSE"){
-          browser()
-          cli_alert_danger("Signature auth time is in the future")
+        cli_alert_danger("Signature auth time is in the future.")
+        CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
+        if (CHOICE != TRUE){
           return(FALSE)
         } else {
           print("Signature auth time is in the future but continuing...")
