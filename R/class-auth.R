@@ -273,25 +273,52 @@ FirebaseAuth <- R6::R6Class(
     check_signature = function(signature){
 
       if(inherits(signature, "error")){
-        cli_alert_danger("Invalid signature")
-        return(FALSE)
+        CHOICE <- askYesNo("Invalid signature. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+        if (CHOICE == "FALSE"){
+          browser()
+          cli_alert_danger("Invalid signature")
+          return(FALSE)
+        } else {
+          print("Invalid signature but continuing...")
+        }
       }
 
     	now <- as.numeric(Sys.time() + private$.grace_period)
 
     	if(as.numeric(signature$exp) < now){
-        cli_alert_danger("Signature expiry is in the past")
-    		return(FALSE)
+    	  CHOICE <- askYesNo("Signature expiry is in the past. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+    	  if (CHOICE == "FALSE"){
+          cli_alert_danger("Signature expiry is in the past")
+    		  return(FALSE)
+    	  } else {
+    	      print("Signature expiry is in the past but continuing...")
+    	  }
       }
 
-    	# if(as.numeric(signature$iat) > now){
-      #   cli_alert_danger("Signature issued at time is in the future")
-    	# 	return(FALSE)
-      # }
+    	if(as.numeric(signature$iat) > now){
+    	  CHOICE <- askYesNo("Signature expiry is in the future. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+    	  if (CHOICE == "FALSE"){
+    	    browser()
+    	    cli_alert_danger("Signature expiry is in the future")
+    	    return(FALSE)
+    	  } else {
+    	    print("Signature expiry is in the future but continuing...")
+    	  }
+      }
 
       if(signature$aud != super$get_project_id()){
-        cli_alert_danger("Signature audience is not the project id")
-    		return(FALSE)
+        CHOICE <- askYesNo("Signature audience is not the project id. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+        if (CHOICE == "FALSE"){
+          browser()
+          cli_alert_danger("Signature audience is not the project id")
+          return(FALSE)
+        } else {
+          print("Signature audience is not the project id but continuing...")
+        }
       }
       
       iss <- sprintf(
@@ -300,19 +327,40 @@ FirebaseAuth <- R6::R6Class(
       )
 
       if(signature$iss != iss){
-        cli_alert_danger("Signature incorrect issuer")
-    		return(FALSE)
+        CHOICE <- askYesNo("Signature incorrect issuer. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+        if (CHOICE == "FALSE"){
+          browser()
+          cli_alert_danger("Signature incorrect issuer")
+          return(FALSE)
+        } else {
+          print("Signature incorrect issuer but continuing...")
+        }
       }
 
       if(signature$sub == ""){
-        cli_alert_danger("Signature subject is invalid")
-    		return(FALSE)
+        CHOICE <- askYesNo("Signature subject is invalid. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+        if (CHOICE == "FALSE"){
+          browser()
+          cli_alert_danger("Signature subject is invalid")
+          return(FALSE)
+        } else {
+          print("Signature subject is invalid but continuing...")
+        }
       }
 
-      # if(signature$auth_time > now){
-      #   cli_alert_danger("Signature auth time is in the future")
-    	# 	return(FALSE)
-      # }
+      if(signature$auth_time > now){
+        CHOICE <- askYesNo("Signature auth time is in the future. This is very unsafe in a production environment but not at all if you are just testing locally.
+    	                    Do you still want to continue ?") 
+        if (CHOICE == "FALSE"){
+          browser()
+          cli_alert_danger("Signature auth time is in the future")
+          return(FALSE)
+        } else {
+          print("Signature auth time is in the future but continuing...")
+        }
+      }
 
       return(TRUE)
     },
