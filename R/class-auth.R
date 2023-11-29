@@ -75,7 +75,6 @@ FirebaseAuth <- R6::R6Class(
 #' containing the user object or \code{NULL} if signing in failed.
     get_signed_in = function(){
       response <- private$get_signed_in_checked()
-      private$.user_signed_in <- response
       invisible(response)
     },
 #' @details Get results of a sign up
@@ -84,7 +83,6 @@ FirebaseAuth <- R6::R6Class(
 #' containing the user object or \code{NULL} if signing in failed.
     get_signed_up = function(){
       user <- private$get_signed_in_checked()
-      private$.user_sign_up <- user
       invisible(user)
     },
 #' @details Check whether use is signed in
@@ -95,22 +93,23 @@ FirebaseAuth <- R6::R6Class(
         msg = "This method is method is deprecated, use `get_signed_in`"
       )
       user <- private$get_signed_in_checked()
-      private$.user_signed_in <- user
       invisible(user$success)
     },
 #' @details Makes Shiny output, observer, or reactive require the user to be signed in
     req_sign_in = function(){
       user <- private$get_signed_in_checked()
-      private$.user_signed_in <- user
+
+      if(!length(user$success))
+        user <- list(success = FALSE)
+
       req(user$success)
     },
 #' @details Makes Shiny output, observer, or reactive require the user to be signed out
     req_sign_out = function(){
       user <- private$get_signed_in_checked()
-      private$.user_signed_in <- user
 
-      if(length(user$success))
-        return(FALSE)
+      if(!length(user$success))
+        user <- list(success = FALSE)
 
       req(!user$success)
     },
