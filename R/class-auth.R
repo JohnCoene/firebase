@@ -108,6 +108,10 @@ FirebaseAuth <- R6::R6Class(
     req_sign_out = function(){
       user <- private$get_signed_in_checked()
       private$.user_signed_in <- user
+
+      if(length(user$success))
+        return(FALSE)
+
       req(!user$success)
     },
 #' @details Set language code for auth provider
@@ -287,10 +291,10 @@ FirebaseAuth <- R6::R6Class(
 
       }
 
-    	now <- as.numeric(Sys.time() + private$.grace_period)
+      now <- as.numeric(Sys.time() + private$.grace_period)
 
-    	if(as.numeric(signature$exp) < now){
-    	  cli_alert_danger("Signature expiry is in the past")
+      if(as.numeric(signature$exp) < now){
+        cli_alert_danger("Signature expiry is in the past")
         if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
@@ -303,8 +307,8 @@ FirebaseAuth <- R6::R6Class(
         }
       }
 
-    	if(as.numeric(signature$iat) > now){
-    	  cli_alert_danger("Signature expiry is in the future")
+      if(as.numeric(signature$iat) > now){
+        cli_alert_danger("Signature expiry is in the future")
         if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){

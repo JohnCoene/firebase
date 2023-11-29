@@ -52,12 +52,12 @@ FirebaseSocial <- R6::R6Class(
 #' @param language_code Sets the language to use for the UI.
 #' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
 #' Set to `browser` to use the default browser language of the user.
-		initialize = function(
+    initialize = function(
       persistence = c("session", "local", "memory"), 
       config_path = "firebase.rds", 
       language_code = NULL,
       session = shiny::getDefaultReactiveDomain()
-		){
+    ){
       super$initialize(
         persistence, 
         config_path, 
@@ -67,7 +67,7 @@ FirebaseSocial <- R6::R6Class(
       super$.render_deps(
         list(firebase_dep_social())
       )
-		},
+    },
 #' @details Define the scope to request from Google.
 #' @param scope Google scope.
 #' @return self
