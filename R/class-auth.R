@@ -274,7 +274,7 @@ FirebaseAuth <- R6::R6Class(
 
       if(inherits(signature, "error")){
         cli_alert_danger("Invalid signature")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -291,7 +291,7 @@ FirebaseAuth <- R6::R6Class(
 
     	if(as.numeric(signature$exp) < now){
     	  cli_alert_danger("Signature expiry is in the past")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -305,7 +305,7 @@ FirebaseAuth <- R6::R6Class(
 
     	if(as.numeric(signature$iat) > now){
     	  cli_alert_danger("Signature expiry is in the future")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -319,7 +319,7 @@ FirebaseAuth <- R6::R6Class(
 
       if(signature$aud != super$get_project_id()){
         cli_alert_danger("Signature audience is not the project id")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -338,7 +338,7 @@ FirebaseAuth <- R6::R6Class(
 
       if(signature$iss != iss){
         cli_alert_danger("Signature incorrect issuer")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -352,7 +352,7 @@ FirebaseAuth <- R6::R6Class(
 
       if(signature$sub == ""){
         cli_alert_danger("Signature subject is invalid")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
@@ -366,7 +366,7 @@ FirebaseAuth <- R6::R6Class(
 
       if(signature$auth_time > now){
         cli_alert_danger("Signature auth time is in the future.")
-        if(interactive){
+        if(interactive()){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
