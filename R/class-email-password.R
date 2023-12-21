@@ -200,7 +200,6 @@ FirebaseEmailPassword <- R6::R6Class(
       super$get_input("set_password")
     },
 #' @details Re-authenticate the user.
-#' 
 #' Some security-sensitive actions—such as deleting an account, setting a 
 #' primary email address, and changing a password—require that the user has 
 #' recently signed in. If you perform one of these actions, and the user signed 

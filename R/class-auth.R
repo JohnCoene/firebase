@@ -277,62 +277,48 @@ FirebaseAuth <- R6::R6Class(
 
       if(inherits(signature, "error")){
         cli_alert_danger("Invalid signature")
-        if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Invalid signature but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
+        } 
 
-      }
 
       now <- as.numeric(Sys.time() + private$.grace_period)
 
-      if(as.numeric(signature$exp) < now){
-        cli_alert_danger("Signature expiry is in the past")
-        if(interactive){
+    	if(as.numeric(signature$exp) < now){
+    	  cli_alert_danger("Signature expiry is in the past")
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
               print("Signature expiry is in the past but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
-      }
+        } 
 
-      if(as.numeric(signature$iat) > now){
-        cli_alert_danger("Signature expiry is in the future")
-        if(interactive){
+
+    	if(as.numeric(signature$iat) > now){
+    	  cli_alert_danger("Signature expiry is in the future")
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Signature expiry is in the future but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
       }
 
       if(signature$aud != super$get_project_id()){
         cli_alert_danger("Signature audience is not the project id")
-        if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Signature audience is not the project id but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
-      }
+        } 
+
 
       iss <- sprintf(
         "https://securetoken.google.com/%s",
@@ -341,44 +327,32 @@ FirebaseAuth <- R6::R6Class(
 
       if(signature$iss != iss){
         cli_alert_danger("Signature incorrect issuer")
-        if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Signature incorrect issuer but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
-      }
+        } 
 
       if(signature$sub == ""){
         cli_alert_danger("Signature subject is invalid")
-        if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Signature subject is invalid but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
       }
 
       if(signature$auth_time > now){
         cli_alert_danger("Signature auth time is in the future.")
-        if(interactive){
           CHOICE <- menu(c("Yes", "No"), title="Do you still want to continue ?")
           if (CHOICE != TRUE){
             return(FALSE)
           } else {
             print("Signature auth time is in the future but continuing...")
           }
-        } else {
-          return(FALSE)
-        }
       }
 
       return(TRUE)
