@@ -25,7 +25,7 @@ Description: Authenticate users in 'Shiny' applications using 'Google Firebase'
     using a third-party provider such as 'Github', 'Twitter', or 'Google'.
     Use 'Firebase Storage' to store files securely, and leverage 'Firebase Analytics'
     to easily log events and better understand your audience.
-License: AGPL-3
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: false
 Roxygen: list(markdown = TRUE)
