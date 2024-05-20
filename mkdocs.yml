@@ -52,12 +52,6 @@ nav:
   - Get Started: 
     - Project Setup: guide/get-started.md
     - Config: guide/config.md
-  - Storage: 
-    - Usage: storage.md 
-  - Database: 
-    - Usage: real-time.md 
-  - Analytics: 
-    - Usage: analytics.md 
   - Authentication:
     - Prebuilt UI: auth/ui.md
     - Social Login: auth/social.md
@@ -69,6 +63,14 @@ nav:
     - State Persistence: auth/state-persistence.md
     - Auth Flow: auth/flow.md
     - Demo Code: auth/demo.md
+  - Storage: 
+    - Usage: storage.md 
+  - Store: 
+    - Usage: store.md 
+  - Database: 
+    - Usage: real-time.md 
+  - Analytics: 
+    - Usage: analytics.md 
   - Misc:
     - Changelog: misc/changelog.md 
     - License: misc/license.md
