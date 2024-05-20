@@ -20,8 +20,7 @@ Store
 \dontrun{
 s <- Storage$new()
 
-s$
-  query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
+s$query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
 
 s$add(.collection = "users", name = "John", age = 28)
 s$add(.collection = "users", name = "Bob", age = 12)
@@ -95,6 +94,9 @@ Initialises the Firebase Storage application client-side.
 \describe{
 \item{\code{collection}}{Name of the collection to execute the query on.}
 
+\item{\code{query}}{The query to execute, this is expecting JavaScript code
+as a string that is evaluated on the client side, e.g.: \code{where("age", ">", 18)}.}
+
 \item{\code{id}}{The \code{id} is also used to unsubscribe from the query and get the results
 of the query server-side, see \code{observe} argument.}
 
@@ -104,9 +106,6 @@ and send the results to the server at the given input \code{id}.}
 \item{\code{cb}}{A callback function to execute on the client side when the results
 are available. This is also JavaScript code as a string that is evaluated on the client side,
 namely a function that accepts the results as an argument, this is passed to \code{onSnapshot}.}
-
-\item{\code{response}}{query The query to execute, this is expecting JavaScript code
-as a string that is evaluated on the client side, e.g.: \code{where("age", ">", 18)}.}
 }
 \if{html}{\out{</div>}}
 }
@@ -130,8 +129,7 @@ will trigger the callback twice when a user with age 17 is added.
 \preformatted{\dontrun{
 s <- Storage$new()
 
-s$
-  query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
+s$query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
 
 s$add(.collection = "users", name = "John", age = 28)
 s$add(.collection = "users", name = "Bob", age = 12)

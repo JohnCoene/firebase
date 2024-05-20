@@ -10,7 +10,7 @@ module.exports = merge(common, {
       new TerserPlugin({
         terserOptions: {
           mangle: {
-            reserved: ["where", "or", "greaterThan", "orderBy", "ww"],
+            reserved: ["where", "or", "greaterThan", "orderBy"],
           },
         },
       }),

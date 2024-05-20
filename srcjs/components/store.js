@@ -6,13 +6,16 @@ import {
   query,
   setDoc,
   collection,
-  where,
-  or,
-  greaterThan,
-  orderBy,
+  where as w,
+  or as o,
+  greaterThan as gt,
+  orderBy as ob,
 } from "firebase/firestore";
 
-const ww = where;
+const where = w;
+const or = o;
+const greaterThan = gt;
+const orderBy = ob;
 
 $(() => {
   let store;
@@ -22,7 +25,6 @@ $(() => {
   });
 
   Shiny.addCustomMessageHandler("fireblaze-store-query", (msg) => {
-    console.log(msg);
     const def = (snapshot) =>
       Shiny.setInputValue(
         `${msg.id}:raw`,
@@ -32,10 +34,9 @@ $(() => {
     const custom = () => {};
     if (msg.cb) custom = eval(msg.cb);
 
-    console.log(where);
     const q = query(
       collection(store, msg.collection),
-      eval('ww("privacy", "==", "public")'),
+      eval('where("privacy", "==", "public")'),
     );
 
     if (msg.observe)

@@ -31,7 +31,7 @@ Store <- R6::R6Class(
 #' Query a collection in the Firestore database.
 #' 
 #' @param collection Name of the collection to execute the query on.
-#' @param response query The query to execute, this is expecting JavaScript code
+#' @param query The query to execute, this is expecting JavaScript code
 #'  as a string that is evaluated on the client side, e.g.: `where("age", ">", 18)`.
 #' @param id The `id` is also used to unsubscribe from the query and get the results
 #'  of the query server-side, see `observe` argument.
@@ -53,8 +53,7 @@ Store <- R6::R6Class(
 #' \dontrun{
 #' s <- Storage$new()
 #' 
-#' s$
-#'   query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
+#' s$query("users", "where('age', '>', 18)", id = "adults", observe = TRUE)
 #' 
 #' s$add(.collection = "users", name = "John", age = 28)
 #' s$add(.collection = "users", name = "Bob", age = 12)
