@@ -6,3 +6,7 @@ document: bundle
 
 bundle:
 	Rscript -e "packer::bundle()"
+
+dev: document bundle
+	Rscript test.R
+

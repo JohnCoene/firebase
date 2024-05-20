@@ -17,6 +17,7 @@ import {
   setLanguageCode,
 } from "./utils.js";
 import { handleStorage } from "./components/storage";
+import "./components/store.js";
 
 // global variables
 window.globalNs = "";
