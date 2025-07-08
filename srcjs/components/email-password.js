@@ -7,7 +7,8 @@ import {
 	sendEmailVerification,
 	reauthenticateWithCredential,
 	updatePassword,
-	getAuth
+	getAuth,
+	EmailAuthProvider
 } from "firebase/auth";
 
 // create
@@ -61,7 +62,7 @@ Shiny.addCustomMessageHandler('fireblaze-reset-email', function(msg) {
 Shiny.addCustomMessageHandler('fireblaze-re-authenticate', function(msg) {
 	const auth = getAuth();
 	var user = auth.currentUser;
-	var credential = firebase.auth.EmailAuthProvider.credential(user.email, msg.password);
+	var credential = EmailAuthProvider.credential(user.email, msg.password);
 	
 	reauthenticateWithCredential(user, credential)
 		.then(function() {

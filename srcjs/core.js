@@ -6,6 +6,11 @@ import {
   isSignInWithEmailLink,
   signInWithEmailLink,
   onAuthStateChanged,
+  browserLocalPersistence,
+  browserSessionPersistence,
+  inMemoryPersistence,
+  deleteUser,
+  getIdToken
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import "./style.css";
@@ -71,8 +76,7 @@ Shiny.addCustomMessageHandler("fireblaze-initialize-auth", (msg) => {
           showHideOnLogout("hide");
           $("#fireblaze-signin-ui").hide();
 
-          auth.currentUser
-            .getIdToken(true)
+          getIdToken(user, true)
             .then(function (token) {
               setInputValue("signed_in_user", {
                 success: true,
@@ -162,8 +166,7 @@ Shiny.addCustomMessageHandler("fireblaze-language-code", (msg) => {
 // Delete User
 Shiny.addCustomMessageHandler("fireblaze-delete-user", (msg) => {
   const auth = getAuth();
-  auth.currentUser
-    .delete()
+  deleteUser(auth.currentUser)
     .then(() => {
       setInputValue(
         "deleted_user",
@@ -182,8 +185,7 @@ Shiny.addCustomMessageHandler("fireblaze-delete-user", (msg) => {
 
 Shiny.addCustomMessageHandler("fireblaze-id-token", (msg) => {
   const auth = getAuth();
-  auth.currentUser
-    .getIdToken(true)
+  getIdToken(auth.currentUser, true)
     .then((idToken) => {
       setInputValue(
         "id_token",
