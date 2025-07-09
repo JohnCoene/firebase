@@ -77,14 +77,14 @@ Shiny.addCustomMessageHandler("fireblaze-initialize-auth", (msg) => {
           $("#fireblaze-signin-ui").hide();
 
           getIdToken(user, true)
-            .then(function (token) {
+            .then(function(token) {
               setInputValue("signed_in_user", {
                 success: true,
                 response: user,
                 token: token,
               });
             })
-            .catch(function () {
+            .catch(function() {
               console.error("failed to login");
             });
 
