@@ -17,7 +17,7 @@ is for added security measures.
 library(shiny)
 library(firebase)
 old <- options()
-options(shiny.port = 3000) 
+options(shiny.port = 3000)
 
 ui <- fluidPage(
   useFirebase(),
@@ -34,7 +34,7 @@ server <- function(input, output){
   observeEvent(input$submit, {
     if(input$email == "")
       return()
-    
+
     f$send(input$email)
   })
 

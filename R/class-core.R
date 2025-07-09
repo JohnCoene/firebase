@@ -1,29 +1,28 @@
 #' Firebase
-#' 
+#'
 #' Core Firebase class.
-#' 
+#'
 #' @return An object of class \code{Firebase}.
-#' 
+#'
 #' @field session A valid Shiny session.
-#' 
-#' @export 
+#'
+#' @export
 Firebase <- R6::R6Class(
   "Firebase",
   public = list(
     session = NULL,
-#' @details Initialise Firebase
-#' 
-#' Initialises the Firebase application client-side.
-#' 
-#' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
-#' @param session A valid shiny session.
-#' 
-#' @return Invisibly return the class.
+    #' @details Initialise Firebase
+    #'
+    #' Initialises the Firebase application client-side.
+    #'
+    #' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
+    #' @param session A valid shiny session.
+    #'
+    #' @return Invisibly return the class.
     initialize = function(
       config_path = "firebase.rds",
       session = shiny::getDefaultReactiveDomain()
-    ){
-
+    ) {
       conf <- read_config(config_path)
       self$session <- session
       private$.unique_id <- create_unique_id()
@@ -37,26 +36,26 @@ Firebase <- R6::R6Class(
         conf = conf
       )
     },
-#' @details Expose App
-#' 
-#' Expose the `firebaseApp` object product of `initializeApp()` by
-#' attaching it to the `window`: access it with `window.firebaseApp`.
+    #' @details Expose App
+    #'
+    #' Expose the `firebaseApp` object product of `initializeApp()` by
+    #' attaching it to the `window`: access it with `window.firebaseApp`.
     expose_app = function() {
       private$.send("expose-app")
       invisible(self)
     },
-#' @details Print the class
-    print = function(){
+    #' @details Print the class
+    print = function() {
       cli_rule("Firebase")
     }
   ),
   private = list(
-    send = function(func, msg = list()){
+    send = function(func, msg = list()) {
       func <- paste0("fireblaze-", func)
       msg$ns <- private$.ns
       self$session$sendCustomMessage(func, msg)
     },
-    .send = function(func, ...){
+    .send = function(func, ...) {
       func <- paste0("fireblaze-", func)
       msg <- list(
         ns = private$.ns,
@@ -64,21 +63,23 @@ Firebase <- R6::R6Class(
       )
       self$session$sendCustomMessage(func, msg)
     },
-    .render_deps = function(deps){
+    .render_deps = function(deps) {
       private$.send("render-dependencies", deps = deps)
     },
-    get_input = function(name){
+    get_input = function(name) {
       name <- paste0("fireblaze_", name)
       self$session[["input"]][[name]]
     },
-    .namespace = function(session){
+    .namespace = function(session) {
       ns <- session$ns(NULL)
-      if(length(ns) > 0 && ns != "")
+      if (length(ns) > 0 && ns != "") {
         ns <- paste0(ns, "-")
+      }
 
       # server - no ns
-      if(length(ns) == 0L)
+      if (length(ns) == 0L) {
         ns <- ""
+      }
 
       private$.ns <- ns
     },

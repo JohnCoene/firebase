@@ -32,7 +32,7 @@ server <- function(input, output, session){
     f$req_sign_in()
     plot(cars)
   })
-  
+
 }
 
 \dontrun{shinyApp(ui, server)}

@@ -59,7 +59,7 @@ server <- function(input, output){
   # check if creation sucessful
   observeEvent(f$get_created(), {
     created <- f$get_created()
-    
+
     if(created$success){
       removeModal()
       showNotification("Account created!", type = "message")

@@ -22,7 +22,7 @@ server <- function(input, output){
   f <- FirebaseUI$
     new()$ # instantiate
     set_providers( # define providers
-      email = TRUE, 
+      email = TRUE,
       google = TRUE
     )
 }

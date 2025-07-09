@@ -9,7 +9,7 @@ FirebaseAI <- R6::R6Class(
     #' @description
     #' Initialize Firebase AI
     #' @param session Shiny session
-    initialize = function(session = shiny::getDefaultReactiveDomain()){
+    initialize = function(session = shiny::getDefaultReactiveDomain()) {
       self$session <- session
       invisible(self)
     },
@@ -17,7 +17,7 @@ FirebaseAI <- R6::R6Class(
     #' Send a prompt to the AI
     #' @param id The id of the input to store the response in.
     #' @param prompt The prompt to send to the AI.
-    chat = function(id, prompt){
+    chat = function(id, prompt) {
       self$session$sendCustomMessage(
         "fireblaze-ai-chat",
         list(
@@ -28,3 +28,4 @@ FirebaseAI <- R6::R6Class(
     }
   )
 )
+

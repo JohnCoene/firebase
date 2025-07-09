@@ -1,38 +1,39 @@
 #' Dependencies
-#' 
-#' Include dependencies in your Shiny application. 
-#' \code{use_firebase} \emph{must} be included in 
+#'
+#' Include dependencies in your Shiny application.
+#' \code{use_firebase} \emph{must} be included in
 #' every application.
-#' 
+#'
 #' @return No return value, called for side effects.
-#' 
+#'
 #' @param analytics Deprecated. Whether to include analytics.
 #' @param firestore Whether to include firestore.
 #' @param ... Ignored, for backwards compatibility.
-#' 
+#'
 #' @details Place \code{useFirebaseUI} \emph{where} you want
 #' the pre-built UI to be placed. Otherwise one
-#' 
-#' @section Functions: 
+#'
+#' @section Functions:
 #' \itemize{
 #'  \item{\code{useFirebase} Is required for every app that uses this package}
 #'  \item{\code{useFirebaseUI} Is required for applications that use \code{\link{FirebaseUI}}}
 #'  \item{\code{firebaseUIContainer} To place the container of the pre-built UI where desired}
 #' }
-#' 
+#'
 #' @importFrom shiny tags tagList singleton div req
 #' @importFrom htmltools htmlDependency
-#' 
+#'
 #' @name dependencies
-#' 
-#' @export 
-useFirebase <- function(analytics = FALSE, firestore = FALSE){
-  if(any(analytics, firestore))
+#'
+#' @export
+useFirebase <- function(analytics = FALSE, firestore = FALSE) {
+  if (any(analytics, firestore)) {
     .Deprecated(
       "analytics and firestore",
       package = "firebase",
       msg = "analytics and firestore arguments are deprecated"
     )
+  }
 
   htmlDependency(
     "firebase",
@@ -50,7 +51,7 @@ useFirebase <- function(analytics = FALSE, firestore = FALSE){
 
 #' @export
 #' @rdname dependencies
-useFirebaseUI <- function(...){
+useFirebaseUI <- function(...) {
   .Deprecated(
     "firebaseUIContainer",
     "firebase",
@@ -61,11 +62,11 @@ useFirebaseUI <- function(...){
 
 #' @export
 #' @rdname dependencies
-firebaseUIContainer <- function(){
+firebaseUIContainer <- function() {
   div(id = "fireblaze-signin-ui")
 }
 
-firebase_dep_analytics <- function(){
+firebase_dep_analytics <- function() {
   htmlDependency(
     "firebase-analytics",
     utils::packageVersion("firebase"),
@@ -74,7 +75,7 @@ firebase_dep_analytics <- function(){
   )
 }
 
-firebase_dep_email_link <- function(){
+firebase_dep_email_link <- function() {
   htmlDependency(
     "firebase-email-link",
     utils::packageVersion("firebase"),
@@ -83,7 +84,7 @@ firebase_dep_email_link <- function(){
   )
 }
 
-firebase_dep_email_password <- function(){
+firebase_dep_email_password <- function() {
   htmlDependency(
     "firebase-email-password",
     utils::packageVersion("firebase"),
@@ -92,7 +93,7 @@ firebase_dep_email_password <- function(){
   )
 }
 
-firebase_dep_oauth <- function(){
+firebase_dep_oauth <- function() {
   htmlDependency(
     "firebase-oauth",
     utils::packageVersion("firebase"),
@@ -101,7 +102,7 @@ firebase_dep_oauth <- function(){
   )
 }
 
-firebase_dep_phone <- function(){
+firebase_dep_phone <- function() {
   htmlDependency(
     "firebase-phone",
     utils::packageVersion("firebase"),
@@ -110,7 +111,7 @@ firebase_dep_phone <- function(){
   )
 }
 
-firebase_dep_social <- function(){
+firebase_dep_social <- function() {
   htmlDependency(
     "firebase-social",
     utils::packageVersion("firebase"),
@@ -119,7 +120,7 @@ firebase_dep_social <- function(){
   )
 }
 
-firebase_dep_storage <- function(){
+firebase_dep_storage <- function() {
   htmlDependency(
     "firebase-storage",
     utils::packageVersion("firebase"),
@@ -128,7 +129,7 @@ firebase_dep_storage <- function(){
   )
 }
 
-firebase_dep_ui <- function(){
+firebase_dep_ui <- function() {
   htmlDependency(
     "firebase-ui",
     utils::packageVersion("firebase"),
@@ -137,7 +138,7 @@ firebase_dep_ui <- function(){
   )
 }
 
-firebase_dep_real_time <- function(){
+firebase_dep_real_time <- function() {
   htmlDependency(
     "firebase-real-time",
     utils::packageVersion("firebase"),
@@ -146,7 +147,7 @@ firebase_dep_real_time <- function(){
   )
 }
 
-.onLoad <- function(...){
+.onLoad <- function(...) {
   shiny::addResourcePath(
     "firebase-assets",
     system.file("packer", package = "firebase")

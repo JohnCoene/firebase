@@ -1,32 +1,32 @@
 #' Prebuilt UI
-#' 
+#'
 #' Use firebase to manage authentications.
-#' 
+#'
 #' @return An object of class \code{FirebaseUI}.
-#' 
+#'
 #' @field tos_url URL to the Terms of Service page.
 #' @field privacy_policy_url The URL to the Privacy Policy page.
-#' 
-#' @examples 
+#'
+#' @examples
 #' library(shiny)
 #' library(firebase)
-#' 
+#'
 #' ui <- fluidPage(
 #'   useFirebase(), # import dependencies
 #'   firebaseUIContainer() # import UI
 #' )
-#' 
+#'
 #' server <- function(input, output){
 #'   f <- FirebaseUI$
 #'     new()$ # instantiate
 #'     set_providers( # define providers
-#'       email = TRUE, 
+#'       email = TRUE,
 #'       google = TRUE
 #'     )
 #' }
-#' 
+#'
 #' \dontrun{shinyApp(ui, server)}
-#' 
+#'
 #' @export
 FirebaseUI <- R6::R6Class(
   "FirebaseUI",
@@ -34,68 +34,68 @@ FirebaseUI <- R6::R6Class(
   public = list(
     tos_url = "<tos-url>",
     privacy_policy_url = "<privacy-policy-url>",
-#' @details Initialiases Firebase UI
-#' 
-#' Initialises the Firebase application client-side.
-#' 
-#' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
-#' @param session A valid shiny session.
-#' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
-#' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
-#' @param language_code Sets the language to use for the UI.
-#' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
-#' Set to `browser` to use the default browser language of the user.
-		initialize = function(
-      persistence = c("session", "local", "memory"), 
-      config_path = "firebase.rds", 
+    #' @details Initialiases Firebase UI
+    #'
+    #' Initialises the Firebase application client-side.
+    #'
+    #' @param config_path Path to the configuration file as created by \code{\link{firebase_config}}.
+    #' @param session A valid shiny session.
+    #' @param persistence How the auth should persit: \code{none}, the user has to sign in at every visit,
+    #' \code{session} will only persist in current tab, \code{local} persist even when window is closed.
+    #' @param language_code Sets the language to use for the UI.
+    #' Supported languages are listed [here](https://github.com/firebase/firebaseui-web/blob/master/LANGUAGES.md).
+    #' Set to `browser` to use the default browser language of the user.
+    initialize = function(
+      persistence = c("session", "local", "memory"),
+      config_path = "firebase.rds",
       language_code = NULL,
       session = shiny::getDefaultReactiveDomain()
-		){
+    ) {
       super$initialize(
-        persistence, 
-        config_path, 
+        persistence,
+        config_path,
         language_code,
         session
       )
       super$.render_deps(
         list(firebase_dep_ui())
       )
-		},
-#' @details Define signin and login providers.
-#' 
-#' @param google,facebook,twitter,github,email,email_link,microsoft,apple,yahoo,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.
-#' @return self
+    },
+    #' @details Define signin and login providers.
+    #'
+    #' @param google,facebook,twitter,github,email,email_link,microsoft,apple,yahoo,phone,anonymous Set to \code{TRUE} the providers you want to use, at least one.
+    #' @return self
     set_providers = function(
-      google = FALSE, 
-      facebook = FALSE, 
-      twitter = FALSE, 
-      github = FALSE, 
-      email = FALSE, 
+      google = FALSE,
+      facebook = FALSE,
+      twitter = FALSE,
+      github = FALSE,
+      email = FALSE,
       email_link = FALSE,
-      microsoft = FALSE, 
-      apple = FALSE, 
-      yahoo = FALSE, 
-      phone = FALSE, 
+      microsoft = FALSE,
+      apple = FALSE,
+      yahoo = FALSE,
+      phone = FALSE,
       anonymous = FALSE
-    ){
-
-      if(all(email, email_link))
+    ) {
+      if (all(email, email_link)) {
         stop("Must set `email` or `email_link`")
+      }
 
-      if(email) {
+      if (email) {
         super$.render_deps(
           list(firebase_dep_email_password())
         )
       }
 
       opts <- list(
-        google = google, 
-        facebook = facebook, 
-        twitter = twitter, 
-        github = github, 
-        email = email, 
+        google = google,
+        facebook = facebook,
+        twitter = twitter,
+        github = github,
+        email = email,
         email_link = email_link,
-        phone = phone, 
+        phone = phone,
         anonymous = anonymous,
         microsoft = microsoft,
         apple = apple,
@@ -105,34 +105,36 @@ FirebaseUI <- R6::R6Class(
       private$providers_set <- opts
 
       invisible(self)
-
     },
-#' @details Defines Tterms of Services URL
-#' @param url URL to use.
-#' @return self
-    set_tos_url = function(url){
-      if(missing(url)) stop("Missing URL", call. = FALSE)
+    #' @details Defines Tterms of Services URL
+    #' @param url URL to use.
+    #' @return self
+    set_tos_url = function(url) {
+      if (missing(url)) {
+        stop("Missing URL", call. = FALSE)
+      }
       self$tos_url <- url
       invisible(self)
     },
-#' @details Defines Privacy Policy URL
-#' @param url URL to use.
-#' @return self
-    set_privacy_policy_url = function(url){
-      if(missing(url)) stop("Missing URL", call. = FALSE)
+    #' @details Defines Privacy Policy URL
+    #' @param url URL to use.
+    #' @return self
+    set_privacy_policy_url = function(url) {
+      if (missing(url)) {
+        stop("Missing URL", call. = FALSE)
+      }
       self$privacy_policy_url <- url
       invisible(self)
     },
-#' @details Setup the signin form.
-#' 
-#' @param flow The signin flow to use, popup or redirect.
-#' @param account_helper Wether to use accountchooser.com upon signing in or signing up with email, 
-#' the user will be redirected to the accountchooser.com website and will be able to select 
-#' one of their saved accounts. You can disable it by specifying the value below. 
-#' @param ... Any other option to pass to Firebase UI.
-#' @return self
-    launch = function(flow = c("popup", "redirect"), account_helper = FALSE){
-      
+    #' @details Setup the signin form.
+    #'
+    #' @param flow The signin flow to use, popup or redirect.
+    #' @param account_helper Wether to use accountchooser.com upon signing in or signing up with email,
+    #' the user will be redirected to the accountchooser.com website and will be able to select
+    #' one of their saved accounts. You can disable it by specifying the value below.
+    #' @param ... Any other option to pass to Firebase UI.
+    #' @return self
+    launch = function(flow = c("popup", "redirect"), account_helper = FALSE) {
       # check if fireblze correctly setup
       check_providers(private$providers_set)
       check_urls(self)
@@ -149,86 +151,88 @@ FirebaseUI <- R6::R6Class(
 
       invisible(self)
     },
-#' @details Reset user password
-#' @param email Email to send reset link to, if missing looks for current logged in user's email
-#' @return self
-    reset_password = function(email = NULL){
-      if(is.null(email))
+    #' @details Reset user password
+    #' @param email Email to send reset link to, if missing looks for current logged in user's email
+    #' @return self
+    reset_password = function(email = NULL) {
+      if (is.null(email)) {
         email <- private$.user_signed_in$user$email
+      }
 
-      if(is.null(email))
+      if (is.null(email)) {
         stop("Not user signed in, must specify `email`")
+      }
 
       super$send("reset-email", list(email = email))
 
       invisible(self)
     },
-#' @details Get whether password reset email was successfully sent 
-#' @return A list of length 2 containing \code{success} a boolean
-#' indicating whether email reset was successful and \code{response}
-#' containing \code{successful} or the error.
-    get_reset = function(){
+    #' @details Get whether password reset email was successfully sent
+    #' @return A list of length 2 containing \code{success} a boolean
+    #' indicating whether email reset was successful and \code{response}
+    #' containing \code{successful} or the error.
+    get_reset = function() {
       super$get_input("reset_email_sent")
     },
-#' @details Send the user a verification email
-#' @return self
-    send_verification_email = function(){
+    #' @details Send the user a verification email
+    #' @return self
+    send_verification_email = function() {
       private$send("send-verification-email")
       invisible(self)
     },
-#' @details Get result of verification email sending procedure
-#' @return A list of length 2 containing \code{success} a boolean
-#' indicating whether email verification was successfully sent and \code{response}
-#' containing \code{successful} or the error.
-    get_verification_email = function(){
+    #' @details Get result of verification email sending procedure
+    #' @return A list of length 2 containing \code{success} a boolean
+    #' indicating whether email verification was successfully sent and \code{response}
+    #' containing \code{successful} or the error.
+    get_verification_email = function() {
       private$get_input("verification_email_sent")
       invisible(self)
     },
-#' @details Set user password
-#' 
-#' Useful to provide ability to change password.
-#' 
-#' @param password The authenticated user password, the user should be prompted 
-#' to enter it.
-#' @return self
-    set_password = function(password){
+    #' @details Set user password
+    #'
+    #' Useful to provide ability to change password.
+    #'
+    #' @param password The authenticated user password, the user should be prompted
+    #' to enter it.
+    #' @return self
+    set_password = function(password) {
       super$send("set-password", list(password = password))
     },
-#' @details Get response from set_password
-#' @return A list of length 2 containing \code{success} a boolean
-#' indicating whether setting password was successfully set and \code{response}
-#' containing \code{successful} as string or the error.
-    get_password = function(){
+    #' @details Get response from set_password
+    #' @return A list of length 2 containing \code{success} a boolean
+    #' indicating whether setting password was successfully set and \code{response}
+    #' containing \code{successful} as string or the error.
+    get_password = function() {
       super$get_input("set_password")
     },
-#' @details Re-authenticate the user.
-#' 
-#' Some security-sensitive actions—such as deleting an account, setting a 
-#' primary email address, and changing a password—require that the user has 
-#' recently signed in. If you perform one of these actions, and the user signed 
-#' in too long ago, the action fails with an error. 
-#' 
-#' @param password The authenticated user password, the user should be prompted 
-#' to enter it.
-    re_authenticate = function(password){
+    #' @details Re-authenticate the user.
+    #'
+    #' Some security-sensitive actions—such as deleting an account, setting a
+    #' primary email address, and changing a password—require that the user has
+    #' recently signed in. If you perform one of these actions, and the user signed
+    #' in too long ago, the action fails with an error.
+    #'
+    #' @param password The authenticated user password, the user should be prompted
+    #' to enter it.
+    re_authenticate = function(password) {
       super$send("re-authenticate", list(password = password))
     },
-#' @details Get response from re_authenticate
-#' @return A list of length 2 containing \code{success} a boolean
-#' indicating whether re-authentication was successful and \code{response}
-#' containing \code{successful} as string or the error.
-    get_re_authenticated = function(){
+    #' @details Get response from re_authenticate
+    #' @return A list of length 2 containing \code{success} a boolean
+    #' indicating whether re-authentication was successful and \code{response}
+    #' containing \code{successful} as string or the error.
+    get_re_authenticated = function() {
       super$get_input("re_authenticate")
     }
   ),
   private = list(
     providers_set = list(
-      google = FALSE, 
-      facebook = FALSE, 
-      twitter = FALSE, 
-      github = FALSE, 
-      email = FALSE, 
-      phone = FALSE, 
+      google = FALSE,
+      facebook = FALSE,
+      twitter = FALSE,
+      github = FALSE,
+      email = FALSE,
+      phone = FALSE,
       anonymous = FALSE,
       microsoft = FALSE,
       apple = FALSE,
