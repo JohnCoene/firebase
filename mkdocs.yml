@@ -69,6 +69,8 @@ nav:
     - State Persistence: auth/state-persistence.md
     - Auth Flow: auth/flow.md
     - Demo Code: auth/demo.md
+  - AI:
+    - Usage : ai/usage.md
   - Misc:
     - Changelog: misc/changelog.md 
     - License: misc/license.md

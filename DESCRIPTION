@@ -6,14 +6,14 @@ Authors@R: c(
     person(
       given = "John",
       family = "Coene",
-      role = c("aut", "cph"),
+      role = c("aut", "cre", "cph"),
       email = "jcoenep@gmail.com"
     ),
     person(
       given = "David",
       family ="Munoz Tord",
       email = "david.munoztord@mailbox.org",
-      role = c("cre", "ctb"),
+      role = "ctb",
       comment = c(ORCID = "0000-0001-7954-8295")),
     person(
       given = "Juha",

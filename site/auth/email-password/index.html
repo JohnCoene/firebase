@@ -1,0 +1,1306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Google Firebase for the shiny framework.">
+      
+      
+        <meta name="author" content="John Coene">
+      
+      
+      
+        <link rel="prev" href="../social/">
+      
+      
+        <link rel="next" href="../email-link/">
+      
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Email & Password - firebase</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Raleway";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#email-password" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="firebase" class="md-header__button md-logo" aria-label="firebase" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            firebase
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Email & Password
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JohnCoene/firebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="firebase" class="md-nav__button md-logo" aria-label="firebase" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    firebase
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JohnCoene/firebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Get Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Get Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/get-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../real-time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Authentication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prebuilt UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../social/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Social Login
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email & Password
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../email-link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Link
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oauth-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth Providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    State Persistence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auth Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Demo Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="email-password">Email &amp; Password<a class="headerlink" href="#email-password" title="Permanent link">&para;</a></h1>
+<p>As shown in the <a href="/guide/ui.md">Prebuilt UI page</a> one can allow users to sign in with an email and a password. A we detail here we can also do so by building the UI ourselves, which very straightforward using shiny&rsquo;s inputs. However, while the prebuilt UI does not distinguish between account creation and signing in, we will here.</p>
+<p>We will thus build an application that, using an email and password, allows the user to create an account then login with said account. Let us first build the skeleton of the application. </p>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(shiny)</span>
+<span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(firebase)</span>
+
+<span style="color: #ABABAB; font-style: italic"># modals</span>
+<span style="color: #D0D0D0">register</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">footer</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">sign_in</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">ui</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">fluidPage</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">useFirebase</span><span style="color: #D0D0D0">(),</span><span style="color: #666"> </span><span style="color: #ABABAB; font-style: italic"># import dependencies</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;register_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Signin&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">server</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #6EBF26; font-weight: bold">function</span><span style="color: #D0D0D0">(input,</span><span style="color: #666"> </span><span style="color: #D0D0D0">output){</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># open modals</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$register_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(register)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$signin_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(sign_in)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #D0D0D0">}</span>
+
+<span style="color: #71ADFF">shinyApp</span><span style="color: #D0D0D0">(ui,</span><span style="color: #666"> </span><span style="color: #D0D0D0">server)</span>
+</code></pre></div>
+<p>Now with this skeleton ready let&rsquo;s initialise firebase and implement the account creation. </p>
+<p>First, initialise the authentication with <code>FirebaseEmailPassword</code>. Then use the <code>create</code> method to create the user&rsquo;s account using their email and password. One thing in the snippet below that is optional but very nice to have is to observe the <code>get_created</code> method. This method returns information on the account creation; a <code>list</code> that contains the object <code>success</code>, a boolean indicating whether the authentication was successful as well as the <code>response</code> from Firebase. Observing for changes in the account creation lets us show a notification to the user and remove the modal when necessary.</p>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(shiny)</span>
+<span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(firebase)</span>
+
+<span style="color: #ABABAB; font-style: italic"># modals</span>
+<span style="color: #D0D0D0">register</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">footer</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">sign_in</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">footer</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">ui</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">fluidPage</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">useFirebase</span><span style="color: #D0D0D0">(),</span><span style="color: #666"> </span><span style="color: #ABABAB; font-style: italic"># import dependencies</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;register_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Signin&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">server</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #6EBF26; font-weight: bold">function</span><span style="color: #D0D0D0">(input,</span><span style="color: #666"> </span><span style="color: #D0D0D0">output){</span>
+
+<span style="color: #666">  </span><span style="color: #D0D0D0">f</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #D0D0D0">FirebaseEmailPassword$</span><span style="color: #71ADFF">new</span><span style="color: #D0D0D0">()</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># open modals</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$register_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(register)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$signin_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(sign_in)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># create the user</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$create,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">create</span><span style="color: #D0D0D0">(input$email_create,</span><span style="color: #666"> </span><span style="color: #D0D0D0">input$password_create)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># check if creation sucessful</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(f$</span><span style="color: #71ADFF">get_created</span><span style="color: #D0D0D0">(),</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">created</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">get_created</span><span style="color: #D0D0D0">()</span>
+
+<span style="color: #666">    </span><span style="color: #6EBF26; font-weight: bold">if</span><span style="color: #D0D0D0">(created$success){</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">removeModal</span><span style="color: #D0D0D0">()</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">showNotification</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;Account created!&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #D0D0D0">type</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;message&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">}</span><span style="color: #666"> </span><span style="color: #6EBF26; font-weight: bold">else</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">showNotification</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;Error!&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #D0D0D0">type</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;error&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">}</span>
+
+<span style="color: #666">    </span><span style="color: #ABABAB; font-style: italic"># print results to the console</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">print</span><span style="color: #D0D0D0">(created)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #D0D0D0">}</span>
+
+<span style="color: #71ADFF">shinyApp</span><span style="color: #D0D0D0">(ui,</span><span style="color: #666"> </span><span style="color: #D0D0D0">server)</span>
+</code></pre></div>
+<p>The sign in process is like that of other authentication methods.</p>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%;"><span></span><code><span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(shiny)</span>
+<span style="color: #71ADFF">library</span><span style="color: #D0D0D0">(firebase)</span>
+
+<span style="color: #ABABAB; font-style: italic"># modals</span>
+<span style="color: #D0D0D0">register</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">footer</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;create&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">sign_in</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">modalDialog</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">title</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">,</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">textInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;email_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your email&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">passwordInput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;password_signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Your password&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">footer</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Sign in&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">ui</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">fluidPage</span><span style="color: #D0D0D0">(</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">useFirebase</span><span style="color: #D0D0D0">(),</span><span style="color: #666"> </span><span style="color: #ABABAB; font-style: italic"># import dependencies</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;register_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Register&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">actionButton</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;signin_modal&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;Signin&quot;</span><span style="color: #D0D0D0">),</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">plotOutput</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;plot&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #D0D0D0">)</span>
+
+<span style="color: #D0D0D0">server</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #6EBF26; font-weight: bold">function</span><span style="color: #D0D0D0">(input,</span><span style="color: #666"> </span><span style="color: #D0D0D0">output){</span>
+
+<span style="color: #666">  </span><span style="color: #D0D0D0">f</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #D0D0D0">FirebaseEmailPassword$</span><span style="color: #71ADFF">new</span><span style="color: #D0D0D0">()</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># open modals</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$register_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(register)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$signin_modal,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">showModal</span><span style="color: #D0D0D0">(sign_in)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># create the user</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$create,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">create</span><span style="color: #D0D0D0">(input$email_create,</span><span style="color: #666"> </span><span style="color: #D0D0D0">input$password_create)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #ABABAB; font-style: italic"># check if creation sucessful</span>
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(f$</span><span style="color: #71ADFF">get_created</span><span style="color: #D0D0D0">(),</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">created</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">get_created</span><span style="color: #D0D0D0">()</span>
+
+<span style="color: #666">    </span><span style="color: #6EBF26; font-weight: bold">if</span><span style="color: #D0D0D0">(created$success){</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">removeModal</span><span style="color: #D0D0D0">()</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">showNotification</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;Account created!&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #D0D0D0">type</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;message&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">}</span><span style="color: #666"> </span><span style="color: #6EBF26; font-weight: bold">else</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">      </span><span style="color: #71ADFF">showNotification</span><span style="color: #D0D0D0">(</span><span style="color: #ED9D13">&quot;Error!&quot;</span><span style="color: #D0D0D0">,</span><span style="color: #666"> </span><span style="color: #D0D0D0">type</span><span style="color: #666"> </span><span style="color: #D0D0D0">=</span><span style="color: #666"> </span><span style="color: #ED9D13">&quot;error&quot;</span><span style="color: #D0D0D0">)</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">}</span>
+
+<span style="color: #666">    </span><span style="color: #ABABAB; font-style: italic"># print results to the console</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">print</span><span style="color: #D0D0D0">(created)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #71ADFF">observeEvent</span><span style="color: #D0D0D0">(input$signin,</span><span style="color: #666"> </span><span style="color: #D0D0D0">{</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">removeModal</span><span style="color: #D0D0D0">()</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">sign_in</span><span style="color: #D0D0D0">(input$email_signin,</span><span style="color: #666"> </span><span style="color: #D0D0D0">input$password_signin)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #666">  </span><span style="color: #D0D0D0">output$plot</span><span style="color: #666"> </span><span style="color: #D0D0D0">&lt;-</span><span style="color: #666"> </span><span style="color: #71ADFF">renderPlot</span><span style="color: #D0D0D0">({</span>
+<span style="color: #666">    </span><span style="color: #D0D0D0">f$</span><span style="color: #71ADFF">req_sign_in</span><span style="color: #D0D0D0">()</span>
+<span style="color: #666">    </span><span style="color: #71ADFF">plot</span><span style="color: #D0D0D0">(cars)</span>
+<span style="color: #666">  </span><span style="color: #D0D0D0">})</span>
+
+<span style="color: #D0D0D0">}</span>
+
+<span style="color: #71ADFF">shinyApp</span><span style="color: #D0D0D0">(ui,</span><span style="color: #666"> </span><span style="color: #D0D0D0">server)</span>
+</code></pre></div>
+<p><img alt="" src="../firebase_email_password.gif" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 John Coene
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "toc.integrate", "search.suggest"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>

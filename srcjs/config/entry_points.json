@@ -39,5 +39,9 @@
     "import": "./srcjs/utils.js",
     "dependOn": "auth"
   },
-  "auth": "firebase/auth"
+  "auth": "firebase/auth",
+  "ai": {
+    "import": "./srcjs/components/ai.js",
+    "dependOn": "auth"
+  }
 }

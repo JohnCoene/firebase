@@ -2,6 +2,7 @@
 
 export(Analytics)
 export(Firebase)
+export(FirebaseAI)
 export(FirebaseAuth)
 export(FirebaseEmailLink)
 export(FirebaseEmailPassword)
